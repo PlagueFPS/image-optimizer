@@ -140,4 +140,22 @@ mod tests {
 			assert!(is_valid_webp(&path), "Output should be valid WebP format");
 		}
 	}
+
+	#[test]
+	fn test_missing_source_dir() {
+		let source_dir = Path::new("nonexistent/dir");
+		let temp_dir = TempDir::new().unwrap();
+		let target_dir = temp_dir.path();
+
+		assert!(run(source_dir, target_dir).is_ok(), "Should handle missing source directory gracefully");
+	}
+
+	#[test]
+	fn test_empty_source_dir() {
+		let source_dir = Path::new("tests/fixtures/empty");
+		let temp_dir = TempDir::new().unwrap();
+		let target_dir = temp_dir.path();
+
+		assert!(run(source_dir, target_dir).is_ok(), "Should handle empty source directory gracefully");
+	}
 }
