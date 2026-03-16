@@ -9,8 +9,7 @@ pub fn run(source_dir: &Path, target_dir: &Path) -> Result<(), Box<dyn Error>> {
 	}
 
 	if !source_dir.exists() || !source_dir.is_dir() {
-		eprintln!("Provided source directory either does not exist or is not a directory");
-		return Ok(());
+		return Err("Provided source directory either does not exist or is not a directory".into());
 	}
 
 	get_image_files(source_dir)?.into_par_iter().for_each(|image_path| {
@@ -19,7 +18,10 @@ pub fn run(source_dir: &Path, target_dir: &Path) -> Result<(), Box<dyn Error>> {
 		};
 
 		let output_path = target_dir.join(format!("{file_name}_optimized")).with_extension("webp");
-		optimize_image(&image_path, &output_path).ok();
+		let Ok(()) = optimize_image(&image_path, &output_path) else {
+			eprintln!("Failed to optimize {file_name}");
+			return;
+		};
 	});
 
 	Ok(())
@@ -50,18 +52,18 @@ fn get_image_files(dir_path: &Path) -> Result<Vec<PathBuf>, Box<dyn Error>> {
 fn optimize_image(image_path: &Path, output_path: &Path) -> Result<(), Box<dyn Error>> {
 	let img = ImageReader::open(image_path)?.decode()?;
 	let (width, height) = img.dimensions();
-	let (rgb, has_alpha) = if img.color().has_alpha() {
-		(img.to_rgb8().into_raw(), true)
+	let (data, has_alpha) = if img.color().has_alpha() {
+		(img.to_rgba8().into_raw(), true)
 	} else {
 		(img.to_rgb8().into_raw(), false)
 	};
 
 	let output_data = if has_alpha {
 		EncoderConfig::max_compression()
-			.encode_rgba(&rgb, width, height, Unstoppable)?
+			.encode_rgba(&data, width, height, Unstoppable)?
 	} else {
 		EncoderConfig::max_compression()
-			.encode_rgb(&rgb, width, height, Unstoppable)?
+			.encode_rgb(&data, width, height, Unstoppable)?
 	};
 
 	fs::write(output_path, output_data)?;
@@ -85,7 +87,7 @@ mod tests {
 	#[test]
 	fn test_is_supported_format() {
 		let jpg_path = Path::new("tests/fixtures/test.jpg");
-		let jpeg_path = Path::new("tests/fixtures/test.jpeg");
+		let jpeg_path = Path::new("tests/fixtures/test.JPEG");
 		let png_path = Path::new("tests/fixtures/test.png");
 		let unsupported_path = Path::new("tests/fixtures/test.txt");
 		assert!(is_supported_format(jpg_path));
@@ -110,7 +112,6 @@ mod tests {
 
 		optimize_image(source_path, &output_path).unwrap();
 
-		// Validate: file exists, is non-empty, and is valid WebP
 		assert!(output_path.exists(), "Output file should exist");
 		assert!(
 			output_path.metadata().unwrap().len() > 0,
@@ -127,7 +128,6 @@ mod tests {
 
 		run(source_dir, target_dir).unwrap();
 
-		// Validate: output files were created and are valid WebP
 		let entries: Vec<_> = fs::read_dir(target_dir).unwrap().collect();
 		assert!(!entries.is_empty(), "Expected at least one output file");
 
@@ -147,7 +147,7 @@ mod tests {
 		let temp_dir = TempDir::new().unwrap();
 		let target_dir = temp_dir.path();
 
-		assert!(run(source_dir, target_dir).is_ok(), "Should handle missing source directory gracefully");
+		assert!(run(source_dir, target_dir).is_err(), "Should return Err when source directory does not exist");
 	}
 
 	#[test]
@@ -157,5 +157,25 @@ mod tests {
 		let target_dir = temp_dir.path();
 
 		assert!(run(source_dir, target_dir).is_ok(), "Should handle empty source directory gracefully");
+	}
+
+	#[test]
+	fn test_optimize_image_nonexistent_source() {
+		let source_path = Path::new("nonexistent/file.jpg");
+		let temp_dir = TempDir::new().unwrap();
+		let target_dir = temp_dir.path();
+		let output_path = target_dir.join("file_optimized.webp");
+
+		assert!(optimize_image(source_path, &output_path).is_err(), "Should return Err when source file does not exist");
+	}
+
+	#[test]
+	fn test_optimize_image_invalid_format() {
+		let source_path = Path::new("tests/fixtures/test.txt");
+		let temp_dir = TempDir::new().unwrap();
+		let target_dir = temp_dir.path();
+		let output_path = target_dir.join("file_optimized.webp");
+
+		assert!(optimize_image(source_path, &output_path).is_err(), "Should return Err when source file has invalid format");
 	}
 }
