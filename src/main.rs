@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{path::Path, process};
 use clap::Parser;
 
 #[derive(Parser, Debug)]
@@ -19,5 +19,6 @@ fn main() {
 	let target_dir = Path::new(&args.target_dir);
 	if let Err(e) = image_optimizer::run(source_dir, target_dir) {
 		eprintln!("Application error: {e}");
+		process::exit(1);
 	}
 }
