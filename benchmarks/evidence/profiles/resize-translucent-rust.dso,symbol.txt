@@ -1,0 +1,40 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 182 of event 'cpu-clock:u'
+# Event count (approx.): 914572750
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ .......................... ...................... ....................
+#
+3.30% libaom.so.3.13.1 [.] 0x00000000000457f0 - -
+2.75% libc.so.6 [.] 0x00000000001984d3 - -
+2.75% libwebp.so.7.1.10 [.] 0x00000000000618b5 - -
+2.20% libaom.so.3.13.1 [.] 0x0000000000045840 - -
+2.20% libaom.so.3.13.1 [.] 0x0000000000045856 - -
+1.65% libaom.so.3.13.1 [.] 0x0000000000045865 - -
+1.65% libaom.so.3.13.1 [.] 0x000000000004586f - -
+1.65% libaom.so.3.13.1 [.] 0x00000000000458a0 - -
+1.65% libaom.so.3.13.1 [.] 0x00000000001b352f - -
+1.65% libvips.so.42.20.0 [.] 0x0000000000152074 - -
+1.65% libwebp.so.7.1.10 [.] 0x000000000003c84d - -
+1.65% libwebp.so.7.1.10 [.] 0x00000000000618ad - -
+1.10% libaom.so.3.13.1 [.] 0x0000000000045845 - -
+1.10% libaom.so.3.13.1 [.] 0x0000000000045851 - -
+1.10% libaom.so.3.13.1 [.] 0x0000000000045853 - -
+1.10% libaom.so.3.13.1 [.] 0x00000000001b33d5 - -
+1.10% libaom.so.3.13.1 [.] 0x00000000001b3878 - -
+1.10% libaom.so.3.13.1 [.] 0x00000000001b387c - -
+1.10% libvips.so.42.20.0 [.] 0x000000000014a53f - -
+1.10% libwebp.so.7.1.10 [.] 0x000000000003ca65 - -
+1.10% libwebp.so.7.1.10 [.] 0x000000000005aed8 - -
+1.10% libwebp.so.7.1.10 [.] 0x000000000005b05a - -
+1.10% libwebp.so.7.1.10 [.] 0x000000000006188f - -
+1.10% libwebp.so.7.1.10 [.] 0x000000000006189f - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,0 +1,50 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 35 of event 'cpu-clock:u'
+# Event count (approx.): 175879375
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ .................... ...................... ....................
+#
+5.71% libwebp.so.7.1.10 [.] 0x000000000005ae4d - -
+2.86% ld-linux-x86-64.so.2 [.] 0x000000000000bb6a - -
+2.86% libjpeg.so.8.2.2 [.] 0x000000000002bc05 - -
+2.86% libvips.so.42.20.0 [.] 0x00000000000fb264 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004c150 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004c49d - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004c77e - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004ce5e - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004cf52 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004cf5f - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004d3a3 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004f592 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004f5b6 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004f603 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000004f60f - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005abd1 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005abf7 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ad74 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ad9a - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005add8 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ae0d - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ae36 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ae3e - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ae88 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005ae8c - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005af17 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005af4f - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005af53 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005af93 - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005af9e - -
+2.86% libwebp.so.7.1.10 [.] 0x000000000005b02e - -
+2.86% libwebp.so.7.1.10 [.] 0x00000000000628e2 - -
+2.86% libwebp.so.7.1.10 [.] 0x0000000000072a85 - -
+2.86% libwebp.so.7.1.10 [.] 0x0000000000072a93 - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

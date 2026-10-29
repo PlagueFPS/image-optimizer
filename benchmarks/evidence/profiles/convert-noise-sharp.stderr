@@ -1,0 +1,2 @@
+[ perf record: Woken up 15 times to write data ]
+[ perf record: Captured and wrote 3.641 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/convert-noise-sharp.data (448 samples) ]

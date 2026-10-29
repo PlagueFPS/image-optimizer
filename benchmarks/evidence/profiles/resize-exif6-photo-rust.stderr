@@ -1,0 +1,2 @@
+[ perf record: Woken up 2 times to write data ]
+[ perf record: Captured and wrote 0.385 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/resize-exif6-photo-rust.data (35 samples) ]

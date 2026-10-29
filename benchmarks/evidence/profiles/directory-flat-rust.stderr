@@ -1,0 +1,2 @@
+[ perf record: Woken up 99 times to write data ]
+[ perf record: Captured and wrote 25.351 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/directory-flat-rust.data (3072 samples) ]

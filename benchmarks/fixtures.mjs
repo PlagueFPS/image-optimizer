@@ -44,7 +44,9 @@ for (const source of sources) {
   }
   if (createHash('sha256').update(await readFile(target)).digest('hex') !== source.sha256) throw new Error(`Photo hash mismatch: ${target}`);
 }
+await sharp(path.join(root, 'photos/earth.jpg')).extract({ left: 128, top: 0, width: 1600, height: 1000 }).jpeg({ quality: 92 }).withMetadata({ orientation: 6 }).toFile(path.join(root, 'photos/earth-exif6.jpg'));
 const fixtureNames = ['generated/noise.jpg', 'generated/alpha.png', 'generated/translucent.avif', 'generated/vector.svg', ...sources.map(s => `photos/${s.name}`)];
+const orientationMeta = await sharp(path.join(root, 'photos/earth-exif6.jpg')).metadata();
 const manifest = { generator: 'fixtures.mjs xorshift32 seed=123456789, 3000x2000 RGBA', versions: sharp.versions, sources, files: [] };
 for (const name of fixtureNames) {
   const bytes = await readFile(path.join(root, name));
@@ -56,5 +58,7 @@ for (const name of fixtureNames) {
     await copyFile(path.join(root, name), path.join(root, directory, path.basename(name)));
   }
 }
+const orientedBytes = await readFile(path.join(root, 'photos/earth-exif6.jpg'));
+manifest.files.push({ path: 'photos/earth-exif6.jpg', sha256: createHash('sha256').update(orientedBytes).digest('hex'), bytes: orientedBytes.length, width: orientationMeta.width, height: orientationMeta.height, orientation: orientationMeta.orientation, derivedFrom: 'photos/earth.jpg' });
 await writeFile(path.join(root, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(JSON.stringify(manifest, null, 2));

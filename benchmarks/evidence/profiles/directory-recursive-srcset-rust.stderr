@@ -1,0 +1,2 @@
+[ perf record: Woken up 19 times to write data ]
+[ perf record: Captured and wrote 5.188 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/directory-recursive-srcset-rust.data (630 samples) ]

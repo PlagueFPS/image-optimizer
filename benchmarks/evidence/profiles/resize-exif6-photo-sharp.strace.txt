@@ -1,0 +1,62 @@
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92574 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92575 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92576 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92577 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92578 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92579 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92580 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92581 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92582 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92583 attached
+% time seconds usecs/call calls errors syscall
+------ ----------- ----------- --------- --------- ------------------
+74.94 0.511459 301 1699 19 futex
+21.58 0.147294 7014 21 epoll_pwait
+0.73 0.004967 13 356 110 statx
+0.39 0.002640 10 256 mprotect
+0.33 0.002224 17 124 munmap
+0.32 0.002178 15 138 mmap
+0.28 0.001887 12 149 28 openat
+0.26 0.001793 9 182 read
+0.21 0.001439 10 133 close
+0.11 0.000760 10 70 madvise
+0.09 0.000642 64 10 clone3
+0.09 0.000619 9 63 rt_sigaction
+0.09 0.000598 21 28 brk
+0.08 0.000561 11 49 rt_sigprocmask
+0.05 0.000343 4 77 lseek
+0.04 0.000302 9 31 fstat
+0.04 0.000301 27 11 prctl
+0.04 0.000299 37 8 prlimit64
+0.03 0.000236 9 26 14 fcntl
+0.03 0.000206 6 30 getpid
+0.03 0.000175 15 11 rseq
+0.03 0.000172 9 18 pread64
+0.02 0.000159 6 24 3 stat
+0.02 0.000133 9 14 write
+0.02 0.000121 8 15 capget
+0.02 0.000121 11 11 set_robust_list
+0.02 0.000115 7 15 getgid
+0.02 0.000111 7 15 getuid
+0.02 0.000111 7 15 getegid
+0.01 0.000100 6 15 geteuid
+0.01 0.000081 27 3 io_uring_setup
+0.01 0.000052 10 5 5 ioctl
+0.01 0.000044 11 4 pipe2
+0.00 0.000034 11 3 epoll_create1
+0.00 0.000030 10 3 eventfd2
+0.00 0.000030 10 3 io_uring_enter
+0.00 0.000029 9 3 sched_getaffinity
+0.00 0.000021 2 8 6 newfstatat
+0.00 0.000020 10 2 getrandom
+0.00 0.000018 18 1 readlink
+0.00 0.000010 5 2 uname
+0.00 0.000010 2 5 getcwd
+0.00 0.000010 10 1 arch_prctl
+0.00 0.000010 2 5 gettid
+0.00 0.000010 10 1 set_tid_address
+0.00 0.000000 0 3 1 access
+0.00 0.000000 0 1 execve
+0.00 0.000000 0 1 1 mkdir
+------ ----------- ----------- --------- --------- ------------------
+100.00 0.682475 186 3668 187 total

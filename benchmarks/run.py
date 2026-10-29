@@ -39,6 +39,7 @@ def workloads():
         if not file.endswith('.svg'):
             cases.append(dict(name=f'preserve-{name}', source=file, widths=[480], format='preserve'))
     cases += [dict(name='srcset-photo', source='photos/earth.jpg', widths=[480, 960, 1920], format='webp'),
+              dict(name='resize-exif6-photo', source='photos/earth-exif6.jpg', widths=[960], format='webp'),
               dict(name='directory-flat', source='flat', widths=[], format='webp'),
               dict(name='directory-recursive-srcset', source='recursive', widths=[480, 960], format='webp', recursive=True)]
     return cases
@@ -150,6 +151,7 @@ def main():
                         timer.start()
                         try:
                             record['exit_code'] = process.wait()
+                            record['wall_high_resolution_s'] = time.perf_counter() - start
                         except BaseException:
                             kill_group()
                             process.wait()
@@ -159,7 +161,6 @@ def main():
                             timer.join()
                         if timed_out.is_set():
                             record['error'] = 'timeout; entire process group killed'
-                    record['wall_high_resolution_s'] = time.perf_counter() - start
                     record['load_after'] = os.getloadavg()
                     if timing.exists():
                         lines = timing.read_text().splitlines()

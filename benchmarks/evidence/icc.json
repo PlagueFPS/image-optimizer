@@ -1,0 +1,65 @@
+[
+  {
+    "case": "convert-astronaut",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/convert-astronaut-1-rust/astronaut.png.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "case": "resize-astronaut",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/resize-astronaut-1-rust/astronaut.png.960w.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "case": "preserve-astronaut",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/preserve-astronaut-1-rust/astronaut.png.480w.png",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "case": "resize-exif6-photo",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/resize-exif6-photo-1-rust/earth-exif6.jpg.960w.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth-exif6.jpg",
+    "output_icc_bytes": 480,
+    "output_icc_sha256": "c56e1685d888f5edb92fe07f2750f387f8fe8e91b32ff8fb0b56bfbbb9458353",
+    "input_icc_bytes": 480,
+    "input_icc_sha256": "c56e1685d888f5edb92fe07f2750f387f8fe8e91b32ff8fb0b56bfbbb9458353"
+  },
+  {
+    "case": "directory-flat",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/directory-flat-1-rust/astronaut.png.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "case": "directory-recursive-srcset",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/directory-recursive-srcset-1-rust/nested/astronaut.png.480w.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  },
+  {
+    "case": "directory-recursive-srcset",
+    "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/fixed-comparison-v4/directory-recursive-srcset-1-rust/nested/astronaut.png.960w.webp",
+    "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+    "output_icc_bytes": 3144,
+    "output_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e",
+    "input_icc_bytes": 3144,
+    "input_icc_sha256": "2b3aa1645779a9e634744faf9b01e9102b0c9b88fd6deced7934df86b949af7e"
+  }
+]

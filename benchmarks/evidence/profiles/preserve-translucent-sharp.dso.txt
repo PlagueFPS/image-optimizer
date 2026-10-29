@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 534 of event 'cpu-clock:u'
+# Event count (approx.): 2683416750
+#
+# Overhead Shared Object
+# ........ .....................
+#
+96.63% libvips-cpp.so.8.18.7
+1.69% node
+1.12% libm.so.6
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

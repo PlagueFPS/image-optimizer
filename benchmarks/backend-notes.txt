@@ -1,0 +1,40 @@
+Measured production source HEAD 00fa00d7d93dba2fb38dbb6d9e60a85cb24d799f.
+Release build: cargo build --release --locked, default release profile, no RUSTFLAGS override.
+LIBRARY_PATH=LD_LIBRARY_PATH=/tmp/image-vips/usr/lib/x86_64-linux-gnu
+VIPSHOME=/tmp/image-vips/usr/lib
+Rust binding libvips 2.3.0 dynamically links Ubuntu libvips 8.18.0.
+Extracted libwebp 1.5.0, libjpeg-turbo 2.1.5.
+System libheif 1.21.2, AOM 3.13.1, PNG 1.6.57, librsvg 2.61.3.
+Sharp 0.35.5 bundles libvips 8.18.7, libheif 1.23.5, AOM 3.15.1, PNG 1.6.58,
+librsvg 2.63.2, WebP 1.6.0, mozjpeg 0826579 and zlib-ng 2.3.3.
+Different native versions/builds prevent attributing differences solely to Rust versus Node.
+Both process files and variants sequentially, cache disabled, libvips concurrency 1.
+Both use auto-orientation, no enlargement, Lanczos3, SVG density 72, stripped metadata.
+Rust uses thumbnail shrink-on-load and fail-on-warning, validates containers, writes temporary
+outputs, sync_all and atomic no-clobber publication. Sharp writes directly without fsync.
+WebP Q80 effort6 alphaQ100 lossy, no near-lossless/smart-subsampling; native default preset.
+JPEG Q80 baseline optimized Huffman, native AUTO at Q80 equals Sharp explicit 4:2:0.
+PNG compression6 all filters, no palette. AVIF Q80 effort6 AV1 8-bit lossy;
+native AUTO at Q80 equals 4:2:0. Native AOM default tune SSIM, Sharp now explicit SSIM.
+Before final run, reference AVIF changed 4:4:4 to 4:2:0 and auto tune to SSIM;
+JPEG optimized coding made explicit. PNG adaptiveFiltering=true was already fixed before run.
+Evidence: installed sharp/src/pipeline.cc and dist/constructor.mjs; native headers and operation help;
+https://raw.githubusercontent.com/libvips/libvips/v8.18.0/libvips/foreign/heifsave.c
+heifsave.c lines 600-640 map effort to speed=9-effort, select 420 at Q<90,
+and clip encoder threads to vips_concurrency_get().
+https://raw.githubusercontent.com/strukturag/libheif/v1.21.2/libheif/plugins/encoder_aom.cc
+encoder_aom.cc default tune SSIM. JPEG native AUTO disables subsampling only at Q>=90.
+https://raw.githubusercontent.com/libvips/libvips/v8.18.0/libvips/foreign/jpegsave.c
+Thread environment SHARP_IGNORE_GLOBAL_LIBVIPS=1, UV_THREADPOOL_SIZE=VIPS_CONCURRENCY=
+RAYON_NUM_THREADS=OMP_NUM_THREADS=1. Not CPU affinity or an OS CPU quota.
+Profile and output quality evidence collected separately after timed runs.
+Sharp convert loops files and widths without expectations metadata probes. Verification runs afterward.
+Wall clock stops immediately after process.wait(), before watchdog cancel/join.
+EXIF6 case derives a 1600x1000 crop from earth.jpg, JPEG Q92 with orientation 6.
+Exploratory fixed-comparison was interrupted after review. Candidate fixed-comparison-v3 has 21 cases.
+Post-run correction: completed final measurement is fixed-comparison-v4 (210 processes,
+390 decoded outputs, no conversion/verifier failures). v3 was stopped for alpha-aware
+source candidate selection. All prior comparison directories are exploratory/rejected.
+Actual metadata inspection disproved the pre-run metadata-stripping assumption:
+Rust preserves source ICC blobs in astronaut and EXIF6 outputs despite keep=None.
+Sharp strips them. See evidence/icc.json and PERFORMANCE.md. This prevents parity acceptance.

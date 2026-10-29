@@ -1,0 +1,35 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 286 of event 'cpu-clock:u'
+# Event count (approx.): 1437185750
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ ..................... ........................................................................................................................................................................................................................................................................................................................................... ....................
+#
+7.69% libvips-cpp.so.8.18.7 [.] 0x000000000044db3e - -
+7.34% libvips-cpp.so.8.18.7 [.] 0x000000000044db5c - -
+3.15% libvips-cpp.so.8.18.7 [.] 0x0000000000a2a3ed - -
+2.80% libvips-cpp.so.8.18.7 [.] 0x0000000000b3f03b - -
+1.75% libvips-cpp.so.8.18.7 [.] 0x000000000044d22a - -
+1.40% libvips-cpp.so.8.18.7 [.] 0x000000000044d222 - -
+1.40% libvips-cpp.so.8.18.7 [.] 0x000000000044d249 - -
+1.40% libvips-cpp.so.8.18.7 [.] 0x000000000044db2a - -
+1.40% libvips-cpp.so.8.18.7 [.] 0x000000000044e37d - -
+1.40% libvips-cpp.so.8.18.7 [.] 0x0000000000b7d74e - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x000000000044db2f - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x000000000044db3b - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x000000000044db7c - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x0000000000967d66 - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x00000000009680f7 - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x0000000000a2a3db - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x0000000000a2a3ef - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x0000000000b7d80e - -
+1.05% libvips-cpp.so.8.18.7 [.] 0x0000000000b7d981 - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

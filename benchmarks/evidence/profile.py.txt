@@ -1,0 +1,18 @@
+import json,os,subprocess,pathlib,shutil
+root=pathlib.Path.cwd();base=root/'benchmarks/results/fixed-comparison-v4';out=root/'benchmarks/results/profiles';out.mkdir(exist_ok=True)
+r=json.loads((base/'results.json').read_text());env={**os.environ,**r['thread_environment'],'LD_LIBRARY_PATH':'/tmp/image-bench-audit/tools/usr/lib/x86_64-linux-gnu:/tmp/image-vips/usr/lib/x86_64-linux-gnu','VIPSHOME':'/tmp/image-vips/usr/lib'}
+perf='/tmp/image-bench-audit/tools/usr/bin/perf';strace='/tmp/image-bench-audit/tools/usr/bin/strace'
+for case in ['convert-noise','convert-alpha','resize-translucent','preserve-alpha','preserve-translucent','resize-vector','directory-flat','directory-recursive-srcset','resize-exif6-photo']:
+ for side in ['rust','sharp']:
+  rec=next(x for x in r['records'] if x['case']==case and x['side']==side);label=f'{case}-{side}'; job=rec['job'].copy(); job['output']=str(out/label); shutil.rmtree(job['output'],ignore_errors=True);pathlib.Path(job['output']).mkdir(); jf=out/f'{label}.job.json';jf.write_text(json.dumps(job))
+  if side=='rust':
+   cmd=rec['command'].copy();cmd[cmd.index('--out-dir')+1]=job['output']
+  else:cmd=['node',str(root/'benchmarks/reference.mjs'),str(jf)]
+  data=out/f'{label}.data';record=[perf,'record','-F','199','-e','cpu-clock:u','--call-graph','dwarf,8192','-o',str(data),'--',*cmd]
+  print(label,flush=True)
+  with (out/f'{label}.stdout').open('w') as so,(out/f'{label}.stderr').open('w') as se:code=subprocess.run(record,env=env,stdout=so,stderr=se).returncode
+  for sort in ['dso','dso,symbol']:
+   with (out/f'{label}.{sort}.txt').open('w') as f:subprocess.run([perf,'report','--stdio','--no-children','--percent-limit','1','--sort',sort,'-i',str(data)],env=env,stdout=f,stderr=subprocess.STDOUT)
+  with (out/f'{label}.verify.json').open('w') as f:subprocess.run(['node',str(root/'benchmarks/verify.mjs'),str(jf)],env=env,stdout=f,check=True)
+  shutil.rmtree(job['output']);pathlib.Path(job['output']).mkdir()
+  with (out/f'{label}.strace.txt').open('w') as f:subprocess.run([strace,'-f','-c',*cmd],env=env,stdout=subprocess.DEVNULL,stderr=f,check=True)

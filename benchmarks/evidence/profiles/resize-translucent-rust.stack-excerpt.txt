@@ -1,0 +1,160 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 182  of event 'cpu-clock:u'
+# Event count (approx.): 914572750
+#
+# Overhead  Shared Object             
+# ........  ..........................
+#
+    47.25%  libaom.so.3.13.1          
+            |          
+            |--3.30%--0x7de6ccc457f0
+            |          0x7de6ccdb34a7
+            |          0x7de6ccdb4ef2
+            |          0x7de6ccd91730
+            |          0x7de6ccd9c73e
+            |          |          
+            |          |--1.10%--0x7de6ccd9dbeb
+            |          |          
+            |           --1.10%--0x7de6ccd9dbcb
+            |          
+            |--2.20%--0x7de6ccc45856
+            |          0x7de6ccdb34a7
+            |          0x7de6ccdb4ef2
+            |          0x7de6ccd91730
+            |          0x7de6ccd9c73e
+            |          |          
+            |           --1.65%--0x7de6ccd9dba7
+            |                     |          
+            |                      --1.10%--0x7de6ccd9dbcb
+            |          
+            |--2.20%--0x7de6ccc45840
+            |          |          
+            |           --1.65%--0x7de6ccdb34a7
+            |                     0x7de6ccdb4ef2
+            |                     0x7de6ccd91730
+            |                     0x7de6ccd9c73e
+            |                     |          
+            |                      --1.10%--0x7de6ccd9dba7
+            |          
+            |--1.65%--0x7de6ccdb352f
+            |          |          
+            |           --1.10%--0x7de6ccdb55d4
+            |                     0x7de6ccd91730
+            |                     0x7de6ccd9c73e
+            |          
+            |--1.65%--0x7de6ccc458a0
+            |          0x7de6ccdb34a7
+            |          |          
+            |           --1.10%--0x7de6ccdb4ef2
+            |                     0x7de6ccd91730
+            |                     0x7de6ccd9c73e
+            |          
+            |--1.65%--0x7de6ccc4586f
+            |          |          
+            |           --1.10%--0x7de6ccdb34a7
+            |          
+            |--1.65%--0x7de6ccc45865
+            |          0x7de6ccdb34a7
+            |          |          
+            |           --1.10%--0x7de6ccdb55d4
+            |                     0x7de6ccd91730
+            |                     0x7de6ccd9c73e
+            |          
+            |--1.10%--0x7de6ccdb387c
+            |          0x7de6ccdb4ef2
+            |          0x7de6ccd91730
+            |          0x7de6ccd9c73e
+            |          
+            |--1.10%--0x7de6ccdb3878
+            |          
+            |--1.10%--0x7de6ccdb33d5
+            |          
+            |--1.10%--0x7de6ccc45853
+            |          
+            |--1.10%--0x7de6ccc45851
+            |          0x7de6ccdb34a7
+            |          0x7de6ccdb55d4
+            |          0x7de6ccd91730
+            |          0x7de6ccd9c73e
+            |          
+             --1.10%--0x7de6ccc45845
+                       0x7de6ccdb34a7
+                       0x7de6ccdb4ef2
+                       0x7de6ccd91730
+                       0x7de6ccd9c73e
+
+    37.91%  libwebp.so.7.1.10         
+            |          
+            |--2.75%--0x7de6d0fc08b5
+            |          0x7de6d0fcf10d
+            |          0x7de6d0fc68d2
+            |          0x7de6d0fd31b8
+            |          0x7de6d0fb0a29
+            |          0x7de6d0fb0ce5
+            |          0x7de6d0fb2f4a
+            |          
+            |--1.65%--0x7de6d0fc08ad
+            |          0x7de6d0fcf10d
+            |          0x7de6d0fc68d2
+            |          0x7de6d0fd31b8
+            |          0x7de6d0fb0a29
+            |          0x7de6d0fb0ce5
+            |          0x7de6d0fb2f4a
+            |          
+            |--1.65%--0x7de6d0f9b84d
+            |          |          
+            |           --1.10%--0x7de6d0fba2e8
+            |                     0x7de6d0fbb601
+            |                     0x7de6d0fbbe54
+            |          
+            |--1.10%--0x7de6d0fc089f
+            |          0x7de6d0fcf10d
+            |          0x7de6d0fc68d2
+            |          0x7de6d0fd31b8
+            |          0x7de6d0fb0a29
+            |          0x7de6d0fb0ce5
+            |          0x7de6d0fb2f4a
+            |          
+            |--1.10%--0x7de6d0fc088f
+            |          0x7de6d0fcf10d
+            |          0x7de6d0fc68d2
+            |          0x7de6d0fd31b8
+            |          0x7de6d0fb0a29
+            |          0x7de6d0fb0ce5
+            |          0x7de6d0fb2f4a
+            |          
+            |--1.10%--0x7de6d0fba05a
+            |          
+            |--1.10%--0x7de6d0fb9ed8
+            |          0x7de6d0fc1209
+            |          0x7de6d0fc1e15
+            |          0x7de6d0fc8f2c
+            |          0x7de6d0fc27cd
+            |          WebPEncode
+            |          0x7de6d1ec6764
+            |          0x7de6d1fe6271
+            |          0x7de6d1fceb1d
+            |          0x7de6d1fce9c5
+            |          0x7de6d1d6e478
+            |          0x7de6d1aa3df9
+            |          0x7de6d1b375cb
+            |          
+             --1.10%--0x7de6d0f9ba65
+                       0x7de6d0fba272
+                       0x7de6d0fbb4f1
+                       0x7de6d0fbbe54
+
+     6.04%  libvips.so.42.20.0        
+            |          
+            |--1.65%--0x7de6d1f87074
+            |          0x7de6d1fe8e91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x7de6d1f7bca2
+            |          0x7de6d1fe8e91
+            |          vips_region_fill
+            |          vips_region_prepare

@@ -1,0 +1,42 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 31 of event 'cpu-clock:u'
+# Event count (approx.): 155778875
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ ..................... ........................................................................................................................................................................................................................................................................................................................................... ....................
+#
+6.45% libvips-cpp.so.8.18.7 [.] 0x0000000000326b23 - -
+6.45% libvips-cpp.so.8.18.7 [.] 0x0000000000326b4a - -
+6.45% libvips-cpp.so.8.18.7 [.] 0x0000000000326d8b - -
+6.45% libvips-cpp.so.8.18.7 [.] 0x0000000000326db2 - -
+6.45% node [.] void v8::internal::DeclarationScope::AllocateScopeInfos<v8::internal::Isolate>(v8::internal::ParseInfo*, v8::internal::DirectHandle<v8::internal::Script>, v8::internal::Isolate*) - -
+3.23% libc.so.6 [.] 0x00000000001984d3 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000097090 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x00000000000a0106 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x00000000000a0136 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x00000000001cdd99 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000319304 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x000000000031933c - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000326b01 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000326b0e - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000326b2b - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x0000000000326da9 - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x00000000003295be - -
+3.23% libvips-cpp.so.8.18.7 [.] 0x000000000041d5e7 - -
+3.23% node [.] Builtins_BaselineOutOfLinePrologue - -
+3.23% node [.] Builtins_LoadIC_NoFeedback - -
+3.23% node [.] detail::sprp(unsigned long long, unsigned long long) - -
+3.23% node [.] int v8::internal::Deserializer<v8::internal::Isolate>::WriteHeapPointer<v8::internal::SlotAccessorForHeapObject>(v8::internal::SlotAccessorForHeapObject, v8::internal::DirectHandle<v8::internal::HeapObject>, v8::internal::Deserializer<v8::internal::Isolate>::ReferenceDescriptor, v8::internal::WriteBarrierMode) [clone .isra.0] - -
+3.23% node [.] v8::internal::DirectHandle<v8::internal::String> v8::internal::StringTable::LookupKey<v8::internal::InternalizedStringKey, v8::internal::Isolate>(v8::internal::Isolate*, v8::internal::InternalizedStringKey*) - -
+3.23% node [.] v8::internal::JSObject::MigrateToMap(v8::internal::Isolate*, v8::internal::DirectHandle<v8::internal::JSObject>, v8::internal::DirectHandle<v8::internal::Map>, int) - -
+3.23% node [.] v8::internal::interpreter::BytecodeRegisterOptimizer::Flush() - -
+3.23% node [.] void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::Tagged<v8::internal::String>, unsigned char*, unsigned int, unsigned int, v8::internal::SharedStringAccessGuardIfNeeded const&) - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

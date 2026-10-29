@@ -1,0 +1,39 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 373 of event 'cpu-clock:u'
+# Event count (approx.): 1874371625
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ .................... ...................... ....................
+#
+2.68% libwebp.so.7.1.10 [.] 0x000000000005ae3a - -
+2.68% libwebp.so.7.1.10 [.] 0x000000000005b050 - -
+2.68% libwebp.so.7.1.10 [.] 0x000000000005b05f - -
+2.41% libwebp.so.7.1.10 [.] 0x000000000005b03e - -
+2.14% libwebp.so.7.1.10 [.] 0x000000000005ae1e - -
+2.14% libwebp.so.7.1.10 [.] 0x000000000005af0a - -
+1.88% libwebp.so.7.1.10 [.] 0x000000000005aced - -
+1.88% libwebp.so.7.1.10 [.] 0x000000000005ae3e - -
+1.61% libwebp.so.7.1.10 [.] 0x000000000005ae8c - -
+1.61% libwebp.so.7.1.10 [.] 0x000000000005b044 - -
+1.61% libwebp.so.7.1.10 [.] 0x000000000005b047 - -
+1.61% libwebp.so.7.1.10 [.] 0x000000000005b05a - -
+1.34% libwebp.so.7.1.10 [.] 0x000000000005ad02 - -
+1.34% libwebp.so.7.1.10 [.] 0x000000000005ade7 - -
+1.34% libwebp.so.7.1.10 [.] 0x000000000005aed4 - -
+1.34% libwebp.so.7.1.10 [.] 0x000000000005af43 - -
+1.34% libwebp.so.7.1.10 [.] 0x000000000005af4f - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005adb9 - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005ae4d - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005aed8 - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005aeeb - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005aef5 - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005b02e - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

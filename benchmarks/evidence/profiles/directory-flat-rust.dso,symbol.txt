@@ -1,0 +1,33 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 3K of event 'cpu-clock:u'
+# Event count (approx.): 15437184000
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ .......................... .............................. ....................
+#
+9.31% libpixman-1.so.0.46.4 [.] 0x00000000000836b5 - -
+4.95% libc.so.6 [.] 0x0000000000198554 - -
+3.35% libc.so.6 [.] 0x0000000000198559 - -
+3.06% libpixman-1.so.0.46.4 [.] 0x000000000008360a - -
+1.73% libwebp.so.7.1.10 [.] 0x000000000006189f - -
+1.66% libwebp.so.7.1.10 [.] 0x00000000000618ad - -
+1.60% libwebp.so.7.1.10 [.] 0x000000000003ca65 - -
+1.56% libwebp.so.7.1.10 [.] 0x00000000000618b5 - -
+1.43% libwebp.so.7.1.10 [.] 0x000000000003ca6e - -
+1.43% libwebp.so.7.1.10 [.] 0x000000000006188f - -
+1.40% libpixman-1.so.0.46.4 [.] 0x00000000000836bd - -
+1.24% libwebp.so.7.1.10 [.] 0x000000000005ae3a - -
+1.20% libpixman-1.so.0.46.4 [.] 0x000000000008378d - -
+1.11% libwebp.so.7.1.10 [.] 0x000000000005ae1e - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005b050 - -
+1.07% libwebp.so.7.1.10 [.] 0x000000000005b05a - -
+1.01% libc.so.6 [.] 0x000000000019855e - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

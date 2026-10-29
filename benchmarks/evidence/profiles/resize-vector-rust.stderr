@@ -1,0 +1,2 @@
+[ perf record: Woken up 2 times to write data ]
+[ perf record: Captured and wrote 0.608 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/resize-vector-rust.data (64 samples) ]

@@ -1,0 +1,25 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 3K of event 'cpu-clock:u'
+# Event count (approx.): 15718591000
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ ..................... ...................................................................................................................................................................................................................................... ....................
+#
+8.79% libvips-cpp.so.8.18.7 [.] 0x00000000005c6110 - -
+6.33% libc.so.6 [.] 0x0000000000198554 - -
+2.65% libvips-cpp.so.8.18.7 [.] 0x00000000005c60a9 - -
+2.01% libvips-cpp.so.8.18.7 [.] 0x000000000043ec55 - -
+1.95% libc.so.6 [.] 0x0000000000198559 - -
+1.47% libvips-cpp.so.8.18.7 [.] 0x00000000005c6117 - -
+1.44% libvips-cpp.so.8.18.7 [.] 0x000000000044d222 - -
+1.41% libvips-cpp.so.8.18.7 [.] 0x000000000044d249 - -
+1.15% libvips-cpp.so.8.18.7 [.] 0x000000000043ee60 - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

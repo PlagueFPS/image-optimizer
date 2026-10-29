@@ -1,0 +1,55 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 64 of event 'cpu-clock:u'
+# Event count (approx.): 321608000
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ .......................... .................................. ....................
+#
+20.31% libc.so.6 [.] 0x00000000001984d3 - -
+9.38% libpixman-1.so.0.46.4 [.] 0x00000000000836b0 - -
+7.81% libpixman-1.so.0.46.4 [.] 0x00000000000836b5 - -
+4.69% libpixman-1.so.0.46.4 [.] 0x000000000008378d - -
+4.69% libpixman-1.so.0.46.4 [.] 0x0000000000083791 - -
+1.56% ld-linux-x86-64.so.2 [.] 0x000000000000bddf - -
+1.56% libcairo.so.2.11804.4 [.] cairo_set_fill_rule - -
+1.56% libcairo.so.2.11804.4 [.] 0x0000000000021cd5 - -
+1.56% libcairo.so.2.11804.4 [.] 0x000000000005e2b0 - -
+1.56% libcairo.so.2.11804.4 [.] 0x0000000000088cb5 - -
+1.56% libcairo.so.2.11804.4 [.] 0x00000000000897cc - -
+1.56% libgobject-2.0.so.0.8800.0 [.] g_type_parent - -
+1.56% libpixman-1.so.0.46.4 [.] pixman_image_create_solid_fill - -
+1.56% libpixman-1.so.0.46.4 [.] 0x00000000000836b9 - -
+1.56% libpixman-1.so.0.46.4 [.] 0x00000000000836bd - -
+1.56% libpixman-1.so.0.46.4 [.] 0x00000000000836c2 - -
+1.56% libpixman-1.so.0.46.4 [.] 0x00000000000836f5 - -
+1.56% libpixman-1.so.0.46.4 [.] 0x00000000000837a2 - -
+1.56% librsvg-2.so.2.61.3 [.] 0x00000000001d1ceb - -
+1.56% librsvg-2.so.2.61.3 [.] 0x000000000027102c - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000004c1b0 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000004c294 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000004c626 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000004c6bc - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000004d370 - -
+1.56% libwebp.so.7.1.10 [.] 0x00000000000588c7 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005abde - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005adf4 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005ae0a - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005ae1e - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005ae26 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005ae3a - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005ae3e - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005aef2 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005af53 - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005b03e - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005b12d - -
+1.56% libwebp.so.7.1.10 [.] 0x000000000005d8a6 - -
+1.56% libwebp.so.7.1.10 [.] 0x0000000000072aaf - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

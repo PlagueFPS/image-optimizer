@@ -1,0 +1,45 @@
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91884 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91885 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91886 attached
+% time seconds usecs/call calls errors syscall
+------ ----------- ----------- --------- --------- ------------------
+74.60 0.471849 559 843 16 futex
+9.67 0.061179 7 8148 read
+8.40 0.053156 9 5369 lseek
+4.41 0.027863 10 2734 4 statx
+0.95 0.005977 10 546 mmap
+0.56 0.003538 10 351 202 openat
+0.35 0.002217 55 40 munmap
+0.32 0.002017 7 285 mprotect
+0.21 0.001333 8 149 close
+0.17 0.001056 8 124 fstat
+0.07 0.000460 65 7 madvise
+0.05 0.000303 7 43 write
+0.04 0.000259 7 33 4 newfstatat
+0.03 0.000203 6 30 30 readlink
+0.03 0.000201 67 3 clone3
+0.03 0.000185 13 14 rt_sigprocmask
+0.02 0.000108 36 3 prctl
+0.02 0.000105 26 4 set_robust_list
+0.01 0.000085 6 13 brk
+0.01 0.000083 13 6 getdents64
+0.01 0.000043 7 6 rt_sigaction
+0.01 0.000040 10 4 rseq
+0.01 0.000038 6 6 2 access
+0.00 0.000030 30 1 renameat2
+0.00 0.000024 24 1 fsync
+0.00 0.000024 8 3 sigaltstack
+0.00 0.000020 10 2 pread64
+0.00 0.000018 9 2 gettid
+0.00 0.000011 11 1 poll
+0.00 0.000010 10 1 1 mkdir
+0.00 0.000010 5 2 prlimit64
+0.00 0.000009 9 1 getpid
+0.00 0.000008 8 1 arch_prctl
+0.00 0.000008 8 1 set_tid_address
+0.00 0.000007 7 1 sched_getaffinity
+0.00 0.000000 0 1 execve
+0.00 0.000000 0 2 1 statfs
+0.00 0.000000 0 2 getrandom
+------ ----------- ----------- --------- --------- ------------------
+100.00 0.632477 33 18783 260 total

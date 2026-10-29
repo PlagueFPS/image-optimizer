@@ -1,0 +1,63 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 51 of event 'cpu-clock:u'
+# Event count (approx.): 256281375
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ ..................... ................................................................................................................................................. ....................
+#
+3.92% libvips-cpp.so.8.18.7 [.] 0x000000000042d9fc - -
+3.92% libvips-cpp.so.8.18.7 [.] 0x000000000042f1bc - -
+3.92% libvips-cpp.so.8.18.7 [.] 0x000000000043ecb6 - -
+3.92% libvips-cpp.so.8.18.7 [.] 0x000000000043ee59 - -
+1.96% libc.so.6 [.] 0x00000000000b1ca4 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x00000000001c95c2 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x00000000003c04e9 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x00000000003cf540 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042d9be - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042dbbf - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042dc55 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042dddd - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042e6c4 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000042ef46 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043e423 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043e661 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec1c - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec34 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec46 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec55 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec5a - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ec61 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ecb2 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ed3c - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ed51 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ed66 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ed74 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ed77 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ee29 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ee40 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ee54 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043ee60 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043eeba - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043eee8 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043f47c - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x000000000043f6f0 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x00000000004449e1 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x00000000004449eb - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x0000000000804100 - -
+1.96% libvips-cpp.so.8.18.7 [.] 0x0000000000808798 - -
+1.96% node [.] Builtins_DecHandler - -
+1.96% node [.] Builtins_KeyedLoadIC_Megamorphic - -
+1.96% node [.] detail::sprp(unsigned long long, unsigned long long) - -
+1.96% node [.] v8::internal::Expression::IsStringLiteral() const - -
+1.96% node [.] v8::internal::HashTable<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::Rehash(v8::internal::PtrComprCageBase) - -
+1.96% node [.] v8::internal::Scanner::Next() - -
+1.96% node [.] void v8::internal::String::WriteToFlat<unsigned char>(v8::internal::Tagged<v8::internal::String>, unsigned char*, unsigned int, unsigned int) - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

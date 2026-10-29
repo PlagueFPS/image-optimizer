@@ -1,0 +1,160 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 3K of event 'cpu-clock:u'
+# Event count (approx.): 15437184000
+#
+# Overhead  Shared Object             
+# ........  ..........................
+#
+    67.61%  libwebp.so.7.1.10         
+            |          
+            |--1.73%--0x7da5d5d9d89f
+            |          0x7da5d5dac10d
+            |          0x7da5d5da38d2
+            |          0x7da5d5db01b8
+            |          0x7da5d5d8da29
+            |          0x7da5d5d8dce5
+            |          0x7da5d5d8ff4a
+            |          
+            |--1.66%--0x7da5d5d9d8ad
+            |          0x7da5d5dac10d
+            |          0x7da5d5da38d2
+            |          0x7da5d5db01b8
+            |          0x7da5d5d8da29
+            |          0x7da5d5d8dce5
+            |          0x7da5d5d8ff4a
+            |          
+            |--1.60%--0x7da5d5d78a65
+            |          0x7da5d5d97272
+            |          |          
+            |           --1.53%--0x7da5d5d984f1
+            |                     0x7da5d5d98e54
+            |                     |          
+            |                      --1.50%--0x7da5d5dab03a
+            |                                0x7da5d5da38d2
+            |                                0x7da5d5db01b8
+            |                                0x7da5d5d8da29
+            |                                0x7da5d5d8dce5
+            |                                0x7da5d5d8ff4a
+            |                                WebPEncode
+            |                                0x7da5d6c9d764
+            |                                0x7da5d6dbd271
+            |                                0x7da5d6da5b1d
+            |                                0x7da5d6da59c5
+            |                                0x7da5d6b45478
+            |                                0x7da5d66a3df9
+            |                                0x7da5d67375cb
+            |          
+            |--1.56%--0x7da5d5d9d8b5
+            |          0x7da5d5dac10d
+            |          0x7da5d5da38d2
+            |          0x7da5d5db01b8
+            |          0x7da5d5d8da29
+            |          0x7da5d5d8dce5
+            |          0x7da5d5d8ff4a
+            |          
+            |--1.43%--0x7da5d5d9d88f
+            |          0x7da5d5dac10d
+            |          0x7da5d5da38d2
+            |          0x7da5d5db01b8
+            |          0x7da5d5d8da29
+            |          0x7da5d5d8dce5
+            |          0x7da5d5d8ff4a
+            |          
+            |--1.43%--0x7da5d5d78a6e
+            |          0x7da5d5d97272
+            |          |          
+            |           --1.33%--0x7da5d5d984f1
+            |                     |          
+            |                      --1.30%--0x7da5d5d98e54
+            |                                |          
+            |                                 --1.27%--0x7da5d5dab03a
+            |                                           0x7da5d5da38d2
+            |                                           0x7da5d5db01b8
+            |                                           0x7da5d5d8da29
+            |                                           0x7da5d5d8dce5
+            |                                           0x7da5d5d8ff4a
+            |                                           WebPEncode
+            |                                           0x7da5d6c9d764
+            |                                           0x7da5d6dbd271
+            |                                           0x7da5d6da5b1d
+            |                                           0x7da5d6da59c5
+            |                                           0x7da5d6b45478
+            |                                           0x7da5d66a3df9
+            |                                           0x7da5d67375cb
+            |          
+            |--1.24%--0x7da5d5d96e3a
+            |          
+            |--1.11%--0x7da5d5d96e1e
+            |          
+            |--1.07%--0x7da5d5d9705a
+            |          
+             --1.07%--0x7da5d5d97050
+
+    16.54%  libpixman-1.so.0.46.4     
+            |          
+            |--9.31%--0x7da5d46086b5
+            |          pixman_image_composite32
+            |          0x7da5d5b99244
+            |          0x7da5d5bd4b28
+            |          0x7da5d5bd5375
+            |          0x7da5d5b8bfe7
+            |          0x7da5d5be16fc
+            |          0x7da5d5b9530f
+            |          0x7da5d5b8f2b8
+            |          cairo_paint_with_alpha
+            |          0x7da5d5669fd1
+            |          0x7da5d55a77fe
+            |          0x7da5d55a121c
+            |          0x7da5d5591a13
+            |          0x7da5d5582301
+            |          0x7da5d55a7bc7
+            |          0x7da5d5581ea3
+            |          0x7da5d55a95dc
+            |          0x7da5d55a6f90
+            |          0x7da5d551de5a
+            |          
+            |--3.06%--0x7da5d460860a
+            |          pixman_image_composite32
+            |          0x7da5d5b99244
+            |          0x7da5d5bd4b28
+            |          0x7da5d5bd5375
+            |          0x7da5d5b8bfe7
+            |          0x7da5d5be16fc
+            |          0x7da5d5b9530f
+            |          0x7da5d5b8f2b8
+            |          cairo_paint_with_alpha
+            |          0x7da5d5669fd1
+            |          0x7da5d55a77fe
+            |          0x7da5d55a121c
+            |          0x7da5d5591a13
+            |          0x7da5d5582301
+            |          0x7da5d55a7bc7
+            |          0x7da5d5581ea3
+            |          0x7da5d55a95dc
+            |          0x7da5d55a6f90
+            |          0x7da5d551de5a
+            |          
+            |--1.40%--0x7da5d46086bd
+            |          pixman_image_composite32
+            |          0x7da5d5b99244
+            |          0x7da5d5bd4b28
+            |          0x7da5d5bd5375
+            |          0x7da5d5b8bfe7
+            |          0x7da5d5be16fc
+            |          0x7da5d5b9530f
+            |          0x7da5d5b8f2b8
+            |          cairo_paint_with_alpha
+            |          0x7da5d5669fd1
+            |          0x7da5d55a77fe
+            |          0x7da5d55a121c
+            |          0x7da5d5591a13
+            |          0x7da5d5582301
+            |          0x7da5d55a7bc7
+            |          0x7da5d5581ea3
+            |          0x7da5d55a95dc
+            |          0x7da5d55a6f90
+            |          0x7da5d551de5a

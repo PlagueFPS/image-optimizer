@@ -1,0 +1,63 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 72 of event 'cpu-clock:u'
+# Event count (approx.): 361809000
+#
+# Overhead Shared Object Symbol IPC [IPC Coverage]
+# ........ ..................... ................................................................................................................................................................................................................... ....................
+#
+12.50% libc.so.6 [.] 0x00000000001984d3 - -
+9.72% libvips-cpp.so.8.18.7 [.] 0x00000000005c610b - -
+6.94% libvips-cpp.so.8.18.7 [.] 0x00000000005c61cb - -
+5.56% libvips-cpp.so.8.18.7 [.] 0x00000000005c6117 - -
+4.17% libvips-cpp.so.8.18.7 [.] 0x00000000005c6113 - -
+2.78% libvips-cpp.so.8.18.7 [.] 0x000000000043ec55 - -
+2.78% libvips-cpp.so.8.18.7 [.] 0x00000000005c614e - -
+1.39% libc.so.6 [.] 0x00000000000b23a9 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000042d9d5 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000042dbed - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000042ef46 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000042ef4a - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000042f1bc - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ec1c - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ec4c - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ec9d - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eccd - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ed51 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ed5f - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ed77 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043ee59 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eead - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eeba - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eeda - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eedd - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043eee8 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000043f657 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x0000000000444832 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000048a0da - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000048a190 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000048a299 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000004b7440 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000005c6103 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000005c611b - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000005c61c0 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000005c61c4 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x00000000005c61db - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000065064e - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x0000000000731873 - -
+1.39% libvips-cpp.so.8.18.7 [.] 0x000000000074be7f - -
+1.39% node [.] Builtins_GetPropertyWithReceiver - -
+1.39% node [.] detail::sprp(unsigned long long, unsigned long long) - -
+1.39% node [.] int v8::internal::Deserializer<v8::internal::Isolate>::ReadSingleBytecodeData<v8::internal::SlotAccessorForHeapObject>(unsigned char, v8::internal::SlotAccessorForHeapObject) - -
+1.39% node [.] operator new(unsigned long)@plt - -
+1.39% node [.] v8::internal::DirectHandle<v8::internal::String> v8::internal::StringTable::LookupKey<v8::internal::InternalizedStringKey, v8::internal::Isolate>(v8::internal::Isolate*, v8::internal::InternalizedStringKey*) - -
+1.39% node [.] v8::internal::Scanner::Next() - -
+1.39% node [.] v8::internal::interpreter::BytecodeGenerator::BuildVariableLoad(v8::internal::Variable*, v8::internal::HoleCheckMode, v8::internal::TypeofMode) - -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

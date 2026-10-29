@@ -1,0 +1,160 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 37  of event 'cpu-clock:u'
+# Event count (approx.): 185929625
+#
+# Overhead  Shared Object       
+# ........  ....................
+#
+    62.16%  libz.so.1.3.1       
+            |          
+            |--10.81%--0x774c4ad0a3e0
+            |          0x774c4ad1165e
+            |          deflate
+            |          0x774c4a141a25
+            |          png_write_row
+            |          png_write_rows
+            |          0x774c4afd91a0
+            |          0x774c4b0fd271
+            |          0x774c4b0e5b1d
+            |          0x774c4b0e59c5
+            |          0x774c4ae85478
+            |          0x774c4aaa3df9
+            |          0x774c4ab375cb
+            |          
+            |--8.11%--0x774c4ad0a5ec
+            |          inflate
+            |          0x774c4a135d5d
+            |          png_read_row
+            |          0x774c4afd9c01
+            |          0x774c4b0ffe91
+            |          0x774c4b10d6a9
+            |          vips_region_prepare_to
+            |          0x774c4b092397
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092be3
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4afb0092
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0955fa
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b09d6e6
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b09a711
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b04a2e1
+            |          0x774c4b0ffe91
+            |          0x774c4b10d6a9
+            |          vips_region_prepare_to
+            |          0x774c4b092397
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092be3
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b09a711
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b059f53
+            |          0x774c4b0ffe91
+            |          0x774c4b10d6a9
+            |          vips_region_prepare_to
+            |          
+            |--5.41%--inflate
+            |          0x774c4a135d5d
+            |          png_read_row
+            |          0x774c4afd9c01
+            |          0x774c4b0ffe91
+            |          0x774c4b10d6a9
+            |          vips_region_prepare_to
+            |          0x774c4b092397
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092be3
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4afb0092
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0f7e92
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b0955fa
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b09d6e6
+            |          0x774c4b0ffe91
+            |          vips_region_fill
+            |          vips_region_prepare
+            |          0x774c4b092ca2

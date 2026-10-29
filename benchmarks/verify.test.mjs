@@ -59,7 +59,7 @@ test('recursive files and preserve format are checked', () => fixture(async (job
 test('blank content fails even with the correct format and dimensions', () => fixture(async job => {
   await convert(job);
   await sharp({ create: { width: 60, height: 39, channels: 3, background: '#000' } }).webp().toFile(path.join(job.output, 'input-60w.webp'));
-  await assert.rejects(verify(job), /Output content differs from input/);
+  await assert.rejects(verify(job), /Output content differs from input|Missing expected alpha/);
 }));
 test('extra output fails', () => fixture(async job => {
   await convert(job);
@@ -80,4 +80,32 @@ test('EXIF orientation changes the expected output geometry', () => fixture(asyn
   await convert(job);
   const checked = await verify(job);
   assert.deepEqual([checked.images[0].width, checked.images[0].height], [60, 92]);
+}));
+
+test('flattened alpha fails even when the white composite looks correct', () => fixture(async job => {
+  await convert(job);
+  const file = path.join(job.output, 'input-60w.webp');
+  const flattened = await sharp(file).flatten({ background: '#fff' }).webp().toBuffer();
+  await writeFile(file, flattened);
+  await assert.rejects(verify(job), /Missing expected alpha/);
+}));
+test('changed alpha plane fails even when the channel is retained', () => fixture(async job => {
+  await convert(job);
+  const file = path.join(job.output, 'input-60w.webp');
+  const changed = await sharp(file).removeAlpha().ensureAlpha(0.6).webp().toBuffer();
+  await writeFile(file, changed);
+  await assert.rejects(verify(job), /Alpha plane differs/);
+}));
+
+test('similar white composites select their source using alpha semantics', () => fixture(async (job, root) => {
+  const tree = path.join(root, 'similar');
+  await mkdir(tree);
+  await sharp(job.input).png().toFile(path.join(tree, 'alpha.png'));
+  await sharp(job.input).flatten({ background: '#fff' }).jpeg().toFile(path.join(tree, 'opaque.jpg'));
+  job.input = tree;
+  job.widths = [60];
+  await convert(job);
+  const checked = await verify(job);
+  assert.equal(checked.count, 2);
+  assert.equal(checked.images.find(image => image.file.endsWith('opaque-60w.webp')).expected_nonopaque_alpha, false);
 }));

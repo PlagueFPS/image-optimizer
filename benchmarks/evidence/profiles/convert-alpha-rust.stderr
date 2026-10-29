@@ -1,0 +1,2 @@
+[ perf record: Woken up 26 times to write data ]
+[ perf record: Captured and wrote 6.764 MB /home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/profiles/convert-alpha-rust.data (830 samples) ]

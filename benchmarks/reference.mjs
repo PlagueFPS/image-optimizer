@@ -7,9 +7,9 @@ export const settings = {
   kernel: 'lanczos3', withoutEnlargement: true, autoOrient: true,
   svgDensity: 72, cache: false, fileConcurrency: 1,
   webp: { alphaQuality: 100, lossless: false, nearLossless: false, smartSubsample: false },
-  jpeg: { progressive: false, chromaSubsampling: '4:2:0', mozjpeg: false },
+  jpeg: { optimiseCoding: true, progressive: false, chromaSubsampling: '4:2:0', mozjpeg: false },
   png: { compressionLevel: 6, adaptiveFiltering: true, palette: false },
-  avif: { chromaSubsampling: '4:4:4', bitdepth: 8, lossless: false },
+  avif: { chromaSubsampling: '4:2:0', bitdepth: 8, lossless: false, tune: 'ssim' },
 };
 
 export async function files(input, recursive) {
@@ -51,20 +51,23 @@ export async function convert(job) {
   sharp.concurrency(job.cpu);
   const directory = (await stat(job.input)).isDirectory();
   const outputs = [];
-  for (const item of await expectations(job)) {
-    const relative = directory ? path.relative(job.input, item.input) : path.basename(item.input);
-    const parsed = path.parse(relative);
-    const suffix = item.requested ? `-${item.requested}w` : '';
-    const ext = item.format === 'jpeg' ? 'jpg' : item.format;
-    const output = path.join(job.output, parsed.dir, `${parsed.name}${suffix}.${ext}`);
-    await mkdir(path.dirname(output), { recursive: true });
-    let pipeline = sharp(item.input, { density: settings.svgDensity }).autoOrient();
-    if (item.requested) pipeline = pipeline.resize({ width: item.requested, withoutEnlargement: true, kernel: settings.kernel });
-    const options = { ...settings[item.format] };
-    if (item.format !== 'png') options.quality = job.quality;
-    if (['webp', 'avif'].includes(item.format)) options.effort = job.effort;
-    await pipeline.toFormat(item.format, options).toFile(output);
-    outputs.push(output);
+  for (const input of await files(job.input, job.recursive)) {
+    for (const requested of job.widths.length ? job.widths : [null]) {
+      const item = { input, requested, format: outputFormat(input, job.format) };
+      const relative = directory ? path.relative(job.input, item.input) : path.basename(item.input);
+      const parsed = path.parse(relative);
+      const suffix = item.requested ? `-${item.requested}w` : '';
+      const ext = item.format === 'jpeg' ? 'jpg' : item.format;
+      const output = path.join(job.output, parsed.dir, `${parsed.name}${suffix}.${ext}`);
+      await mkdir(path.dirname(output), { recursive: true });
+      let pipeline = sharp(item.input, { density: settings.svgDensity }).autoOrient();
+      if (item.requested) pipeline = pipeline.resize({ width: item.requested, withoutEnlargement: true, kernel: settings.kernel });
+      const options = { ...settings[item.format] };
+      if (item.format !== 'png') options.quality = job.quality;
+      if (['webp', 'avif'].includes(item.format)) options.effort = job.effort;
+      await pipeline.toFormat(item.format, options).toFile(output);
+      outputs.push(output);
+    }
   }
   return { outputs, concurrency: sharp.concurrency(), versions: sharp.versions, settings };
 }

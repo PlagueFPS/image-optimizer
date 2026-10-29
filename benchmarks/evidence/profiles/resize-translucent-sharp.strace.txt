@@ -1,0 +1,65 @@
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91855 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91856 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91857 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91858 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91859 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91860 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91861 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91862 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91863 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 91864 attached
+% time seconds usecs/call calls errors syscall
+------ ----------- ----------- --------- --------- -------------------
+76.56 1.095413 354 3094 36 futex
+21.54 0.308269 14679 21 epoll_pwait
+0.24 0.003387 9 356 110 statx
+0.23 0.003315 1657 2 clock_nanosleep
+0.21 0.003010 20 148 munmap
+0.19 0.002678 7 357 read
+0.15 0.002117 9 223 mprotect
+0.13 0.001917 12 153 29 openat
+0.12 0.001708 10 160 mmap
+0.11 0.001528 4 341 lseek
+0.09 0.001236 23 53 rt_sigprocmask
+0.08 0.001087 7 136 close
+0.06 0.000826 11 69 madvise
+0.06 0.000814 81 10 clone3
+0.04 0.000641 10 63 rt_sigaction
+0.02 0.000317 10 30 getpid
+0.02 0.000309 28 11 prctl
+0.02 0.000250 8 28 brk
+0.02 0.000232 21 11 rseq
+0.01 0.000189 7 26 14 fcntl
+0.01 0.000160 5 29 fstat
+0.01 0.000152 13 11 set_robust_list
+0.01 0.000142 7 18 pread64
+0.01 0.000133 8 15 getegid
+0.01 0.000127 8 15 getuid
+0.01 0.000106 7 15 geteuid
+0.01 0.000106 7 15 capget
+0.01 0.000105 7 15 getgid
+0.00 0.000067 22 3 io_uring_setup
+0.00 0.000063 4 14 write
+0.00 0.000061 20 3 eventfd2
+0.00 0.000057 2 28 3 stat
+0.00 0.000054 6 8 prlimit64
+0.00 0.000041 10 4 pipe2
+0.00 0.000037 7 5 5 ioctl
+0.00 0.000034 11 3 epoll_create1
+0.00 0.000031 31 1 sched_getscheduler
+0.00 0.000024 12 2 sched_getaffinity
+0.00 0.000024 8 3 io_uring_enter
+0.00 0.000022 4 5 getcwd
+0.00 0.000020 2 8 6 newfstatat
+0.00 0.000019 19 1 sched_getparam
+0.00 0.000018 9 2 uname
+0.00 0.000010 2 5 gettid
+0.00 0.000010 5 2 getrandom
+0.00 0.000000 0 3 1 access
+0.00 0.000000 0 1 execve
+0.00 0.000000 0 1 1 mkdir
+0.00 0.000000 0 1 readlink
+0.00 0.000000 0 1 arch_prctl
+0.00 0.000000 0 1 set_tid_address
+------ ----------- ----------- --------- --------- -------------------
+100.00 1.430866 258 5530 205 total

@@ -1,0 +1,17 @@
+import sharp from '/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/node_modules/sharp/dist/index.mjs';
+import fs from 'node:fs/promises';
+const report=JSON.parse(await fs.readFile('benchmarks/results/fixed-comparison-v4/results.json'));
+sharp.cache(false); sharp.concurrency(1);
+const rows=[];
+const rmse=(a,b)=>Math.sqrt(a.reduce((sum,v,i)=>sum+(v-b[i])**2,0)/a.length);
+async function rgb(file,w,h){let p=sharp(file,{density:72}).autoOrient();if(w)p=p.resize(w,h,{fit:'fill',kernel:'lanczos3'});return p.flatten({background:'#fff'}).toColourspace('srgb').removeAlpha().raw().toBuffer();}
+for(const r of report.records.filter(r=>r.iteration===1&&r.side==='rust')){
+ const s=report.records.find(x=>x.case===r.case&&x.side==='sharp'&&x.iteration===1);
+ for(const a of r.verification.images){
+  const b=s.verification.images.find(x=>x.source===a.source&&x.width===a.width&&x.height===a.height);
+  const original=await rgb(a.source,a.width,a.height),rust=await rgb(a.file),reference=await rgb(b.file);
+  const ma=await sharp(a.file).metadata(),mb=await sharp(b.file).metadata();
+  rows.push({case:r.case,source:a.source,width:a.width,height:a.height,rust_bytes:a.bytes,sharp_bytes:b.bytes,rust_source_rgb_rmse:rmse(rust,original),sharp_source_rgb_rmse:rmse(reference,original),pair_rgb_rmse:rmse(rust,reference),rust_alpha_rmse:a.alpha_rmse,sharp_alpha_rmse:b.alpha_rmse,rust_icc_bytes:ma.icc?.length??0,sharp_icc_bytes:mb.icc?.length??0});
+ }
+}
+await fs.writeFile('benchmarks/results/fixed-comparison-v4/quality.json',JSON.stringify(rows,null,2)+'\n');

@@ -1,0 +1,62 @@
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92053 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92054 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92055 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92056 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92057 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92058 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92059 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92060 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92061 attached
+/tmp/image-bench-audit/tools/usr/bin/strace: Process 92062 attached
+% time seconds usecs/call calls errors syscall
+------ ----------- ----------- --------- --------- ------------------
+70.72 0.376453 352 1067 25 futex
+24.89 0.132465 6307 21 epoll_pwait
+2.52 0.013420 8 1642 mprotect
+0.31 0.001650 4 358 110 statx
+0.25 0.001305 5 248 read
+0.22 0.001159 7 153 29 openat
+0.11 0.000575 4 136 close
+0.09 0.000505 7 69 madvise
+0.09 0.000500 3 134 mmap
+0.07 0.000364 3 119 munmap
+0.07 0.000351 35 10 clone3
+0.06 0.000340 5 63 rt_sigaction
+0.06 0.000317 4 74 lseek
+0.06 0.000310 6 49 rt_sigprocmask
+0.04 0.000223 8 26 14 fcntl
+0.04 0.000218 7 29 brk
+0.04 0.000204 6 30 getpid
+0.03 0.000170 12 14 write
+0.03 0.000163 14 11 prctl
+0.03 0.000137 45 3 io_uring_setup
+0.02 0.000130 4 29 fstat
+0.02 0.000127 4 26 3 stat
+0.02 0.000114 7 15 getuid
+0.02 0.000112 7 15 getegid
+0.02 0.000110 7 15 capget
+0.02 0.000109 7 15 getgid
+0.02 0.000101 6 15 geteuid
+0.02 0.000084 7 11 set_robust_list
+0.01 0.000074 18 4 2 access
+0.01 0.000074 6 11 rseq
+0.01 0.000069 8 8 prlimit64
+0.01 0.000069 23 3 io_uring_enter
+0.01 0.000047 11 4 pipe2
+0.01 0.000039 13 3 epoll_create1
+0.01 0.000034 6 5 5 ioctl
+0.01 0.000032 10 3 eventfd2
+0.01 0.000032 8 4 getrandom
+0.01 0.000031 15 2 uname
+0.00 0.000021 4 5 getcwd
+0.00 0.000021 21 1 1 mkdir
+0.00 0.000018 9 2 sched_getaffinity
+0.00 0.000014 2 5 gettid
+0.00 0.000009 0 18 pread64
+0.00 0.000000 0 1 execve
+0.00 0.000000 0 1 readlink
+0.00 0.000000 0 1 arch_prctl
+0.00 0.000000 0 1 set_tid_address
+0.00 0.000000 0 8 6 newfstatat
+------ ----------- ----------- --------- --------- ------------------
+100.00 0.532300 118 4487 195 total
