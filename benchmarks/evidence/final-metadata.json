@@ -1,0 +1,1566 @@
+{
+  "count": 390,
+  "failures": 0,
+  "images": [
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-1-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-1-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-2-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-2-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-3-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-3-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-4-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-4-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-5-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-noise-5-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-1-sharp/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-1-rust/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-2-sharp/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-2-rust/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-3-sharp/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-3-rust/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-4-sharp/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-4-rust/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-5-sharp/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-noise-5-rust/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-1-rust/noise.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-1-sharp/noise-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-2-rust/noise.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-2-sharp/noise-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-3-rust/noise.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-3-sharp/noise-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-4-rust/noise.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-4-sharp/noise-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-5-rust/noise.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-noise-5-sharp/noise-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-1-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-1-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-2-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-2-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-3-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-3-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-4-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-4-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-5-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-alpha-5-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-1-rust/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-1-sharp/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-2-rust/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-2-sharp/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-3-rust/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-3-sharp/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-4-rust/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-4-sharp/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-5-rust/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-alpha-5-sharp/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-1-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-1-rust/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-2-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-2-rust/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-3-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-3-rust/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-4-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-4-rust/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-5-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/preserve-alpha-5-rust/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-1-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-1-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-2-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-2-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-3-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-3-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-4-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-4-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-5-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/convert-translucent-5-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-1-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-1-rust/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-2-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-2-rust/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-3-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-3-rust/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-4-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-4-rust/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-5-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-final/resize-translucent-5-rust/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-1-rust/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-1-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-2-rust/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-2-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-3-rust/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-3-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-4-rust/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-4-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-5-rust/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-translucent-5-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-1-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-1-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-2-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-2-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-3-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-3-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-4-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-4-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-5-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-vector-5-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-1-rust/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-1-sharp/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-2-rust/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-2-sharp/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-3-rust/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-3-sharp/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-4-rust/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-4-sharp/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-5-rust/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-vector-5-sharp/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-1-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-1-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-2-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-2-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-3-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-3-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-4-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-4-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-5-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-earth-5-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-1-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-1-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-2-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-2-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-3-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-3-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-4-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-4-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-5-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-earth-5-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-1-sharp/earth-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-1-rust/earth.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-2-sharp/earth-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-2-rust/earth.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-3-sharp/earth-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-3-rust/earth.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-4-sharp/earth-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-4-rust/earth.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-5-sharp/earth-480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-earth-5-rust/earth.jpg.480w.jpg",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-1-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-1-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-2-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-2-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-3-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-3-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-4-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-4-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-5-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/convert-astronaut-5-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-1-sharp/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-1-rust/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-2-sharp/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-2-rust/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-3-sharp/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-3-rust/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-4-sharp/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-4-rust/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-5-sharp/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-astronaut-5-rust/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-1-rust/astronaut.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-1-sharp/astronaut-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-2-rust/astronaut.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-2-sharp/astronaut-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-3-rust/astronaut.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-3-sharp/astronaut-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-4-rust/astronaut.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-4-sharp/astronaut-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-5-rust/astronaut.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/preserve-astronaut-5-sharp/astronaut-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-sharp/earth-1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-sharp/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-rust/earth.jpg.1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-rust/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-1-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-sharp/earth-1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-sharp/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-rust/earth.jpg.1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-rust/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-2-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-sharp/earth-1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-sharp/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-rust/earth.jpg.1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-rust/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-3-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-sharp/earth-1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-sharp/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-rust/earth.jpg.1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-rust/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-4-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-sharp/earth-1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-sharp/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-sharp/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-rust/earth.jpg.1920w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-rust/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/srcset-photo-5-rust/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-1-rust/earth-exif6.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-1-sharp/earth-exif6-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-2-rust/earth-exif6.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-2-sharp/earth-exif6-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-3-rust/earth-exif6.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-3-sharp/earth-exif6-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-4-rust/earth-exif6.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-4-sharp/earth-exif6-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-5-rust/earth-exif6.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-batch2/resize-exif6-photo-5-sharp/earth-exif6-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-1-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-2-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-3-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-4-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-rust/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-flat-5-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-1-rust/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-2-rust/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-3-rust/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-4-rust/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/results/full-pinned-directories/directory-recursive-srcset-5-rust/nested/vector.svg.960w.webp",
+      "retained": []
+    }
+  ]
+}

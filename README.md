@@ -1,6 +1,8 @@
 # Image optimizer
 
-Convert individual images or directory trees to WebP, generate srcset variants, or resize while retaining a raster format. Uses in-process libvips with shrink-on-load. Defaults are quality 80, effort 6, and one libvips worker thread.
+Convert individual images or directory trees to WebP, generate srcset variants, or resize while retaining the source format. Uses in-process libvips with shrink-on-load. Defaults are quality 80, effort 6, and one libvips worker thread.
+
+For the measured Sharp performance profile, build the [pinned native runtime](probes/README.md) and use its private loader prefix. The CLI requires Linux and shared native libraries. [Performance acceptance](PERFORMANCE.md) records the tested scope.
 
 ## Build on Linux
 
@@ -105,4 +107,4 @@ cargo build --release
 
 Integration tests launch the actual CLI and decode generated outputs. They cover geometry, srcset names, alpha, orientation, JPEG/PNG/AVIF preserve mode, SVG rasterization and restrictions, nested output exclusion, corruption, overwrite behavior, symlinks, input identity, and argument validation. AVIF fixtures are generated through the installed native codec during tests, so missing AV1 support fails the tests.
 
-Speed and peak RSS parity with Sharp remain unproven until the independent benchmark worker runs the shared harness. This implementation makes no parity claim.
+The pinned native runtime passes all 21 tested latency and peak-RSS comparisons against Sharp. See [PERFORMANCE.md](PERFORMANCE.md) for ranges, exact runtime requirements, output audits and limits. Distribution-only codecs do not meet every gate. Use the [pinned runtime setup](probes/README.md) for the measured configuration.
