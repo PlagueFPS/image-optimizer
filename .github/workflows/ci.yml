@@ -1,0 +1,16 @@
+name: Rust
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: sudo apt-get update && sudo apt-get install -y libvips-dev libvips-tools libheif-plugin-aomdec libheif-plugin-aomenc
+      - run: cargo fmt --check
+      - run: cargo check --locked
+      - run: cargo test --locked
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo build --release --locked
