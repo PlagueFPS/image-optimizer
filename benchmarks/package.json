@@ -1,0 +1,13 @@
+{
+  "name": "image-optimizer-benchmarks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fixtures": "node fixtures.mjs",
+    "bench": "python3 run.py",
+    "test": "node --test verify.test.mjs"
+  },
+  "dependencies": {
+    "sharp": "0.35.5"
+  }
+}

@@ -1,0 +1,894 @@
+{
+  "schema": 1,
+  "acceptance": "pending",
+  "verdict": "inconclusive",
+  "claim": "Compare end-to-end latency and peak RSS only after option matching, profiling and output checks.",
+  "args": {
+    "binary": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/target/release/image-optimizer",
+    "skip_build": false,
+    "sharp_only": true,
+    "runs": 5,
+    "cpu": 1,
+    "quality": 80,
+    "effort": 6,
+    "case": [
+      "resize-noise",
+      "preserve-translucent"
+    ],
+    "timeout": 600,
+    "results": "benchmarks/results/final-timer-validation",
+    "backend_notes": null
+  },
+  "records": [
+    {
+      "case": "resize-noise",
+      "iteration": 1,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-1-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-1-sharp",
+        "recursive": false,
+        "widths": [
+          960
+        ],
+        "format": "webp",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 0.22525036399929377,
+      "load_after": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":0.22,\"user_s\":0.20,\"system_s\":0.02,\"peak_rss_kib\":85764,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 0.22,
+        "user_s": 0.2,
+        "system_s": 0.02,
+        "peak_rss_kib": 85764,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-1-sharp/noise-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+            "thumbnail_rmse": 4.678185189436889,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 3,
+            "bytes": 70160,
+            "sha256": "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+          }
+        ]
+      }
+    },
+    {
+      "case": "resize-noise",
+      "iteration": 2,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-2-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-2-sharp",
+        "recursive": false,
+        "widths": [
+          960
+        ],
+        "format": "webp",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 0.22369542399974307,
+      "load_after": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":0.22,\"user_s\":0.20,\"system_s\":0.02,\"peak_rss_kib\":85496,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 0.22,
+        "user_s": 0.2,
+        "system_s": 0.02,
+        "peak_rss_kib": 85496,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-2-sharp/noise-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+            "thumbnail_rmse": 4.678185189436889,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 3,
+            "bytes": 70160,
+            "sha256": "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+          }
+        ]
+      }
+    },
+    {
+      "case": "resize-noise",
+      "iteration": 3,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-3-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-3-sharp",
+        "recursive": false,
+        "widths": [
+          960
+        ],
+        "format": "webp",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 0.22178999300012947,
+      "load_after": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":0.22,\"user_s\":0.21,\"system_s\":0.01,\"peak_rss_kib\":85592,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 0.22,
+        "user_s": 0.21,
+        "system_s": 0.01,
+        "peak_rss_kib": 85592,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-3-sharp/noise-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+            "thumbnail_rmse": 4.678185189436889,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 3,
+            "bytes": 70160,
+            "sha256": "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+          }
+        ]
+      }
+    },
+    {
+      "case": "resize-noise",
+      "iteration": 4,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-4-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-4-sharp",
+        "recursive": false,
+        "widths": [
+          960
+        ],
+        "format": "webp",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 0.22078664699984074,
+      "load_after": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":0.21,\"user_s\":0.21,\"system_s\":0.01,\"peak_rss_kib\":86068,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 0.21,
+        "user_s": 0.21,
+        "system_s": 0.01,
+        "peak_rss_kib": 86068,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-4-sharp/noise-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+            "thumbnail_rmse": 4.678185189436889,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 3,
+            "bytes": 70160,
+            "sha256": "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+          }
+        ]
+      }
+    },
+    {
+      "case": "resize-noise",
+      "iteration": 5,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-5-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-5-sharp",
+        "recursive": false,
+        "widths": [
+          960
+        ],
+        "format": "webp",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 0.21940147100031027,
+      "load_after": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":0.21,\"user_s\":0.19,\"system_s\":0.03,\"peak_rss_kib\":85960,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 0.21,
+        "user_s": 0.19,
+        "system_s": 0.03,
+        "peak_rss_kib": 85960,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/resize-noise-5-sharp/noise-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/noise.jpg",
+            "thumbnail_rmse": 4.678185189436889,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 3,
+            "bytes": 70160,
+            "sha256": "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+          }
+        ]
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 1,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-1-sharp.job.json"
+      ],
+      "load_before": [
+        1.04443359375,
+        0.5458984375,
+        0.32666015625
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-1-sharp",
+        "recursive": false,
+        "widths": [
+          480
+        ],
+        "format": "preserve",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 3.5589660059995367,
+      "load_after": [
+        1.12109375,
+        0.5703125,
+        0.3359375
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":3.55,\"user_s\":3.47,\"system_s\":0.09,\"peak_rss_kib\":199428,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 3.55,
+        "user_s": 3.47,
+        "system_s": 0.09,
+        "peak_rss_kib": 199428,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-1-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7975315829399678,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "bytes": 57580,
+            "sha256": "e614a912491dbf4cfa2d7eb0f5c347f8419899bbf9f6cb656982fd7e7d7a042b"
+          }
+        ]
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 2,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-2-sharp.job.json"
+      ],
+      "load_before": [
+        1.12109375,
+        0.5703125,
+        0.3359375
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-2-sharp",
+        "recursive": false,
+        "widths": [
+          480
+        ],
+        "format": "preserve",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 3.556572337000034,
+      "load_after": [
+        1.19189453125,
+        0.59423828125,
+        0.34521484375
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":3.55,\"user_s\":3.45,\"system_s\":0.10,\"peak_rss_kib\":199764,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 3.55,
+        "user_s": 3.45,
+        "system_s": 0.1,
+        "peak_rss_kib": 199764,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-2-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7975315829399678,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "bytes": 57580,
+            "sha256": "e614a912491dbf4cfa2d7eb0f5c347f8419899bbf9f6cb656982fd7e7d7a042b"
+          }
+        ]
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 3,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-3-sharp.job.json"
+      ],
+      "load_before": [
+        1.19189453125,
+        0.59423828125,
+        0.34521484375
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-3-sharp",
+        "recursive": false,
+        "widths": [
+          480
+        ],
+        "format": "preserve",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 3.566908157999933,
+      "load_after": [
+        1.2568359375,
+        0.61767578125,
+        0.3544921875
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":3.56,\"user_s\":3.45,\"system_s\":0.11,\"peak_rss_kib\":199404,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 3.56,
+        "user_s": 3.45,
+        "system_s": 0.11,
+        "peak_rss_kib": 199404,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-3-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7975315829399678,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "bytes": 57580,
+            "sha256": "e614a912491dbf4cfa2d7eb0f5c347f8419899bbf9f6cb656982fd7e7d7a042b"
+          }
+        ]
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 4,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-4-sharp.job.json"
+      ],
+      "load_before": [
+        1.2568359375,
+        0.61767578125,
+        0.3544921875
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-4-sharp",
+        "recursive": false,
+        "widths": [
+          480
+        ],
+        "format": "preserve",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 3.6423582040006295,
+      "load_after": [
+        1.31640625,
+        0.640625,
+        0.36376953125
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":3.64,\"user_s\":3.55,\"system_s\":0.10,\"peak_rss_kib\":199416,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 3.64,
+        "user_s": 3.55,
+        "system_s": 0.1,
+        "peak_rss_kib": 199416,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-4-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7975315829399678,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "bytes": 57580,
+            "sha256": "e614a912491dbf4cfa2d7eb0f5c347f8419899bbf9f6cb656982fd7e7d7a042b"
+          }
+        ]
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 5,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/reference.mjs",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-5-sharp.job.json"
+      ],
+      "load_before": [
+        1.31640625,
+        0.640625,
+        0.36376953125
+      ],
+      "job": {
+        "input": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+        "output": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-5-sharp",
+        "recursive": false,
+        "widths": [
+          480
+        ],
+        "format": "preserve",
+        "quality": 80,
+        "effort": 6,
+        "cpu": 1
+      },
+      "exit_code": 0,
+      "wall_high_resolution_s": 3.8157630980003887,
+      "load_after": [
+        1.45166015625,
+        0.68017578125,
+        0.3779296875
+      ],
+      "gnu_time_raw": [
+        "{\"elapsed_s\":3.81,\"user_s\":3.67,\"system_s\":0.13,\"peak_rss_kib\":199128,\"exit_code\":0}"
+      ],
+      "resources": {
+        "elapsed_s": 3.81,
+        "user_s": 3.67,
+        "system_s": 0.13,
+        "peak_rss_kib": 199128,
+        "exit_code": 0
+      },
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/results/final-timer-validation/preserve-translucent-5-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-8b1715c6/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7975315829399678,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "bytes": 57580,
+            "sha256": "e614a912491dbf4cfa2d7eb0f5c347f8419899bbf9f6cb656982fd7e7d7a042b"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "started": "2026-10-29T18:29:00Z",
+  "machine": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "cpu_count": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "load": [
+      1.04443359375,
+      0.5458984375,
+      0.32666015625
+    ],
+    "uptime": "14:29:00 up  3:48,  1 user,  load average: 1.04, 0.55, 0.33",
+    "cpu_info": "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 0\ncpu cores\t: 8\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 0\ncpu cores\t: 8\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 1\ncpu cores\t: 8\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 1\ncpu cores\t: 8\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 4\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 2\ncpu cores\t: 8\napicid\t\t: 4\ninitial apicid\t: 4\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 5\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 2\ncpu cores\t: 8\napicid\t\t: 5\ninitial apicid\t: 5\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 6\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 3\ncpu cores\t: 8\napicid\t\t: 6\ninitial apicid\t: 6\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 7\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 3\ncpu cores\t: 8\napicid\t\t: 7\ninitial apicid\t: 7\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 8\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 4\ncpu cores\t: 8\napicid\t\t: 8\ninitial apicid\t: 8\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 9\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 4\ncpu cores\t: 8\napicid\t\t: 9\ninitial apicid\t: 9\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 10\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 5\ncpu cores\t: 8\napicid\t\t: 10\ninitial apicid\t: 10\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 11\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 5\ncpu cores\t: 8\napicid\t\t: 11\ninitial apicid\t: 11\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 12\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 6\ncpu cores\t: 8\napicid\t\t: 12\ninitial apicid\t: 12\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 13\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 6\ncpu cores\t: 8\napicid\t\t: 13\ninitial apicid\t: 13\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 14\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 7\ncpu cores\t: 8\napicid\t\t: 14\ninitial apicid\t: 14\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 15\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 151\nmodel name\t: 12th Gen Intel(R) Core(TM) i5-12600K\nstepping\t: 2\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 3686.400\ncache size\t: 20480 KB\nphysical id\t: 0\nsiblings\t: 16\ncore id\t\t: 7\ncpu cores\t: 8\napicid\t\t: 15\ninitial apicid\t: 15\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 28\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves avx_vnni vnmi umip waitpkg gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear serialize ibt flush_l1d arch_capabilities\nvmx flags\t: vnmi invvpid ept_x_only ept_ad ept_1gb tsc_offset vtpr ept vpid unrestricted_guest ept_mode_based_exec tsc_scaling usr_wait_pause\nbugs\t\t: spectre_v1 spectre_v2 spec_store_bypass swapgs retbleed eibrs_pbrsb rfds bhi spectre_v2_user\nbogomips\t: 7372.80\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\n",
+    "memory_info": "MemTotal:       16234120 kB\nMemFree:         9593628 kB\nMemAvailable:   12397884 kB\nBuffers:           35116 kB\nCached:          3014196 kB\nSwapCached:            0 kB\nActive:          1287532 kB\nInactive:        4464068 kB\nActive(anon):      27200 kB\nInactive(anon):  2879672 kB\nActive(file):    1260332 kB\nInactive(file):  1584396 kB\nUnevictable:           4 kB\nMlocked:               4 kB\nSwapTotal:       4194304 kB\nSwapFree:        4194304 kB\nDirty:             33000 kB\nWriteback:           300 kB\nAnonPages:       2700880 kB\nMapped:           798076 kB\nShmem:            204540 kB\nKReclaimable:     207624 kB\nSlab:             325944 kB\nSReclaimable:     207624 kB\nSUnreclaim:       118320 kB\nKernelStack:        9968 kB\nPageTables:        34060 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    12311364 kB\nCommitted_AS:    4187956 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       39720 kB\nVmallocChunk:          0 kB\nPercpu:             7744 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   1142784 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:     67584 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:       58368 kB\nDirectMap2M:     6088704 kB\nDirectMap1G:    18874368 kB\n"
+  },
+  "toolchain": {
+    "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.96.0\nLLVM version: 22.1.2",
+    "cargo": "cargo 1.96.0 (30a34c682 2026-05-25)"
+  },
+  "git_head": "aa1e3e83a6ae66955212296b7150f29ebec6a615",
+  "git_status": "A  benchmarks/.gitignore\nA  benchmarks/README.md\nA  benchmarks/adapter.py\nA  benchmarks/fixtures.lock.json\nA  benchmarks/fixtures.mjs\nA  benchmarks/package-lock.json\nA  benchmarks/package.json\nA  benchmarks/reference.mjs\nAM benchmarks/run.py\nAM benchmarks/verify.mjs\nA  benchmarks/verify.test.mjs",
+  "sharp": {
+    "node": "v24.15.0",
+    "versions": {
+      "aom": "3.15.1",
+      "archive": "3.8.9",
+      "cairo": "1.18.6",
+      "cgif": "0.5.4",
+      "exif": "0.6.26",
+      "expat": "2.8.5",
+      "ffi": "3.8.0",
+      "fontconfig": "2.18.3",
+      "freetype": "2.14.3",
+      "fribidi": "1.0.17",
+      "glib": "2.90.0",
+      "harfbuzz": "14.5.0",
+      "heif": "1.23.5",
+      "highway": "1.4.0",
+      "imagequant": "2.4.1",
+      "lcms": "2.19.1",
+      "mozjpeg": "0826579",
+      "pango": "1.58.2",
+      "pixman": "0.46.4",
+      "png": "1.6.58",
+      "proxy-libintl": "0.5",
+      "rsvg": "2.63.2",
+      "tiff": "4.7.2",
+      "uhdr": "2.0.2",
+      "vips": "8.18.7",
+      "webp": "1.6.0",
+      "xml2": "2.15.4",
+      "zlib-ng": "2.3.3",
+      "sharp": "0.35.5"
+    },
+    "settings": {
+      "kernel": "lanczos3",
+      "withoutEnlargement": true,
+      "autoOrient": true,
+      "svgDensity": 72,
+      "cache": false,
+      "fileConcurrency": 1,
+      "webp": {
+        "alphaQuality": 100,
+        "lossless": false,
+        "nearLossless": false,
+        "smartSubsample": false
+      },
+      "jpeg": {
+        "progressive": false,
+        "chromaSubsampling": "4:2:0",
+        "mozjpeg": false
+      },
+      "png": {
+        "compressionLevel": 6,
+        "adaptiveFiltering": false,
+        "palette": false
+      },
+      "avif": {
+        "chromaSubsampling": "4:4:4",
+        "bitdepth": 8,
+        "lossless": false
+      }
+    }
+  },
+  "time_version": "time (GNU Time) UNKNOWN\nCopyright (C) 2018 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by David Keppel, David MacKenzie, and Assaf Gordon.",
+  "harness_sha256": {
+    "reference.mjs": "02f032f8be0e6fdc194a4ec57e3d5e22a7ce932abc03cfdba1476f60d46513cc",
+    "run.py": "dc920294600e19b23450c842fc61b5d001dbf8466e7e7c91a13863939600ee45",
+    "package-lock.json": "b69b68d75d0806802e83ccd6635fd182bce1a48c0bdc85ddbdc177ec481f5e33",
+    "adapter.py": "7ce4105fb10b520b8792e815b4ba0bbe2b9632d3bbf5f9d1c4b173dd5704db0a",
+    "verify.test.mjs": "f3dc807e890ceb35e0611630306b3e78a9b7104fb9a8dc1db3e2eff3050bc5ab",
+    "fixtures.mjs": "b3629541812c0465a38399166d021eb3aad54e3aabfd11ec211998a869beca34",
+    "verify.mjs": "2f049816064d8ac81e4df139b4566cdac6fbd8a55a51e7002bf49b70e976b452"
+  },
+  "fixtures": {
+    "generator": "fixtures.mjs xorshift32 seed=123456789, 3000x2000 RGBA",
+    "versions": {
+      "aom": "3.15.1",
+      "archive": "3.8.9",
+      "cairo": "1.18.6",
+      "cgif": "0.5.4",
+      "exif": "0.6.26",
+      "expat": "2.8.5",
+      "ffi": "3.8.0",
+      "fontconfig": "2.18.3",
+      "freetype": "2.14.3",
+      "fribidi": "1.0.17",
+      "glib": "2.90.0",
+      "harfbuzz": "14.5.0",
+      "heif": "1.23.5",
+      "highway": "1.4.0",
+      "imagequant": "2.4.1",
+      "lcms": "2.19.1",
+      "mozjpeg": "0826579",
+      "pango": "1.58.2",
+      "pixman": "0.46.4",
+      "png": "1.6.58",
+      "proxy-libintl": "0.5",
+      "rsvg": "2.63.2",
+      "tiff": "4.7.2",
+      "uhdr": "2.0.2",
+      "vips": "8.18.7",
+      "webp": "1.6.0",
+      "xml2": "2.15.4",
+      "zlib-ng": "2.3.3",
+      "sharp": "0.35.5"
+    },
+    "sources": [
+      {
+        "name": "earth.jpg",
+        "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg",
+        "credit": "NASA Visible Earth, Blue Marble. NASA imagery usage guidelines apply.",
+        "license": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      },
+      {
+        "name": "astronaut.png",
+        "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.19.3/skimage/data/astronaut.png",
+        "credit": "NASA photograph of Eileen Collins, distributed by scikit-image as public domain.",
+        "license": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut"
+      }
+    ],
+    "files": [
+      {
+        "path": "generated/noise.jpg",
+        "sha256": "ac922268513a83532d7e777f8831344c9699fcdedd048a55ef634deaef45a606",
+        "bytes": 2986935,
+        "width": 3000,
+        "height": 2000,
+        "format": "jpeg"
+      },
+      {
+        "path": "generated/alpha.png",
+        "sha256": "def754bb3be8c4a0e23d8a2b1342678e06d48208b21ef4b905138ac401943374",
+        "bytes": 21678373,
+        "width": 3000,
+        "height": 2000,
+        "format": "png"
+      },
+      {
+        "path": "generated/translucent.avif",
+        "sha256": "a93ed7eb87a82cfb697f2a57591801a42cd1cdc1bdeac53c4bc4185d528e0449",
+        "bytes": 3256142,
+        "width": 3000,
+        "height": 2000,
+        "format": "heif"
+      },
+      {
+        "path": "generated/vector.svg",
+        "sha256": "f2c4bbef75a53df67d5c1791ed03c4f218916e3599bcfdb7923139dd797a5cfd",
+        "bytes": 109214,
+        "width": 3000,
+        "height": 2000,
+        "format": "svg"
+      },
+      {
+        "path": "photos/earth.jpg",
+        "sha256": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+        "bytes": 266599,
+        "width": 2048,
+        "height": 1024,
+        "format": "jpeg"
+      },
+      {
+        "path": "photos/astronaut.png",
+        "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+        "bytes": 791555,
+        "width": 512,
+        "height": 512,
+        "format": "png"
+      }
+    ]
+  },
+  "all_fixture_hashes": {
+    "flat/alpha.png": "def754bb3be8c4a0e23d8a2b1342678e06d48208b21ef4b905138ac401943374",
+    "flat/astronaut.png": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "flat/earth.jpg": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+    "flat/noise.jpg": "ac922268513a83532d7e777f8831344c9699fcdedd048a55ef634deaef45a606",
+    "flat/translucent.avif": "a93ed7eb87a82cfb697f2a57591801a42cd1cdc1bdeac53c4bc4185d528e0449",
+    "flat/vector.svg": "f2c4bbef75a53df67d5c1791ed03c4f218916e3599bcfdb7923139dd797a5cfd",
+    "generated/alpha.png": "def754bb3be8c4a0e23d8a2b1342678e06d48208b21ef4b905138ac401943374",
+    "generated/noise.jpg": "ac922268513a83532d7e777f8831344c9699fcdedd048a55ef634deaef45a606",
+    "generated/translucent.avif": "a93ed7eb87a82cfb697f2a57591801a42cd1cdc1bdeac53c4bc4185d528e0449",
+    "generated/vector.svg": "f2c4bbef75a53df67d5c1791ed03c4f218916e3599bcfdb7923139dd797a5cfd",
+    "manifest.json": "6f81b33190fa036a8704c28dc63806f169d5f12a9fced46c5c9e5a81c4005181",
+    "photos/astronaut.png": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "photos/earth.jpg": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+    "recursive/nested/alpha.png": "def754bb3be8c4a0e23d8a2b1342678e06d48208b21ef4b905138ac401943374",
+    "recursive/nested/astronaut.png": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "recursive/nested/earth.jpg": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+    "recursive/nested/noise.jpg": "ac922268513a83532d7e777f8831344c9699fcdedd048a55ef634deaef45a606",
+    "recursive/nested/translucent.avif": "a93ed7eb87a82cfb697f2a57591801a42cd1cdc1bdeac53c4bc4185d528e0449",
+    "recursive/nested/vector.svg": "f2c4bbef75a53df67d5c1791ed03c4f218916e3599bcfdb7923139dd797a5cfd"
+  },
+  "thread_environment": {
+    "SHARP_IGNORE_GLOBAL_LIBVIPS": "1",
+    "UV_THREADPOOL_SIZE": "1",
+    "VIPS_CONCURRENCY": "1",
+    "RAYON_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "summary": [
+    {
+      "case": "resize-noise",
+      "side": "sharp",
+      "successful_runs": 5,
+      "wall_s": {
+        "median": 0.22178999300012947,
+        "minimum": 0.21940147100031027,
+        "maximum": 0.22525036399929377
+      },
+      "peak_rss_kib": {
+        "median": 85764,
+        "minimum": 85496,
+        "maximum": 86068
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "side": "sharp",
+      "successful_runs": 5,
+      "wall_s": {
+        "median": 3.566908157999933,
+        "minimum": 3.556572337000034,
+        "maximum": 3.8157630980003887
+      },
+      "peak_rss_kib": {
+        "median": 199416,
+        "minimum": 199128,
+        "maximum": 199764
+      }
+    }
+  ],
+  "completed": true
+}
