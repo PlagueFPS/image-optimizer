@@ -93,7 +93,7 @@ The reference sets the following options explicitly. Compare each with the produ
 
 - Auto-orient EXIF input, preserve aspect ratio, and prevent enlargement. Resize uses Lanczos3. SVG rasterization uses density 72. Metadata is stripped by Sharp's default output behavior.
 - WebP uses lossy quality 80, effort 6, alpha quality 100, and disables near-lossless, lossless, and smart subsampling.
-- JPEG uses quality 80, baseline output, 4:2:0 chroma, and disables mozjpeg. PNG uses compression level 6, no palette, and no adaptive filtering. AVIF uses quality 80, effort 6, 4:4:4 chroma, 8-bit depth, and lossy encoding.
+- JPEG uses quality 80, baseline output, 4:2:0 chroma, and disables mozjpeg. PNG uses compression level 6, no palette, and adaptive filtering. AVIF uses quality 80, effort 6, 4:4:4 chroma, 8-bit depth, and lossy encoding.
 - `sharp.cache(false)` disables the libvips operation cache. `sharp.concurrency(cpu)` controls libvips workers. Files and widths run sequentially. `UV_THREADPOOL_SIZE`, `VIPS_CONCURRENCY`, `RAYON_NUM_THREADS`, and `OMP_NUM_THREADS` receive the same CPU value. These settings are thread requests, not an OS CPU quota. Check actual native encoder threading and the Rust scheduling policy before accepting a comparison.
 
 The [Sharp output options](https://sharp.pixelplumbing.com/api-output/) and [global properties](https://sharp.pixelplumbing.com/api-utility/) describe these controls. The installed package and lockfile determine actual behavior.

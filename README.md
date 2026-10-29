@@ -46,7 +46,7 @@ Output names keep the full source filename, such as `photo.jpg.webp`, `photo.png
 
 Width and height define a bounding box with preserved aspect ratio and no crop. A single bound constrains only that axis. Small images retain their original size unless `--upscale` is set. Srcset consumers must use the actual `width` in the report, rather than assuming the requested width was reached. Bounds are integers from 1 to 32768. At most 32 unique widths are allowed.
 
-`--format preserve` reencodes JPEG, PNG, or AVIF in that format. Resizing requires reencoding and is not byte-lossless. PNG uses lossless compression without palette reduction, but orientation, color conversion, and 8-bit output can still change pixel values. SVG preserve is explicitly unsupported. Use WebP to rasterize supported SVGs.
+`--format preserve` reencodes JPEG, PNG, or AVIF in that format. Resizing requires reencoding and is not byte-lossless. PNG uses lossless compression without palette reduction, but orientation, color conversion, and 8-bit output can still change pixel values. SVG preserve changes the root viewport while retaining its viewBox and vector content. If no viewBox exists, one is added from the intrinsic dimensions. The same static, self-contained SVG restrictions apply.
 
 ## Output and failure contract
 

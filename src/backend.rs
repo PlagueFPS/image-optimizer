@@ -47,10 +47,6 @@ impl Backend {
         })
     }
     fn convert(&self, job: &PlannedOutput, args: &Args) -> Result<Output> {
-        ensure!(
-            job.format != Format::Svg,
-            "SVG preserve is unsupported; use --format webp to rasterize"
-        );
         reject_symlinks(&job.input)?;
         let mut file = OpenOptions::new()
             .read(true)
@@ -122,7 +118,7 @@ impl Backend {
             &ops::ThumbnailOptions {
                 height: h,
                 size,
-                output_profile: Some("srgb".into()),
+                output_profile: None,
                 fail_on: ops::FailOn::Warning,
                 ..Default::default()
             },
@@ -195,7 +191,44 @@ impl Backend {
                     ..Default::default()
                 },
             )?,
-            Format::Svg => unreachable!(),
+            Format::Svg => {
+                file.rewind()?;
+                let mut xml = String::new();
+                file.read_to_string(&mut xml)?;
+                let document = roxmltree::Document::parse(&xml)?;
+                let root = document.root_element();
+                let mut edits = Vec::new();
+                let mut added = String::new();
+                for (name, value) in [
+                    ("width", result.width.to_string()),
+                    ("height", result.height.to_string()),
+                    ("viewBox", format!("0 0 {width} {height}")),
+                ] {
+                    if let Some(attribute) = root
+                        .attributes()
+                        .find(|a| a.name() == name && a.namespace().is_none())
+                    {
+                        if name != "viewBox" {
+                            edits.push((attribute.range_value(), value));
+                        }
+                    } else {
+                        added.push_str(&format!(" {name}=\"{value}\""));
+                    }
+                }
+                let start = root.range().start;
+                let name_end = start
+                    + 1
+                    + xml[start + 1..]
+                        .find(|c: char| c.is_whitespace() || c == '>' || c == '/')
+                        .context("invalid SVG root")?;
+                edits.push((name_end..name_end, added));
+                drop(document);
+                edits.sort_by_key(|(range, _)| std::cmp::Reverse(range.start));
+                for (range, value) in edits {
+                    xml.replace_range(range, &value);
+                }
+                fs::write(&filename, xml)?;
+            }
         }
         result.bytes = Some(temp.as_file().metadata()?.len());
         temp.as_file().sync_all()?;
@@ -262,7 +295,7 @@ fn validate_container(file: &mut File, format: Format) -> Result<()> {
                     !value.contains('\\'),
                     "SVG escaped attribute values are unsupported"
                 );
-                if lowercase.contains("url") {
+                if lowercase.contains("url(") {
                     ensure!(
                         lowercase.starts_with("url(#")
                             && value.ends_with(')')

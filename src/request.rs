@@ -35,7 +35,7 @@ pub struct Args {
     /// Fit within this height, optionally combined with width.
     pub height: Option<u32>,
     #[arg(long, value_enum, default_value = "webp")]
-    /// Output encoding. Preserve reencodes raster images; SVG preserve is unsupported.
+    /// Output encoding. Preserve reencodes rasters or resizes the SVG viewport.
     pub format: Encoding,
     #[arg(long, default_value_t = 80, value_parser = clap::value_parser!(u8).range(1..=100))]
     /// Lossy JPEG, AVIF, or WebP quality. PNG remains lossless.

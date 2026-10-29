@@ -8,7 +8,7 @@ export const settings = {
   svgDensity: 72, cache: false, fileConcurrency: 1,
   webp: { alphaQuality: 100, lossless: false, nearLossless: false, smartSubsample: false },
   jpeg: { progressive: false, chromaSubsampling: '4:2:0', mozjpeg: false },
-  png: { compressionLevel: 6, adaptiveFiltering: false, palette: false },
+  png: { compressionLevel: 6, adaptiveFiltering: true, palette: false },
   avif: { chromaSubsampling: '4:4:4', bitdepth: 8, lossless: false },
 };
 

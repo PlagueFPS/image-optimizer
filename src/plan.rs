@@ -225,27 +225,31 @@ pub fn build(request: &Request) -> Result<Plan> {
                 "duplicate output: {}",
                 output.display()
             );
-            reject_symlinks(&output)?;
-            if output.exists() {
-                ensure!(
-                    output.is_file(),
-                    "output is not a regular file: {}",
-                    output.display()
-                );
-                let metadata = fs::metadata(&output)?;
-                ensure!(
-                    !input_identities.contains(&(metadata.dev(), metadata.ino())),
-                    "output aliases an input: {}",
-                    output.display()
-                );
-                if !args.overwrite {
-                    plan.errors.push(Failure {
-                        input: source.clone(),
-                        output: Some(output),
-                        error: "output exists (use --overwrite)".into(),
-                    });
-                    continue;
+            let validation = (|| -> Result<()> {
+                reject_symlinks(&output)?;
+                if output.exists() {
+                    ensure!(
+                        output.is_file(),
+                        "output is not a regular file: {}",
+                        output.display()
+                    );
+                    let metadata = fs::metadata(&output)?;
+                    ensure!(
+                        !input_identities.contains(&(metadata.dev(), metadata.ino())),
+                        "output aliases an input: {}",
+                        output.display()
+                    );
+                    ensure!(args.overwrite, "output exists (use --overwrite)");
                 }
+                Ok(())
+            })();
+            if let Err(error) = validation {
+                plan.errors.push(Failure {
+                    input: source.clone(),
+                    output: Some(output),
+                    error: format!("{error:#}"),
+                });
+                continue;
             }
             plan.outputs.push(PlannedOutput {
                 input: source.clone(),

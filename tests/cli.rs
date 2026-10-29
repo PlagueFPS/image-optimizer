@@ -215,10 +215,26 @@ fn svg_static_and_restrictions() {
     )
     .to_rgba8();
     assert_eq!(img.get_pixel(39, 0).0[3], 0);
-    assert!(
-        !invoke(&input, &dest, &["--format", "preserve"])
-            .status
-            .success()
+    let preserved = invoke(&input, &dest, &["--format", "preserve", "--width", "20"]);
+    assert!(preserved.status.success(), "{preserved:?}");
+    let vector = fs::read_to_string(dest.join("x.svg.20w.svg")).unwrap();
+    let document = roxmltree::Document::parse(&vector).unwrap();
+    assert_eq!(document.root_element().attribute("width"), Some("20"));
+    assert_eq!(document.root_element().attribute("height"), Some("10"));
+    assert_eq!(
+        document.root_element().attribute("viewBox"),
+        Some("0 0 80 40")
+    );
+    let rerendered = invoke(
+        &dest.join("x.svg.20w.svg"),
+        &temp.path().join("rerendered"),
+        &[],
+    );
+    assert!(rerendered.status.success(), "{rerendered:?}");
+    assert_image(
+        &temp.path().join("rerendered/x.svg.20w.svg.webp"),
+        (20, 10),
+        image::ImageFormat::WebP,
     );
     for content in [
         r#"<image href="file:///etc/passwd"/>"#,
@@ -448,4 +464,35 @@ fn non_utf8_names_fail_explicitly_without_stopping_other_inputs() {
     assert!(!result.status.success());
     assert_eq!(report(&result)["outputs"].as_array().unwrap().len(), 1);
     assert_eq!(report(&result)["errors"].as_array().unwrap().len(), 1);
+}
+
+#[test]
+fn reviewed_metadata_svg_and_independent_failure_contracts() {
+    let temp = TempDir::new().unwrap();
+    let input = temp.path().join("input");
+    fs::create_dir(&input).unwrap();
+    png(&input.join("a.png"));
+    png(&input.join("b.png"));
+    let dest = temp.path().join("out");
+    fs::create_dir_all(dest.join("a.png.webp")).unwrap();
+    let result = invoke(&input, &dest, &[]);
+    assert!(!result.status.success());
+    assert_eq!(report(&result)["outputs"].as_array().unwrap().len(), 1);
+    let bytes = fs::read(dest.join("b.png.webp")).unwrap();
+    assert!(!bytes.windows(4).any(|w| w == b"ICCP"));
+    let svg = temp.path().join("gradient.svg");
+    fs::write(&svg, r##"<svg xmlns="http://www.w3.org/2000/svg" width="80" height="40"><defs><linearGradient id="urlGradient"><stop stop-color="red"/><stop offset="1" stop-color="blue"/></linearGradient></defs><rect width="80" height="40" fill="url(#urlGradient)"/></svg>"##).unwrap();
+    let result = invoke(&svg, &dest, &[]);
+    assert!(result.status.success(), "{result:?}");
+    assert_image(
+        &dest.join("gradient.svg.webp"),
+        (80, 40),
+        image::ImageFormat::WebP,
+    );
+    let result = Command::new(env!("CARGO_BIN_EXE_image-optimizer"))
+        .current_dir(temp.path())
+        .args(["missing.png", "--out-dir", "out", "--json"])
+        .output()
+        .unwrap();
+    assert!(Path::new(report(&result)["errors"][0]["input"].as_str().unwrap()).is_absolute());
 }

@@ -13,3 +13,6 @@ ts	phase	decision	why	evidence	result
 2026-10-29T18:35:00Z	verification	Run format check check tests strict Clippy release build and release CLI format checks	Prove behavior on actual encoded outputs	tests/cli.rs	15 integration tests pass; release JPEG PNG AVIF SVG checks pass
 2026-10-29T18:35:30Z	audit	Correct the shape row evidence to src/request.rs without its leading space	Keep evidence pointers resolvable	src/request.rs	corrected evidence; prior row retained
 2026-10-29T18:36:00Z	review	Leave independent review and Sharp measurement to the parent	User prohibited delegation and assigned benchmark ownership separately	DESIGN.md	no subagents; no benchmarks edits; no parity claim
+2026-10-29T18:41:32.736782+00:00	review	Fix ICC embedding SVG URL false positives independent destination errors and relative global errors	Four executable independent review repros exposed contract violations	tests/cli.rs	16 integration tests pass
+2026-10-29T18:41:32.736782+00:00	formats	Implement SVG preserve viewport resizing	Resize-only requirement should retain vector format	src/backend.rs	CLI SVG rerender geometry passes
+2026-10-29T18:41:32.736782+00:00	benchmark	Enable Sharp adaptive PNG filtering to match production	Initial reference used a different PNG filter policy	benchmarks/reference.mjs	Initial run exploratory; fresh run required

@@ -17,7 +17,12 @@ fn main() {
     let args = Args::parse();
     let json = args.json;
     let dry_run = args.dry_run;
-    let input = std::path::PathBuf::from(args.input.to_string_lossy().as_ref());
+    let input = plan::absolute(&args.input).unwrap_or_else(|_| {
+        std::env::current_dir()
+            .unwrap_or_default()
+            .join(&args.input)
+    });
+    let input = std::path::PathBuf::from(input.to_string_lossy().as_ref());
     let result = (|| -> anyhow::Result<Report> {
         let request = Request::new(args)?;
         let plan = plan::build(&request)?;
