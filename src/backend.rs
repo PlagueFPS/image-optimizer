@@ -118,7 +118,7 @@ impl Backend {
             &ops::ThumbnailOptions {
                 height: h,
                 size,
-                output_profile: None,
+                output_profile: Some("sRGB".into()),
                 fail_on: ops::FailOn::Warning,
                 ..Default::default()
             },
@@ -139,58 +139,45 @@ impl Backend {
         let parent = job.output.parent().context("output has no parent")?;
         fs::create_dir_all(parent)?;
         reject_symlinks(parent)?;
+        let suffix = match job.format {
+            Format::Webp => ".webp",
+            Format::Jpeg => ".jpg",
+            Format::Png => ".png",
+            Format::Avif => ".avif",
+            Format::Svg => ".svg",
+        };
         let temp = tempfile::Builder::new()
             .prefix(".image-optimizer-")
+            .suffix(suffix)
             .tempfile_in(parent)?;
         let filename = format!("/proc/self/fd/{}", temp.as_file().as_raw_fd());
-        let q = args.quality.into();
+        let q = args.quality;
+        // The binding's typed savers set profile=NULL, which libvips treats as
+        // an explicit profile request and uses to re-enable ICC retention.
+        let options = match job.format {
+            Format::Webp => format!("Q={q},effort={},keep=none", args.effort),
+            Format::Jpeg => format!("Q={q},optimize-coding,keep=none"),
+            Format::Png => format!("compression={},filter=all,keep=none", args.effort),
+            Format::Avif => format!(
+                "Q={q},effort={},bitdepth=8,compression=av1,keep=none",
+                args.effort
+            ),
+            Format::Svg => String::new(),
+        };
         match job.format {
-            Format::Webp => ops::webpsave_with_opts(
-                &image,
-                &filename,
-                &ops::WebpsaveOptions {
-                    q,
-                    effort: args.effort.into(),
-                    keep: ops::ForeignKeep::None,
-                    profile: None,
-                    ..Default::default()
-                },
-            )?,
-            Format::Jpeg => ops::jpegsave_with_opts(
-                &image,
-                &filename,
-                &ops::JpegsaveOptions {
-                    q,
-                    optimize_coding: true,
-                    keep: ops::ForeignKeep::None,
-                    profile: None,
-                    ..Default::default()
-                },
-            )?,
-            Format::Png => ops::pngsave_with_opts(
-                &image,
-                &filename,
-                &ops::PngsaveOptions {
-                    compression: args.effort.into(),
-                    filter: ops::ForeignPngFilter::All,
-                    keep: ops::ForeignKeep::None,
-                    profile: None,
-                    ..Default::default()
-                },
-            )?,
-            Format::Avif => ops::heifsave_with_opts(
-                &image,
-                &filename,
-                &ops::HeifsaveOptions {
-                    q,
-                    effort: args.effort.into(),
-                    bitdepth: 8,
-                    compression: ops::ForeignHeifCompression::Av1,
-                    keep: ops::ForeignKeep::None,
-                    profile: None,
-                    ..Default::default()
-                },
-            )?,
+            Format::Webp | Format::Jpeg | Format::Png | Format::Avif => {
+                let directory = File::open(parent)?;
+                let name = temp
+                    .path()
+                    .file_name()
+                    .context("temporary filename missing")?;
+                let target = format!(
+                    "/proc/self/fd/{}/{}[{options}]",
+                    directory.as_raw_fd(),
+                    name.to_str().context("temporary filename is not UTF-8")?
+                );
+                image.image_write_to_file(&target)?;
+            }
             Format::Svg => {
                 file.rewind()?;
                 let mut xml = String::new();

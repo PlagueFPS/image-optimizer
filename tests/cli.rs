@@ -496,3 +496,44 @@ fn reviewed_metadata_svg_and_independent_failure_contracts() {
         .unwrap();
     assert!(Path::new(report(&result)["errors"][0]["input"].as_str().unwrap()).is_absolute());
 }
+
+#[test]
+fn tagged_color_is_converted_before_profiles_are_stripped() {
+    use image::ImageDecoder;
+    let temp = TempDir::new().unwrap();
+    let input = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tagged-p3.png");
+    let expected =
+        image::open(Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/tagged-srgb.png"))
+            .unwrap()
+            .to_rgb8();
+    let mut source = image::codecs::png::PngDecoder::new(std::io::BufReader::new(
+        fs::File::open(&input).unwrap(),
+    ))
+    .unwrap();
+    assert!(source.icc_profile().unwrap().is_some());
+    for format in ["preserve", "webp"] {
+        let dest = temp.path().join(format);
+        let result = invoke(&input, &dest, &["--format", format]);
+        assert!(result.status.success(), "{result:?}");
+        let r = report(&result);
+        let path = Path::new(r["outputs"][0]["output"].as_str().unwrap());
+        let reader = image::ImageReader::open(path)
+            .unwrap()
+            .with_guessed_format()
+            .unwrap();
+        let mut decoder = reader.into_decoder().unwrap();
+        assert!(decoder.icc_profile().unwrap().is_none(), "{format}");
+        let decoded = image::DynamicImage::from_decoder(decoder)
+            .unwrap()
+            .to_rgb8();
+        assert_eq!(decoded.dimensions(), expected.dimensions());
+        for (actual, expected) in decoded.pixels().zip(expected.pixels()) {
+            for (actual, expected) in actual.0.into_iter().zip(expected.0) {
+                assert!(
+                    actual.abs_diff(expected) <= 4,
+                    "{format}: {actual} != {expected}"
+                );
+            }
+        }
+    }
+}

@@ -14,6 +14,12 @@ struct Report {
     errors: Vec<Failure>,
 }
 fn main() {
+    #[cfg(target_env = "gnu")]
+    if std::env::var_os("MALLOC_ARENA_MAX").is_none() {
+        // Large SVG surfaces repeatedly grow and discard secondary glibc heaps
+        // after earlier codecs raise the dynamic mmap threshold.
+        unsafe { libc::mallopt(libc::M_ARENA_MAX, 1) };
+    }
     let args = Args::parse();
     let json = args.json;
     let dry_run = args.dry_run;
