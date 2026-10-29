@@ -10,7 +10,7 @@ The original implementation decoded with the Rust image crate, copied into RGB o
 
 `plan` discovers supported files, resolves destination identity, and creates `PlannedOutput` records. A plan contains either ready jobs or explicit errors. It is fully built before native processing starts. All producer names are checked together, so one output cannot silently replace another source or output.
 
-`backend` owns `VipsApp`, file descriptors, lazy images, and publication. Its image handles stay local to one call and drop before the application. A header read checks dimensions, page count, loader identity, and orientation. The thumbnail operation reopens the descriptor path to use decoder-specific shrink-on-load. Encoders consume the lazy image directly. No Rust pixel buffer is involved.
+`backend` owns `VipsApp`, file descriptors, lazy images, and publication. Its image handles stay local to one call and drop before the application. A header read checks dimensions, page count, loader identity, and orientation. The thumbnail operation reopens the descriptor path to use decoder-specific shrink-on-load. The header also detects an embedded ICC profile. Only tagged inputs request an explicit sRGB output profile; untagged inputs use libvips color-space conversion without an XYZ/ICC export round trip. Encoders consume the lazy image directly. No Rust pixel buffer is involved.
 
 The executable converts jobs serially and returns a versioned report. Errors carry source and optional destination paths. A failed job changes the final exit status but does not suppress independent work.
 
@@ -22,7 +22,7 @@ A worker pool could improve throughput across small files, but would weaken pred
 
 Passing filenames directly to general libvips loaders permits bracket option parsing. Passing `/proc/self/fd/N` avoids filename injection, keeps the source inode open through evaluation. It trades portability for a small Linux implementation. Output savers also receive descriptor paths. User paths never become libvips option strings.
 
-SVG viewport rewriting is a separate vector feature with different semantics from raster encoding. This version reports SVG preserve as unsupported. Static self-contained SVG rasterization is validated explicitly. External resources and CSS are excluded rather than relying on ambient renderer access policy.
+SVG preserve rewrites the root viewport and adds a missing viewBox while retaining vector content. Raster conversion uses the same validated static, self-contained input. External resources and CSS are excluded rather than relying on ambient renderer access policy.
 
 ## Throughput checkpoint
 

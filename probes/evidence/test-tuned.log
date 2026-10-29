@@ -1,0 +1,68 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src/lib.rs (target/debug/deps/image_optimizer-406b8476868e9b14)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/image_optimizer-9e29cf0e3cf1dcf5)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/cli.rs (target/debug/deps/cli-dfbb4d9c48d9214e)
+
+running 18 tests
+test nonrecursive_and_empty_directories ... ok
+test destination_ancestor_does_not_exclude_sources ... ok
+test non_utf8_names_fail_explicitly_without_stopping_other_inputs ... ok
+test mislabeled_input_and_zero_pixel_limit ... ok
+test jpeg_preserve_single_output_and_orientation ... ok
+test srcset_geometry_alpha_and_names ... ok
+test recursive_structure_collisions_overlap_and_corruption ... ok
+test untagged_png_preserve_keeps_original_samples ... ok
+test quality_setting_changes_encoded_output ... ok
+test apng_and_truncated_files_rejected ... ok
+test symlinks_excluded_and_rejected ... ok
+test tagged_color_is_converted_before_profiles_are_stripped ... ok
+test reviewed_metadata_svg_and_independent_failure_contracts ... ok
+test no_clobber_and_input_identity ... ok
+test avif_real_decode_and_preserve ... ok
+Convert static JPEG, PNG, AVIF, and self-contained SVG images with libvips
+
+Usage: image-optimizer [OPTIONS] <INPUT>
+
+Arguments:
+  <INPUT>  Source file or directory. Symlinks are not followed
+
+Options:
+      --out-dir <OUT_DIR>        Destination tree. Original filenames and relative directories are retained
+  -o, --output <OUTPUT>          Exact destination for one source and one variant. Format is selected by --format
+      --recursive                Include subdirectories, excluding the destination tree
+      --width <WIDTH>            Fit within this width without cropping
+      --widths <WIDTHS>          Comma-separated srcset widths, at most 32 unique values
+      --height <HEIGHT>          Fit within this height, optionally combined with width
+      --format <FORMAT>          Output encoding. Preserve reencodes rasters or resizes the SVG viewport [default: webp] [possible values: webp, preserve]
+      --quality <QUALITY>        Lossy JPEG, AVIF, or WebP quality. PNG remains lossless [default: 80]
+      --effort <EFFORT>          WebP/AVIF encoder effort or PNG compression, from 0 to 6 [default: 6]
+      --cpu <CPU>                Libvips worker threads, not a hard process CPU cap [default: 1]
+      --upscale                  Allow enlarging small inputs to the requested bounds
+      --overwrite                Atomically replace existing regular outputs. Never replace input files
+      --dry-run                  Plan outputs and inspect headers without writing or fully decoding pixels
+      --json                     Print one schema-versioned JSON report to stdout
+      --max-pixels <MAX_PIXELS>  Reject source or output images above this pixel count. Not a hard memory limit [default: 100000000]
+  -h, --help                     Print help
+  -V, --version                  Print version
+test preserve_resize_bounds_upscale_and_dry_run ... ok
+image-optimizer 0.2.0
+test flags_limits_and_partial_failure ... ok
+test svg_static_and_restrictions ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+   Doc-tests image_optimizer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,11 @@
+decision	reason	evidence	result
+Preserve independent benchmark scripts and historical report	Parent owns acceptance rerun	User scope	New probes only
+Reject early replacement timings	Original worker resumed during measurements	Process command lines and cwd t3-62b5aad2	Two early result directories excluded
+Keep preliminary AVIF header read	Pixel decode not duplicated	Replacement trace has one heif_decode_image call	Validation remains before pixel evaluation
+Request explicit sRGB output profile only for ICC input	Untagged path otherwise forces XYZ/ICC export	libvips8.18.0 thumbnail.c branches and CLI regressions	Tagged color regression and untagged samples pass
+Build private codecs from pinned upstream archives	Production must deploy without Sharp/npm	Fresh build log and loaded-library hashes	WebP1.6.0 zlib-ng2.3.3 libheif1.23.5 with distribution dav1d/AOM
+Do not credit libheif thread-setting fix	Current callers retain automatic decoder thread selection	Public-ABI dav1d_open trace reports threads=0	No thread-count performance claim
+Retain single-arena default after conditional ICC change	Controlled arena128 directory repeats reproduce excess system CPU	Five isolated directory runs per configuration	Arena policy supported for this pipeline; historical attribution still inferred
+Keep newer libheif in tested runtime	Older libheif1.21.2+dav1d still fails AVIF RSS gates	30 additional processes with decoded outputs	Newer tested runtime required for observed focused memory acceptance
+Repair AOM diagnostic symbol lookup	Plugin is loaded locally and RTLD_NEXT lookup failed	Diagnostic-only crash; direct already-loaded public library handle succeeds	Failed trace excluded; corrected stock/tuned traces and outputs verified
+Keep full acceptance pending	Focused coverage cannot establish all21 workload gates	Seven focused workloads only	Parent owns unchanged independent full matrix

@@ -537,3 +537,24 @@ fn tagged_color_is_converted_before_profiles_are_stripped() {
         }
     }
 }
+
+#[test]
+fn untagged_png_preserve_keeps_original_samples() {
+    let temp = TempDir::new().unwrap();
+    let input = temp.path().join("untagged.png");
+    let original = image::RgbImage::from_fn(256, 16, |x, y| {
+        image::Rgb([x as u8, (y * 17) as u8, (255 - x) as u8])
+    });
+    original.save(&input).unwrap();
+    let result = invoke(
+        &input,
+        &temp.path().join("output"),
+        &["--format", "preserve"],
+    );
+    assert!(result.status.success(), "{result:?}");
+    let r = report(&result);
+    let decoded = image::open(r["outputs"][0]["output"].as_str().unwrap())
+        .unwrap()
+        .to_rgb8();
+    assert_eq!(decoded, original);
+}

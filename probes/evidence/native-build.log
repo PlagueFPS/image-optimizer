@@ -1,0 +1,874 @@
+webp.tar.gz: OK
+zng.tar.gz: OK
+-- The C compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test HAVE_BUILTIN_BSWAP16
+-- Performing Test HAVE_BUILTIN_BSWAP16 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP32
+-- Performing Test HAVE_BUILTIN_BSWAP32 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP64
+-- Performing Test HAVE_BUILTIN_BSWAP64 - Success
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR)
+-- Performing Test HAVE_MATH_LIBRARY
+-- Performing Test HAVE_MATH_LIBRARY - Failed
+-- Adding -lm flag.
+-- Looking for include file GLUT/glut.h
+-- Looking for include file GLUT/glut.h - not found
+-- Looking for include file GL/glut.h
+-- Looking for include file GL/glut.h - not found
+-- Looking for include file OpenGL/glut.h
+-- Looking for include file OpenGL/glut.h - not found
+-- Looking for include file shlwapi.h
+-- Looking for include file shlwapi.h - not found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wincodec.h
+-- Looking for include file wincodec.h - not found
+-- Looking for include file windows.h
+-- Looking for include file windows.h - not found
+-- Performing Test WEBP_HAVE_FLAG_AVX2
+-- Performing Test WEBP_HAVE_FLAG_AVX2 - Failed
+-- Performing Test WEBP_HAVE_FLAG_AVX2
+-- Performing Test WEBP_HAVE_FLAG_AVX2 - Success
+-- Performing Test WEBP_HAVE_FLAG_SSE41
+-- Performing Test WEBP_HAVE_FLAG_SSE41 - Failed
+-- Performing Test WEBP_HAVE_FLAG_SSE41
+-- Performing Test WEBP_HAVE_FLAG_SSE41 - Success
+-- Performing Test WEBP_HAVE_FLAG_SSE2
+-- Performing Test WEBP_HAVE_FLAG_SSE2 - Success
+-- Performing Test WEBP_HAVE_FLAG_MIPS32
+-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed
+-- Performing Test WEBP_HAVE_FLAG_MIPS32
+-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed
+-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2
+-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed
+-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2
+-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Performing Test WEBP_HAVE_FLAG_NEON
+-- Performing Test WEBP_HAVE_FLAG_NEON - Failed
+-- Performing Test WEBP_HAVE_FLAG_NEON
+-- Performing Test WEBP_HAVE_FLAG_NEON - Failed
+-- Performing Test WEBP_HAVE_FLAG_MSA
+-- Performing Test WEBP_HAVE_FLAG_MSA - Failed
+-- Performing Test WEBP_HAVE_FLAG_MSA
+-- Performing Test WEBP_HAVE_FLAG_MSA - Failed
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/tmp.Z5BYpKQOj5/webp-build
+[  1%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_sse2.c.o
+[  2%] Building C object CMakeFiles/webpdecode.dir/src/dec/alpha_dec.c.o
+[  3%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/bit_reader_utils.c.o
+[  3%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing.c.o
+[  3%] Building C object CMakeFiles/webpdecode.dir/src/dec/buffer_dec.c.o
+[  3%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/color_cache_utils.c.o
+[  4%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/filters_utils.c.o
+[  5%] Building C object CMakeFiles/webpdecode.dir/src/dec/frame_dec.c.o
+[  5%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_neon.c.o
+[  6%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/cpu.c.o
+[  7%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_cpu.c.o
+[  7%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/huffman_utils.c.o
+[  7%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec.c.o
+[  7%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_csp.c.o
+[  8%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_dsp.c.o
+[  9%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/palette.c.o
+[  9%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_gamma.c.o
+[  9%] Building C object CMakeFiles/webpdecode.dir/src/dec/idec_dec.c.o
+[  9%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/quant_levels_dec_utils.c.o
+[ 10%] Building C object CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv.c.o
+[ 11%] Building C object CMakeFiles/webpdecode.dir/src/dec/io_dec.c.o
+[ 12%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/rescaler_utils.c.o
+[ 12%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/random_utils.c.o
+[ 13%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_clip_tables.c.o
+[ 14%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/thread_utils.c.o
+[ 14%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/filters.c.o
+[ 14%] Building C object CMakeFiles/webpdecode.dir/src/dec/quant_dec.c.o
+[ 15%] Building C object CMakeFiles/webputilsdecode.dir/src/utils/utils.c.o
+[ 15%] Built target webputilsdecode
+[ 16%] Building C object CMakeFiles/webpdecode.dir/src/dec/tree_dec.c.o
+[ 16%] Building C object CMakeFiles/webpencode.dir/src/enc/alpha_enc.c.o
+[ 17%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless.c.o
+[ 18%] Linking C shared library libsharpyuv.so
+[ 18%] Building C object CMakeFiles/webpdecode.dir/src/dec/vp8_dec.c.o
+[ 18%] Built target sharpyuv
+[ 19%] Building C object CMakeFiles/webpencode.dir/src/enc/analysis_enc.c.o
+[ 19%] Building C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing.c.o
+[ 19%] Building C object CMakeFiles/webpencode.dir/src/enc/backward_references_cost_enc.c.o
+[ 20%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cpu.c.o
+[ 21%] Building C object CMakeFiles/webpdecode.dir/src/dec/vp8l_dec.c.o
+[ 21%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec.c.o
+[ 21%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler.c.o
+[ 22%] Building C object CMakeFiles/webpencode.dir/src/enc/backward_references_enc.c.o
+[ 23%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling.c.o
+[ 24%] Building C object CMakeFiles/webpdecode.dir/src/dec/webp_dec.c.o
+[ 25%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_clip_tables.c.o
+[ 25%] Building C object CMakeFiles/webpdsp.dir/src/dsp/filters.c.o
+[ 25%] Building C object CMakeFiles/webpencode.dir/src/enc/config_enc.c.o
+[ 26%] Building C object CMakeFiles/webpencode.dir/src/enc/cost_enc.c.o
+[ 27%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless.c.o
+[ 27%] Built target webpdecode
+[ 28%] Building C object CMakeFiles/webputils.dir/src/utils/bit_reader_utils.c.o
+[ 28%] Building C object CMakeFiles/webpencode.dir/src/enc/filter_enc.c.o
+[ 28%] Building C object CMakeFiles/webputils.dir/src/utils/color_cache_utils.c.o
+[ 29%] Building C object CMakeFiles/webpencode.dir/src/enc/frame_enc.c.o
+[ 30%] Building C object CMakeFiles/webputils.dir/src/utils/filters_utils.c.o
+[ 30%] Building C object CMakeFiles/webputils.dir/src/utils/huffman_utils.c.o
+[ 31%] Building C object CMakeFiles/webputils.dir/src/utils/palette.c.o
+[ 32%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler.c.o
+[ 32%] Building C object CMakeFiles/webpencode.dir/src/enc/histogram_enc.c.o
+[ 32%] Building C object CMakeFiles/webputils.dir/src/utils/quant_levels_dec_utils.c.o
+[ 32%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling.c.o
+[ 33%] Building C object CMakeFiles/webputils.dir/src/utils/rescaler_utils.c.o
+[ 33%] Building C object CMakeFiles/webputils.dir/src/utils/random_utils.c.o
+[ 34%] Building C object CMakeFiles/webputils.dir/src/utils/thread_utils.c.o
+[ 34%] Building C object CMakeFiles/webputils.dir/src/utils/utils.c.o
+[ 35%] Building C object CMakeFiles/webputils.dir/src/utils/bit_writer_utils.c.o
+[ 35%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv.c.o
+[ 36%] Building C object CMakeFiles/webpencode.dir/src/enc/iterator_enc.c.o
+[ 37%] Building C object CMakeFiles/webputils.dir/src/utils/huffman_encode_utils.c.o
+[ 37%] Building C object CMakeFiles/webputils.dir/src/utils/quant_levels_utils.c.o
+[ 37%] Building C object CMakeFiles/webpencode.dir/src/enc/near_lossless_enc.c.o
+[ 37%] Built target webputils
+[ 38%] Building C object CMakeFiles/webpencode.dir/src/enc/picture_enc.c.o
+[ 39%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_avx2.c.o
+[ 40%] Building C object CMakeFiles/webpencode.dir/src/enc/picture_csp_enc.c.o
+[ 40%] Building C object CMakeFiles/webpencode.dir/src/enc/picture_psnr_enc.c.o
+[ 41%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse41.c.o
+[ 42%] Building C object CMakeFiles/webpencode.dir/src/enc/picture_rescale_enc.c.o
+[ 42%] Building C object CMakeFiles/webpencode.dir/src/enc/picture_tools_enc.c.o
+[ 42%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse41.c.o
+[ 43%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv.c.o
+[ 44%] Building C object CMakeFiles/webpencode.dir/src/enc/predictor_enc.c.o
+[ 45%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_sse41.c.o
+[ 45%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse41.c.o
+[ 45%] Building C object CMakeFiles/webpencode.dir/src/enc/quant_enc.c.o
+[ 46%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse41.c.o
+[ 46%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse2.c.o
+[ 47%] Building C object CMakeFiles/webpencode.dir/src/enc/syntax_enc.c.o
+[ 48%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse2.c.o
+[ 48%] Building C object CMakeFiles/webpencode.dir/src/enc/token_enc.c.o
+[ 48%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/filters_sse2.c.o
+[ 49%] Building C object CMakeFiles/webpencode.dir/src/enc/tree_enc.c.o
+[ 49%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_avx2.c.o
+[ 49%] Building C object CMakeFiles/webpencode.dir/src/enc/vp8l_enc.c.o
+[ 50%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_sse2.c.o
+[ 51%] Building C object CMakeFiles/webpencode.dir/src/enc/webp_enc.c.o
+[ 51%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_sse2.c.o
+[ 52%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse2.c.o
+[ 53%] Building C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse41.c.o
+[ 54%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse2.c.o
+[ 54%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_sse41.c.o
+[ 54%] Built target webpencode
+[ 54%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_neon.c.o
+[ 55%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_sse41.c.o
+[ 56%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_neon.c.o
+[ 56%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/filters_neon.c.o
+[ 56%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse41.c.o
+[ 57%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_neon.c.o
+[ 57%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_neon.c.o
+[ 58%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_neon.c.o
+[ 58%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_neon.c.o
+[ 59%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_msa.c.o
+[ 59%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/filters_msa.c.o
+[ 60%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_msa.c.o
+[ 61%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_msa.c.o
+[ 62%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv_sse41.c.o
+[ 62%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_msa.c.o
+[ 63%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_mips32.c.o
+[ 63%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_mips32.c.o
+[ 64%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_mips32.c.o
+[ 64%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o
+[ 65%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_mips_dsp_r2.c.o
+[ 65%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/filters_mips_dsp_r2.c.o
+[ 66%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_mips_dsp_r2.c.o
+[ 66%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_mips_dsp_r2.c.o
+[ 67%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_mips_dsp_r2.c.o
+[ 68%] Building C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_mips_dsp_r2.c.o
+[ 68%] Building C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse2.c.o
+[ 69%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_sse2.c.o
+[ 69%] Built target webpdspdecode
+[ 70%] Building C object CMakeFiles/webpdsp.dir/src/dsp/filters_sse2.c.o
+[ 70%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_sse2.c.o
+[ 71%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_sse2.c.o
+[ 71%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse2.c.o
+[ 72%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv_sse2.c.o
+[ 72%] Building C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_neon.c.o
+[ 73%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_neon.c.o
+[ 73%] Building C object CMakeFiles/webpdsp.dir/src/dsp/filters_neon.c.o
+[ 74%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_neon.c.o
+[ 74%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_neon.c.o
+[ 75%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_neon.c.o
+[ 75%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv_neon.c.o
+[ 76%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_msa.c.o
+[ 77%] Building C object CMakeFiles/webpdsp.dir/src/dsp/filters_msa.c.o
+[ 77%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_msa.c.o
+[ 77%] Linking C shared library libwebpdecoder.so
+[ 78%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_msa.c.o
+[ 78%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_msa.c.o
+[ 78%] Built target webpdecoder
+[ 79%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_mips32.c.o
+[ 79%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_mips32.c.o
+[ 80%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv_mips32.c.o
+[ 80%] Building C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o
+[ 81%] Building C object CMakeFiles/webpdsp.dir/src/dsp/dec_mips_dsp_r2.c.o
+[ 81%] Building C object CMakeFiles/webpdsp.dir/src/dsp/filters_mips_dsp_r2.c.o
+[ 82%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_mips_dsp_r2.c.o
+[ 83%] Building C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_mips_dsp_r2.c.o
+[ 83%] Building C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_mips_dsp_r2.c.o
+[ 84%] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv_mips_dsp_r2.c.o
+[ 84%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cost.c.o
+[ 85%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc.c.o
+[ 85%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc.c.o
+[ 86%] Building C object CMakeFiles/webpdsp.dir/src/dsp/ssim.c.o
+[ 86%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cost_sse2.c.o
+[ 87%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_sse2.c.o
+[ 87%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse2.c.o
+[ 88%] Building C object CMakeFiles/webpdsp.dir/src/dsp/ssim_sse2.c.o
+[ 89%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_sse41.c.o
+[ 89%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse41.c.o
+[ 90%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_avx2.c.o
+[ 90%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cost_neon.c.o
+[ 91%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_neon.c.o
+[ 91%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_neon.c.o
+[ 92%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_msa.c.o
+[ 92%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_msa.c.o
+[ 93%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cost_mips32.c.o
+[ 93%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_mips32.c.o
+[ 94%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_mips32.c.o
+[ 95%] Building C object CMakeFiles/webpdsp.dir/src/dsp/cost_mips_dsp_r2.c.o
+[ 95%] Building C object CMakeFiles/webpdsp.dir/src/dsp/enc_mips_dsp_r2.c.o
+[ 96%] Building C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_mips_dsp_r2.c.o
+[ 96%] Built target webpdsp
+[ 96%] Linking C shared library libwebp.so
+[ 96%] Built target webp
+[ 96%] Building C object CMakeFiles/webpdemux.dir/src/demux/demux.c.o
+[ 97%] Building C object CMakeFiles/webpdemux.dir/src/demux/anim_decode.c.o
+[ 97%] Building C object CMakeFiles/libwebpmux.dir/src/mux/anim_encode.c.o
+[ 98%] Building C object CMakeFiles/libwebpmux.dir/src/mux/muxedit.c.o
+[ 98%] Building C object CMakeFiles/libwebpmux.dir/src/mux/muxinternal.c.o
+[ 99%] Building C object CMakeFiles/libwebpmux.dir/src/mux/muxread.c.o
+[100%] Linking C shared library libwebpdemux.so
+[100%] Built target webpdemux
+[100%] Linking C shared library libwebpmux.so
+[100%] Built target libwebpmux
+-- Install configuration: "Release"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libsharpyuv.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libsharpyuv.so.0.1.2
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libsharpyuv.so.0
+-- Set non-toolchain portion of runtime path of "/tmp/optimizer-native-133f/codecs/lib/libsharpyuv.so.0.1.2" to "/tmp/optimizer-native-133f/codecs/lib"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libsharpyuv.so
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/sharpyuv/sharpyuv.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/sharpyuv/sharpyuv_csp.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libwebpdecoder.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libwebp.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libwebpdemux.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libwebpmux.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdecoder.so.3.2.0
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdecoder.so.3
+-- Set non-toolchain portion of runtime path of "/tmp/optimizer-native-133f/codecs/lib/libwebpdecoder.so.3.2.0" to "/tmp/optimizer-native-133f/codecs/lib"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdecoder.so
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/decode.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/types.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebp.so.7.2.0
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebp.so.7
+-- Set non-toolchain portion of runtime path of "/tmp/optimizer-native-133f/codecs/lib/libwebp.so.7.2.0" to "/tmp/optimizer-native-133f/codecs/lib"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebp.so
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/decode.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/encode.h
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/types.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdemux.so.2.0.17
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdemux.so.2
+-- Set non-toolchain portion of runtime path of "/tmp/optimizer-native-133f/codecs/lib/libwebpdemux.so.2.0.17" to "/tmp/optimizer-native-133f/codecs/lib"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpdemux.so
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/decode.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/demux.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/mux_types.h
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/types.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpmux.so.3.1.2
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpmux.so.3
+-- Set non-toolchain portion of runtime path of "/tmp/optimizer-native-133f/codecs/lib/libwebpmux.so.3.1.2" to "/tmp/optimizer-native-133f/codecs/lib"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libwebpmux.so
+-- Installing: /tmp/optimizer-native-133f/codecs/include/webp/mux.h
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/mux_types.h
+-- Up-to-date: /tmp/optimizer-native-133f/codecs/include/webp/types.h
+-- Installing: /tmp/optimizer-native-133f/codecs/share/WebP/cmake/WebPTargets.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/share/WebP/cmake/WebPTargets-release.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/share/WebP/cmake/WebPConfigVersion.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/share/WebP/cmake/WebPConfig.cmake
+-- Using CMake version 4.2.3
+-- ZLIB_HEADER_VERSION: 1.3.1
+-- ZLIBNG_HEADER_VERSION: 2.3.3
+-- The C compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+CMake Deprecation Warning at CMakeLists.txt:54 (message):
+  ZLIB_ENABLE_TESTS is deprecated.  Please use BUILD_TESTING instead.
+
+
+-- Arch detected: 'x86_64'
+-- Basearch of 'x86_64' has been detected as: 'x86'
+-- Performing Test FNO_LTO_AVAILABLE
+-- Performing Test FNO_LTO_AVAILABLE - Success
+-- Looking for arm_acle.h
+-- Looking for arm_acle.h - not found
+-- Looking for sys/auxv.h
+-- Looking for sys/auxv.h - found
+-- Looking for sys/sdt.h
+-- Looking for sys/sdt.h - not found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for linux/auxvec.h
+-- Looking for linux/auxvec.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of off64_t
+-- Check size of off64_t - done
+-- Looking for fseeko
+-- Looking for fseeko - found
+-- Looking for strerror
+-- Looking for strerror - found
+-- Looking for __cpuid_count
+-- Looking for __cpuid_count - found
+-- Performing Test HAVE_CPUID_MS
+-- Performing Test HAVE_CPUID_MS - Failed
+-- Performing Test HAVE_NO_INTERPOSITION
+-- Performing Test HAVE_NO_INTERPOSITION - Success
+-- Performing Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN
+-- Performing Test HAVE_ATTRIBUTE_VISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL
+-- Performing Test HAVE_ATTRIBUTE_VISIBILITY_INTERNAL - Success
+-- Performing Test HAVE_ATTRIBUTE_ALIGNED
+-- Performing Test HAVE_ATTRIBUTE_ALIGNED - Success
+-- Performing Test HAVE_BUILTIN_ASSUME_ALIGNED
+-- Performing Test HAVE_BUILTIN_ASSUME_ALIGNED - Success
+-- Performing Test HAVE_BUILTIN_CTZ
+-- Performing Test HAVE_BUILTIN_CTZ - Success
+-- Performing Test HAVE_BUILTIN_CTZLL
+-- Performing Test HAVE_BUILTIN_CTZLL - Success
+-- Performing Test HAVE_PTRDIFF_T
+-- Performing Test HAVE_PTRDIFF_T - Success
+-- Performing Test HAVE_XSAVE_INTRIN
+-- Performing Test HAVE_XSAVE_INTRIN - Success
+-- Performing Test HAVE_SSE2_INTRIN
+-- Performing Test HAVE_SSE2_INTRIN - Success
+-- Performing Test HAVE_SSSE3_INTRIN
+-- Performing Test HAVE_SSSE3_INTRIN - Success
+-- Performing Test HAVE_SSE41_INTRIN
+-- Performing Test HAVE_SSE41_INTRIN - Success
+-- Performing Test HAVE_SSE42_INTRIN
+-- Performing Test HAVE_SSE42_INTRIN - Success
+-- Performing Test HAVE_PCLMULQDQ_INTRIN
+-- Performing Test HAVE_PCLMULQDQ_INTRIN - Success
+-- Performing Test HAVE_AVX2_INTRIN
+-- Performing Test HAVE_AVX2_INTRIN - Success
+-- Performing Test HAVE_CASCADE_LAKE
+-- Performing Test HAVE_CASCADE_LAKE - Success
+-- Performing Test HAVE_AVX512_INTRIN
+-- Performing Test HAVE_AVX512_INTRIN - Success
+-- Performing Test HAVE_AVX512VNNI_INTRIN
+-- Performing Test HAVE_AVX512VNNI_INTRIN - Success
+-- Performing Test HAVE_VPCLMULQDQ_INTRIN
+-- Performing Test HAVE_VPCLMULQDQ_INTRIN - Success
+-- Architecture-specific source files: arch/x86/x86_features.c;arch/x86/chunkset_sse2.c;arch/x86/chorba_sse2.c;arch/x86/compare256_sse2.c;arch/x86/slide_hash_sse2.c;arch/x86/adler32_ssse3.c;arch/x86/chunkset_ssse3.c;arch/x86/chorba_sse41.c;arch/x86/adler32_sse42.c;arch/x86/crc32_pclmulqdq.c;arch/x86/slide_hash_avx2.c;arch/x86/chunkset_avx2.c;arch/x86/compare256_avx2.c;arch/x86/adler32_avx2.c;arch/x86/adler32_avx512.c;arch/x86/chunkset_avx512.c;arch/x86/compare256_avx512.c;arch/x86/adler32_avx512_vnni.c;arch/x86/crc32_vpclmulqdq.c
+-- The following features have been enabled:
+
+ * CMAKE_BUILD_TYPE, Build type: Release (selected)
+ * XSAVE, Support XSAVE intrinsics using "-mxsave"
+ * SSSE3_ADLER32, Support SSSE3-accelerated adler32, using "-mssse3"
+ * SSE42_CRC, Support SSE4.2 optimized adler32 hash generation, using "-msse4.2"
+ * PCLMUL_CRC, Support CRC hash generation using PCLMULQDQ, using "-msse4.2 -mpclmul"
+ * AVX2_SLIDEHASH, Support AVX2 optimized slide_hash, using "-mavx2 -mbmi2"
+ * AVX2_CHUNKSET, Support AVX2 optimized chunkset, using "-mavx2 -mbmi2"
+ * AVX2_COMPARE256, Support AVX2 optimized compare256, using "-mavx2 -mbmi2"
+ * AVX2_ADLER32, Support AVX2-accelerated adler32, using "-mavx2 -mbmi2"
+ * AVX512_ADLER32, Support AVX512-accelerated adler32, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mbmi2 -mtune=cascadelake"
+ * AVX512_CHUNKSET, Support AVX512 optimized chunkset, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mbmi2 -mtune=cascadelake"
+ * AVX512_COMPARE256, Support AVX512 optimized compare256, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mbmi2 -mtune=cascadelake"
+ * AVX512VNNI_ADLER32, Support AVX512VNNI adler32, using "-mavx512f -mavx512dq -mavx512bw -mavx512vl -mavx512vnni -mbmi2 -mtune=cascadelake"
+ * VPCLMUL_CRC, Support CRC hash generation using VPCLMULQDQ, using "-mpclmul -mvpclmulqdq -mavx512f -mavx512f -mavx512dq -mavx512bw -mavx512vl -mbmi2 -mtune=cascadelake"
+ * WITH_GZFILEOP, Compile with support for gzFile related functions
+ * ZLIB_COMPAT, Compile with zlib compatible API
+ * ZLIB_ALIASES, Compile with zlib compatible CMake targets
+ * WITH_SANITIZER, Enable sanitizer testing support
+ * WITH_OPTIM, Build with optimisation
+ * WITH_NEW_STRATEGIES, Use new strategies
+ * WITH_CRC32_CHORBA, Use optimized CRC32 algorithm Chorba
+ * WITH_RUNTIME_CPU_DETECTION, Build with runtime CPU detection
+ * WITH_SSE2, Build with SSE2
+ * WITH_SSSE3, Build with SSSE3
+ * WITH_SSE41, Build with SSE41
+ * WITH_SSE42, Build with SSE42
+ * WITH_PCLMULQDQ, Build with PCLMULQDQ
+ * WITH_AVX2, Build with AVX2
+ * WITH_AVX512, Build with AVX512
+ * WITH_AVX512VNNI, Build with AVX512 VNNI
+ * WITH_VPCLMULQDQ, Build with VPCLMULQDQ
+
+-- The following features have been disabled:
+
+ * ZLIB_SYMBOL_PREFIX, Publicly exported symbols DO NOT have a custom prefix
+ * BUILD_TESTING, Build test binaries
+ * WITH_GTEST, Build tests using Gtest framework
+ * WITH_FUZZERS, Build test/fuzz
+ * WITH_BENCHMARKS, Build benchmarks using Google Benchmark framework
+ * WITH_BENCHMARK_APPS, Build application benchmarks (currently libpng)
+ * WITH_ALL_FALLBACKS, Build all generic fallback functions
+ * WITH_NATIVE_INSTRUCTIONS, Instruct the compiler to use the full instruction set on this host (gcc/clang -march=native)
+ * WITH_MAINTAINER_WARNINGS, Build with project maintainer warnings
+ * WITH_CODE_COVERAGE, Enable code coverage reporting
+ * WITH_INFLATE_STRICT, Build with strict inflate distance checking
+ * WITH_INFLATE_ALLOW_INVALID_DIST, Build with zero fill for inflate invalid distances
+ * INSTALL_UTILS, Copy minigzip and minideflate during install
+
+-- Configuring done (3.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/tmp.Z5BYpKQOj5/zng-build
+[  3%] Building C object CMakeFiles/zlib-ng.dir/arch/generic/adler32_fold_c.c.o
+[  3%] Building C object CMakeFiles/zlib-ng-static.dir/arch/generic/adler32_fold_c.c.o
+[  3%] Building C object CMakeFiles/zlib-ng-static.dir/arch/generic/adler32_c.c.o
+[  4%] Building C object CMakeFiles/zlib-ng.dir/arch/generic/adler32_c.c.o
+[  5%] Building C object CMakeFiles/zlib-ng.dir/arch/generic/crc32_braid_c.c.o
+[  6%] Building C object CMakeFiles/zlib-ng-static.dir/arch/generic/crc32_braid_c.c.o
+[  7%] Building C object CMakeFiles/zlib-ng-static.dir/arch/generic/crc32_fold_c.c.o
+[  8%] Building C object CMakeFiles/zlib-ng.dir/arch/generic/crc32_fold_c.c.o
+[  9%] Building C object CMakeFiles/zlib-ng.dir/adler32.c.o
+[ 10%] Building C object CMakeFiles/zlib-ng-static.dir/adler32.c.o
+[ 11%] Building C object CMakeFiles/zlib-ng-static.dir/compress.c.o
+[ 12%] Building C object CMakeFiles/zlib-ng.dir/compress.c.o
+[ 13%] Building C object CMakeFiles/zlib-ng-static.dir/crc32.c.o
+[ 14%] Building C object CMakeFiles/zlib-ng.dir/crc32.c.o
+[ 15%] Building C object CMakeFiles/zlib-ng-static.dir/crc32_braid_comb.c.o
+[ 16%] Building C object CMakeFiles/zlib-ng.dir/crc32_braid_comb.c.o
+[ 17%] Building C object CMakeFiles/zlib-ng.dir/deflate.c.o
+[ 18%] Building C object CMakeFiles/zlib-ng-static.dir/deflate.c.o
+[ 19%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_fast.c.o
+[ 20%] Building C object CMakeFiles/zlib-ng.dir/deflate_fast.c.o
+[ 21%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_huff.c.o
+[ 22%] Building C object CMakeFiles/zlib-ng.dir/deflate_huff.c.o
+[ 23%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_medium.c.o
+[ 24%] Building C object CMakeFiles/zlib-ng.dir/deflate_medium.c.o
+[ 25%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_quick.c.o
+[ 26%] Building C object CMakeFiles/zlib-ng.dir/deflate_quick.c.o
+[ 27%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_rle.c.o
+[ 28%] Building C object CMakeFiles/zlib-ng.dir/deflate_rle.c.o
+[ 29%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_slow.c.o
+[ 31%] Building C object CMakeFiles/zlib-ng.dir/deflate_slow.c.o
+[ 31%] Building C object CMakeFiles/zlib-ng-static.dir/deflate_stored.c.o
+[ 32%] Building C object CMakeFiles/zlib-ng.dir/deflate_stored.c.o
+[ 33%] Building C object CMakeFiles/zlib-ng-static.dir/functable.c.o
+[ 34%] Building C object CMakeFiles/zlib-ng.dir/functable.c.o
+[ 35%] Building C object CMakeFiles/zlib-ng-static.dir/infback.c.o
+[ 36%] Building C object CMakeFiles/zlib-ng.dir/infback.c.o
+[ 37%] Building C object CMakeFiles/zlib-ng-static.dir/inflate.c.o
+[ 38%] Building C object CMakeFiles/zlib-ng.dir/inflate.c.o
+[ 39%] Building C object CMakeFiles/zlib-ng-static.dir/inftrees.c.o
+[ 40%] Building C object CMakeFiles/zlib-ng.dir/inftrees.c.o
+[ 41%] Building C object CMakeFiles/zlib-ng-static.dir/insert_string.c.o
+[ 42%] Building C object CMakeFiles/zlib-ng.dir/insert_string.c.o
+[ 43%] Building C object CMakeFiles/zlib-ng-static.dir/insert_string_roll.c.o
+[ 44%] Building C object CMakeFiles/zlib-ng.dir/insert_string_roll.c.o
+[ 45%] Building C object CMakeFiles/zlib-ng-static.dir/trees.c.o
+[ 46%] Building C object CMakeFiles/zlib-ng.dir/trees.c.o
+[ 47%] Building C object CMakeFiles/zlib-ng-static.dir/uncompr.c.o
+[ 48%] Building C object CMakeFiles/zlib-ng.dir/uncompr.c.o
+[ 49%] Building C object CMakeFiles/zlib-ng-static.dir/zutil.c.o
+[ 50%] Building C object CMakeFiles/zlib-ng.dir/zutil.c.o
+[ 51%] Building C object CMakeFiles/zlib-ng-static.dir/arch/generic/crc32_chorba_c.c.o
+[ 52%] Building C object CMakeFiles/zlib-ng.dir/arch/generic/crc32_chorba_c.c.o
+[ 53%] Building C object CMakeFiles/zlib-ng-static.dir/cpu_features.c.o
+[ 54%] Building C object CMakeFiles/zlib-ng.dir/cpu_features.c.o
+[ 55%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/x86_features.c.o
+[ 56%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/x86_features.c.o
+[ 57%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chunkset_sse2.c.o
+[ 58%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chunkset_sse2.c.o
+[ 59%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chorba_sse2.c.o
+[ 60%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chorba_sse2.c.o
+[ 61%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/compare256_sse2.c.o
+[ 62%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/compare256_sse2.c.o
+[ 63%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/slide_hash_sse2.c.o
+[ 64%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/slide_hash_sse2.c.o
+[ 65%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/adler32_ssse3.c.o
+[ 66%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/adler32_ssse3.c.o
+[ 67%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chunkset_ssse3.c.o
+[ 68%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chunkset_ssse3.c.o
+[ 69%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chorba_sse41.c.o
+[ 70%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chorba_sse41.c.o
+[ 71%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/adler32_sse42.c.o
+[ 72%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/crc32_pclmulqdq.c.o
+[ 73%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/adler32_sse42.c.o
+[ 74%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/slide_hash_avx2.c.o
+[ 75%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chunkset_avx2.c.o
+[ 76%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/compare256_avx2.c.o
+[ 77%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/adler32_avx2.c.o
+[ 78%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/crc32_pclmulqdq.c.o
+[ 79%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/adler32_avx512.c.o
+[ 80%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/chunkset_avx512.c.o
+[ 81%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/compare256_avx512.c.o
+[ 82%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/slide_hash_avx2.c.o
+[ 83%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/adler32_avx512_vnni.c.o
+[ 84%] Building C object CMakeFiles/zlib-ng-static.dir/arch/x86/crc32_vpclmulqdq.c.o
+[ 85%] Building C object CMakeFiles/zlib-ng-static.dir/gzlib.c.o
+[ 86%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chunkset_avx2.c.o
+[ 87%] Building C object CMakeFiles/zlib-ng-static.dir/gzread.c.o
+[ 88%] Building C object CMakeFiles/zlib-ng-static.dir/gzwrite.c.o
+[ 89%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/compare256_avx2.c.o
+[ 90%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/adler32_avx2.c.o
+[ 91%] Linking C static library libz.a
+[ 91%] Built target zlib-ng-static
+[ 92%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/adler32_avx512.c.o
+[ 93%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/chunkset_avx512.c.o
+[ 94%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/adler32_avx512_vnni.c.o
+[ 95%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/compare256_avx512.c.o
+[ 96%] Building C object CMakeFiles/zlib-ng.dir/arch/x86/crc32_vpclmulqdq.c.o
+[ 97%] Building C object CMakeFiles/zlib-ng.dir/gzlib.c.o
+[ 98%] Building C object CMakeFiles/zlib-ng.dir/gzread.c.o
+[ 99%] Building C object CMakeFiles/zlib-ng.dir/gzwrite.c.o
+[100%] Linking C shared library libz.so
+[100%] Built target zlib-ng
+-- Install configuration: "Release"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libz.so.1.3.1.zlib-ng
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libz.so.1
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libz.so
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libz.a
+-- Installing: /tmp/optimizer-native-133f/codecs/include/zlib.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/zlib_name_mangling.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/zconf.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/zlib.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/ZLIB/ZLIB-targets.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/ZLIB/ZLIB-targets-release.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/ZLIB/zlib-config.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/ZLIB/zlib-config-version.cmake
+heif.tar.gz: OK
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include bit
+-- Looking for C++ include bit - found
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Performing Test has_potentially_evaluated_expression
+-- Performing Test has_potentially_evaluated_expression - Failed
+CMake Warning at cmake/modules/LibFindMacros.cmake:267 (message):
+  WARNING: MISSING PACKAGE
+
+  We could not find development headers for LIBDE265.  Do you have the
+  necessary dev package installed? This package is NOT REQUIRED and you may
+  ignore this warning but by doing so you may miss some functionality of
+  libheif.
+
+  Relevant CMake configuration variables:
+
+    LIBDE265_INCLUDE_DIR-NOTFOUND=
+    LIBDE265_INCLUDE_DIR=<not found>
+    LIBDE265_LIBRARY-NOTFOUND=
+    LIBDE265_LIBRARY=<not found>
+
+  You may use CMake GUI, cmake -D or ccmake to modify the values.  Delete
+  CMakeCache.txt to discard all values and force full re-detection if
+  necessary.
+
+Call Stack (most recent call first):
+  cmake/modules/FindLIBDE265.cmake:17 (libfind_process)
+  CMakeLists.txt:138 (find_package)
+
+
+-- Could NOT find LIBDE265 (missing: LIBDE265_INCLUDE_DIRS LIBDE265_LIBRARIES)
+CMake Warning at cmake/modules/LibFindMacros.cmake:267 (message):
+  WARNING: MISSING PACKAGE
+
+  We could not find development headers for X265.  Do you have the necessary
+  dev package installed? This package is NOT REQUIRED and you may ignore this
+  warning but by doing so you may miss some functionality of libheif.
+
+  Relevant CMake configuration variables:
+
+    X265_INCLUDE_DIR=<not found>
+    X265_LIBRARY=<not found>
+
+  You may use CMake GUI, cmake -D or ccmake to modify the values.  Delete
+  CMakeCache.txt to discard all values and force full re-detection if
+  necessary.
+
+Call Stack (most recent call first):
+  cmake/modules/FindX265.cmake:17 (libfind_process)
+  CMakeLists.txt:145 (find_package)
+
+
+-- Could NOT find X265 (missing: X265_INCLUDE_DIR X265_LIBRARIES)
+CMake Warning at cmake/modules/LibFindMacros.cmake:267 (message):
+  WARNING: MISSING PACKAGE
+
+  We could not find development headers for X264.  Do you have the necessary
+  dev package installed? This package is NOT REQUIRED and you may ignore this
+  warning but by doing so you may miss some functionality of libheif.
+
+  Relevant CMake configuration variables:
+
+    X264_INCLUDE_DIR=<not found>
+    X264_LIBRARY=<not found>
+
+  You may use CMake GUI, cmake -D or ccmake to modify the values.  Delete
+  CMakeCache.txt to discard all values and force full re-detection if
+  necessary.
+
+Call Stack (most recent call first):
+  cmake/modules/FindX264.cmake:17 (libfind_process)
+  CMakeLists.txt:205 (find_package)
+
+
+-- Could NOT find X264 (missing: X264_INCLUDE_DIR X264_LIBRARIES)
+CMake Warning at cmake/modules/LibFindMacros.cmake:267 (message):
+  WARNING: MISSING PACKAGE
+
+  We could not find development headers for OpenH264.  Do you have the
+  necessary dev package installed? This package is NOT REQUIRED and you may
+  ignore this warning but by doing so you may miss some functionality of
+  libheif.
+
+  Relevant CMake configuration variables:
+
+    OpenH264_INCLUDE_DIR=<not found>
+    OpenH264_LIBRARY=<not found>
+
+  You may use CMake GUI, cmake -D or ccmake to modify the values.  Delete
+  CMakeCache.txt to discard all values and force full re-detection if
+  necessary.
+
+Call Stack (most recent call first):
+  cmake/modules/FindOpenH264.cmake:19 (libfind_process)
+  CMakeLists.txt:213 (find_package)
+
+
+-- Could NOT find OpenH264 (missing: OpenH264_INCLUDE_DIR OpenH264_LIBRARIES)
+-- Found DAV1D
+-- Found DAV1D: /tmp/optimizer-probes/runtime/usr/include
+-- Found AOM: /tmp/optimizer-probes/runtime/usr/lib/x86_64-linux-gnu/cmake/AOM
+-- Looking for AOM_USAGE_GOOD_QUALITY
+-- Looking for AOM_USAGE_GOOD_QUALITY - found
+
+=== Summary of compiled codecs ===
+libde265 HEVC decoder                 : - not found
+FFMPEG HEVC decoder (HW acc)          : - disabled
+WebCodecs HEVC decoder (experimental) : - disabled
+x265 HEVC encoder                     : - not found
+Kvazaar HEVC encoder                  : - disabled
+AOM AV1 decoder                       : - disabled
+AOM AV1 encoder                       : + built-in
+Dav1d AV1 decoder                     : + built-in
+SVT AV1 encoder                       : - disabled
+Rav1e AV1 encoder                     : - disabled
+JPEG decoder                          : - disabled
+JPEG encoder                          : - disabled
+x264 AVC encoder                      : - not found
+OpenH264 decoder                      : - not found
+OpenJPEG J2K decoder                  : - disabled
+OpenJPEG J2K encoder                  : - disabled
+OpenJPH HT-J2K encoder                : - disabled
+uvg266 VVC encoder                    : - disabled
+vvenc VVC encoder                     : - disabled
+vvdec VVC decoder                     : - disabled
+
+=== Supported formats ===
+format        decoding   encoding
+AVC             NO         NO
+AVIF            YES        YES
+HEIC            NO         NO
+JPEG            NO         NO
+JPEG2000        NO         NO
+JPEG2000-HT     NO         NO
+Uncompressed    NO         NO
+VVC             NO         NO
+
+libsharpyuv: disabled
+-- Looking for _LIBCPP_VERSION
+-- Looking for _LIBCPP_VERSION - not found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE)
+Doxygen tool needs to be installed to generate the API documentation
+Not compiling 'x265' backend
+Not compiling 'libde265' backend
+Compiling 'dav1d' as built-in backend
+Not compiling 'aomdec' backend
+Compiling 'aomenc' as built-in backend
+Not compiling 'svtenc' backend
+Not compiling 'rav1e' backend
+Not compiling 'jpegdec' backend
+Not compiling 'jpegenc' backend
+Not compiling 'j2kdec' backend
+Not compiling 'j2kenc' backend
+Not compiling 'kvazaar' backend
+Not compiling 'ffmpegdec' backend
+Not compiling 'jphenc' backend
+Not compiling 'uvg266' backend
+Not compiling 'vvdec' backend
+Not compiling 'vvenc' backend
+Not compiling 'x264' backend
+Not compiling 'openh264dec' backend
+Not compiling 'libsharpyuv'
+-- Found Threads: TRUE
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/tmp.Z5BYpKQOj5/heif-build
+[  1%] Building CXX object libheif/CMakeFiles/heif.dir/bitstream.cc.o
+[  2%] Building CXX object libheif/CMakeFiles/heif.dir/box.cc.o
+[  3%] Building CXX object libheif/CMakeFiles/heif.dir/error.cc.o
+[  4%] Building CXX object libheif/CMakeFiles/heif.dir/context.cc.o
+[  5%] Building CXX object libheif/CMakeFiles/heif.dir/file.cc.o
+[  6%] Building CXX object libheif/CMakeFiles/heif.dir/file_layout.cc.o
+[  7%] Building CXX object libheif/CMakeFiles/heif.dir/image/pixelimage.cc.o
+[  8%] Building CXX object libheif/CMakeFiles/heif.dir/image/image_description.cc.o
+[  9%] Building CXX object libheif/CMakeFiles/heif.dir/plugin_registry.cc.o
+[ 10%] Building CXX object libheif/CMakeFiles/heif.dir/nclx.cc.o
+[ 11%] Building CXX object libheif/CMakeFiles/heif.dir/security_limits.cc.o
+[ 12%] Building CXX object libheif/CMakeFiles/heif.dir/init.cc.o
+[ 13%] Building CXX object libheif/CMakeFiles/heif.dir/logging.cc.o
+[ 14%] Building CXX object libheif/CMakeFiles/heif.dir/compression.cc.o
+[ 15%] Building CXX object libheif/CMakeFiles/heif.dir/compression_brotli.cc.o
+[ 16%] Building CXX object libheif/CMakeFiles/heif.dir/compression_zlib.cc.o
+[ 17%] Building CXX object libheif/CMakeFiles/heif.dir/common_utils.cc.o
+[ 18%] Building CXX object libheif/CMakeFiles/heif.dir/region.cc.o
+[ 19%] Building CXX object libheif/CMakeFiles/heif.dir/brands.cc.o
+[ 20%] Building CXX object libheif/CMakeFiles/heif.dir/id_creator.cc.o
+[ 21%] Building CXX object libheif/CMakeFiles/heif.dir/text.cc.o
+[ 22%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif.cc.o
+[ 23%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_library.cc.o
+[ 24%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_image.cc.o
+[ 25%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_color.cc.o
+[ 26%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_regions.cc.o
+[ 27%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_plugin.cc.o
+[ 28%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_properties.cc.o
+[ 29%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_items.cc.o
+[ 30%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_sequences.cc.o
+[ 31%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_tai_timestamps.cc.o
+[ 32%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_brands.cc.o
+[ 33%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_metadata.cc.o
+[ 34%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_aux_images.cc.o
+[ 35%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_entity_groups.cc.o
+[ 36%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_security.cc.o
+[ 37%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_encoding.cc.o
+[ 38%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_decoding.cc.o
+[ 39%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_image_handle.cc.o
+[ 40%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_context.cc.o
+[ 41%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_tiling.cc.o
+[ 42%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_components.cc.o
+[ 43%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_uncompressed.cc.o
+[ 44%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_text.cc.o
+[ 45%] Building CXX object libheif/CMakeFiles/heif.dir/api/libheif/heif_omaf.cc.o
+[ 46%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/decoder.cc.o
+[ 47%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/encoder.cc.o
+[ 48%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/hevc.cc.o
+[ 49%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/hevc_boxes.cc.o
+[ 50%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/hevc_dec.cc.o
+[ 51%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/hevc_enc.cc.o
+[ 52%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/avif.cc.o
+[ 53%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avif_enc.cc.o
+[ 54%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avif_dec.cc.o
+[ 55%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avif_boxes.cc.o
+[ 56%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/jpeg.cc.o
+[ 57%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg_boxes.cc.o
+[ 58%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg_dec.cc.o
+[ 59%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg_enc.cc.o
+[ 60%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/jpeg2000.cc.o
+[ 61%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg2000_dec.cc.o
+[ 62%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg2000_enc.cc.o
+[ 63%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/jpeg2000_boxes.cc.o
+[ 64%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/vvc.cc.o
+[ 65%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/vvc_dec.cc.o
+[ 66%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/vvc_enc.cc.o
+[ 67%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/vvc_boxes.cc.o
+[ 68%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/avc.cc.o
+[ 69%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avc_boxes.cc.o
+[ 70%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avc_dec.cc.o
+[ 71%] Building CXX object libheif/CMakeFiles/heif.dir/codecs/avc_enc.cc.o
+[ 72%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/mask_image.cc.o
+[ 73%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/image_item.cc.o
+[ 74%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/grid.cc.o
+[ 75%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/overlay.cc.o
+[ 76%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/iden.cc.o
+[ 77%] Building CXX object libheif/CMakeFiles/heif.dir/image-items/tiled.cc.o
+[ 78%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/colorconversion.cc.o
+[ 79%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/rgb2yuv.cc.o
+[ 80%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/rgb2yuv_sharp.cc.o
+[ 81%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/yuv2rgb.cc.o
+[ 82%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/rgb2rgb.cc.o
+[ 83%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/monochrome.cc.o
+[ 84%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/hdr_sdr.cc.o
+[ 85%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/alpha.cc.o
+[ 86%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/chroma_sampling.cc.o
+[ 87%] Building CXX object libheif/CMakeFiles/heif.dir/color-conversion/bayer_bilinear.cc.o
+[ 88%] Building CXX object libheif/CMakeFiles/heif.dir/sequences/seq_boxes.cc.o
+[ 89%] Building CXX object libheif/CMakeFiles/heif.dir/sequences/chunk.cc.o
+[ 90%] Building CXX object libheif/CMakeFiles/heif.dir/sequences/track.cc.o
+[ 91%] Building CXX object libheif/CMakeFiles/heif.dir/sequences/track_visual.cc.o
+[ 92%] Building CXX object libheif/CMakeFiles/heif.dir/sequences/track_metadata.cc.o
+[ 93%] Building CXX object libheif/CMakeFiles/heif.dir/plugins_unix.cc.o
+[ 94%] Building CXX object libheif/CMakeFiles/heif.dir/plugins/decoder_dav1d.cc.o
+[ 95%] Building CXX object libheif/CMakeFiles/heif.dir/plugins/encoder_aom.cc.o
+[ 96%] Building CXX object libheif/CMakeFiles/heif.dir/plugins/encoder_mask.cc.o
+[ 97%] Building CXX object libheif/CMakeFiles/heif.dir/plugins/nalu_utils.cc.o
+[ 98%] Building CXX object libheif/CMakeFiles/heif.dir/mini.cc.o
+[ 99%] Building CXX object libheif/CMakeFiles/heif.dir/omaf_boxes.cc.o
+[100%] Linking CXX shared library libheif.so
+[100%] Built target heif
+-- Install configuration: "Release"
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libheif
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/pkgconfig/libheif.pc
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libheif.so.1.23.5
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libheif.so.1
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/libheif.so
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_export.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_library.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_image.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_color.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_error.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_plugin.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_properties.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_regions.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_items.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_sequences.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_tai_timestamps.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_brands.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_metadata.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_aux_images.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_entity_groups.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_security.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_encoding.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_decoding.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_image_handle.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_context.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_tiling.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_components.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_uncompressed.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_text.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_omaf.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_cxx.h
+-- Installing: /tmp/optimizer-native-133f/codecs/include/libheif/heif_version.h
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/libheif/libheif-config.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/libheif/libheif-config-release.cmake
+-- Installing: /tmp/optimizer-native-133f/codecs/lib/cmake/libheif/libheif-config-version.cmake

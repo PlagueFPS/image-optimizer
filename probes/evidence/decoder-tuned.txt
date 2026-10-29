@@ -1,0 +1,3 @@
+probe heif_decode_image color=1 chroma=11
+probe dav1d_open threads=0 frame_delay=0
+probe dav1d_open threads=0 frame_delay=0

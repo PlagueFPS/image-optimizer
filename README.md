@@ -10,7 +10,7 @@ On Ubuntu 26.04:
 
 ```sh
 sudo apt-get update
-sudo apt-get install build-essential pkg-config libvips-dev libvips-tools libheif-plugin-aomdec libheif-plugin-aomenc
+sudo apt-get install build-essential pkg-config libvips-dev libvips-tools libheif-plugin-dav1d libheif-plugin-aomenc
 cargo build --release
 cargo install --path . --locked
 cargo test
@@ -83,15 +83,15 @@ Paths are absolute and must be UTF-8. Non-UTF-8 discovered names produce explici
 
 ## Image and resource policy
 
-EXIF orientation is applied before geometry. Images are converted to sRGB through libvips thumbnail color management, using embedded ICC profiles when present and libvips defaults otherwise. EXIF, XMP, IPTC, ICC, and other metadata are stripped from outputs. No linear-light resize is requested, to retain decoder shrink-on-load. Output is intended for web use, with 8-bit encoder defaults. HDR and wide-gamut preservation are not supported.
+EXIF orientation is applied before geometry. Images are converted to sRGB through libvips thumbnail color management, using an explicit sRGB output profile for embedded ICC inputs and libvips color-space defaults otherwise. EXIF, XMP, IPTC, ICC, and other metadata are stripped from outputs. No linear-light resize is requested, to retain decoder shrink-on-load. Output is intended for web use, with 8-bit encoder defaults. HDR and wide-gamut preservation are not supported.
 
 PNG, WebP, and AVIF retain alpha. WebP alpha quality remains 100. Lossy encoding may change RGB values, including invisible RGB beneath transparent pixels. JPEG inputs do not carry alpha.
 
 Multipage images, detected animation, APNG animation-control chunks, and AVIF sequence brands are rejected. SVG support is restricted to static, self-contained documents up to 4 MiB. Scripts, animation elements, embedded images, stylesheets, inline CSS, event handlers, document types, base URLs, and external references are rejected. Internal fragment references and presentation attributes are allowed. This deliberately excludes some otherwise valid SVG files. It is not a general SVG sanitization service or an untrusted-image sandbox.
 
-There is one active source variant at a time. Libvips operation caching is disabled. `--cpu` sets libvips concurrency, not process affinity or a hard thread limit for every codec. `--effort` accepts 0 to 6 for WebP and AVIF, and maps directly to PNG compression. JPEG always enables optimized Huffman coding and does not use effort. `--quality` applies to lossy WebP, JPEG, and AVIF. PNG ignores quality. Codec effort scales are not comparable.
+There is one active source variant at a time. Libvips operation caching is disabled. On glibc builds, the CLI defaults to one malloc arena to limit native heap retention; an explicit `MALLOC_ARENA_MAX` overrides this policy. `--cpu` sets libvips concurrency, not process affinity or a hard thread limit for every codec. `--effort` accepts 0 to 6 for WebP and AVIF, and maps directly to PNG compression. JPEG always enables optimized Huffman coding and does not use effort. `--quality` applies to lossy WebP, JPEG, and AVIF. PNG ignores quality. Codec effort scales are not comparable.
 
-`--max-pixels` defaults to 100000000 and rejects both source and estimated output pixel counts before pixel evaluation. It is not a hard memory limit. Decoder headers, native codec buffers, image entropy, and the size of the directory plan still affect RSS. Use OS process limits or a container for hard resource isolation. AVIF codec memory use depends on the installed libheif and AV1 implementation.
+`--max-pixels` defaults to 100000000 and rejects both source and estimated output pixel counts before pixel evaluation. It is not a hard memory limit. Decoder headers, native codec buffers, image entropy, and the size of the directory plan still affect RSS. Use OS process limits or a container for hard resource isolation. AVIF codec memory use depends on the installed libheif and AV1 implementation. The recommended decoder is dav1d; AOM remains the encoder. [Focused native runtime setup and evidence](probes/README.md) describe independently built WebP, zlib-ng and libheif alternatives.
 
 ## Verify changes
 

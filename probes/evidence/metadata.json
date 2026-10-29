@@ -1,0 +1,1966 @@
+{
+  "count": 490,
+  "failures": 0,
+  "images": [
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-before/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-arena128/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-default/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-tuned/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-0-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-tuned/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-default/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-arena128/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-1-before/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-before/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-arena128/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-default/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-tuned/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-2-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-tuned/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-default/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-arena128/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-3-before/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-before/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-arena128/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-default/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/astronaut.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/earth.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/noise.jpg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-tuned/vector.svg.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/astronaut.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/earth.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/noise.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-flat-4-sharp/vector.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-0-before/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-0-default/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-0-tuned/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-0-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-1-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-1-tuned/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-1-default/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-1-before/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-2-before/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-2-default/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-2-tuned/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-2-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-3-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-3-tuned/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-3-default/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-3-before/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-4-before/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-4-default/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-4-tuned/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/resize-translucent-4-sharp/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-0-before/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-0-default/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-0-tuned/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-0-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-1-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-1-tuned/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-1-default/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-1-before/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-2-before/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-2-default/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-2-tuned/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-2-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-3-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-3-tuned/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-3-default/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-3-before/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-4-before/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-4-default/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-4-tuned/translucent.avif.480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-translucent-4-sharp/translucent-480w.avif",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-0-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-0-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-0-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-0-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-1-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-1-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-1-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-1-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-2-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-2-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-2-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-2-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-3-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-3-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-3-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-3-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-4-before/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-4-default/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-4-tuned/translucent.avif.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-translucent-4-sharp/translucent.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-0-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-0-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-0-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-0-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-1-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-1-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-1-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-1-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-2-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-2-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-2-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-2-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-3-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-3-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-3-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-3-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-4-before/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-4-default/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-4-tuned/alpha.png.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/convert-alpha-4-sharp/alpha.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-0-before/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-0-default/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-0-tuned/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-0-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-1-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-1-tuned/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-1-default/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-1-before/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-2-before/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-2-default/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-2-tuned/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-2-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-3-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-3-tuned/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-3-default/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-3-before/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-4-before/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-4-default/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-4-tuned/alpha.png.480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/preserve-alpha-4-sharp/alpha-480w.png",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-before/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-default/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-tuned/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-0-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-tuned/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-default/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-1-before/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-before/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-default/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-tuned/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-2-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-sharp/nested/vector-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-tuned/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-default/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-3-before/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-before/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-default/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/alpha.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/alpha.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/astronaut.png.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/astronaut.png.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/earth.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/earth.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/noise.jpg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/noise.jpg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/translucent.avif.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/translucent.avif.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/vector.svg.480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-tuned/nested/vector.svg.960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/alpha-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/alpha-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/astronaut-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/astronaut-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/earth-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/earth-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/noise-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/noise-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/translucent-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/translucent-960w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/vector-480w.webp",
+      "retained": []
+    },
+    {
+      "file": "/tmp/optimizer-focused-final-133f/directory-recursive-srcset-4-sharp/nested/vector-960w.webp",
+      "retained": []
+    }
+  ]
+}

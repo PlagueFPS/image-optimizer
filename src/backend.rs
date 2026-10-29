@@ -83,6 +83,8 @@ impl Backend {
         if header.get_orientation() >= 5 {
             std::mem::swap(&mut width, &mut height);
         }
+        let has_profile = header.get_as_string("icc-profile-data").is_ok();
+        self.app.error_clear();
         drop(header);
         let (w, h, size, requested_width) = match job.transform {
             Transform::Original => (width, height, ops::Size::Down, None),
@@ -118,7 +120,7 @@ impl Backend {
             &ops::ThumbnailOptions {
                 height: h,
                 size,
-                output_profile: Some("sRGB".into()),
+                output_profile: has_profile.then(|| "sRGB".into()),
                 fail_on: ops::FailOn::Warning,
                 ..Default::default()
             },

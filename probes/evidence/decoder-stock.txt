@@ -1,0 +1,3 @@
+probe heif_decode_image color=1 chroma=11
+probe aom_codec_dec_init_ver threads=0
+probe aom_codec_dec_init_ver threads=0

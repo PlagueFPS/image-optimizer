@@ -1,0 +1,1878 @@
+{
+  "claim": "Isolate allocator and native codec changes with decoded outputs at unchanged quality and effort.",
+  "binary_sha256": "ab56ce9ad92407951bc9a24398472b0b0691af35c0c3822dd6254e30b2b47bf6",
+  "before_binary_sha256": null,
+  "load": [
+    0.880859375,
+    0.9990234375,
+    0.99267578125
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "/tmp/image-vips/usr/lib/x86_64-linux-gnu",
+    "VIPSHOME": "/tmp/image-vips/usr/lib",
+    "VIPS_CONCURRENCY": "1",
+    "UV_THREADPOOL_SIZE": "1",
+    "OMP_NUM_THREADS": "1",
+    "RAYON_NUM_THREADS": "1"
+  },
+  "tuned_environment": {
+    "LD_LIBRARY_PATH": "/tmp/optimizer-probes/optimized/lib:/tmp/optimizer-probes/runtime/usr/lib/x86_64-linux-gnu:/tmp/image-vips/usr/lib/x86_64-linux-gnu",
+    "LIBHEIF_PLUGIN_PATH": "/tmp/optimizer-probes/runtime/usr/lib/x86_64-linux-gnu/libheif/plugins"
+  },
+  "records": [
+    {
+      "case": "resize-translucent",
+      "iteration": 0,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-default",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 1.110231416001625,
+      "user_s": 0.97,
+      "system_s": 0.13,
+      "rss_kib": 291964.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-default/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.890625,
+        0.99951171875,
+        0.9931640625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 0,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-tuned",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 0.959831848002068,
+      "user_s": 0.9,
+      "system_s": 0.1,
+      "rss_kib": 211220.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-tuned/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.890625,
+        0.99951171875,
+        0.9931640625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 0,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-sharp.job.json"
+      ],
+      "wall_s": 1.6357536159994197,
+      "user_s": 1.53,
+      "system_s": 0.1,
+      "rss_kib": 202672.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-0-sharp/translucent-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.8994140625,
+        1.0,
+        0.99365234375
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 1,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-sharp.job.json"
+      ],
+      "wall_s": 1.6582182699967234,
+      "user_s": 1.55,
+      "system_s": 0.1,
+      "rss_kib": 202732.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-sharp/translucent-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.90771484375,
+        1.0,
+        0.994140625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 1,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-tuned",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 0.9372911209975427,
+      "user_s": 0.89,
+      "system_s": 0.09,
+      "rss_kib": 211272.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-tuned/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.90771484375,
+        1.0,
+        0.994140625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 1,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-default",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 1.1280735690015717,
+      "user_s": 0.94,
+      "system_s": 0.18,
+      "rss_kib": 292016.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-1-default/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.91552734375,
+        1.0,
+        0.99462890625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 2,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-default",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 1.090689583998028,
+      "user_s": 0.95,
+      "system_s": 0.13,
+      "rss_kib": 292244.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-default/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.91552734375,
+        1.0,
+        0.99462890625
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 2,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-tuned",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 0.9448972070022137,
+      "user_s": 0.88,
+      "system_s": 0.1,
+      "rss_kib": 211232.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-tuned/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.92236328125,
+        1.0,
+        0.9951171875
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 2,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-sharp.job.json"
+      ],
+      "wall_s": 1.6350580250000348,
+      "user_s": 1.52,
+      "system_s": 0.11,
+      "rss_kib": 203144.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-2-sharp/translucent-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.92236328125,
+        1.0,
+        0.9951171875
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 3,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-sharp.job.json"
+      ],
+      "wall_s": 1.6536579619969416,
+      "user_s": 1.54,
+      "system_s": 0.12,
+      "rss_kib": 202588.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-sharp/translucent-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.9287109375,
+        1.0,
+        0.99560546875
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 3,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-tuned",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 0.9729695589994662,
+      "user_s": 0.91,
+      "system_s": 0.11,
+      "rss_kib": 211336.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-tuned/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.9345703125,
+        1.0,
+        0.99609375
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 3,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-default",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 1.131755800000974,
+      "user_s": 1.0,
+      "system_s": 0.12,
+      "rss_kib": 292184.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-3-default/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        0.9345703125,
+        1.0,
+        0.99609375
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 4,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-default",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 1.096695929998532,
+      "user_s": 0.97,
+      "system_s": 0.12,
+      "rss_kib": 292136.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-default/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        1.02001953125,
+        1.0166015625,
+        1.001953125
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 4,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-tuned",
+        "--format",
+        "webp",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "960"
+      ],
+      "wall_s": 0.9460460789996432,
+      "user_s": 0.89,
+      "system_s": 0.1,
+      "rss_kib": 211120.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-tuned/translucent.avif.960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        1.02001953125,
+        1.0166015625,
+        1.001953125
+      ]
+    },
+    {
+      "case": "resize-translucent",
+      "iteration": 4,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-sharp.job.json"
+      ],
+      "wall_s": 1.630441968998639,
+      "user_s": 1.53,
+      "system_s": 0.1,
+      "rss_kib": 202828.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/resize-translucent-4-sharp/translucent-960w.webp",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 4.335761539222378,
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0,
+            "bytes": 95016,
+            "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+          }
+        ]
+      },
+      "load": [
+        1.01806640625,
+        1.01611328125,
+        1.00146484375
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 0,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-default",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 2.0087105880011222,
+      "user_s": 1.88,
+      "system_s": 0.11,
+      "rss_kib": 288548.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-default/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.0166015625,
+        1.015625,
+        1.0009765625
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 0,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-tuned",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.7074729810010467,
+      "user_s": 1.68,
+      "system_s": 0.06,
+      "rss_kib": 207372.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-tuned/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.0166015625,
+        1.015625,
+        1.0009765625
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 0,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-sharp.job.json"
+      ],
+      "wall_s": 2.89280988000246,
+      "user_s": 2.8,
+      "system_s": 0.08,
+      "rss_kib": 199140.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-0-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.733178077982756,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.21984843263788198,
+            "bytes": 34604,
+            "sha256": "f7d066fad8e93144a89a5c469dbc483dd63ae6e1ccd8502ffd4c437e32098b4a"
+          }
+        ]
+      },
+      "load": [
+        1.01513671875,
+        1.01513671875,
+        1.00048828125
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 1,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-sharp.job.json"
+      ],
+      "wall_s": 2.9246269879986357,
+      "user_s": 2.82,
+      "system_s": 0.1,
+      "rss_kib": 200000.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.733178077982756,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.21984843263788198,
+            "bytes": 34604,
+            "sha256": "f7d066fad8e93144a89a5c469dbc483dd63ae6e1ccd8502ffd4c437e32098b4a"
+          }
+        ]
+      },
+      "load": [
+        1.013671875,
+        1.0146484375,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 1,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-tuned",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.716677709002397,
+      "user_s": 1.69,
+      "system_s": 0.07,
+      "rss_kib": 207328.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-tuned/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.01220703125,
+        1.01416015625,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 1,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-default",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 2.011097932998382,
+      "user_s": 1.9,
+      "system_s": 0.1,
+      "rss_kib": 288596.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-1-default/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.01220703125,
+        1.01416015625,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 2,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-default",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 2.024927637001383,
+      "user_s": 1.9,
+      "system_s": 0.11,
+      "rss_kib": 288632.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-default/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.0107421875,
+        1.013671875,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 2,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-tuned",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.712612152001384,
+      "user_s": 1.67,
+      "system_s": 0.08,
+      "rss_kib": 207300.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-tuned/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.009765625,
+        1.01318359375,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 2,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-sharp.job.json"
+      ],
+      "wall_s": 2.876772133000486,
+      "user_s": 2.78,
+      "system_s": 0.09,
+      "rss_kib": 199404.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-2-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.733178077982756,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.21984843263788198,
+            "bytes": 34604,
+            "sha256": "f7d066fad8e93144a89a5c469dbc483dd63ae6e1ccd8502ffd4c437e32098b4a"
+          }
+        ]
+      },
+      "load": [
+        1.0087890625,
+        1.0126953125,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 3,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-sharp.job.json"
+      ],
+      "wall_s": 2.915747744998953,
+      "user_s": 2.81,
+      "system_s": 0.1,
+      "rss_kib": 199660.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.733178077982756,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.21984843263788198,
+            "bytes": 34604,
+            "sha256": "f7d066fad8e93144a89a5c469dbc483dd63ae6e1ccd8502ffd4c437e32098b4a"
+          }
+        ]
+      },
+      "load": [
+        1.0078125,
+        1.01220703125,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 3,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-tuned",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.709867335997842,
+      "user_s": 1.66,
+      "system_s": 0.09,
+      "rss_kib": 207524.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-tuned/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.0078125,
+        1.01220703125,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 3,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-default",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.989797941998404,
+      "user_s": 1.87,
+      "system_s": 0.11,
+      "rss_kib": 288944.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-3-default/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.0068359375,
+        1.01171875,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 4,
+      "side": "default",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-default",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.98924998000075,
+      "user_s": 1.92,
+      "system_s": 0.05,
+      "rss_kib": 288708.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-default/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.005859375,
+        1.01123046875,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 4,
+      "side": "tuned",
+      "command": [
+        "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/target/release/image-optimizer",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+        "--out-dir",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-tuned",
+        "--format",
+        "preserve",
+        "--cpu",
+        "1",
+        "--quality",
+        "80",
+        "--effort",
+        "6",
+        "--json",
+        "--widths",
+        "480"
+      ],
+      "wall_s": 1.725666343998455,
+      "user_s": 1.69,
+      "system_s": 0.08,
+      "rss_kib": 207076.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-tuned/translucent.avif.480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.7407680596506818,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.2091650066335189,
+            "bytes": 34587,
+            "sha256": "7acaf87661fcf84ba9d3611c63e61de4afba36c418cf144c4f5dfd541d60bdf5"
+          }
+        ]
+      },
+      "load": [
+        1.005859375,
+        1.01123046875,
+        1.0
+      ]
+    },
+    {
+      "case": "preserve-translucent",
+      "iteration": 4,
+      "side": "sharp",
+      "command": [
+        "node",
+        "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/reference.mjs",
+        "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-sharp.job.json"
+      ],
+      "wall_s": 2.9100291579998157,
+      "user_s": 2.8,
+      "system_s": 0.11,
+      "rss_kib": 199620.0,
+      "verification": {
+        "count": 1,
+        "images": [
+          {
+            "file": "/tmp/optimizer-decoder-isolation-133f/preserve-translucent-4-sharp/translucent-480w.avif",
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "thumbnail_rmse": 1.733178077982756,
+            "width": 480,
+            "height": 320,
+            "format": "heif",
+            "channels": 4,
+            "has_alpha": true,
+            "expected_nonopaque_alpha": true,
+            "alpha_rmse": 0.21984843263788198,
+            "bytes": 34604,
+            "sha256": "f7d066fad8e93144a89a5c469dbc483dd63ae6e1ccd8502ffd4c437e32098b4a"
+          }
+        ]
+      },
+      "load": [
+        1.00537109375,
+        1.0107421875,
+        1.0
+      ]
+    }
+  ],
+  "provenance": {
+    "source": {
+      "src/backend.rs": "8e80c9123fff2ae1d91a2de23d70984a19b8044058cafb9eef8fdbce13de2a98",
+      "src/main.rs": "a84ae7e68b0c99a5ab210479ec32444b59f5ff822cc9b46688158f36d0915f0d",
+      "/home/angel/.t3/worktrees/image-optimizer/t3-133f7740/probes/focused.py": "0e8f82c4054d2dafed96291732dd65e142e6a1bf804efbe3e9fdc9b5c346c3fa"
+    },
+    "native": {
+      "default": {
+        "versions": {
+          "libvips.so.42": "8.18.0",
+          "libheif.so.1": "1.21.2",
+          "libz.so.1": "1.3.1",
+          "libdav1d.so.7": "libdav1d.so.7: cannot open shared object file: No such file or directory",
+          "libwebp.so.7": "1.5.0"
+        },
+        "libraries": {
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libIex-3_1.so.30.13.1": "4c05c39b3d17fdfd83b1b2c49535c8bef640a3a38ed1149459f70558de15cb91",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libIlmThread-3_1.so.30.13.1": "3dcd37b224467d0990a14731d69e4a7af8ff083a2933a5d99ab42fd1bd5d5b03",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libImath-3_1.so.29.11.0": "793018f5f5c90b390505ac4fcb69d5393bca1a783bfee426b1fa7099d8ba8b73",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libLerc.so.4": "b7c1fe626e31e8c3ecb80d428ffb3a8824fd241ec55c6edc8b12437412206060",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30.13.1": "9a3f496ebe9f742c56937923aa87809a059bf8db791b6cc20fd8ab6bccb38aef",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libarchive.so.13.8.5": "959dcce452c258ad7016f74b33b6df688cdad8a6caa1a625b1bfbebe85b332b0",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libcfitsio.so.10.0.0": "7e9bb1f8af5fae3c7deb443665cb6013056695f3a9a55ac98f16dfbcc3775d71",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libcgif.so.0.5.1": "fc47b91fd2c279b1695227a281eca0d57d5be29abab29db9148cb9279e254fef",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libdeflate.so.0": "0e33bbae9bd7f62fd4172ac04d9088736defa499491aacae723732ce4e905f94",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libexif.so.12.3.4": "02af4cc179c228192fa13e74d2c880eba06eaa2fd4ef3d26b6f548a7388c9b30",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libfftw3.so.3.6.10": "de77e73eb77a10462e27cb851c0a68e9064d0b6d72b90f6be3edcf64b6d2bdc7",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libhdf5_serial.so.310.5.1": "80fcff225887fff279009f562de0d8378e46a5db63634ff36959cb9236199515",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libimagequant.so.0.4.1": "040712d0c9c12d1477a52cd6f7fd35b010351c8878d85379889141ce3877a706",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libjbig.so.0": "19ae16694b0f2c442b367fd9dfecf8da68c9b8ded0bc9029c1d53a9ba91a4151",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libjpeg.so.8.2.2": "90a1eebead4d7c1abc46cf9c66c5392c60fc2c16f038af20fc7efbd0d8dd427f",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libmatio.so.14.0.0": "2ab7993e0a0d0c3c597e284a53493f945bf8a02262c0bb3b80752b43315b300f",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libopenjp2.so.2.5.4": "267df1e339d524b501ef4b3567b8ab7ba9eb0bfdfe26adbaff149b54aaf03259",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libsz.so.2.0.1": "0b148d5cba6b3a103b095089e74b32446b1ad3128e7fd904755c706fb10f7726",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libtiff.so.6.1.0": "d65b506791e2469e886c716a7993b5e65ce40015aef1d15a678804a9fc3c4844",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libvips.so.42.20.0": "ef4ec93dce2fd5f5b99b7e3cf6ec3226a169d9ab7abd5204421bd3ae0e52168d",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libwebp.so.7.1.10": "0b477702bb43d90a1205813a9c211faa8dfef025a258b9d60663b37311b87c08",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libwebpdemux.so.2.0.16": "6ed497e52e0340e5aa80076a99fb4e4abe56f1b23f60c6f06cf383ae4cdb4a6b",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libwebpmux.so.3.1.1": "73bf84036a6e1c50971a159484ae8f194b4f5109348e680e3b01d5141f83478b",
+          "/usr/lib/python3.14/lib-dynload/_ctypes.cpython-314-x86_64-linux-gnu.so": "140e837f2bc9344f3a98dea90e8bdf6f208370e45f3eccbac759c59e59d4d045",
+          "/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so": "f57bc22cc1b6f3b48c43778634af1a7e79c5ae0632350fa5144d050c7848112c",
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14",
+          "/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0": "badd43566333da97d916ab365c61227751d49cd5c0df5d49dabdbd67b8c6fd19",
+          "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0": "2b742de65acd00f154ed156720af66c0c0af9a58360ba041f25a41e2f775fab5",
+          "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0": "24beecbb0faf600d1a646b5edfc8c144da6f2965cb427598f4e17edc1285a733",
+          "/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0": "9e358938dc783704b75a8a27f07b9a2cc7dfb7ff73fd05cbcfe634b8c2afc74a",
+          "/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0": "708d1c6a5d8aa5169d61e5b79973bf012047de0fb881d2836d44b3167a1a51a5",
+          "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302": "534d062c6b873081a5f5623627bdeb7d8339087c434be758493ad87c87e257ab",
+          "/usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0": "eac440708f874c4d446671efb5353cebeaa829bd1f18cd8d5065cd6efefa387b",
+          "/usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0": "c6c40ef148122df950ba53c4e44f7b45860da2381bf59fa8d4a645e7bfa55cb8",
+          "/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0": "7f3acc17bffda6f12f7b022e9386514cfd83e77de67e71218bcbf19ec3577a99",
+          "/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0": "470ed7f6b9053163b65b83efebc53bb98ca0d7a5a30ead2b545a4e5574da9c91",
+          "/usr/lib/x86_64-linux-gnu/libbrotlienc.so.1.2.0": "cc91392bf885be8bf1beecba292988686c7171f5f29ec5fece7bd92299f30365",
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": "7138aeb748f73c150b1d34d67de69139a441910cd7b269076ba3c8b986dea9a7",
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": "85e64f97e348786a8fb4d9f3d52fec289e2fb86bba20f0731dfe61990525e0f7",
+          "/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11804.4": "3a7ae8610a5608a7d416e02eb5ea1c7f17b127729baf2b7bc0fbb7175662b081",
+          "/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4": "f8ed09b8ed35a1c19be81434bf7cb0fde1c1a0355b8ac74b7d3cf97788bdffe6",
+          "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1": "6fb3115b11fe7e14c26f3e086c4dc1fb41061130869a66c976e0ea69fdb912d6",
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": "5385f0436ac2e284ba8c5fb1488874057c29c04be72dea32add832694f381e28",
+          "/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0": "4ec6c148167d43b75ce9f3b6b271d0e048848e7d53ff1935e25150fdb4fe22eb",
+          "/usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0": "346d21bb3015ba756e00f06ca1efe9bc6843531828e958c40a5e89d81160deb8",
+          "/usr/lib/x86_64-linux-gnu/libdatrie.so.1.4.1": "4f82932cdedfe2cfa2e306fddb71c770249cc45375176b850ac3e25f2cc9c7e2",
+          "/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2": "2e5f66e2784c2746775567ff9916f6e7503182a8f1f2deb8ca729dfc1463849f",
+          "/usr/lib/x86_64-linux-gnu/libffi.so.8.2.0": "1a0dc86f787f73e025a6e521056360afcbe70f2a82cd808132fefc2b4ee95daa",
+          "/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1": "cabcdfea3d61540e8aa7f93a29642da1d1e35c8f5fd13549f4b8ee2ee0ab28f0",
+          "/usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5": "36be278a8138d3e5773eb3f8491ff3fe73122a3051a9b36d1f86457ce0fad22d",
+          "/usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0": "c122a34c3e9cab264c9a07b21b75f16443a646cc8db4e84ac91e800daa7e03ce",
+          "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "9d339ecb409578d6a5d587e6c537a8f9589b8a13fefba30d167433a4b5758bee",
+          "/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4400.5": "cff4a3872f06723a646be0e086d0e3b385a50bc3d27fac5ebfb83875b03c2c3a",
+          "/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0": "015bde05a0741bbc56b5af15f87eac3eb6e25767c69d8a499686a533b69a35d4",
+          "/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0": "3cc1aeae827f436a296ec488b80e6c45c150dccfb4525e7db275cc08772d322f",
+          "/usr/lib/x86_64-linux-gnu/libglycin-2.so.0": "5916cfcc0101ddf1863f6a5cc4c224662ea0614dc756d57ca860ef445b1dcfc2",
+          "/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0": "aa2f41237a20b7b28e99ef9706d2b0bad3097e313f51272cfd14dadff8b195cb",
+          "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0": "fda9699eef15deda5f1c626e9140377a7f5d88c41516a54278ac02429cb20fa5",
+          "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1": "ebcc6a4dfae904dc956feb61cef5c36917cf36c19c5718d3c2be7e377ac65d27",
+          "/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0": "8137127af8315f304e7099591a37a5a922801aaa39e10dc03daaf3c725066975",
+          "/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1": "3f1376e8965733a4d31386d5de99c829b7704beba3b07987da9220d53f192da2",
+          "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2": "18e2ba0b2f421b780e7265337e52996f382857df63d0f9e63f391a75a14cdbe7",
+          "/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0": "b330ca2b82b22fbce5e1a15dabfeffdd97e9976c3a3e48a2696628bfd34526d5",
+          "/usr/lib/x86_64-linux-gnu/libheif.so.1.21.2": "5ead5e9525e73579b8a1e5b9ab46dca02dc0438f7c1ba1f84b702b823db6ad2a",
+          "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.11": "67bdc12f1ffe643142d5e185a6a8f654fd38cd14e77bae68201cf9aa71b00b61",
+          "/usr/lib/x86_64-linux-gnu/libhwy.so.1.3.0": "5c0606edcfa98ed9a9ae251074b0154a39c2f4ada88f0a677e78ad19583f1486",
+          "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0": "cdb48484c43a795c3722e286c31eb6238b4b7c3780043895dd9fa6b6041f78da",
+          "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1": "ee77156da39841edfaa7c5fcdca4cf98ae34d60323095617b484188a4d9965e3",
+          "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10": "c0c8f8d5adec4abe76fa462d8ad7c010f50c61e2b67b9feaa6f44e462c12cf41",
+          "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3": "aca607790a4349c5053390fa22b24e717b2c5ea101d7b468ece6507140c6ff7b",
+          "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1": "8cc61cecc016710e7134c1621b5a6537c55eea91d2a074f6f05fa6f6e36ec8d6",
+          "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200": "e2f9e23d75b37be7bdcdc39d2f74e2355a68f2ccd86e7f6534969ad8b359834b",
+          "/usr/lib/x86_64-linux-gnu/liblcms2.so.2.0.17": "046e89ccd894994728028a8f00c2424b79cff4e3d9832530f964edddf1078d1b",
+          "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200": "0aa894b6d72690723015f6056bb6730a1cca41a2fac8224ef38cd7880c8e7860",
+          "/usr/lib/x86_64-linux-gnu/liblz4.so.1.10.0": "45729d07db6c43e524c2e69d0c4aef81148a66e272c4f4e0e64b787e17fe1731",
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3": "515749273a91ca5e3b273b4025dc2c1f8827f90005baea0ab85ffb594e74f72f",
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": "1c488db6f4fe8cecb72456bc018de000b7a9b539c2994864b0416b5e8371b3d8",
+          "/usr/lib/x86_64-linux-gnu/libmount.so.1.1.0": "ada01a744a6b665fae43097f3b93400aa74b20d6b59e2d51b9dd28c8747cccbb",
+          "/usr/lib/x86_64-linux-gnu/libnettle.so.8.11": "68c2f760d329a85ce1aa5cfc5e48ffece235258159005726798ad14e6f96a789",
+          "/usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2": "2655558fee787cb4724ad59c72ce75b20847efc92a1c52fc202aea1d812c9b20",
+          "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8": "2611eeb039dbed48839d90afe3d9ad3e5bd9edca2989af05dc62a93c3ff41fed",
+          "/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.5700.0": "5c2d126df8d1e1beb793bf400c9bed6a3384e95b16d54cea85643bad046973f3",
+          "/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.5700.0": "c159cd8c2f4b85893bd8a0a5247c0c65cd12b4b8d0a74a5ee36aa844fb7850fb",
+          "/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.5700.0": "e80bafce7e827bc43dd5d519a6332786943ee167dddb698cdcbef15387c97dc2",
+          "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0": "4a6b6b2078685b074869d75cb068664d7da6b3036df7bca0442b1bbbd4ac7e65",
+          "/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.46.4": "8740b21b15423da495da1c89e83d0fb64ca871bd4da47341d0422d7afb3b25e3",
+          "/usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0": "2a570998f08a406b4083b06888e528fa0c5d6cc3bef77b40026d661c91cbfb90",
+          "/usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4": "18d125c725a498d66f971ceb60bfc7cf660f6a0149b54e5caa3f4651c3d2b3c6",
+          "/usr/lib/x86_64-linux-gnu/libresolv.so.2": "6b99ecf94bcb81732ed1e81615084a5cfe7383eb89ce83106fa51077409ce609",
+          "/usr/lib/x86_64-linux-gnu/librsvg-2.so.2.61.3": "bf76e24f36f6e2edaffd108236d5a1ddf3e7d457999389b26dea8178124e6a07",
+          "/usr/lib/x86_64-linux-gnu/librtmp.so.1": "fceac319eac32ab0d6e9d6d641f0abf2f4aa097aa1a1355ea9e7419e81d45b62",
+          "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25": "25163eb0a23ffe7d4170f9e219886dfdb831bbb1031a2cfac2227284a7f51e02",
+          "/usr/lib/x86_64-linux-gnu/libseccomp.so.2.6.0": "df995d80c824876afc38528b5e71d258e1844eb524cd9d34f9a7898562fd99e7",
+          "/usr/lib/x86_64-linux-gnu/libselinux.so.1": "7538ee77765a27966563c0d22437a3080dcdb346ff76cc16d71a3ce3379a716a",
+          "/usr/lib/x86_64-linux-gnu/libsharpyuv.so.0.1.1": "fced0bf76ec62fcce9b2cea1a91a9c61fbf6828e9e66b194cc6d779798907ff2",
+          "/usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1": "34287a1e8942e6fdf1c154e8c615a8dab7a69dc6a4e8d76913afb323fdc6fd6f",
+          "/usr/lib/x86_64-linux-gnu/libssl.so.3": "63b47f444efa588e291e9b650a5ba2ab02f856356f2d50f13a2e477db9119e09",
+          "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35": "5bb0d21308f123b6ad46c6f35b42cedfcb8d6d439a53aa3dae04d880aaffdde3",
+          "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5": "1255353abfae7b9f52aedb0264876cd4c852f13c2acf3e2203ebd2aab79bce02",
+          "/usr/lib/x86_64-linux-gnu/libthai.so.0.3.2": "dedacba149b8f955a4f37eb5793fad3128adcbfb4796da963e4a4a640f96e670",
+          "/usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0": "c762a289c02f716a12549d544a811715126067b9a6377057671d3fad9453a1fc",
+          "/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0": "ee3c4a0893f4d944acbc83433234a97d94556e10c6a238e533f82b7a6bbe821b",
+          "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0": "58fcb847e2009affbd7eeb1f6d39949f29ccc153f230e0b0d23de00d2b5c1353",
+          "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0": "6af94be329e17e57f1cc0f5e4afb5bdfe669a5168accdc31b03274110b937b41",
+          "/usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2": "302dfa1295c6f917758243ef0f118f7144026b51a5f5cd1610fba849c968f73b",
+          "/usr/lib/x86_64-linux-gnu/libxxhash.so.0.8.3": "eae56344ba81fd5d25c6976028b33a53d3303848c382b04f3d5746549fb25228",
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": "27fa6c6cb94fb5b099ead61758a300dbc392d1dbf307fff6c16a9b8e57fdc9de",
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": "060eeb79531d435306665fd78329d8a9dd579f95876c5960bb67937825362a80"
+        }
+      },
+      "tuned": {
+        "versions": {
+          "libvips.so.42": "8.18.0",
+          "libheif.so.1": "1.21.2",
+          "libz.so.1": "1.3.1.zlib-ng",
+          "libdav1d.so.7": "1.5.3",
+          "libwebp.so.7": "1.6.0"
+        },
+        "libraries": {
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libIex-3_1.so.30.13.1": "4c05c39b3d17fdfd83b1b2c49535c8bef640a3a38ed1149459f70558de15cb91",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libIlmThread-3_1.so.30.13.1": "3dcd37b224467d0990a14731d69e4a7af8ff083a2933a5d99ab42fd1bd5d5b03",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libImath-3_1.so.29.11.0": "793018f5f5c90b390505ac4fcb69d5393bca1a783bfee426b1fa7099d8ba8b73",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libLerc.so.4": "b7c1fe626e31e8c3ecb80d428ffb3a8824fd241ec55c6edc8b12437412206060",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30.13.1": "9a3f496ebe9f742c56937923aa87809a059bf8db791b6cc20fd8ab6bccb38aef",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libarchive.so.13.8.5": "959dcce452c258ad7016f74b33b6df688cdad8a6caa1a625b1bfbebe85b332b0",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libcfitsio.so.10.0.0": "7e9bb1f8af5fae3c7deb443665cb6013056695f3a9a55ac98f16dfbcc3775d71",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libcgif.so.0.5.1": "fc47b91fd2c279b1695227a281eca0d57d5be29abab29db9148cb9279e254fef",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libdeflate.so.0": "0e33bbae9bd7f62fd4172ac04d9088736defa499491aacae723732ce4e905f94",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libexif.so.12.3.4": "02af4cc179c228192fa13e74d2c880eba06eaa2fd4ef3d26b6f548a7388c9b30",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libfftw3.so.3.6.10": "de77e73eb77a10462e27cb851c0a68e9064d0b6d72b90f6be3edcf64b6d2bdc7",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libhdf5_serial.so.310.5.1": "80fcff225887fff279009f562de0d8378e46a5db63634ff36959cb9236199515",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libimagequant.so.0.4.1": "040712d0c9c12d1477a52cd6f7fd35b010351c8878d85379889141ce3877a706",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libjbig.so.0": "19ae16694b0f2c442b367fd9dfecf8da68c9b8ded0bc9029c1d53a9ba91a4151",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libjpeg.so.8.2.2": "90a1eebead4d7c1abc46cf9c66c5392c60fc2c16f038af20fc7efbd0d8dd427f",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libmatio.so.14.0.0": "2ab7993e0a0d0c3c597e284a53493f945bf8a02262c0bb3b80752b43315b300f",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libopenjp2.so.2.5.4": "267df1e339d524b501ef4b3567b8ab7ba9eb0bfdfe26adbaff149b54aaf03259",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libsz.so.2.0.1": "0b148d5cba6b3a103b095089e74b32446b1ad3128e7fd904755c706fb10f7726",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libtiff.so.6.1.0": "d65b506791e2469e886c716a7993b5e65ce40015aef1d15a678804a9fc3c4844",
+          "/tmp/image-vips/usr/lib/x86_64-linux-gnu/libvips.so.42.20.0": "ef4ec93dce2fd5f5b99b7e3cf6ec3226a169d9ab7abd5204421bd3ae0e52168d",
+          "/tmp/optimizer-probes/optimized/lib/libsharpyuv.so.0.1.2": "cc9d82b136e3827e231661456393efe50a324374f597df021ec1a233a3f2b13a",
+          "/tmp/optimizer-probes/optimized/lib/libwebp.so.7.2.0": "4074ebaf8145882248ca0ff066e471e7fa15f3cefd3cc180fd2d475d463e3cd4",
+          "/tmp/optimizer-probes/optimized/lib/libwebpdemux.so.2.0.17": "205784b2ef8a5afeb25096bd02cbd63e48652f98aa74af22ecb85f76109332ef",
+          "/tmp/optimizer-probes/optimized/lib/libwebpmux.so.3.1.2": "e549bd99662ba35213ab628e0901b6dc7d718ed4943de91acdbaac9a112122d6",
+          "/tmp/optimizer-probes/optimized/lib/libz.so.1.3.1.zlib-ng": "60b38e71c5215bdb61d533ceaf487d6a24cf84ba6c806fc88d301de341242092",
+          "/tmp/optimizer-probes/runtime/usr/lib/x86_64-linux-gnu/libdav1d.so.7.0.0": "2a010803950349d783cac5e1ced297e38fce12ed799149dd210b475933c69c4f",
+          "/usr/lib/python3.14/lib-dynload/_ctypes.cpython-314-x86_64-linux-gnu.so": "140e837f2bc9344f3a98dea90e8bdf6f208370e45f3eccbac759c59e59d4d045",
+          "/usr/lib/python3.14/lib-dynload/_hashlib.cpython-314-x86_64-linux-gnu.so": "f57bc22cc1b6f3b48c43778634af1a7e79c5ae0632350fa5144d050c7848112c",
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "bda779ea9e9ad234f60315477d7cfd0bdde861cd8ddd9df8cdaf62f18c4cec14",
+          "/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0": "badd43566333da97d916ab365c61227751d49cd5c0df5d49dabdbd67b8c6fd19",
+          "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0": "2b742de65acd00f154ed156720af66c0c0af9a58360ba041f25a41e2f775fab5",
+          "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0": "24beecbb0faf600d1a646b5edfc8c144da6f2965cb427598f4e17edc1285a733",
+          "/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0": "9e358938dc783704b75a8a27f07b9a2cc7dfb7ff73fd05cbcfe634b8c2afc74a",
+          "/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0": "708d1c6a5d8aa5169d61e5b79973bf012047de0fb881d2836d44b3167a1a51a5",
+          "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302": "534d062c6b873081a5f5623627bdeb7d8339087c434be758493ad87c87e257ab",
+          "/usr/lib/x86_64-linux-gnu/libatomic.so.1.2.0": "eac440708f874c4d446671efb5353cebeaa829bd1f18cd8d5065cd6efefa387b",
+          "/usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0": "c6c40ef148122df950ba53c4e44f7b45860da2381bf59fa8d4a645e7bfa55cb8",
+          "/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.2.0": "7f3acc17bffda6f12f7b022e9386514cfd83e77de67e71218bcbf19ec3577a99",
+          "/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.2.0": "470ed7f6b9053163b65b83efebc53bb98ca0d7a5a30ead2b545a4e5574da9c91",
+          "/usr/lib/x86_64-linux-gnu/libbrotlienc.so.1.2.0": "cc91392bf885be8bf1beecba292988686c7171f5f29ec5fece7bd92299f30365",
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": "7138aeb748f73c150b1d34d67de69139a441910cd7b269076ba3c8b986dea9a7",
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": "85e64f97e348786a8fb4d9f3d52fec289e2fb86bba20f0731dfe61990525e0f7",
+          "/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11804.4": "3a7ae8610a5608a7d416e02eb5ea1c7f17b127729baf2b7bc0fbb7175662b081",
+          "/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4": "f8ed09b8ed35a1c19be81434bf7cb0fde1c1a0355b8ac74b7d3cf97788bdffe6",
+          "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1": "6fb3115b11fe7e14c26f3e086c4dc1fb41061130869a66c976e0ea69fdb912d6",
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": "5385f0436ac2e284ba8c5fb1488874057c29c04be72dea32add832694f381e28",
+          "/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0": "4ec6c148167d43b75ce9f3b6b271d0e048848e7d53ff1935e25150fdb4fe22eb",
+          "/usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0": "346d21bb3015ba756e00f06ca1efe9bc6843531828e958c40a5e89d81160deb8",
+          "/usr/lib/x86_64-linux-gnu/libdatrie.so.1.4.1": "4f82932cdedfe2cfa2e306fddb71c770249cc45375176b850ac3e25f2cc9c7e2",
+          "/usr/lib/x86_64-linux-gnu/libexpat.so.1.11.2": "2e5f66e2784c2746775567ff9916f6e7503182a8f1f2deb8ca729dfc1463849f",
+          "/usr/lib/x86_64-linux-gnu/libffi.so.8.2.0": "1a0dc86f787f73e025a6e521056360afcbe70f2a82cd808132fefc2b4ee95daa",
+          "/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.16.1": "cabcdfea3d61540e8aa7f93a29642da1d1e35c8f5fd13549f4b8ee2ee0ab28f0",
+          "/usr/lib/x86_64-linux-gnu/libfreetype.so.6.20.5": "36be278a8138d3e5773eb3f8491ff3fe73122a3051a9b36d1f86457ce0fad22d",
+          "/usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0": "c122a34c3e9cab264c9a07b21b75f16443a646cc8db4e84ac91e800daa7e03ce",
+          "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": "9d339ecb409578d6a5d587e6c537a8f9589b8a13fefba30d167433a4b5758bee",
+          "/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4400.5": "cff4a3872f06723a646be0e086d0e3b385a50bc3d27fac5ebfb83875b03c2c3a",
+          "/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.8800.0": "015bde05a0741bbc56b5af15f87eac3eb6e25767c69d8a499686a533b69a35d4",
+          "/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.8800.0": "3cc1aeae827f436a296ec488b80e6c45c150dccfb4525e7db275cc08772d322f",
+          "/usr/lib/x86_64-linux-gnu/libglycin-2.so.0": "5916cfcc0101ddf1863f6a5cc4c224662ea0614dc756d57ca860ef445b1dcfc2",
+          "/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.8800.0": "aa2f41237a20b7b28e99ef9706d2b0bad3097e313f51272cfd14dadff8b195cb",
+          "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0": "fda9699eef15deda5f1c626e9140377a7f5d88c41516a54278ac02429cb20fa5",
+          "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.41.1": "ebcc6a4dfae904dc956feb61cef5c36917cf36c19c5718d3c2be7e377ac65d27",
+          "/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.8800.0": "8137127af8315f304e7099591a37a5a922801aaa39e10dc03daaf3c725066975",
+          "/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1": "3f1376e8965733a4d31386d5de99c829b7704beba3b07987da9220d53f192da2",
+          "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2": "18e2ba0b2f421b780e7265337e52996f382857df63d0f9e63f391a75a14cdbe7",
+          "/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.61232.0": "b330ca2b82b22fbce5e1a15dabfeffdd97e9976c3a3e48a2696628bfd34526d5",
+          "/usr/lib/x86_64-linux-gnu/libheif.so.1.21.2": "5ead5e9525e73579b8a1e5b9ab46dca02dc0438f7c1ba1f84b702b823db6ad2a",
+          "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.11": "67bdc12f1ffe643142d5e185a6a8f654fd38cd14e77bae68201cf9aa71b00b61",
+          "/usr/lib/x86_64-linux-gnu/libhwy.so.1.3.0": "5c0606edcfa98ed9a9ae251074b0154a39c2f4ada88f0a677e78ad19583f1486",
+          "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0": "cdb48484c43a795c3722e286c31eb6238b4b7c3780043895dd9fa6b6041f78da",
+          "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1": "ee77156da39841edfaa7c5fcdca4cf98ae34d60323095617b484188a4d9965e3",
+          "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10": "c0c8f8d5adec4abe76fa462d8ad7c010f50c61e2b67b9feaa6f44e462c12cf41",
+          "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3": "aca607790a4349c5053390fa22b24e717b2c5ea101d7b468ece6507140c6ff7b",
+          "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1": "8cc61cecc016710e7134c1621b5a6537c55eea91d2a074f6f05fa6f6e36ec8d6",
+          "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200": "e2f9e23d75b37be7bdcdc39d2f74e2355a68f2ccd86e7f6534969ad8b359834b",
+          "/usr/lib/x86_64-linux-gnu/liblcms2.so.2.0.17": "046e89ccd894994728028a8f00c2424b79cff4e3d9832530f964edddf1078d1b",
+          "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200": "0aa894b6d72690723015f6056bb6730a1cca41a2fac8224ef38cd7880c8e7860",
+          "/usr/lib/x86_64-linux-gnu/liblz4.so.1.10.0": "45729d07db6c43e524c2e69d0c4aef81148a66e272c4f4e0e64b787e17fe1731",
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.3": "515749273a91ca5e3b273b4025dc2c1f8827f90005baea0ab85ffb594e74f72f",
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": "1c488db6f4fe8cecb72456bc018de000b7a9b539c2994864b0416b5e8371b3d8",
+          "/usr/lib/x86_64-linux-gnu/libmount.so.1.1.0": "ada01a744a6b665fae43097f3b93400aa74b20d6b59e2d51b9dd28c8747cccbb",
+          "/usr/lib/x86_64-linux-gnu/libnettle.so.8.11": "68c2f760d329a85ce1aa5cfc5e48ffece235258159005726798ad14e6f96a789",
+          "/usr/lib/x86_64-linux-gnu/libnghttp2.so.14.29.2": "2655558fee787cb4724ad59c72ce75b20847efc92a1c52fc202aea1d812c9b20",
+          "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.4.8": "2611eeb039dbed48839d90afe3d9ad3e5bd9edca2989af05dc62a93c3ff41fed",
+          "/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.5700.0": "5c2d126df8d1e1beb793bf400c9bed6a3384e95b16d54cea85643bad046973f3",
+          "/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.5700.0": "c159cd8c2f4b85893bd8a0a5247c0c65cd12b4b8d0a74a5ee36aa844fb7850fb",
+          "/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.5700.0": "e80bafce7e827bc43dd5d519a6332786943ee167dddb698cdcbef15387c97dc2",
+          "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.14.0": "4a6b6b2078685b074869d75cb068664d7da6b3036df7bca0442b1bbbd4ac7e65",
+          "/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.46.4": "8740b21b15423da495da1c89e83d0fb64ca871bd4da47341d0422d7afb3b25e3",
+          "/usr/lib/x86_64-linux-gnu/libpng16.so.16.57.0": "2a570998f08a406b4083b06888e528fa0c5d6cc3bef77b40026d661c91cbfb90",
+          "/usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4": "18d125c725a498d66f971ceb60bfc7cf660f6a0149b54e5caa3f4651c3d2b3c6",
+          "/usr/lib/x86_64-linux-gnu/libresolv.so.2": "6b99ecf94bcb81732ed1e81615084a5cfe7383eb89ce83106fa51077409ce609",
+          "/usr/lib/x86_64-linux-gnu/librsvg-2.so.2.61.3": "bf76e24f36f6e2edaffd108236d5a1ddf3e7d457999389b26dea8178124e6a07",
+          "/usr/lib/x86_64-linux-gnu/librtmp.so.1": "fceac319eac32ab0d6e9d6d641f0abf2f4aa097aa1a1355ea9e7419e81d45b62",
+          "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25": "25163eb0a23ffe7d4170f9e219886dfdb831bbb1031a2cfac2227284a7f51e02",
+          "/usr/lib/x86_64-linux-gnu/libseccomp.so.2.6.0": "df995d80c824876afc38528b5e71d258e1844eb524cd9d34f9a7898562fd99e7",
+          "/usr/lib/x86_64-linux-gnu/libselinux.so.1": "7538ee77765a27966563c0d22437a3080dcdb346ff76cc16d71a3ce3379a716a",
+          "/usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1": "34287a1e8942e6fdf1c154e8c615a8dab7a69dc6a4e8d76913afb323fdc6fd6f",
+          "/usr/lib/x86_64-linux-gnu/libssl.so.3": "63b47f444efa588e291e9b650a5ba2ab02f856356f2d50f13a2e477db9119e09",
+          "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.35": "5bb0d21308f123b6ad46c6f35b42cedfcb8d6d439a53aa3dae04d880aaffdde3",
+          "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.5": "1255353abfae7b9f52aedb0264876cd4c852f13c2acf3e2203ebd2aab79bce02",
+          "/usr/lib/x86_64-linux-gnu/libthai.so.0.3.2": "dedacba149b8f955a4f37eb5793fad3128adcbfb4796da963e4a4a640f96e670",
+          "/usr/lib/x86_64-linux-gnu/libunistring.so.5.2.0": "c762a289c02f716a12549d544a811715126067b9a6377057671d3fad9453a1fc",
+          "/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0": "ee3c4a0893f4d944acbc83433234a97d94556e10c6a238e533f82b7a6bbe821b",
+          "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0": "58fcb847e2009affbd7eeb1f6d39949f29ccc153f230e0b0d23de00d2b5c1353",
+          "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0": "6af94be329e17e57f1cc0f5e4afb5bdfe669a5168accdc31b03274110b937b41",
+          "/usr/lib/x86_64-linux-gnu/libxml2.so.16.1.2": "302dfa1295c6f917758243ef0f118f7144026b51a5f5cd1610fba849c968f73b",
+          "/usr/lib/x86_64-linux-gnu/libxxhash.so.0.8.3": "eae56344ba81fd5d25c6976028b33a53d3303848c382b04f3d5746549fb25228",
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": "060eeb79531d435306665fd78329d8a9dd579f95876c5960bb67937825362a80"
+        }
+      }
+    },
+    "fixture_manifest": {
+      "generator": "fixtures.mjs xorshift32 seed=123456789, 3000x2000 RGBA",
+      "versions": {
+        "aom": "3.15.1",
+        "archive": "3.8.9",
+        "cairo": "1.18.6",
+        "cgif": "0.5.4",
+        "exif": "0.6.26",
+        "expat": "2.8.5",
+        "ffi": "3.8.0",
+        "fontconfig": "2.18.3",
+        "freetype": "2.14.3",
+        "fribidi": "1.0.17",
+        "glib": "2.90.0",
+        "harfbuzz": "14.5.0",
+        "heif": "1.23.5",
+        "highway": "1.4.0",
+        "imagequant": "2.4.1",
+        "lcms": "2.19.1",
+        "mozjpeg": "0826579",
+        "pango": "1.58.2",
+        "pixman": "0.46.4",
+        "png": "1.6.58",
+        "proxy-libintl": "0.5",
+        "rsvg": "2.63.2",
+        "tiff": "4.7.2",
+        "uhdr": "2.0.2",
+        "vips": "8.18.7",
+        "webp": "1.6.0",
+        "xml2": "2.15.4",
+        "zlib-ng": "2.3.3",
+        "sharp": "0.35.5"
+      },
+      "sources": [
+        {
+          "name": "earth.jpg",
+          "sha256": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+          "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg",
+          "credit": "NASA Visible Earth, Blue Marble. NASA imagery usage guidelines apply.",
+          "license": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+        },
+        {
+          "name": "astronaut.png",
+          "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+          "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.19.3/skimage/data/astronaut.png",
+          "credit": "NASA photograph of Eileen Collins, distributed by scikit-image as public domain.",
+          "license": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut"
+        }
+      ],
+      "files": [
+        {
+          "path": "generated/noise.jpg",
+          "sha256": "ac922268513a83532d7e777f8831344c9699fcdedd048a55ef634deaef45a606",
+          "bytes": 2986935,
+          "width": 3000,
+          "height": 2000,
+          "format": "jpeg"
+        },
+        {
+          "path": "generated/alpha.png",
+          "sha256": "def754bb3be8c4a0e23d8a2b1342678e06d48208b21ef4b905138ac401943374",
+          "bytes": 21678373,
+          "width": 3000,
+          "height": 2000,
+          "format": "png"
+        },
+        {
+          "path": "generated/translucent.avif",
+          "sha256": "a93ed7eb87a82cfb697f2a57591801a42cd1cdc1bdeac53c4bc4185d528e0449",
+          "bytes": 3256142,
+          "width": 3000,
+          "height": 2000,
+          "format": "heif"
+        },
+        {
+          "path": "generated/vector.svg",
+          "sha256": "f2c4bbef75a53df67d5c1791ed03c4f218916e3599bcfdb7923139dd797a5cfd",
+          "bytes": 109214,
+          "width": 3000,
+          "height": 2000,
+          "format": "svg"
+        },
+        {
+          "path": "photos/earth.jpg",
+          "sha256": "d4dc80a6ef571939d0abe04a9bed3d3d1e6cd63e59514be1c5e43a6b069e6f1e",
+          "bytes": 266599,
+          "width": 2048,
+          "height": 1024,
+          "format": "jpeg"
+        },
+        {
+          "path": "photos/astronaut.png",
+          "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+          "bytes": 791555,
+          "width": 512,
+          "height": 512,
+          "format": "png"
+        },
+        {
+          "path": "photos/earth-exif6.jpg",
+          "sha256": "1de065e3a810daf937b1c7624b99c00afb2c7710b818fa48558c88e751e8656e",
+          "bytes": 247166,
+          "width": 1600,
+          "height": 1000,
+          "orientation": 6,
+          "derivedFrom": "photos/earth.jpg"
+        }
+      ]
+    },
+    "toolchain": "rustc 1.96.0 (ac68faa20 2026-05-25)\nbinary: rustc\ncommit-hash: ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96\ncommit-date: 2026-05-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.96.0\nLLVM version: 22.1.2\n"
+  },
+  "summary": [
+    {
+      "case": "resize-translucent",
+      "side": "default",
+      "wall_s": {
+        "median": 1.110231416001625,
+        "min": 1.090689583998028,
+        "max": 1.131755800000974
+      },
+      "system_s": {
+        "median": 0.13,
+        "min": 0.12,
+        "max": 0.18
+      },
+      "rss_kib": {
+        "median": 292136.0,
+        "min": 291964.0,
+        "max": 292244.0
+      }
+    },
+    {
+      "case": "resize-translucent",
+      "side": "tuned",
+      "wall_s": {
+        "median": 0.9460460789996432,
+        "min": 0.9372911209975427,
+        "max": 0.9729695589994662
+      },
+      "system_s": {
+        "median": 0.1,
+        "min": 0.09,
+        "max": 0.11
+      },
+      "rss_kib": {
+        "median": 211232.0,
+        "min": 211120.0,
+        "max": 211336.0
+      }
+    },
+    {
+      "case": "resize-translucent",
+      "side": "sharp",
+      "wall_s": {
+        "median": 1.6357536159994197,
+        "min": 1.630441968998639,
+        "max": 1.6582182699967234
+      },
+      "system_s": {
+        "median": 0.1,
+        "min": 0.1,
+        "max": 0.12
+      },
+      "rss_kib": {
+        "median": 202732.0,
+        "min": 202588.0,
+        "max": 203144.0
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "side": "default",
+      "wall_s": {
+        "median": 2.0087105880011222,
+        "min": 1.98924998000075,
+        "max": 2.024927637001383
+      },
+      "system_s": {
+        "median": 0.11,
+        "min": 0.05,
+        "max": 0.11
+      },
+      "rss_kib": {
+        "median": 288632.0,
+        "min": 288548.0,
+        "max": 288944.0
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "side": "tuned",
+      "wall_s": {
+        "median": 1.712612152001384,
+        "min": 1.7074729810010467,
+        "max": 1.725666343998455
+      },
+      "system_s": {
+        "median": 0.08,
+        "min": 0.06,
+        "max": 0.09
+      },
+      "rss_kib": {
+        "median": 207328.0,
+        "min": 207076.0,
+        "max": 207524.0
+      }
+    },
+    {
+      "case": "preserve-translucent",
+      "side": "sharp",
+      "wall_s": {
+        "median": 2.9100291579998157,
+        "min": 2.876772133000486,
+        "max": 2.9246269879986357
+      },
+      "system_s": {
+        "median": 0.1,
+        "min": 0.08,
+        "max": 0.11
+      },
+      "rss_kib": {
+        "median": 199620.0,
+        "min": 199140.0,
+        "max": 200000.0
+      }
+    }
+  ]
+}

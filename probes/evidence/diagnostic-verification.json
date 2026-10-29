@@ -1,0 +1,388 @@
+[
+  {
+    "label": "arena128-strace-output",
+    "verification": {
+      "count": 6,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/alpha.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+          "thumbnail_rmse": 4.503181745536519,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2286474,
+          "sha256": "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/astronaut.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+          "thumbnail_rmse": 5.93360617935389,
+          "width": 512,
+          "height": 512,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 30046,
+          "sha256": "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/earth.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+          "thumbnail_rmse": 2.9375,
+          "width": 2048,
+          "height": 1024,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 152298,
+          "sha256": "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/noise.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+          "thumbnail_rmse": 4.674391393094221,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 1758542,
+          "sha256": "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/translucent.avif.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+          "thumbnail_rmse": 4.44713595802587,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2153058,
+          "sha256": "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena128-strace-output/vector.svg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+          "thumbnail_rmse": 4.5779916789461295,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 351868,
+          "sha256": "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+        }
+      ]
+    }
+  },
+  {
+    "label": "arena1-strace-output",
+    "verification": {
+      "count": 6,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/alpha.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+          "thumbnail_rmse": 4.503181745536519,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2286474,
+          "sha256": "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/astronaut.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+          "thumbnail_rmse": 5.93360617935389,
+          "width": 512,
+          "height": 512,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 30046,
+          "sha256": "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/earth.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+          "thumbnail_rmse": 2.9375,
+          "width": 2048,
+          "height": 1024,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 152298,
+          "sha256": "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/noise.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+          "thumbnail_rmse": 4.674391393094221,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 1758542,
+          "sha256": "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/translucent.avif.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+          "thumbnail_rmse": 4.44713595802587,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2153058,
+          "sha256": "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/arena1-strace-output/vector.svg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+          "thumbnail_rmse": 4.5779916789461295,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 351868,
+          "sha256": "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+        }
+      ]
+    }
+  },
+  {
+    "label": "before128-strace-output",
+    "verification": {
+      "count": 6,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/alpha.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+          "thumbnail_rmse": 4.503181745536519,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2286474,
+          "sha256": "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/astronaut.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+          "thumbnail_rmse": 5.93360617935389,
+          "width": 512,
+          "height": 512,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 30046,
+          "sha256": "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/earth.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+          "thumbnail_rmse": 2.9375,
+          "width": 2048,
+          "height": 1024,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 152298,
+          "sha256": "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/noise.jpg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+          "thumbnail_rmse": 4.674391393094221,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 1758542,
+          "sha256": "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/translucent.avif.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+          "thumbnail_rmse": 4.44713595802587,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0.22360679774997896,
+          "bytes": 2153058,
+          "sha256": "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+        },
+        {
+          "file": "/tmp/optimizer-native-133f/before128-strace-output/vector.svg.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+          "thumbnail_rmse": 4.5779916789461295,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 3,
+          "has_alpha": false,
+          "expected_nonopaque_alpha": false,
+          "alpha_rmse": 0,
+          "bytes": 351868,
+          "sha256": "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+        }
+      ]
+    }
+  },
+  {
+    "label": "profile-webp",
+    "verification": {
+      "count": 1,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/profile-webp/alpha.png.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+          "thumbnail_rmse": 4.509935501663707,
+          "width": 3000,
+          "height": 2000,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0,
+          "bytes": 2286474,
+          "sha256": "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+        }
+      ]
+    }
+  },
+  {
+    "label": "profile-png",
+    "verification": {
+      "count": 1,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/profile-png/alpha.png.480w.png",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+          "thumbnail_rmse": 1.850622783686616,
+          "width": 480,
+          "height": 320,
+          "format": "png",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0,
+          "bytes": 358811,
+          "sha256": "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+        }
+      ]
+    }
+  },
+  {
+    "label": "profile-avif",
+    "verification": {
+      "count": 1,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/profile-avif/translucent.avif.960w.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+          "thumbnail_rmse": 4.335761539222378,
+          "width": 960,
+          "height": 640,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0,
+          "bytes": 95016,
+          "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+        }
+      ]
+    }
+  },
+  {
+    "label": "trace-stock-fixed",
+    "verification": {
+      "count": 1,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/trace-stock-fixed/translucent.avif.960w.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+          "thumbnail_rmse": 4.335761539222378,
+          "width": 960,
+          "height": 640,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0,
+          "bytes": 95016,
+          "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+        }
+      ]
+    }
+  },
+  {
+    "label": "trace-new2",
+    "verification": {
+      "count": 1,
+      "images": [
+        {
+          "file": "/tmp/optimizer-native-133f/trace-new2/translucent.avif.960w.webp",
+          "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+          "thumbnail_rmse": 4.335761539222378,
+          "width": 960,
+          "height": 640,
+          "format": "webp",
+          "channels": 4,
+          "has_alpha": true,
+          "expected_nonopaque_alpha": true,
+          "alpha_rmse": 0,
+          "bytes": 95016,
+          "sha256": "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+        }
+      ]
+    }
+  }
+]
