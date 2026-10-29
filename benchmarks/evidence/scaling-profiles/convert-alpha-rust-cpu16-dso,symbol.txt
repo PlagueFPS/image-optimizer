@@ -1,0 +1,30 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 671  of event 'cpu-clock:u'
+# Event count (approx.): 3371858875
+#
+# Overhead       Samples  Shared Object          Symbol                                  IPC   [IPC Coverage]
+# ........  ............  .....................  ......................................  ....................
+#
+    31.45%           211  libwebp.so.7.2.0       [.] ReconstructIntra4                   -      -            
+    18.33%           123  libwebp.so.7.2.0       [.] ComputeResidualsForTile             -      -            
+    14.31%            96  libwebp.so.7.2.0       [.] ReconstructIntra16                  -      -            
+     2.38%            16  libwebp.so.7.2.0       [.] GetResidualCost_SSE2                -      -            
+     2.38%            16  libwebp.so.7.2.0       [.] VP8LHashChainFill                   -      -            
+     2.24%            15  libwebp.so.7.2.0       [.] VP8PutBit                           -      -            
+     2.09%            14  libwebp.so.7.2.0       [.] VP8LGetHistoImageSymbols            -      -            
+     2.09%            14  libz.so.1.3.1.zlib-ng  [.] inflate_fast_avx2                   -      -            
+     1.49%            10  libwebp.so.7.2.0       [.] VP8RecordCoeffTokens                -      -            
+     1.34%             9  libwebp.so.7.2.0       [.] CalculateBestCacheSize.isra.0       -      -            
+     1.34%             9  libwebp.so.7.2.0       [.] VP8EmitTokens                       -      -            
+     1.19%             8  libwebp.so.7.2.0       [.] FTransform_SSE2                     -      -            
+     1.19%             8  libwebp.so.7.2.0       [.] PredictionCostBias                  -      -            
+     1.04%             7  libwebp.so.7.2.0       [.] ITransform_SSE2                     -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -108,3 +108,5 @@ cargo build --release
 Integration tests launch the actual CLI and decode generated outputs. They cover geometry, srcset names, alpha, orientation, JPEG/PNG/AVIF preserve mode, SVG rasterization and restrictions, nested output exclusion, corruption, overwrite behavior, symlinks, input identity, and argument validation. AVIF fixtures are generated through the installed native codec during tests, so missing AV1 support fails the tests.
 
 The pinned native runtime passes all 21 tested latency and peak-RSS comparisons against Sharp. See [PERFORMANCE.md](PERFORMANCE.md) for ranges, exact runtime requirements, output audits and limits. Distribution-only codecs do not meet every gate. Use the [pinned runtime setup](probes/README.md) for the measured configuration.
+
+[Multicore measurements](MULTICORE.md) cover 1, 2, 4, 8 and 16 requested workers. The tested sequential pipeline stays near one busy core. Increasing workers generally adds memory with little speedup. Output bytes remain stable across worker counts.

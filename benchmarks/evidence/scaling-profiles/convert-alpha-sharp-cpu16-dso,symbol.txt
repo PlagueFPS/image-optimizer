@@ -1,0 +1,32 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 767  of event 'cpu-clock:u'
+# Event count (approx.): 3854270875
+#
+# Overhead       Samples  Shared Object          Symbol                                                                                                                                                                                                                     IPC   [IPC Coverage]
+# ........  ............  .....................  .........................................................................................................................................................................................................................  ....................
+#
+     3.91%            30  libvips-cpp.so.8.18.7  [.] 0x000000000044d249                                                                                                                                                                                                     -      -            
+     2.87%            22  libvips-cpp.so.8.18.7  [.] 0x000000000043ec55                                                                                                                                                                                                     -      -            
+     2.09%            16  libvips-cpp.so.8.18.7  [.] 0x000000000044d250                                                                                                                                                                                                     -      -            
+     1.83%            14  libvips-cpp.so.8.18.7  [.] 0x000000000044d222                                                                                                                                                                                                     -      -            
+     1.83%            14  libvips-cpp.so.8.18.7  [.] 0x000000000044d239                                                                                                                                                                                                     -      -            
+     1.83%            14  libvips-cpp.so.8.18.7  [.] 0x000000000044db3e                                                                                                                                                                                                     -      -            
+     1.43%            11  libvips-cpp.so.8.18.7  [.] 0x000000000043ec1c                                                                                                                                                                                                     -      -            
+     1.43%            11  libvips-cpp.so.8.18.7  [.] 0x000000000043ecb6                                                                                                                                                                                                     -      -            
+     1.17%             9  libvips-cpp.so.8.18.7  [.] 0x000000000043ee54                                                                                                                                                                                                     -      -            
+     1.17%             9  libvips-cpp.so.8.18.7  [.] 0x000000000043eee3                                                                                                                                                                                                     -      -            
+     1.17%             9  libvips-cpp.so.8.18.7  [.] 0x000000000044d232                                                                                                                                                                                                     -      -            
+     1.04%             8  libvips-cpp.so.8.18.7  [.] 0x000000000043ec05                                                                                                                                                                                                     -      -            
+     1.04%             8  libvips-cpp.so.8.18.7  [.] 0x000000000043ec29                                                                                                                                                                                                     -      -            
+     1.04%             8  libvips-cpp.so.8.18.7  [.] 0x000000000043ec5a                                                                                                                                                                                                     -      -            
+     1.04%             8  libvips-cpp.so.8.18.7  [.] 0x000000000043ed66                                                                                                                                                                                                     -      -            
+     1.04%             8  libvips-cpp.so.8.18.7  [.] 0x000000000043eead                                                                                                                                                                                                     -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

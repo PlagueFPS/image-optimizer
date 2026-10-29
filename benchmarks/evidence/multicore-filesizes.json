@@ -1,0 +1,3682 @@
+{
+  "schema": 1,
+  "source": "benchmarks/evidence/multicore-scaling.json",
+  "summary": [
+    {
+      "case": "convert-alpha",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "convert-alpha",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "convert-alpha",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "convert-alpha",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "convert-alpha",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 2286474,
+          "minimum": 2286474,
+          "maximum": 2286474
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-flat",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-flat",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-flat",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-flat",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-flat",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 6732286,
+          "minimum": 6732286,
+          "maximum": 6732286
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/alpha.png",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2153058,
+            "bytes_max": 2153058,
+            "sha256": [
+              "f8df389dc51150f771801282db5dc1bdc28fdbcc2c64cd9af96481eebbef2101"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/earth.jpg",
+            "width": 2048,
+            "height": 1024,
+            "format": "webp",
+            "bytes_min": 152298,
+            "bytes_max": 152298,
+            "sha256": [
+              "3e71ccbe041b36b6934d8f1db944a5bbe2ce78f3bdcba2f9d132db39cafc1c23"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/noise.jpg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 1758542,
+            "bytes_max": 1758542,
+            "sha256": [
+              "6588b9d321ab6eae87888c04661da85cbb8fee81e588d2db6ebfa68635b9f70d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/translucent.avif",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 2286474,
+            "bytes_max": 2286474,
+            "sha256": [
+              "c42b513180b4c0698c288a2374a1aecc518a55ba2be9bcf39b8a8a2b6279f4f0"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/flat/vector.svg",
+            "width": 3000,
+            "height": 2000,
+            "format": "webp",
+            "bytes_min": 351868,
+            "bytes_max": 351868,
+            "sha256": [
+              "c4f5ebc84b8f6f88702a378724bf9b2bd6a8aa819524c2134a1adcc487b210c1"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 569732,
+          "minimum": 569732,
+          "maximum": 569732
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18212,
+            "bytes_max": 18212,
+            "sha256": [
+              "f398a19ddfe008f71fb92c37cdf7d78ded39ee156b077bf95c8f1a591c16ee7d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 571360,
+          "minimum": 571360,
+          "maximum": 571360
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18188,
+            "bytes_max": 18188,
+            "sha256": [
+              "5438092998b5a5f7e81790dcadc2a082ce7f102b6c2d16a3a019600c20f533a6"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1628,
+      "rust_minus_sharp_percent": -0.2849341921030524
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 569732,
+          "minimum": 569732,
+          "maximum": 569732
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18212,
+            "bytes_max": 18212,
+            "sha256": [
+              "f398a19ddfe008f71fb92c37cdf7d78ded39ee156b077bf95c8f1a591c16ee7d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 571360,
+          "minimum": 571360,
+          "maximum": 571360
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18188,
+            "bytes_max": 18188,
+            "sha256": [
+              "5438092998b5a5f7e81790dcadc2a082ce7f102b6c2d16a3a019600c20f533a6"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1628,
+      "rust_minus_sharp_percent": -0.2849341921030524
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 569732,
+          "minimum": 569732,
+          "maximum": 569732
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18212,
+            "bytes_max": 18212,
+            "sha256": [
+              "f398a19ddfe008f71fb92c37cdf7d78ded39ee156b077bf95c8f1a591c16ee7d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 571360,
+          "minimum": 571360,
+          "maximum": 571360
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18188,
+            "bytes_max": 18188,
+            "sha256": [
+              "5438092998b5a5f7e81790dcadc2a082ce7f102b6c2d16a3a019600c20f533a6"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1628,
+      "rust_minus_sharp_percent": -0.2849341921030524
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 569732,
+          "minimum": 569732,
+          "maximum": 569732
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18212,
+            "bytes_max": 18212,
+            "sha256": [
+              "f398a19ddfe008f71fb92c37cdf7d78ded39ee156b077bf95c8f1a591c16ee7d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 571360,
+          "minimum": 571360,
+          "maximum": 571360
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18188,
+            "bytes_max": 18188,
+            "sha256": [
+              "5438092998b5a5f7e81790dcadc2a082ce7f102b6c2d16a3a019600c20f533a6"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1628,
+      "rust_minus_sharp_percent": -0.2849341921030524
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 569732,
+          "minimum": 569732,
+          "maximum": 569732
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18212,
+            "bytes_max": 18212,
+            "sha256": [
+              "f398a19ddfe008f71fb92c37cdf7d78ded39ee156b077bf95c8f1a591c16ee7d"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 571360,
+          "minimum": 571360,
+          "maximum": 571360
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22550,
+            "bytes_max": 22550,
+            "sha256": [
+              "fc5e45db3a8ef67fc798ce4bfed8c6f11746808ad3231020093ae2a67d041f39"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/alpha.png",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 480,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 26876,
+            "bytes_max": 26876,
+            "sha256": [
+              "83c7589aebf8766de5e47a6000595b30b6d7884c8bc6f8f7d10416978e2e7422"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/astronaut.png",
+            "width": 512,
+            "height": 512,
+            "format": "webp",
+            "bytes_min": 30046,
+            "bytes_max": 30046,
+            "sha256": [
+              "c3eedbcf423ec65fd3fb38def764aecb0b2716c0a1e422082f2702073d1b5ca4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 18188,
+            "bytes_max": 18188,
+            "sha256": [
+              "5438092998b5a5f7e81790dcadc2a082ce7f102b6c2d16a3a019600c20f533a6"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 22236,
+            "bytes_max": 22236,
+            "sha256": [
+              "38469189b5d9bc98e23ffd00f9f2775598bd96afae768bef10f756d87e721b3e"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95946,
+            "bytes_max": 95946,
+            "sha256": [
+              "b7acf89d7fe9b0682b51007763eb2b10325adf8bc93e431cbe80573dbcbce103"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 480,
+            "height": 320,
+            "format": "webp",
+            "bytes_min": 39974,
+            "bytes_max": 39974,
+            "sha256": [
+              "03c1bfe40d348f90b1f2b8dbead157f3009b4e015f6c24acf08e9a7cc5651ee4"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/recursive/nested/vector.svg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 91842,
+            "bytes_max": 91842,
+            "sha256": [
+              "1a381172a77fd8ed096392fb9f9524547bbc80c811630452155d05e98859db7c"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1628,
+      "rust_minus_sharp_percent": -0.2849341921030524
+    },
+    {
+      "case": "preserve-alpha",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "preserve-alpha",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "preserve-alpha",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "preserve-alpha",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "preserve-alpha",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 358811,
+          "minimum": 358811,
+          "maximum": 358811
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/alpha.png",
+            "width": 480,
+            "height": 320,
+            "format": "png",
+            "bytes_min": 358811,
+            "bytes_max": 358811,
+            "sha256": [
+              "8bae63fce99eae75ec1849b89fc40b675e5558f4a2f4d8ff0d6eb98c37392c0d"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "resize-noise",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 68508,
+          "minimum": 68508,
+          "maximum": 68508
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 70160,
+          "minimum": 70160,
+          "maximum": 70160
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1652,
+      "rust_minus_sharp_percent": -2.354618015963512
+    },
+    {
+      "case": "resize-noise",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 68508,
+          "minimum": 68508,
+          "maximum": 68508
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 70160,
+          "minimum": 70160,
+          "maximum": 70160
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1652,
+      "rust_minus_sharp_percent": -2.354618015963512
+    },
+    {
+      "case": "resize-noise",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 68508,
+          "minimum": 68508,
+          "maximum": 68508
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 70160,
+          "minimum": 70160,
+          "maximum": 70160
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1652,
+      "rust_minus_sharp_percent": -2.354618015963512
+    },
+    {
+      "case": "resize-noise",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 68508,
+          "minimum": 68508,
+          "maximum": 68508
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 70160,
+          "minimum": 70160,
+          "maximum": 70160
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1652,
+      "rust_minus_sharp_percent": -2.354618015963512
+    },
+    {
+      "case": "resize-noise",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 68508,
+          "minimum": 68508,
+          "maximum": 68508
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 68508,
+            "bytes_max": 68508,
+            "sha256": [
+              "d466ad24e179f4c10f57b7677a474ced38be19f58770812bf32839a40a7ff2b3"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 70160,
+          "minimum": 70160,
+          "maximum": 70160
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/noise.jpg",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 70160,
+            "bytes_max": 70160,
+            "sha256": [
+              "713344d6249801dd98bafac964840004dd9f851d4da4aa8b70e7482413cfbbfc"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": -1652,
+      "rust_minus_sharp_percent": -2.354618015963512
+    },
+    {
+      "case": "resize-translucent",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "resize-translucent",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "resize-translucent",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "resize-translucent",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "resize-translucent",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 95016,
+          "minimum": 95016,
+          "maximum": 95016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/generated/translucent.avif",
+            "width": 960,
+            "height": 640,
+            "format": "webp",
+            "bytes_min": 95016,
+            "bytes_max": 95016,
+            "sha256": [
+              "64a56c41f66599c18081b4d536bbbe6d70cf59c3ac4a539de133399e78286bce"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "srcset-photo",
+      "cpu": 1,
+      "rust": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "srcset-photo",
+      "cpu": 2,
+      "rust": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "srcset-photo",
+      "cpu": 4,
+      "rust": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "srcset-photo",
+      "cpu": 8,
+      "rust": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    },
+    {
+      "case": "srcset-photo",
+      "cpu": 16,
+      "rust": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "sharp": {
+        "total_bytes": {
+          "median": 190016,
+          "minimum": 190016,
+          "maximum": 190016
+        },
+        "images": [
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 480,
+            "height": 240,
+            "format": "webp",
+            "bytes_min": 14410,
+            "bytes_max": 14410,
+            "sha256": [
+              "9758e67fb4cbb84dcccd08dbfdf889db3aab09d555da6dedbea00f3e62bd4a44"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 960,
+            "height": 480,
+            "format": "webp",
+            "bytes_min": 44116,
+            "bytes_max": 44116,
+            "sha256": [
+              "884deb076259cc4c03535dc69c9a52d168ef8a3cca454556f3495a0d3e21c221"
+            ]
+          },
+          {
+            "source": "/home/angel/.t3/worktrees/image-optimizer/t3-6f04373b/benchmarks/fixtures/photos/earth.jpg",
+            "width": 1920,
+            "height": 960,
+            "format": "webp",
+            "bytes_min": 131490,
+            "bytes_max": 131490,
+            "sha256": [
+              "01822035c27dcdafe385ac71291be9527bdb1ec6aa5f0649372f8d95ab57c4e9"
+            ]
+          }
+        ]
+      },
+      "rust_minus_sharp_bytes": 0,
+      "rust_minus_sharp_percent": 0.0
+    }
+  ],
+  "stability": [
+    {
+      "case": "convert-alpha",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "convert-alpha",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "directory-flat",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "directory-flat",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "directory-recursive-srcset",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "preserve-alpha",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "preserve-alpha",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "resize-noise",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "resize-noise",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "resize-translucent",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "resize-translucent",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "srcset-photo",
+      "side": "rust",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    },
+    {
+      "case": "srcset-photo",
+      "side": "sharp",
+      "sizes_stable_across_workers": true,
+      "byte_identical_across_runs_and_workers": true
+    }
+  ]
+}

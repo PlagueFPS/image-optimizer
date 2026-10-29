@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 671  of event 'cpu-clock:u'
+# Event count (approx.): 3371858875
+#
+# Overhead       Samples  Shared Object        
+# ........  ............  .....................
+#
+    95.38%           640  libwebp.so.7.2.0     
+     2.38%            16  libz.so.1.3.1.zlib-ng
+     1.49%            10  libc.so.6            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
