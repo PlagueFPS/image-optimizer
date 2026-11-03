@@ -8,9 +8,9 @@ Requires Node.js 22.12 or later. Source files are preserved.
 After this package is published, use any of these package runners.
 
 ```sh
-npx @plaguefps/image-optimizer optimize -s ./assets -o ../optimized
-pnpm dlx @plaguefps/image-optimizer optimize -s ./assets -o ../optimized
-bunx @plaguefps/image-optimizer optimize -s ./assets -o ../optimized
+npx @plaguefps/img optimize -s ./assets -o ../optimized
+pnpm dlx @plaguefps/img optimize -s ./assets -o ../optimized
+bunx @plaguefps/img optimize -s ./assets -o ../optimized
 ```
 
 The executable uses Node through its shebang, including when installed with Bun.
@@ -20,26 +20,26 @@ The package has not been published by this change.
 Resize and convert a single file.
 
 ```sh
-image-optimizer optimize -s ./photo.jpg -o ./optimized --format avif --width 1280
+img optimize -s ./photo.jpg -o ./optimized --format avif --width 1280
 ```
 
 Crop a directory of images to square thumbnails.
 
 ```sh
-image-optimizer optimize -s ./assets -o ../thumbnails --recursive --width 400 --height 400 --fit cover --position attention
+img optimize -s ./assets -o ../thumbnails --recursive --width 400 --height 400 --fit cover --position attention
 ```
 
 Preview destinations without creating directories or encoding images.
 
 ```sh
-npx @plaguefps/image-optimizer optimize -s ./assets -o ../optimized --recursive --dry-run --json
+npx @plaguefps/img optimize -s ./assets -o ../optimized --recursive --dry-run --json
 ```
 
 Inspect all flags and generate shell completions.
 
 ```sh
-image-optimizer optimize --help
-image-optimizer --completions bash
+img optimize --help
+img --completions bash
 ```
 
 ## Options
@@ -109,7 +109,7 @@ Build and install the local package globally to make the executable available fr
 ```sh
 npm install
 npm install --global .
-image-optimizer --help
+img --help
 ```
 
 Alternatively, run `npm pack` and install the generated `.tgz` with npm. A registry release is still required for the package-name runner commands above.

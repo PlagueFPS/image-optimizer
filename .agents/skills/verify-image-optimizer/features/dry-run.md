@@ -11,7 +11,7 @@ Preview destinations before conversion, including recursion and exclusions, with
 
 ## How to get to it (user POV)
 
-Add `--dry-run --json` to `image-optimizer optimize -s input -o output`.
+Add `--dry-run --json` to `img optimize -s input -o output`.
 
 ## Driving it with the subprocess harness
 

@@ -160,7 +160,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
           Effect.gen(function* () {
             const temporary = yield* fs.makeTempDirectoryScoped({
               directory: parent,
-              prefix: ".image-optimizer-",
+              prefix: ".img-",
             });
 
             const staging = path.join(temporary, "image");

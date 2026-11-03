@@ -129,11 +129,11 @@ test("packed npm binary runs outside the checkout", () => {
     cwd: consumer,
     stdio: "pipe",
   });
-  const binary = join(consumer, "node_modules", ".bin", "image-optimizer");
+  const binary = join(consumer, "node_modules", ".bin", "img");
   const help = execFileSync(binary, ["--help"], { cwd: consumer, encoding: "utf8" });
   expect(help).toContain("optimize");
   expect(
-    execFileSync("npx", ["--no-install", "image-optimizer", "--version"], {
+    execFileSync("npx", ["--no-install", "img", "--version"], {
       cwd: consumer,
       encoding: "utf8",
     }),

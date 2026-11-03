@@ -1,10 +1,10 @@
 {
-  "name": "@plaguefps/image-optimizer",
+  "name": "@plaguefps/img",
   "version": "0.1.0",
   "description": "Configurable Effect-native image optimization CLI",
   "license": "MIT",
   "bin": {
-    "image-optimizer": "dist/cli.mjs"
+    "img": "dist/cli.mjs"
   },
   "files": [
     "dist",
