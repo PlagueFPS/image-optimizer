@@ -16,6 +16,7 @@ export default defineConfig({
       ".roo/**",
       ".windsurf/**",
       "tools/oxlint/anti-slop/**",
+      "tools/postinstall.mjs",
     ],
     jsPlugins: [
       { name: "anti-slop", specifier: "./tools/oxlint/anti-slop/index.ts" },
@@ -71,6 +72,7 @@ export default defineConfig({
       ".roo/**",
       ".windsurf/**",
       "tools/oxlint/anti-slop/**",
+      "tools/postinstall.mjs",
     ],
   },
   pack: { entry: ["src/cli.ts"], format: ["esm"], dts: false, clean: true },
