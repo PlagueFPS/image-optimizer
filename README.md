@@ -129,7 +129,8 @@ npm pack
 
 Tests run the built CLI and install its tarball into an isolated consumer directory.
 The test command builds the executable before running assertions.
-`npm run lint` executes the Effect-patched Oxlint directly, without mutating dependencies.
+`pnpm run check` runs `vp check` to check formatting, lint, and type-check the project.
+The postinstall hook patches the installed tools with Effect support so `vp lint` and `vp check` can use the Effect rules.
 The recommended, effect-native, and style presets are enabled with warnings treated as failures.
 Node builtin imports are permitted only in the subprocess integration tests.
 Effect's unstable CLI and platform APIs are explicitly allowed in the language-service configuration.
