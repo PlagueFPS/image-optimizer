@@ -11,7 +11,7 @@ Skip existing outputs unless overwrite is requested, reject unsafe destinations,
 
 ## How to get to it (user POV)
 
-Run `image-optimizer optimize -s photo.jpg -o output --overwrite --width 32 --json`; errors use the same optimize entry point and exit 1.
+Run `img optimize -s photo.jpg -o output --overwrite --width 32 --json`; errors use the same optimize entry point and exit 1.
 
 ## Driving it with the subprocess harness
 

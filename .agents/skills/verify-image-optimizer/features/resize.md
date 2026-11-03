@@ -9,7 +9,7 @@ Choose bounds and fitting behavior, with enlargement enabled only when requested
 
 ## How to get to it (user POV)
 
-Run `image-optimizer optimize -s second.png -o output --width 20 --height 20 --fit cover`.
+Run `img optimize -s second.png -o output --width 20 --height 20 --fit cover`.
 
 ## Driving it with the subprocess harness
 

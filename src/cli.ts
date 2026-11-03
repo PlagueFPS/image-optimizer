@@ -143,13 +143,13 @@ const run = Effect.fn("main")(function* (args: Config) {
   }
 });
 
-const command = Command.make("image-optimizer").pipe(
+const command = Command.make("img").pipe(
   Command.withDescription(
     "Resize and convert images safely with Effect and Node.js. Use optimize --help for controls and --dry-run to preview without writes. Requires Node.js 22.12+.",
   ),
   Command.withExamples([
     {
-      command: "image-optimizer optimize -s photo.jpg -o ./optimized --width 1280",
+      command: "img optimize -s photo.jpg -o ./optimized --width 1280",
       description: "Optimize a file. Add --recursive to process subdirectories.",
     },
   ]),
@@ -160,13 +160,12 @@ const command = Command.make("image-optimizer").pipe(
       ),
       Command.withExamples([
         {
-          command:
-            "image-optimizer optimize -s photo.jpg -o ./optimized --format avif --width 1280",
+          command: "img optimize -s photo.jpg -o ./optimized --format avif --width 1280",
           description: "Resize and convert one file.",
         },
         {
           command:
-            "image-optimizer optimize -s ./assets -o ../optimized --recursive --width 400 --height 400 --fit cover --position attention --json",
+            "img optimize -s ./assets -o ../optimized --recursive --width 400 --height 400 --fit cover --position attention --json",
           description: "Recursively create square crops and report JSON.",
         },
       ]),

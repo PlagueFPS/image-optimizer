@@ -11,7 +11,7 @@ Optimize a directory, opting into nested files and excluding unwanted prefixes w
 
 ## How to get to it (user POV)
 
-Run `image-optimizer optimize -s input -o output --recursive --exclude nested --json`.
+Run `img optimize -s input -o output --recursive --exclude nested --json`.
 
 ## Driving it with the subprocess harness
 

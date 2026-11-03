@@ -10,7 +10,7 @@ Convert a file to WebP, AVIF, JPEG, or PNG while retaining the source.
 
 ## How to get to it (user POV)
 
-Run `image-optimizer optimize -s photo.jpg -o output --format avif --width 32 --json`, or omit format/JSON for defaults.
+Run `img optimize -s photo.jpg -o output --format avif --width 32 --json`, or omit format/JSON for defaults.
 
 ## Driving it with the subprocess harness
 
