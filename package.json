@@ -18,10 +18,11 @@
     "dev": "vp pack --watch",
     "test": "vp pack && vp test",
     "typecheck": "effect-tsgo tsc --noEmit",
-    "lint": "effect-tsgo oxlint --deny-warnings",
+    "lint": "vp lint",
     "fmt": "vp fmt",
-    "check": "npm run typecheck && npm run lint && vp fmt --check",
-    "prepack": "npm run build"
+    "check": "vp check",
+    "prepack": "pnpm run build",
+    "postinstall": "effect-tsgo patch --oxlint"
   },
   "dependencies": {
     "@effect/platform-node": "^4.1.2",
@@ -31,12 +32,11 @@
   "devDependencies": {
     "@effect/tsgo": "0.63.0",
     "@types/node": "^26.6.5",
-    "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
     "typescript": "^7.0.2",
     "vite-plus": "^1.2.0"
   },
   "engines": {
     "node": ">=22.12.0"
-  }
+  },
+  "packageManager": "pnpm@12.16.1"
 }
