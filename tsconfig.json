@@ -25,9 +25,17 @@
           "effect/FileSystem",
           "effect/Path",
           "effect/PlatformError",
-          "@effect/platform-node"
+          "@effect/platform-node",
+          "effect/process",
+          "effect/crypto"
         ]
       }
     ]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "vite.config.ts",
+    ".agents/skills/verify-image-optimizer/scripts/**/*.ts"
+  ]
 }
