@@ -1,6 +1,7 @@
 import { Schema } from "effect";
 
 export const Formats = ["webp", "avif", "jpeg", "png"] as const;
+
 export const Positions = [
   "centre",
   "north",
@@ -14,6 +15,7 @@ export const Positions = [
   "entropy",
   "attention",
 ] as const;
+
 export const Config = Schema.Struct({
   source: Schema.String,
   output: Schema.String,
@@ -37,8 +39,11 @@ export const Config = Schema.Struct({
   flatten: Schema.Boolean,
   compression: Schema.Int.check(Schema.isBetween({ minimum: 0, maximum: 9 })),
 });
+
 export type Config = typeof Config.Type;
+
 export type Job = { readonly source: string; readonly output: string };
+
 export class OptimizationError extends Schema.TaggedError<
   OptimizationError,
   { readonly brand: unique symbol }

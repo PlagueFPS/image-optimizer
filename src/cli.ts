@@ -117,12 +117,15 @@ const flags = {
 
 const run = Effect.fn("main")(function* (args: Config) {
   const config = yield* Schema.decodeEffect(Config)(args);
+
   if (config.lossless && config.format === "jpeg") {
     return yield* OptimizationError.make({
       message: "JPEG does not support lossless encoding. Use WebP, AVIF, or PNG.",
     });
   }
+
   const results = yield* optimize(config);
+
   if (config.json) yield* Console.log(yield* Schema.encodeEffect(ReportJson)(results));
   else
     yield* Effect.forEach(results, (result) =>
@@ -130,6 +133,7 @@ const run = Effect.fn("main")(function* (args: Config) {
         `${result.status}: ${result.source} -> ${result.output}${"error" in result ? ` (${result.error})` : ""}`,
       ),
     );
+
   if (Arr.some(results, (result) => result.status === "failed")) {
     return yield* OptimizationError.make({
       message: "One or more images failed. See the report for details.",
