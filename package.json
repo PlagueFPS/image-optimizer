@@ -22,7 +22,7 @@
     "fmt": "vp fmt",
     "check": "vp check",
     "prepack": "pnpm run build",
-    "postinstall": "effect-tsgo patch --oxlint"
+    "prepare": "effect-tsgo patch --oxlint"
   },
   "dependencies": {
     "@effect/platform-node": "^4.1.2",
