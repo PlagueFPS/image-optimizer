@@ -22,6 +22,7 @@ export default defineConfig({
       { name: "anti-slop-effect", specifier: "./tools/oxlint/anti-slop/effect/index.ts" },
     ],
     rules: {
+      "effecttsgo/effect-try-without-catch": "warn",
       "oxc/no-accumulating-spread": "error",
       "anti-slop/no-array-filter-map": "error",
       "anti-slop/no-reduce-accumulator-copy": "error",
