@@ -22,7 +22,9 @@ const canonical = Effect.fn("canonical")(function* (
 
   if (yield* fs.exists(location)) return yield* fs.realPath(location);
 
-  return path.join(yield* canonical(path.dirname(location)), path.basename(location));
+  const parent = yield* canonical(path.dirname(location));
+
+  return path.join(parent, path.basename(location));
 });
 
 export const plan = Effect.fn("plan")(function* (config: Config) {
@@ -110,7 +112,9 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   } else yield* walk(source);
 
   for (const job of jobs) {
-    if (Str.toLowerCase(yield* canonical(job.output)) === Str.toLowerCase(job.source)) {
+    const destination = yield* canonical(job.output);
+
+    if (Str.toLowerCase(destination) === Str.toLowerCase(job.source)) {
       return yield* OptimizationError.make({
         message:
           "Output would replace an original image. Choose another output directory or format.",

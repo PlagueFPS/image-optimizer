@@ -126,8 +126,10 @@ const run = Effect.fn("main")(function* (args: Config) {
 
   const results = yield* optimize(config);
 
-  if (config.json) yield* Console.log(yield* Schema.encodeEffect(ReportJson)(results));
-  else
+  if (config.json) {
+    const report = yield* Schema.encodeEffect(ReportJson)(results);
+    yield* Console.log(report);
+  } else
     yield* Effect.forEach(results, (result) =>
       Console.log(
         `${result.status}: ${result.source} -> ${result.output}${"error" in result ? ` (${result.error})` : ""}`,
