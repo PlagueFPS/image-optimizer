@@ -1,0 +1,14 @@
+decision	reason	verification
+Single npm package	One executable has no separate release boundaries	Packed executable integration test
+Effect 4 and NodeRuntime	Reference uses Effect 4; requested Node execution	CLI subprocess tests
+Plan before writes	Different input extensions can target the same output	Collision test
+Reject overlapping trees	Prevent source replacement and recursive output ingestion	Safety tests
+Direct patched tool runners	Avoid rewriting node_modules while retaining Effect lint rules	Zero-warning lint with all requested presets
+Canonical parent before mkdir	Symlink output parents must not create directories elsewhere	Symlink regression test
+Relative-path containment	Filesystem roots must count as overlapping ancestors	Root-output regression test
+File inputs use their parent as the relative base	One file should not require a temporary source directory	Single-file conversion and original protection tests
+Format-specific encoder options	Generic PNG quality/effort silently enabled palette quantization	PNG decoded-pixel lossless test
+Crop anchor is explicit	Users must control which image region survives cover resizing	East/west pixel tests
+Recursion is opt-in	Review requested shallow processing by default	Default optimization and recursive dry-run tests
+Remove plan command	Dry-run provides the same behavior with less command surface	Removed-command and dry-run tests
+Reserve -h for help	Height remains long form per review correction	Alias conversion and short-help tests

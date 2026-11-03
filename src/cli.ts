@@ -1,0 +1,175 @@
+#!/usr/bin/env node
+import { NodeRuntime, NodeServices } from "@effect/platform-node";
+import { Array as Arr, Console, Effect, Schema } from "effect";
+import { Command, Flag } from "effect/cli";
+import { Config, Formats, Positions, OptimizationError } from "./options.ts";
+import { optimize, ReportJson } from "./optimizer.ts";
+
+const flags = {
+  source: Flag.String("source").pipe(
+    Flag.withAlias("s"),
+    Flag.withDefault("."),
+    Flag.withDescription(
+      "Source image file or directory. Default: current directory. Symlinks are not followed.",
+    ),
+  ),
+  output: Flag.String("output").pipe(
+    Flag.withAlias("o"),
+    Flag.withDescription(
+      "Required output directory. Mirrors directory inputs and preserves originals.",
+    ),
+  ),
+  format: Flag.Literals("format", Formats).pipe(
+    Flag.withAlias("f"),
+    Flag.withDefault("webp"),
+    Flag.withDescription("Output format. Default: webp."),
+  ),
+  quality: Flag.Int("quality").pipe(
+    Flag.withAlias("q"),
+    Flag.withDefault(80),
+    Flag.withDescription("WebP/AVIF/JPEG quality, 1 to 100. Default: 80. PNG is always lossless."),
+  ),
+  effort: Flag.Int("effort").pipe(
+    Flag.withAlias("e"),
+    Flag.withDefault(4),
+    Flag.withDescription("WebP/AVIF encoder effort, 0 to 6. Default: 4. Ignored for JPEG/PNG."),
+  ),
+  width: Flag.Int("width").pipe(
+    Flag.withAlias("w"),
+    Flag.withDefault(0),
+    Flag.withDescription(
+      "Resize width in pixels. Default: 0, unconstrained. Fit determines cropping.",
+    ),
+  ),
+  height: Flag.Int("height").pipe(
+    Flag.withDefault(0),
+    Flag.withDescription(
+      "Resize height in pixels. Default: 0, unconstrained. Fit determines cropping.",
+    ),
+  ),
+  concurrency: Flag.Int("concurrency").pipe(
+    Flag.withDefault(4),
+    Flag.withDescription("Concurrent images, 1 to 64. Default: 4."),
+  ),
+  recursive: Flag.Boolean("recursive").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription("Opt into processing subdirectories. Default: false."),
+  ),
+  overwrite: Flag.Boolean("overwrite").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription(
+      "Replace existing outputs. Default: skip. Originals are always protected.",
+    ),
+  ),
+  dryRun: Flag.Boolean("dry-run").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription("Report planned destinations without writes. Default: false."),
+  ),
+  lossless: Flag.Boolean("lossless").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription(
+      "Lossless WebP/AVIF encoding. Default: false. PNG is always lossless; JPEG rejects this flag.",
+    ),
+  ),
+  metadata: Flag.Boolean("metadata").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription("Keep source metadata. Default strips metadata."),
+  ),
+  upscale: Flag.Boolean("upscale").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription("Allow image enlargement. Default: false."),
+  ),
+  json: Flag.Boolean("json").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription(
+      "Emit per-file JSON on stdout; errors use stderr. Exit 0 on success, 1 on failure.",
+    ),
+  ),
+  exclude: Flag.String("exclude").pipe(
+    Flag.atLeast(0),
+    Flag.withDescription("Exclude a relative path prefix. Repeatable."),
+  ),
+  fit: Flag.Literals("fit", ["inside", "contain", "cover", "fill", "outside"]).pipe(
+    Flag.withDefault("inside"),
+    Flag.withDescription(
+      "Default: inside, preserve aspect within bounds. cover crops; contain pads; fill stretches; outside covers bounds without cropping.",
+    ),
+  ),
+  position: Flag.Literals("position", Positions).pipe(
+    Flag.withDefault("centre"),
+    Flag.withDescription(
+      "Crop anchor for cover, or padding alignment for contain. Default: centre. entropy/attention are smart cover crops.",
+    ),
+  ),
+  background: Flag.String("background").pipe(
+    Flag.withDefault("#ffffff"),
+    Flag.withDescription("Contain/flatten background color. Default: #ffffff."),
+  ),
+  flatten: Flag.Boolean("flatten").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription("Remove transparency using the background color."),
+  ),
+  compression: Flag.Int("compression").pipe(
+    Flag.withDefault(9),
+    Flag.withDescription("PNG lossless compression level, 0 to 9. Default: 9."),
+  ),
+};
+
+const run = Effect.fn("main")(function* (args: Config) {
+  const config = yield* Schema.decodeEffect(Config)(args);
+  if (config.lossless && config.format === "jpeg") {
+    return yield* OptimizationError.make({
+      message: "JPEG does not support lossless encoding. Use WebP, AVIF, or PNG.",
+    });
+  }
+  const results = yield* optimize(config);
+  if (config.json) yield* Console.log(yield* Schema.encodeEffect(ReportJson)(results));
+  else
+    yield* Effect.forEach(results, (result) =>
+      Console.log(
+        `${result.status}: ${result.source} -> ${result.output}${"error" in result ? ` (${result.error})` : ""}`,
+      ),
+    );
+  if (Arr.some(results, (result) => result.status === "failed")) {
+    return yield* OptimizationError.make({
+      message: "One or more images failed. See the report for details.",
+    });
+  }
+});
+
+const command = Command.make("image-optimizer").pipe(
+  Command.withDescription(
+    "Resize and convert images safely with Effect and Node.js. Use optimize --help for controls and --dry-run to preview without writes. Requires Node.js 22.12+.",
+  ),
+  Command.withExamples([
+    {
+      command: "image-optimizer optimize -s photo.jpg -o ./optimized --width 1280",
+      description: "Optimize a file. Add --recursive to process subdirectories.",
+    },
+  ]),
+  Command.withSubcommands([
+    Command.make("optimize", flags, run).pipe(
+      Command.withDescription(
+        "Resize and convert an image file or directory. Preserves originals and mirrors subdirectories. Exit 0 on success or skips; exit 1 on invalid input, planning errors, or any failed file.",
+      ),
+      Command.withExamples([
+        {
+          command:
+            "image-optimizer optimize -s photo.jpg -o ./optimized --format avif --width 1280",
+          description: "Resize and convert one file.",
+        },
+        {
+          command:
+            "image-optimizer optimize -s ./assets -o ../optimized --recursive --width 400 --height 400 --fit cover --position attention --json",
+          description: "Recursively create square crops and report JSON.",
+        },
+      ]),
+    ),
+  ]),
+);
+
+Command.run(command, { version: "0.1.0" }).pipe(
+  Effect.tapError((error) => Console.error(String(error))),
+  Effect.provide(NodeServices.layer),
+  NodeRuntime.runMain({ disableErrorReporting: true }),
+);

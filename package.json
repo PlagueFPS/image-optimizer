@@ -1,0 +1,42 @@
+{
+  "name": "@plaguefps/image-optimizer",
+  "version": "0.1.0",
+  "description": "Configurable Effect-native image optimization CLI",
+  "license": "MIT",
+  "bin": {
+    "image-optimizer": "dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp pack && vp test",
+    "typecheck": "effect-tsgo tsc --noEmit",
+    "lint": "effect-tsgo oxlint --deny-warnings",
+    "fmt": "vp fmt",
+    "check": "npm run typecheck && npm run lint && vp fmt --check",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@effect/platform-node": "^4.1.2",
+    "effect": "^4.1.2",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@effect/tsgo": "0.63.0",
+    "@types/node": "^26.6.5",
+    "oxlint": "1.90.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "typescript": "^7.0.2",
+    "vite-plus": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
