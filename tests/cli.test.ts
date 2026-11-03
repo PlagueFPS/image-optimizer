@@ -16,17 +16,24 @@ import { join, resolve } from "node:path";
 import { afterAll, expect, test } from "vite-plus/test";
 
 const root = mkdtempSync(join(tmpdir(), "image-optimizer-test-"));
+
 const source = join(root, "input");
+
 mkdirSync(join(source, "nested"), { recursive: true });
+
 copyFileSync(resolve("tests/fixtures/test.jpg"), join(source, "photo.jpg"));
+
 copyFileSync(resolve("tests/fixtures/test2.png"), join(source, "nested", "second.png"));
+
 const cli = resolve("dist/cli.mjs");
+
 const run = (output: string, extra: string[] = [], input = source) =>
   spawnSync(
     process.execPath,
     [cli, "optimize", "--source", input, "--output", output, "--json", ...extra],
     { cwd: root, encoding: "utf8" },
   );
+
 afterAll(() => rmSync(root, { recursive: true, force: true }));
 
 test.each(["webp", "avif", "jpeg", "png"])("encodes %s and preserves directories", (format) => {
@@ -40,6 +47,7 @@ test.each(["webp", "avif", "jpeg", "png"])("encodes %s and preserves directories
   expect(existsSync(join(output, `photo.${format}`))).toBe(true);
   expect(existsSync(join(output, "nested", `second.${format}`))).toBe(true);
   expect(run(output, ["--format", format, "--recursive"]).stdout).toContain("skipped");
+
   return sharp(join(output, `photo.${format}`))
     .metadata()
     .then((metadata) => {
@@ -57,9 +65,11 @@ test("dry run writes nothing", () => {
 
 test("rejects overlap and invalid ranges before writing", () => {
   expect(run(join(source, "output")).status).not.toBe(0);
+
   for (const flag of ["--quality", "--concurrency", "--width", "--compression"]) {
     expect(run(join(root, "invalid"), [flag, "-1"]).status).not.toBe(0);
   }
+
   expect(existsSync(join(root, "invalid"))).toBe(false);
 });
 
@@ -112,6 +122,7 @@ test("packed npm binary runs outside the checkout", () => {
       encoding: "utf8",
     }),
   );
+
   const consumer = join(root, "consumer");
   mkdirSync(consumer);
   execFileSync("npm", ["install", "--no-audit", "--no-fund", join(root, packed)], {
@@ -127,11 +138,13 @@ test("packed npm binary runs outside the checkout", () => {
       encoding: "utf8",
     }),
   ).toContain("0.1.0");
+
   const result = execFileSync(
     binary,
     ["optimize", "--source", source, "--output", join(root, "packed-output"), "--format", "png"],
     { cwd: consumer, encoding: "utf8" },
   );
+
   expect(result).toContain("optimized");
 });
 
@@ -156,11 +169,13 @@ test("symlink output parents cannot create directories outside the output", () =
 
 test("dry-run defaults to non-recursive processing and writes nothing", () => {
   const output = join(root, "dry-run-command");
+
   const report = execFileSync(
     process.execPath,
     [cli, "optimize", "-s", source, "-o", output, "--dry-run", "--json"],
     { encoding: "utf8" },
   );
+
   expect(report).toContain("photo.jpg");
   expect(report).not.toContain("second.png");
   expect(existsSync(output)).toBe(false);
@@ -173,6 +188,7 @@ test("single file input resizes and converts while preserving the original", () 
   const result = run(output, ["--width", "32", "--format", "avif"], file);
   expect(result.status).toBe(0);
   expect(readFileSync(file)).toEqual(original);
+
   return sharp(join(output, "photo.avif"))
     .metadata()
     .then((metadata) => {
@@ -194,12 +210,15 @@ test.each(["cover", "contain", "fill", "inside", "outside"])(
   "fit %s has documented dimensions",
   (fit) => {
     const output = join(root, `fit-${fit}`);
+
     const result = run(
       output,
       ["--width", "20", "--height", "20", "--fit", fit],
       join(source, "nested", "second.png"),
     );
+
     expect(result.status).toBe(0);
+
     return sharp(join(output, "second.webp"))
       .metadata()
       .then((metadata) => {
@@ -219,6 +238,7 @@ test.each(["cover", "contain", "fill", "inside", "outside"])(
 
 test("crop position changes which pixels are retained", () => {
   const file = join(root, "split.png");
+
   return sharp({ create: { width: 40, height: 20, channels: 3, background: "red" } })
     .composite([
       {
@@ -250,6 +270,7 @@ test("crop position changes which pixels are retained", () => {
           ).status,
         ).toBe(0);
       }
+
       return sharp(join(root, "west", "split.png"))
         .raw()
         .toBuffer();
@@ -257,6 +278,7 @@ test("crop position changes which pixels are retained", () => {
     .then((pixels) => {
       expect(pixels[0]).toBe(255);
       expect(pixels[2]).toBe(0);
+
       return sharp(join(root, "east", "split.png"))
         .raw()
         .toBuffer();
@@ -271,10 +293,12 @@ test("enlargement requires explicit opt-in", () => {
   const file = join(source, "nested", "second.png");
   expect(run(join(root, "no-upscale"), ["--width", "1000"], file).status).toBe(0);
   expect(run(join(root, "upscale"), ["--width", "1000", "--upscale"], file).status).toBe(0);
+
   return sharp(join(root, "no-upscale", "second.webp"))
     .metadata()
     .then((metadata) => {
       expect(metadata.width).toBe(567);
+
       return sharp(join(root, "upscale", "second.webp")).metadata();
     })
     .then((metadata) => expect(metadata.width).toBe(1000));
@@ -283,6 +307,7 @@ test("enlargement requires explicit opt-in", () => {
 test("metadata preservation is explicit", () => {
   const file = join(source, "photo.jpg");
   expect(run(join(root, "metadata"), ["--metadata", "--width", "16"], file).status).toBe(0);
+
   return sharp(join(root, "metadata", "photo.webp"))
     .metadata()
     .then((metadata) => expect(metadata.exif).toBeDefined());
@@ -290,15 +315,18 @@ test("metadata preservation is explicit", () => {
 
 test.each(["png", "webp", "avif"])("%s lossless output preserves decoded pixels", (format) => {
   const pixels = Buffer.alloc(32 * 32 * 3);
+
   for (let index = 0; index < pixels.length; index++)
     pixels[index] = (index * 37 + Math.floor(index / 3)) % 256;
   const file = join(root, `lossless-${format}.png`);
+
   return sharp(pixels, { raw: { width: 32, height: 32, channels: 3 } })
     .png()
     .toFile(file)
     .then(() => {
       const output = join(root, `lossless-${format}`);
       expect(run(output, ["--format", format, "--lossless", "--effort", "0"], file).status).toBe(0);
+
       return sharp(join(output, `lossless-${format}.${format}`))
         .raw()
         .toBuffer();
@@ -322,6 +350,7 @@ test("automation has exact exit codes and per-file reports", () => {
 
 test("help explains file inputs, defaults, crop controls, safety, and automation", () => {
   const help = execFileSync(process.execPath, [cli, "optimize", "--help"], { encoding: "utf8" });
+
   for (const term of [
     "file or directory",
     "Default:",
@@ -348,13 +377,16 @@ test("quality changes encoded output and effort accepts both documented limits",
 
 test("short aliases resize and convert while height stays long form", () => {
   const output = join(root, "aliases");
+
   const result = run(
     output,
     ["-f", "png", "-q", "75", "-w", "16", "--height", "16", "-e", "0", "--fit", "cover"],
     join(source, "photo.jpg"),
   );
+
   expect(result.status).toBe(0);
   expect(result.stdout).toContain('"optimized"');
+
   return sharp(join(output, "photo.png"))
     .metadata()
     .then((metadata) => {

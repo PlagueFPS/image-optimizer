@@ -6,6 +6,7 @@ export const encode = Effect.fn("encode")(function* (source: string, config: Con
   return yield* Effect.tryPromise({
     try: () => {
       let image = sharp(source, { failOn: "warning", limitInputPixels: 268402689 }).rotate();
+
       if (config.width > 0 || config.height > 0) {
         image = image.resize({
           width: config.width || undefined,
@@ -16,8 +17,11 @@ export const encode = Effect.fn("encode")(function* (source: string, config: Con
           withoutEnlargement: !config.upscale,
         });
       }
+
       if (config.flatten) image = image.flatten({ background: config.background });
+
       if (config.metadata) image = image.keepMetadata();
+
       return Match.value(config.format)
         .pipe(
           Match.when("webp", () =>
