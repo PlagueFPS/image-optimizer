@@ -18,4 +18,4 @@ vp test # Runs the test suite - only run if you made changes that affect applica
 ## Pull Requests
 
 - Use conventional commit titles, plain language: `feat(cli): determine default concurrency based on CPU cores`
-- Body should explain "what" problem the PR solves, and "how" you implemented it. End with the model and harness that did the work.
+- Body should explain "what" problem the PR solves, and "how" you implemented it. End with the model and harness that did the work. Example final line: `GPT 6.1 Sol in Codex`.
