@@ -10,6 +10,7 @@ import {
   rmSync,
   copyFileSync,
   symlinkSync,
+  statSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
@@ -681,6 +682,178 @@ test("sizes continue valid images when another source is corrupt", () => {
   expect(result.stdout).toContain('"failed"');
   expect(existsSync(join(output, "valid.webp"))).toBe(true);
   expect(existsSync(join(output, "valid-16.webp"))).toBe(true);
+});
+
+const Metrics = Schema.Struct({
+  inputBytes: Schema.Finite,
+  outputBytes: Schema.Finite,
+  savedBytes: Schema.Finite,
+  reductionPercent: Schema.Finite,
+});
+
+const CompletedReport = Schema.Struct({
+  ...Metrics.fields,
+  source: Schema.String,
+  output: Schema.String,
+  bytes: Schema.Finite,
+});
+
+const SummaryReport = Schema.fromJsonString(
+  Schema.Struct({
+    results: Schema.Array(Schema.Unknown),
+    summary: Schema.Struct({
+      ...Metrics.fields,
+      optimized: Schema.Finite,
+      skipped: Schema.Finite,
+      planned: Schema.Finite,
+      failed: Schema.Finite,
+    }),
+  }),
+);
+
+const decodeSummary = (text: string) => Effect.runSync(Schema.decodeEffect(SummaryReport)(text));
+
+const expectMetrics = (metrics: typeof Metrics.Type, inputBytes: number, outputBytes: number) => {
+  expect(metrics.inputBytes).toBe(inputBytes);
+  expect(metrics.outputBytes).toBe(outputBytes);
+  expect(metrics.savedBytes).toBe(inputBytes - outputBytes);
+  expect(metrics.reductionPercent).toBeCloseTo(
+    inputBytes === 0 ? 0 : ((inputBytes - outputBytes) / inputBytes) * 100,
+  );
+};
+
+test("JSON keeps its array contract and reports each responsive output against its source", () => {
+  const output = join(root, "report-sizes");
+  const input = join(source, "photo.jpg");
+  const before = readFileSync(input);
+  const result = run(output, ["--sizes", "16,32"], input);
+  expect(result.status).toBe(0);
+
+  const reports = Effect.runSync(
+    Schema.decodeEffect(Schema.fromJsonString(Schema.Array(CompletedReport)))(result.stdout),
+  );
+
+  expect(reports).toHaveLength(3);
+
+  for (const report of reports) {
+    expectMetrics(report, statSync(input).size, statSync(report.output).size);
+    expect(report.bytes).toBe(report.outputBytes);
+  }
+
+  expect(readFileSync(input)).toEqual(before);
+  const skipped = run(output, ["--sizes", "16,32", "--summary-json"], input);
+  expect(skipped.status).toBe(0);
+  const skippedSummary = decodeSummary(skipped.stdout).summary;
+  expect(skippedSummary).toMatchObject({ optimized: 0, skipped: 3, planned: 0, failed: 0 });
+  expectMetrics(skippedSummary, 0, 0);
+  const aggregateOutput = join(root, "report-sizes-summary");
+  const aggregate = run(aggregateOutput, ["--sizes", "16,32", "--summary-json"], input);
+  expect(aggregate.status).toBe(0);
+  const { summary } = decodeSummary(aggregate.stdout);
+  expect(summary.optimized).toBe(3);
+  expectMetrics(
+    summary,
+    statSync(input).size * 3,
+    Arr.reduce(
+      ["photo.webp", "photo-16.webp", "photo-32.webp"],
+      0,
+      (total, file) => total + statSync(join(aggregateOutput, file)).size,
+    ),
+  );
+});
+
+test("summary counts only completed writes among success, skip, and failure", () => {
+  const input = join(root, "report-mixed-input");
+  const output = join(root, "report-mixed-output");
+  mkdirSync(input);
+  mkdirSync(output);
+  copyFileSync(join(source, "photo.jpg"), join(input, "valid.jpg"));
+  copyFileSync(join(source, "photo.jpg"), join(input, "skip.jpg"));
+  writeFileSync(join(input, "broken.png"), "invalid");
+  writeFileSync(join(input, "empty.png"), "");
+  writeFileSync(join(output, "skip.webp"), "keep");
+  const result = run(output, ["--summary-json"], input);
+  expect(result.status).toBe(1);
+  const report = decodeSummary(result.stdout);
+  expect(report.summary).toMatchObject({ optimized: 1, skipped: 1, planned: 0, failed: 2 });
+  expectMetrics(
+    report.summary,
+    statSync(join(input, "valid.jpg")).size,
+    statSync(join(output, "valid.webp")).size,
+  );
+  expect(readFileSync(join(output, "skip.webp"), "utf8")).toBe("keep");
+
+  const rows = Effect.runSync(
+    Schema.decodeEffect(
+      Schema.fromJsonString(Schema.Struct({ results: Schema.Array(Schema.Unknown) })),
+    )(result.stdout),
+  ).results;
+
+  for (const row of rows.slice(0, 3)) expect(row).not.toHaveProperty("savedBytes");
+});
+
+test("empty and dry-run reports have zero totals and no invented savings", () => {
+  const empty = join(root, "report-empty");
+  mkdirSync(empty);
+
+  for (const [name, input, extra, planned] of [
+    ["empty", empty, [], 0],
+    ["dry", source, ["--dry-run", "--sizes", "16,32"], 3],
+  ] satisfies Array<[string, string, string[], number]>) {
+    const output = join(root, `report-zero-${name}`);
+    const result = run(output, ["--summary-json", ...extra], input);
+    expect(result.status).toBe(0);
+    const report = decodeSummary(result.stdout);
+    expect(report.summary).toMatchObject({ optimized: 0, skipped: 0, failed: 0, planned });
+    expectMetrics(report.summary, 0, 0);
+    expect(result.stdout).not.toContain('"savedBytes":null');
+    expect(existsSync(output)).toBe(false);
+
+    for (const row of report.results) expect(row).not.toHaveProperty("savedBytes");
+  }
+});
+
+test("growth is negative savings in JSON and human reports", () => {
+  const input = join(source, "photo.jpg");
+  const output = join(root, "report-growth");
+  const result = run(output, ["--format", "png", "--summary-json"], input);
+  expect(result.status).toBe(0);
+  const { summary } = decodeSummary(result.stdout);
+  expectMetrics(summary, statSync(input).size, statSync(join(output, "photo.png")).size);
+  expect(summary.savedBytes).toBeLessThan(0);
+  expect(summary.reductionPercent).toBeLessThan(0);
+
+  const human = spawnSync(
+    process.execPath,
+    [cli, "optimize", "--yes", "-s", input, "-o", join(root, "report-human"), "-f", "png"],
+    { encoding: "utf8" },
+  );
+
+  expect(human.status).toBe(0);
+  expect(human.stdout).toContain(
+    `${summary.inputBytes} input bytes -> ${summary.outputBytes} output bytes, ${summary.savedBytes} saved bytes`,
+  );
+  expect(human.stdout).toContain("Summary: 1 optimized, 0 skipped, 0 planned, 0 failed");
+  expect(human.stdout).toContain("Completed writes only; input counted per output.");
+});
+
+test("a failed output replacement contributes no savings", () => {
+  const input = join(root, "report-write-failure-input");
+  const output = join(root, "report-write-failure-output");
+  mkdirSync(input);
+  mkdirSync(join(output, "blocked.webp"), { recursive: true });
+  copyFileSync(join(source, "photo.jpg"), join(input, "blocked.jpg"));
+  copyFileSync(join(source, "photo.jpg"), join(input, "valid.jpg"));
+  const result = run(output, ["--overwrite", "--summary-json"], input);
+  expect(result.status).toBe(1);
+  const report = decodeSummary(result.stdout);
+  expect(report.summary).toMatchObject({ optimized: 1, failed: 1, skipped: 0, planned: 0 });
+  expectMetrics(
+    report.summary,
+    statSync(join(input, "valid.jpg")).size,
+    statSync(join(output, "valid.webp")).size,
+  );
+  expect(statSync(join(output, "blocked.webp")).isDirectory()).toBe(true);
 });
 
 test.each(["gif", "tiff"] as const)("%s output roundtrips through the CLI", (format) =>
