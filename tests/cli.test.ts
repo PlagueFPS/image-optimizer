@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { Array as Arr, Effect, Schema, String as Str } from "effect";
+import { Array as Arr, Effect, Result, Schema, String as Str } from "effect";
 import { execFileSync, spawnSync } from "node:child_process";
 import {
   mkdtempSync,
@@ -610,3 +610,190 @@ test("sizes continue valid images when another source is corrupt", () => {
   expect(existsSync(join(output, "valid.webp"))).toBe(true);
   expect(existsSync(join(output, "valid-16.webp"))).toBe(true);
 });
+
+test.each(["gif", "tiff", "jp2", "heif", "jxl"] as const)(
+  "%s output follows real encoder availability and roundtrips through the CLI",
+  (format) =>
+    Effect.runPromise(
+      Effect.gen(function* () {
+        const probe = sharp({ create: { width: 16, height: 16, channels: 3, background: "red" } });
+
+        const capability = yield* Effect.tryPromise({
+          try: () =>
+            (format === "heif"
+              ? probe.heif({ compression: "hevc" })
+              : probe.toFormat(format)
+            ).toBuffer(),
+          catch: String,
+        }).pipe(Effect.result);
+
+        const output = join(root, `coverage-${format}`);
+        const original = readFileSync(join(source, "photo.jpg"));
+        const result = run(output, ["--format", format, "--width", "16"]);
+
+        if (Result.isFailure(capability)) {
+          expect(result.status).toBe(1);
+          expect(result.stderr).toContain(`Output encoder ${format} is unavailable`);
+          expect(existsSync(output)).toBe(false);
+          expect(run(output, ["--format", format, "--dry-run"]).status).toBe(1);
+          expect(existsSync(output)).toBe(false);
+          mkdirSync(output);
+          const destination = join(output, `photo.${format}`);
+          writeFileSync(destination, "keep");
+          expect(run(output, ["--format", format, "--overwrite"]).status).toBe(1);
+          expect(readFileSync(destination, "utf8")).toBe("keep");
+        } else {
+          expect(result.status, result.stderr).toBe(0);
+          const file = join(output, `photo.${format}`);
+
+          const decoded = yield* Effect.promise(() =>
+            sharp(file).raw().toBuffer({ resolveWithObject: true }),
+          );
+
+          expect(decoded.info.width).toBe(16);
+          const roundtrip = join(root, `roundtrip-${format}`);
+          expect(run(roundtrip, ["--format", "png"], file).status).toBe(0);
+
+          const pixels = yield* Effect.promise(() =>
+            sharp(join(roundtrip, "photo.png")).raw().toBuffer(),
+          );
+
+          expect(pixels).toEqual(decoded.data);
+        }
+
+        expect(readFileSync(join(source, "photo.jpg"))).toEqual(original);
+      }),
+    ),
+);
+
+test("SVG file and recursive directory inputs rasterize and preserve originals", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const input = join(root, "svg-input");
+      mkdirSync(join(input, "nested"), { recursive: true });
+
+      const svg =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="80" height="40"><rect width="80" height="40" fill="red"/></svg>';
+
+      const file = join(input, "nested", "icon.SVG");
+      writeFileSync(file, svg);
+      writeFileSync(join(input, "top.svg"), svg);
+      const output = join(root, "svg-file");
+      expect(run(output, ["--format", "png", "--width", "20", "--sizes", "10"], file).status).toBe(
+        1,
+      );
+      expect(existsSync(output)).toBe(false);
+      expect(run(output, ["--format", "png", "--sizes", "10,20"], file).status).toBe(0);
+
+      for (const [name, width] of [
+        ["icon.png", 80],
+        ["icon-10.png", 10],
+        ["icon-20.png", 20],
+      ] as const) {
+        const decoded = yield* Effect.promise(() =>
+          sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),
+        );
+
+        expect(decoded.info.width).toBe(width);
+        expect(decoded.info.height).toBe(width / 2);
+      }
+
+      const directory = join(root, "svg-directory");
+      expect(
+        run(directory, ["--format", "png", "--width", "20", "--recursive"], input).status,
+      ).toBe(0);
+
+      const decoded = yield* Effect.promise(() =>
+        sharp(join(directory, "nested", "icon.png"))
+          .raw()
+          .toBuffer({ resolveWithObject: true }),
+      );
+
+      expect(decoded.info.width).toBe(20);
+      expect(decoded.info.height).toBe(10);
+      expect(existsSync(join(directory, "top.png"))).toBe(true);
+      const preview = join(root, "svg-preview");
+      expect(run(preview, ["--recursive", "--dry-run"], input).stdout).toContain("icon.webp");
+      expect(existsSync(preview)).toBe(false);
+      expect(readFileSync(file, "utf8")).toBe(svg);
+    }),
+  ));
+
+test.each(["svg", "raw"])("rejects %s file output without writing", (format) => {
+  const output = join(root, `invalid-output-${format}`);
+  expect(run(output, ["--format", format]).status).toBe(1);
+  expect(existsSync(output)).toBe(false);
+});
+
+test("GIF rejects a lossless promise and TIFF lossless preserves source pixels", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const rejected = join(root, "gif-lossless");
+      expect(run(rejected, ["--format", "gif", "--lossless"]).status).toBe(1);
+      expect(existsSync(rejected)).toBe(false);
+      const output = join(root, "tiff-lossless");
+      const file = join(root, "tiff-pixels.png");
+      const pixels = Buffer.alloc(32 * 32 * 3);
+
+      for (let index = 0; index < pixels.length; index++) pixels[index] = (index * 37) % 256;
+      yield* Effect.promise(() =>
+        sharp(pixels, { raw: { width: 32, height: 32, channels: 3 } })
+          .png()
+          .toFile(file),
+      );
+      expect(run(output, ["--format", "tiff", "--lossless"], file).status).toBe(0);
+      const before = yield* Effect.promise(() => sharp(file).raw().toBuffer());
+
+      const after = yield* Effect.promise(() =>
+        sharp(join(output, "tiff-pixels.tiff")).raw().toBuffer(),
+      );
+
+      expect(after).toEqual(before);
+    }),
+  ));
+
+test("GIF output preserves distinct frames, timing, loop, and resized frame dimensions", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const pixels = Buffer.alloc(16 * 32 * 3);
+
+      for (let index = 0; index < 16 * 16; index++) {
+        pixels[index * 3] = 255;
+        pixels[16 * 16 * 3 + index * 3 + 2] = 255;
+      }
+
+      const file = join(root, "animated.gif");
+      yield* Effect.promise(() =>
+        sharp(pixels, { raw: { width: 16, height: 32, channels: 3, pageHeight: 16 } })
+          .gif({ delay: [100, 200], loop: 3 })
+          .toFile(file),
+      );
+      const original = readFileSync(file);
+      const output = join(root, "animated-gif-output");
+      expect(run(output, ["--format", "gif", "--width", "8"], file).status).toBe(0);
+      const destination = join(output, "animated.gif");
+
+      const metadata = yield* Effect.promise(() =>
+        sharp(destination, { animated: true }).metadata(),
+      );
+
+      expect(metadata.pages).toBe(2);
+      expect(metadata.pageHeight).toBe(8);
+      expect(metadata.width).toBe(8);
+      expect(metadata.delay).toEqual([100, 200]);
+      expect(metadata.loop).toBe(3);
+
+      const decoded = yield* Effect.promise(() =>
+        sharp(destination, { animated: true }).removeAlpha().raw().toBuffer(),
+      );
+
+      expect([...decoded.subarray((4 * 8 + 4) * 3, (4 * 8 + 4) * 3 + 3)]).toEqual([255, 0, 0]);
+      expect([...decoded.subarray((8 * 8 + 4 * 8 + 4) * 3, (8 * 8 + 4 * 8 + 4) * 3 + 3)]).toEqual([
+        0, 0, 255,
+      ]);
+      const rejected = join(root, "animated-tiff-output");
+      expect(run(rejected, ["--format", "tiff"], file).status).toBe(1);
+      expect(existsSync(join(rejected, "animated.tiff"))).toBe(false);
+      expect(readFileSync(file)).toEqual(original);
+    }),
+  ));

@@ -12,3 +12,4 @@ Crop anchor is explicit	Users must control which image region survives cover res
 Recursion is opt-in	Review requested shallow processing by default	Default optimization and recursive dry-run tests
 Remove plan command	Dry-run provides the same behavior with less command surface	Removed-command and dry-run tests
 Reserve -h for help	Height remains long form per review correction	Alias conversion and short-help tests
+Encoder registry with native capability and in-memory probe	Compared extending format switches with a registry; registry keeps native HEIF/AVIF mapping and settings together while probing detects missing HEVC despite HEIF metadata	Built CLI format roundtrips, unavailable encoder safety, SVG rasterization, and GIF animation tests
