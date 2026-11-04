@@ -1,13 +1,31 @@
 import { Effect, Match } from "effect";
 import sharp from "sharp";
-import { type Config, OptimizationError } from "./options.ts";
+import { type Config, type Job, OptimizationError } from "./options.ts";
 
-export const encode = Effect.fn("encode")(function* (source: string, config: Config) {
+export const validateSize = Effect.fn("validateSize")(function* (job: Job, config: Config) {
+  if (job.resize.kind === "configured" || config.upscale) return;
+
+  const metadata = yield* Effect.tryPromise({
+    try: () => sharp(job.source, { failOn: "warning", limitInputPixels: 268402689 }).metadata(),
+    catch: (cause) =>
+      OptimizationError.make({ message: `Cannot read ${job.source}: ${String(cause)}` }),
+  });
+
+  if (job.resize.width > metadata.autoOrient.width) {
+    return yield* OptimizationError.make({
+      message: `Requested width ${job.resize.width} exceeds source width ${metadata.autoOrient.width} for ${job.source}. Use --upscale to allow enlargement.`,
+    });
+  }
+});
+
+export const encode = Effect.fn("encode")(function* (job: Job, config: Config) {
   return yield* Effect.tryPromise({
     try: () => {
-      let image = sharp(source, { failOn: "warning", limitInputPixels: 268402689 }).rotate();
+      let image = sharp(job.source, { failOn: "warning", limitInputPixels: 268402689 }).rotate();
 
-      if (config.width > 0 || config.height > 0) {
+      if (job.resize.kind === "width") {
+        image = image.resize({ width: job.resize.width, withoutEnlargement: !config.upscale });
+      } else if (config.width > 0 || config.height > 0) {
         image = image.resize({
           width: config.width || undefined,
           height: config.height || undefined,
@@ -48,6 +66,6 @@ export const encode = Effect.fn("encode")(function* (source: string, config: Con
         .toBuffer();
     },
     catch: (cause) =>
-      OptimizationError.make({ message: `Cannot encode ${source}: ${String(cause)}` }),
+      OptimizationError.make({ message: `Cannot encode ${job.source}: ${String(cause)}` }),
   });
 });

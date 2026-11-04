@@ -40,6 +40,16 @@ Resize and convert a single file:
 img optimize -s ./photo.jpg -o ./optimized --format avif --width 1280
 ```
 
+Optimize an image at its source dimensions and create additional widths:
+
+```sh
+img optimize -s ./input.png -o ./optimized -f webp --sizes 384,868,1200
+```
+
+This creates `input.webp`, `input-384.webp`, `input-868.webp`, and `input-1200.webp`. Each variant preserves the source aspect ratio. Widths must be positive integers. Repeated widths produce one variant. `--sizes` cannot be combined with `--width` or `--height`.
+
+Without `--upscale`, a width larger than the auto-oriented source width fails without writing that variant. Valid outputs still complete, and the command exits with code 1. Dry runs also check this limit and write nothing.
+
 Crop a directory of images to square thumbnails:
 
 ```sh
@@ -61,30 +71,31 @@ img --completions bash
 
 ## Options
 
-| Flag              | Default   | Description                                                                      |
-| ----------------- | --------- | -------------------------------------------------------------------------------- |
-| `--help`, `-h`    | `false`   | View CLI options and descriptions.                                               |
-| `--source`, `-s`  | `.`       | Source file or directory, relative to the current working directory.             |
-| `--output`, `-o`  | Required  | Output directory.                                                                |
-| `--format`, `-f`  | `webp`    | Output format: `webp`, `avif`, `jpeg`, or `png`.                                 |
-| `--quality`, `-q` | `80`      | WebP, AVIF, or JPEG quality (`1` to `100`).                                      |
-| `--effort`, `-e`  | `4`       | WebP or AVIF encoder effort (`0` to `6`).                                        |
-| `--compression`   | `9`       | PNG lossless compression level (`0` to `9`).                                     |
-| `--width`, `-w`   | `0`       | Target width in pixels (`0` leaves width unconstrained).                         |
-| `--height`        | `0`       | Target height in pixels (`0` leaves height unconstrained).                       |
-| `--fit`           | `inside`  | Resize fit mode: `inside`, `contain`, `cover`, `fill`, or `outside`.             |
-| `--position`      | `centre`  | Crop anchor or padding alignment: compass directions, `entropy`, or `attention`. |
-| `--background`    | `#ffffff` | Background color for `contain` padding or `--flatten`.                           |
-| `--flatten`       | `false`   | Remove alpha transparency using `--background`.                                  |
-| `--upscale`       | `false`   | Allow enlarging images smaller than the target dimensions.                       |
-| `--lossless`      | `false`   | Enable lossless encoding for WebP or AVIF.                                       |
-| `--metadata`      | `false`   | Preserve source metadata instead of stripping it.                                |
-| `--recursive`     | `false`   | Process subdirectories recursively.                                              |
-| `--exclude`       | None      | Exclude a source-relative file or directory prefix (repeatable).                 |
-| `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.        |
-| `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                          |
-| `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                       |
-| `--json`          | `false`   | Print per-image results as a JSON array to stdout.                               |
+| Flag              | Default   | Description                                                                                                                   |
+| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `--help`, `-h`    | `false`   | View CLI options and descriptions.                                                                                            |
+| `--source`, `-s`  | `.`       | Source file or directory, relative to the current working directory.                                                          |
+| `--output`, `-o`  | Required  | Output directory.                                                                                                             |
+| `--format`, `-f`  | `webp`    | Output format: `webp`, `avif`, `jpeg`, or `png`.                                                                              |
+| `--quality`, `-q` | `80`      | WebP, AVIF, or JPEG quality (`1` to `100`).                                                                                   |
+| `--effort`, `-e`  | `4`       | WebP or AVIF encoder effort (`0` to `6`).                                                                                     |
+| `--compression`   | `9`       | PNG lossless compression level (`0` to `9`).                                                                                  |
+| `--width`, `-w`   | `0`       | Target width in pixels (`0` leaves width unconstrained).                                                                      |
+| `--height`        | `0`       | Target height in pixels (`0` leaves height unconstrained).                                                                    |
+| `--sizes`         | None      | Comma-separated additional widths. Creates source-sized output plus `name-WIDTH` variants. Larger widths require `--upscale`. |
+| `--fit`           | `inside`  | Resize fit mode: `inside`, `contain`, `cover`, `fill`, or `outside`.                                                          |
+| `--position`      | `centre`  | Crop anchor or padding alignment: compass directions, `entropy`, or `attention`.                                              |
+| `--background`    | `#ffffff` | Background color for `contain` padding or `--flatten`.                                                                        |
+| `--flatten`       | `false`   | Remove alpha transparency using `--background`.                                                                               |
+| `--upscale`       | `false`   | Allow enlarging images smaller than the target dimensions.                                                                    |
+| `--lossless`      | `false`   | Enable lossless encoding for WebP or AVIF.                                                                                    |
+| `--metadata`      | `false`   | Preserve source metadata instead of stripping it.                                                                             |
+| `--recursive`     | `false`   | Process subdirectories recursively.                                                                                           |
+| `--exclude`       | None      | Exclude a source-relative file or directory prefix (repeatable).                                                              |
+| `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.                                                     |
+| `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                                       |
+| `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                                                                    |
+| `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
 
 The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
 The CLI sets Sharp's libvips concurrency to one thread per image. `--concurrency` overrides the file workflow limit.

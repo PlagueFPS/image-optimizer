@@ -9,7 +9,7 @@ import {
   Schema,
   String as Str,
 } from "effect";
-import { encode } from "./encoder.ts";
+import { encode, validateSize } from "./encoder.ts";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
 const extensions = HashSet.make(".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff", ".gif");
@@ -69,10 +69,21 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   const addJob = (file: string) => {
     const relative = path.relative(base, file);
 
-    const destination =
-      Str.slice(0, relative.length - path.extname(relative).length)(relative) + `.${config.format}`;
+    const stem = Str.slice(0, relative.length - path.extname(relative).length)(relative);
 
-    jobs.push({ source: file, output: path.join(output, destination) });
+    jobs.push({
+      source: file,
+      output: path.join(output, `${stem}.${config.format}`),
+      resize: { kind: "configured" },
+    });
+
+    for (const width of config.sizes) {
+      jobs.push({
+        source: file,
+        output: path.join(output, `${stem}-${width}.${config.format}`),
+        resize: { kind: "width", width },
+      });
+    }
   };
 
   const walk = Effect.fn("walk")(function* (
@@ -142,10 +153,12 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
     jobs,
     (job) =>
       Effect.gen(function* () {
-        if (config.dryRun) return { ...job, status: "planned" };
-
-        if (!config.overwrite && (yield* fs.exists(job.output)))
+        if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
           return { ...job, status: "skipped" };
+
+        yield* validateSize(job, config);
+
+        if (config.dryRun) return { ...job, status: "planned" };
         const parent = path.dirname(job.output);
 
         if ((yield* canonical(parent)) !== parent) {
@@ -155,7 +168,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
         }
 
         yield* fs.makeDirectory(parent, { recursive: true });
-        const bytes = yield* encode(job.source, config);
+        const bytes = yield* encode(job, config);
         yield* Effect.scoped(
           Effect.gen(function* () {
             const temporary = yield* fs.makeTempDirectoryScoped({

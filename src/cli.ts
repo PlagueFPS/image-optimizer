@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { NodeRuntime, NodeServices } from "@effect/platform-node";
-import { Array as Arr, Console, Effect, Schema } from "effect";
+import { Array as Arr, Console, Effect, Schema, String as Str } from "effect";
 import { Command, Flag } from "effect/cli";
 import { availableParallelism } from "node:os";
 import sharp from "sharp";
@@ -52,6 +52,15 @@ const flags = {
     Flag.withDefault(0),
     Flag.withDescription(
       "Resize height in pixels. Default: 0, unconstrained. Fit determines cropping.",
+    ),
+  ),
+  sizes: Flag.String("sizes").pipe(
+    Flag.withSchema(Schema.String.check(Schema.isPattern(/^\s*\d+\s*(,\s*\d+\s*)*$/))),
+    Flag.map((value) => Arr.dedupe(Arr.map(Str.split(",")(value), Number))),
+    Flag.withSchema(Schema.Array(Schema.Int.check(Schema.isGreaterThan(0)))),
+    Flag.withDefault([]),
+    Flag.withDescription(
+      "Additional widths in pixels, comma-separated. Keeps the source-sized output and creates name-WIDTH files. Cannot combine with --width or --height. Larger widths require --upscale.",
     ),
   ),
   concurrency: Flag.Int("concurrency").pipe(
@@ -127,6 +136,12 @@ const flags = {
 const run = Effect.fn("main")(function* (args: Config) {
   const config = yield* Schema.decodeEffect(Config)(args);
 
+  if (config.sizes.length > 0 && (config.width > 0 || config.height > 0)) {
+    return yield* OptimizationError.make({
+      message: "--sizes cannot be combined with --width or --height.",
+    });
+  }
+
   if (config.lossless && config.format === "jpeg") {
     return yield* OptimizationError.make({
       message: "JPEG does not support lossless encoding. Use WebP, AVIF, or PNG.",
@@ -171,6 +186,10 @@ const command = Command.make("img").pipe(
         {
           command: "img optimize -s photo.jpg -o ./optimized --format avif --width 1280",
           description: "Resize and convert one file.",
+        },
+        {
+          command: "img optimize -s input.png -o ./optimized -f webp --sizes 384,868,1200",
+          description: "Optimize the source and create additional aspect-preserving widths.",
         },
         {
           command:

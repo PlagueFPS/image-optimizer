@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { Effect, Schema, String as Str } from "effect";
+import { Array as Arr, Effect, Schema, String as Str } from "effect";
 import { execFileSync, spawnSync } from "node:child_process";
 import {
   mkdtempSync,
@@ -429,4 +429,184 @@ test("recursion requires opt-in for optimization and dry runs", () => {
   expect(recursive.status).toBe(0);
   expect(recursive.stdout).toContain("second.png");
   expect(existsSync(join(root, "recursive-preview"))).toBe(false);
+});
+
+test("sizes create a source-sized output and distinct aspect-preserving widths", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const file = join(root, "sizes.png");
+      yield* Effect.promise(() =>
+        sharp({ create: { width: 120, height: 60, channels: 3, background: "red" } })
+          .png()
+          .toFile(file),
+      );
+      const original = readFileSync(file);
+      const output = join(root, "sizes-output");
+      const result = run(output, ["--sizes", " 30, 60,30,120 ", "--format", "png"], file);
+      expect(result.status).toBe(0);
+      expect(result.stderr).toBe("");
+      expect(readFileSync(file)).toEqual(original);
+
+      const reports = yield* Schema.decodeEffect(
+        Schema.fromJsonString(
+          Schema.Array(Schema.Struct({ status: Schema.String, output: Schema.String })),
+        ),
+      )(result.stdout);
+
+      expect(Arr.map(reports, (report) => report.status)).toEqual([
+        "optimized",
+        "optimized",
+        "optimized",
+        "optimized",
+      ]);
+      expect(Arr.map(reports, (report) => report.output)).toEqual([
+        join(output, "sizes.png"),
+        join(output, "sizes-30.png"),
+        join(output, "sizes-60.png"),
+        join(output, "sizes-120.png"),
+      ]);
+
+      for (const [name, width, height] of [
+        ["sizes.png", 120, 60],
+        ["sizes-30.png", 30, 15],
+        ["sizes-60.png", 60, 30],
+        ["sizes-120.png", 120, 60],
+      ] as const) {
+        const decoded = yield* Effect.promise(() =>
+          sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),
+        );
+
+        expect(decoded.info.width).toBe(width);
+        expect(decoded.info.height).toBe(height);
+      }
+    }),
+  ));
+
+test.each(["", "0", "-1", "1.5", "NaN", "16,", ",16", "16,,32", "1e2", "0x10", "9007199254740992"])(
+  "rejects invalid sizes %s before writing",
+  (sizes) => {
+    const output = join(root, `sizes-invalid-${sizes}`);
+    const result = run(output, ["--sizes", sizes]);
+    expect(result.status).toBe(1);
+    expect(existsSync(output)).toBe(false);
+  },
+);
+
+test.each(["--width", "--height"])("sizes reject %s before writing", (flag) => {
+  const output = join(root, `sizes-conflict-${flag}`);
+  const result = run(output, ["--sizes", "16", flag, "32"]);
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain("cannot be combined");
+  expect(existsSync(output)).toBe(false);
+});
+
+test("oversized variants fail without clamping and upscale permits their exact width", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const file = join(source, "nested", "second.png");
+      const output = join(root, "sizes-too-large");
+      const result = run(output, ["--sizes", "16,1000"], file);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain("exceeds source width");
+      expect(existsSync(join(output, "second.webp"))).toBe(true);
+      expect(existsSync(join(output, "second-16.webp"))).toBe(true);
+      expect(existsSync(join(output, "second-1000.webp"))).toBe(false);
+      const enlarged = join(root, "sizes-enlarged");
+      expect(run(enlarged, ["--sizes", "1000", "--upscale"], file).status).toBe(0);
+
+      const decoded = yield* Effect.promise(() =>
+        sharp(join(enlarged, "second-1000.webp")).raw().toBuffer({ resolveWithObject: true }),
+      );
+
+      expect(decoded.info.width).toBe(1000);
+    }),
+  ));
+
+test("sizes validate against auto-oriented width", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const file = join(root, "sizes-rotated.jpg");
+      yield* Effect.promise(() =>
+        sharp({ create: { width: 80, height: 40, channels: 3, background: "blue" } })
+          .withMetadata({ orientation: 6 })
+          .jpeg()
+          .toFile(file),
+      );
+      const output = join(root, "sizes-rotated-output");
+      const result = run(output, ["--sizes", "20,60"], file);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain("exceeds source width 40");
+      expect(existsSync(join(output, "sizes-rotated-60.webp"))).toBe(false);
+
+      const decoded = yield* Effect.promise(() =>
+        sharp(join(output, "sizes-rotated-20.webp")).raw().toBuffer({ resolveWithObject: true }),
+      );
+
+      expect(decoded.info.width).toBe(20);
+      expect(decoded.info.height).toBe(40);
+    }),
+  ));
+
+test("sizes dry runs list mirrored variants and reject oversize without writes", () => {
+  const output = join(root, "sizes-preview");
+  const result = run(output, ["--sizes", "16,32", "--recursive", "--dry-run"]);
+  expect(result.status).toBe(0);
+  expect(result.stdout).toContain(join(output, "photo-16.webp"));
+  expect(result.stdout).toContain(join(output, "nested", "second-32.webp"));
+  expect(existsSync(output)).toBe(false);
+
+  const invalid = run(
+    output,
+    ["--sizes", "1000", "--dry-run"],
+    join(source, "nested", "second.png"),
+  );
+
+  expect(invalid.status).toBe(1);
+  expect(invalid.stdout).toContain("exceeds source width");
+  expect(existsSync(output)).toBe(false);
+});
+
+test("sizes reject collisions between variant and source basenames before writing", () => {
+  const input = join(root, "sizes-collision");
+  mkdirSync(input);
+  copyFileSync(join(source, "photo.jpg"), join(input, "photo.jpg"));
+  copyFileSync(join(source, "photo.jpg"), join(input, "photo-16.jpg"));
+  const output = join(root, "sizes-collision-output");
+  const result = run(output, ["--sizes", "16"], input);
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain("same output");
+  expect(existsSync(output)).toBe(false);
+});
+
+test("sizes preserve skip and overwrite behavior for each output", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const output = join(root, "sizes-overwrite");
+      mkdirSync(output);
+      const variant = join(output, "photo-16.webp");
+      writeFileSync(variant, "keep");
+      expect(run(output, ["--sizes", "16"]).status).toBe(0);
+      expect(readFileSync(variant, "utf8")).toBe("keep");
+      expect(existsSync(join(output, "photo.webp"))).toBe(true);
+      expect(run(output, ["--sizes", "16", "--overwrite"]).status).toBe(0);
+
+      const decoded = yield* Effect.promise(() =>
+        sharp(variant).raw().toBuffer({ resolveWithObject: true }),
+      );
+
+      expect(decoded.info.width).toBe(16);
+    }),
+  ));
+
+test("sizes continue valid images when another source is corrupt", () => {
+  const input = join(root, "sizes-corrupt");
+  mkdirSync(input);
+  writeFileSync(join(input, "broken.png"), "invalid");
+  copyFileSync(join(source, "photo.jpg"), join(input, "valid.jpg"));
+  const output = join(root, "sizes-corrupt-output");
+  const result = run(output, ["--sizes", "16"], input);
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('"failed"');
+  expect(existsSync(join(output, "valid.webp"))).toBe(true);
+  expect(existsSync(join(output, "valid-16.webp"))).toBe(true);
 });
