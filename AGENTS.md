@@ -16,5 +16,6 @@ vp test # Runs the test suite - only run if you made changes that affect applica
 ```
 
 ## Pull Requests
- - Use conventional commit titles, plain language: `feat(cli): determine default concurrency based on CPU cores`
- - Body should explain "what" problem the PR solves, and "how" you implemented it. End with the model and harness that did the work.
+
+- Use conventional commit titles, plain language: `feat(cli): determine default concurrency based on CPU cores`
+- Body should explain "what" problem the PR solves, and "how" you implemented it. End with the model and harness that did the work.
