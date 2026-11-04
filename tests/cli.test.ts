@@ -83,6 +83,28 @@ test("rejects collisions before writing", () => {
   expect(existsSync(output)).toBe(false);
 });
 
+test.each([1, 12, 64, 96])("accepts explicit concurrency %i", (concurrency) => {
+  const result = run(join(root, `concurrency-${concurrency}`), [
+    "--concurrency",
+    String(concurrency),
+    "--recursive",
+    "--width",
+    "16",
+  ]);
+
+  expect(result.status).toBe(0);
+  expect(result.stderr).toBe("");
+  expect(result.stdout).toContain('"optimized"');
+  expect(existsSync(join(root, `concurrency-${concurrency}`, "photo.webp"))).toBe(true);
+  expect(existsSync(join(root, `concurrency-${concurrency}`, "nested", "second.webp"))).toBe(true);
+});
+
+test.each([0, -1])("rejects concurrency %i before writing", (concurrency) => {
+  const output = join(root, `invalid-concurrency-${concurrency}`);
+  expect(run(output, ["--concurrency", String(concurrency)]).status).toBe(1);
+  expect(existsSync(output)).toBe(false);
+});
+
 test("reports corrupt files and continues valid images", () => {
   const input = join(root, "corrupt");
   mkdirSync(input);
@@ -360,6 +382,8 @@ test("help explains file inputs, defaults, crop controls, safety, and automation
     "Originals",
     "Exit 0",
     "--lossless",
+    "75% of available CPUs",
+    "libvips uses 1 thread per image",
     "EXAMPLES",
   ])
     expect(help).toContain(term);

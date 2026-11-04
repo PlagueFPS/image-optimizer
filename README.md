@@ -81,10 +81,18 @@ img --completions bash
 | `--metadata`      | `false`   | Preserve source metadata instead of stripping it.                                |
 | `--recursive`     | `false`   | Process subdirectories recursively.                                              |
 | `--exclude`       | None      | Exclude a source-relative file or directory prefix (repeatable).                 |
-| `--concurrency`   | `4`       | Maximum concurrent images (`1` to `64`).                                         |
+| `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.        |
 | `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                          |
 | `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                       |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                               |
+
+The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
+The CLI sets Sharp's libvips concurrency to one thread per image. `--concurrency` overrides the file workflow limit.
+Actual simultaneous encodes also depend on libuv's thread pool; the CLI leaves `UV_THREADPOOL_SIZE` unchanged.
+Some codecs use additional threads independently of the libvips setting.
+
+Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.
+Higher concurrency can increase peak memory use; lower `--concurrency` for large images or limited memory.
 
 ## Why
 
