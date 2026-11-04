@@ -4,6 +4,7 @@ This is the maintained source for user-path verification. Run Launch and Doctor 
 
 Run the executable helper from the checkout root with a fresh absolute evidence directory. Every journey seeds its own input tree, checks original hashes, and cleans scratch state. Do not share output trees or overwrite old evidence. Command transcripts, actual files, decoder observations, and cleanup results remain at the requested evidence path. Treat a failed precondition as failure and record the reason under that feature's Gotchas; do not weaken the journey.
 
+- [Animation](animation.md): timed frames, resizing, unsupported conversions, orientation rejection, and multipage documents.
 - [Conversion](conversion.md): four output formats, single-file inputs, JSON and human reports.
 - [Resize](resize.md): all five fits, default enlargement prevention and explicit upscaling.
 - [Sizes](sizes.md): original dimensions, width variants, duplicate widths, upscaling, and dry runs.
