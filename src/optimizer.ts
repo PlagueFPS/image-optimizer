@@ -12,7 +12,17 @@ import {
 import { encode, validateInput } from "./encoder.ts";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
-const extensions = HashSet.make(".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff", ".gif");
+const extensions = HashSet.make(
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".avif",
+  ".tif",
+  ".tiff",
+  ".gif",
+  ".svg",
+);
 
 const canonical = Effect.fn("canonical")(function* (
   location: string,

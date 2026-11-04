@@ -1,4 +1,4 @@
-import { Array as Arr, Effect, Match } from "effect";
+import { Array as Arr, Effect, String as Str } from "effect";
 import sharp, { type Sharp, type SharpOptions } from "sharp";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
@@ -6,12 +6,78 @@ type ImageInput =
   | { readonly animated: false }
   | { readonly animated: true; readonly delay: number[]; readonly loop: number };
 
-const supportsAnimation: Record<Config["format"], boolean> = {
-  webp: true,
-  avif: false,
-  jpeg: false,
-  png: false,
+type Encoder = {
+  readonly native: keyof typeof sharp.format;
+  readonly animation: false | { readonly min: number; readonly max: number; readonly step: number };
+  readonly encode: (image: Sharp, config: Config, input: ImageInput) => Sharp;
 };
+
+const encoders = {
+  webp: {
+    native: "webp",
+    animation: { min: 11, max: 65535, step: 1 },
+    encode: (image, config, input) =>
+      image.webp({
+        quality: config.quality,
+        effort: config.effort,
+        lossless: config.lossless,
+        delay: input.animated ? input.delay : undefined,
+        loop: input.animated ? input.loop : undefined,
+      }),
+  },
+  avif: {
+    native: "heif",
+    animation: false,
+    encode: (image, config) =>
+      image.avif({
+        quality: config.quality,
+        effort: config.effort,
+        lossless: config.lossless,
+        chromaSubsampling: config.lossless ? "4:4:4" : "4:2:0",
+      }),
+  },
+  jpeg: {
+    native: "jpeg",
+    animation: false,
+    encode: (image, config) => image.jpeg({ quality: config.quality }),
+  },
+  png: {
+    native: "png",
+    animation: false,
+    encode: (image, config) => image.png({ compressionLevel: config.compression, palette: false }),
+  },
+  gif: {
+    native: "gif",
+    animation: { min: 10, max: 65530, step: 10 },
+    encode: (image, _config, input) =>
+      image.gif({
+        delay: input.animated ? input.delay : undefined,
+        loop: input.animated ? input.loop : undefined,
+      }),
+  },
+  tiff: {
+    native: "tiff",
+    animation: false,
+    encode: (image, config) =>
+      image.tiff({ quality: config.quality, compression: config.lossless ? "lzw" : "jpeg" }),
+  },
+} as const satisfies Record<Config["format"], Encoder>;
+
+export const validateEncoder = Effect.fn("validateEncoder")(function* (config: Config) {
+  if (config.lossless && (config.format === "jpeg" || config.format === "gif")) {
+    return yield* OptimizationError.make({
+      message: `${Str.toUpperCase(config.format)} does not support lossless encoding of arbitrary source pixels. Use PNG, WebP, AVIF, or TIFF.`,
+    });
+  }
+
+  const encoder = encoders[config.format];
+
+  if (!sharp.format[encoder.native].output.buffer) {
+    return yield* OptimizationError.make({
+      message: `Output encoder ${config.format} is unavailable in this Sharp build.`,
+    });
+  }
+});
 
 export const validateInput = Effect.fn("validateInput")(function* (job: Job, config: Config) {
   const metadata = yield* Effect.tryPromise({
@@ -22,9 +88,9 @@ export const validateInput = Effect.fn("validateInput")(function* (job: Job, con
 
   const animated = (metadata.pages ?? 1) > 1 && metadata.delay !== undefined;
 
-  if (animated && !supportsAnimation[config.format]) {
+  if (animated && encoders[config.format].animation === false) {
     return yield* OptimizationError.make({
-      message: `Cannot convert animated input ${job.source} to ${config.format}. Use --format webp to preserve animation.`,
+      message: `Cannot convert animated input ${job.source} to ${config.format}. Use --format webp or gif with representable timing to preserve animation.`,
     });
   }
 
@@ -45,13 +111,29 @@ export const validateInput = Effect.fn("validateInput")(function* (job: Job, con
   }
 
   if (animated && metadata.delay !== undefined) {
-    if (Arr.some(metadata.delay, (delay) => delay <= 10 || delay > 65535)) {
+    const timing = encoders[config.format].animation;
+
+    if (
+      timing !== false &&
+      Arr.some(
+        metadata.delay,
+        (delay) => delay < timing.min || delay > timing.max || delay % timing.step !== 0,
+      )
+    ) {
       return yield* OptimizationError.make({
-        message: `Cannot preserve animation delays for ${job.source}. WebP encoding requires frame delays between 11 and 65535 milliseconds.`,
+        message: `Cannot preserve animation delays for ${job.source}. ${Str.toUpperCase(config.format)} encoding requires frame delays between ${timing.min} and ${timing.max} milliseconds in steps of ${timing.step}.`,
       });
     }
 
-    return { animated: true, delay: metadata.delay, loop: metadata.loop ?? 0 } satisfies ImageInput;
+    const loop = metadata.loop ?? 0;
+
+    if (loop < 0 || loop > 65535 || !Number.isInteger(loop)) {
+      return yield* OptimizationError.make({
+        message: `Cannot preserve animation loop count ${loop} for ${job.source}. Encoding requires a loop count between 0 and 65535.`,
+      });
+    }
+
+    return { animated: true, delay: metadata.delay, loop } satisfies ImageInput;
   }
 
   return { animated: false } satisfies ImageInput;
@@ -114,32 +196,7 @@ export const encode = Effect.fn("encode")(function* (job: Job, config: Config, i
     }
 
     return yield* Effect.promise(() =>
-      Match.value(config.format)
-        .pipe(
-          Match.when("webp", () =>
-            image.webp({
-              quality: config.quality,
-              effort: config.effort,
-              lossless: config.lossless,
-              delay: input.animated ? input.delay : undefined,
-              loop: input.animated ? input.loop : undefined,
-            }),
-          ),
-          Match.when("avif", () =>
-            image.avif({
-              quality: config.quality,
-              effort: config.effort,
-              lossless: config.lossless,
-              chromaSubsampling: config.lossless ? "4:4:4" : "4:2:0",
-            }),
-          ),
-          Match.when("jpeg", () => image.jpeg({ quality: config.quality })),
-          Match.when("png", () =>
-            image.png({ compressionLevel: config.compression, palette: false }),
-          ),
-          Match.exhaustive,
-        )
-        .toBuffer(),
+      encoders[config.format].encode(image, config, input).toBuffer(),
     );
   }).pipe(
     Effect.catchDefect((cause) =>

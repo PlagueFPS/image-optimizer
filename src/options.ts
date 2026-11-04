@@ -1,6 +1,6 @@
 import { Schema } from "effect";
 
-export const Formats = ["webp", "avif", "jpeg", "png"] as const;
+export const Formats = ["webp", "avif", "jpeg", "png", "gif", "tiff"] as const;
 
 export const Positions = [
   "centre",
