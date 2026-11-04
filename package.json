@@ -1,7 +1,7 @@
 {
   "name": "@plaguefps/img",
   "version": "0.1.0",
-  "description": "Configurable Effect-native image optimization CLI",
+  "description": "An agent-friendly image optimization CLI built eith Effect, powered by Sharp.",
   "license": "MIT",
   "bin": {
     "img": "dist/cli.mjs"
@@ -18,10 +18,10 @@
     "build": "vp pack",
     "dev": "vp pack --watch",
     "test": "vp pack && vp test",
-    "typecheck": "effect-tsgo tsc --noEmit",
+    "check": "vp check",
     "lint": "vp lint",
     "fmt": "vp fmt",
-    "check": "vp check",
+    "typecheck": "effect-tsgo tsc --noEmit",
     "prepack": "pnpm run build",
     "postinstall": "node tools/postinstall.mjs"
   },
