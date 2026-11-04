@@ -1,6 +1,6 @@
 # @plaguefps/img
 
-An Effect-native Node.js CLI (`img`) for resizing and converting image files or directories to WebP, AVIF, JPEG, or PNG. Requires Node.js 22.12 or later.
+An Effect-native Node.js CLI (`img`) built on top of [`sharp`](https://github.com/lovell/sharp) for resizing and converting image files or directories to WebP, AVIF, JPEG, or PNG. Requires Node.js 22.12 or later.
 
 ## Features
 
@@ -85,3 +85,7 @@ img --completions bash
 | `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                          |
 | `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                       |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                               |
+
+## Why
+I wanted a reliable, consistent, and fast image optimization CLI that my agents and I could use from any project without having to write a custom 
+script for each project or one-off optimizations. I also wanted an agent-friendly CLI that would be easy to use, have well documented help text, have structured outputs for agents to read, not crash the whole process if one image failed, support dry runs, support the most command image formats, and be able to process entire directories/subdirectories built-in without the agent needing to write a custom python/shell script to do so.
