@@ -15,6 +15,7 @@ import {
 import { Command, Flag, Prompt } from "effect/cli";
 import { availableParallelism } from "node:os";
 import sharp from "sharp";
+import { validateEncoder } from "./encoder.ts";
 import { defaultConcurrency } from "./concurrency.ts";
 import { Config, Formats, Positions, OptimizationError } from "./options.ts";
 import { optimize, plan, ReportJson, summarize, type SizeMetrics } from "./optimizer.ts";
@@ -40,17 +41,23 @@ const flags = {
   format: Flag.Literals("format", Formats).pipe(
     Flag.withAlias("f"),
     Flag.withDefault("webp"),
-    Flag.withDescription("Output format. Default: webp."),
+    Flag.withDescription(
+      "Output format. Default: webp. Supports WebP, AVIF, JPEG, PNG, GIF, and TIFF. SVG/raw output is not supported.",
+    ),
   ),
   quality: Flag.Int("quality").pipe(
     Flag.withAlias("q"),
     Flag.withDefault(80),
-    Flag.withDescription("WebP/AVIF/JPEG quality, 1 to 100. Default: 80. PNG is always lossless."),
+    Flag.withDescription(
+      "WebP/AVIF/JPEG/TIFF quality, 1 to 100. Default: 80. Ignored for PNG/GIF.",
+    ),
   ),
   effort: Flag.Int("effort").pipe(
     Flag.withAlias("e"),
     Flag.withDefault(4),
-    Flag.withDescription("WebP/AVIF encoder effort, 0 to 6. Default: 4. Ignored for JPEG/PNG."),
+    Flag.withDescription(
+      "WebP/AVIF encoder effort, 0 to 6. Default: 4. Ignored for other formats.",
+    ),
   ),
   width: Flag.Int("width").pipe(
     Flag.withAlias("w"),
@@ -102,7 +109,7 @@ const flags = {
   lossless: Flag.Boolean("lossless").pipe(
     Flag.withDefault(false),
     Flag.withDescription(
-      "Lossless WebP/AVIF encoding. Default: false. PNG is always lossless; JPEG rejects this flag.",
+      "Lossless WebP/AVIF/TIFF encoding. Default: false. PNG is always lossless; JPEG/GIF reject this flag.",
     ),
   ),
   metadata: Flag.Boolean("metadata").pipe(
@@ -167,11 +174,7 @@ const run = Effect.fn("main")(function* (args: Config & { readonly summaryJson: 
     });
   }
 
-  if (config.lossless && config.format === "jpeg") {
-    return yield* OptimizationError.make({
-      message: "JPEG does not support lossless encoding. Use WebP, AVIF, or PNG.",
-    });
-  }
+  yield* validateEncoder(config);
 
   const jobs = yield* plan(config);
   const fs = yield* FileSystem.FileSystem;
@@ -205,8 +208,6 @@ const run = Effect.fn("main")(function* (args: Config & { readonly summaryJson: 
         });
       }
     }
-
-    yield* fs.makeDirectory(output, { recursive: true });
   }
 
   const results = yield* optimize(config, jobs);

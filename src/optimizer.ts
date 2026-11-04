@@ -9,7 +9,7 @@ import {
   Schema,
   String as Str,
 } from "effect";
-import { encode, validateSize } from "./encoder.ts";
+import { encode, validateInput } from "./encoder.ts";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
 export type SizeMetrics = {
@@ -62,7 +62,17 @@ export const summarize = (results: ReadonlyArray<OptimizationResult>): Optimizat
   return { ...totals, ...sizeMetrics(totals.inputBytes, totals.outputBytes) };
 };
 
-const extensions = HashSet.make(".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff", ".gif");
+const extensions = HashSet.make(
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".avif",
+  ".tif",
+  ".tiff",
+  ".gif",
+  ".svg",
+);
 
 const canonical = Effect.fn("canonical")(function* (
   location: string,
@@ -209,7 +219,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
         if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
           return { ...job, status: "skipped" };
 
-        yield* validateSize(job, config);
+        const input = yield* validateInput(job, config);
 
         if (config.dryRun) return { ...job, status: "planned" };
         const parent = path.dirname(job.output);
@@ -222,7 +232,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
 
         yield* fs.makeDirectory(parent, { recursive: true });
         const inputBytes = Number((yield* fs.stat(job.source)).size);
-        const bytes = yield* encode(job, config);
+        const bytes = yield* encode(job, config, input);
         yield* Effect.scoped(
           Effect.gen(function* () {
             const temporary = yield* fs.makeTempDirectoryScoped({
