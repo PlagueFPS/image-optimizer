@@ -82,7 +82,12 @@ const run = Effect.fn("run")(function* (args: ReadonlyArray<string>, cwd: string
   const spawner = yield* ChildProcessSpawner.ChildProcessSpawner;
   return yield* Effect.scoped(
     Effect.gen(function* () {
-      const child = yield* spawner.spawn(ChildProcess.make("node", args, { cwd, stdin: "ignore" }));
+      const child = yield* spawner.spawn(
+        ChildProcess.make("node", args, {
+          cwd,
+          stdin: Stream.make("y").pipe(Stream.encodeText),
+        }),
+      );
       return yield* Effect.all(
         {
           stdout: child.stdout.pipe(Stream.decodeText, Stream.mkString),

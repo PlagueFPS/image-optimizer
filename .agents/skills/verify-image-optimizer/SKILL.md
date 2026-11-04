@@ -5,7 +5,7 @@ description: Verify Image Optimizer CLI behavior through its built Node executab
 
 # Verify Image Optimizer
 
-Read [the feature index](features/README.md) and select the relevant journeys. This is a short-lived, noninteractive CLI with no server, database, credentials, or ports. Use the built executable, never internal optimizer functions. The harness follows `tests/cli.test.ts`: isolated subprocesses with captured stdout/stderr. A terminal interaction is not required for these commands; interactive `--wizard` is outside the seeded map.
+Read [the feature index](features/README.md) and select the relevant journeys. This is a short-lived CLI with no server, database, credentials, or ports. Use the built executable, never internal optimizer functions. The harness follows `tests/cli.test.ts`: isolated subprocesses with captured stdout/stderr. It supplies `y` on stdin to confirm missing output directory creation; prompts are captured on stderr. Acceptance, decline, closed input, and prompt-free cases are also covered by the CLI test suite. A terminal interaction is not required for these commands; interactive `--wizard` is outside the seeded map.
 
 ## Launch
 

@@ -50,6 +50,10 @@ This creates `input.webp`, `input-384.webp`, `input-868.webp`, and `input-1200.w
 
 Without `--upscale`, a width larger than the auto-oriented source width fails without writing that variant. Valid outputs still complete, and the command exits with code 1. Dry runs also check this limit and write nothing.
 
+If the output directory is missing, the CLI asks whether to create it (default: yes). Declining cancels optimization without writing files. It prompts once; missing parents and mirrored subdirectories are created automatically after confirmation. Dry runs and inputs with no matching images do not prompt or create directories.
+
+For unattended commands, pass `--yes` (or `-y`) to create the output directory without prompting, or create it first (for example, `mkdir -p ./optimized`). Prompts go to stderr so `--json` keeps stdout machine-readable. Closed input without an answer cancels the command.
+
 Crop a directory of images to square thumbnails:
 
 ```sh
@@ -91,7 +95,17 @@ The CLI checks Sharp's native buffer-output capability and runs a small in-memor
 
 `--quality` stays between 1 and 100. `--effort` stays between 0 and 6 for WebP, AVIF, and HEIF. Other formats ignore effort. GIF palette quantization cannot promise lossless arbitrary source pixels, so `--lossless` rejects GIF. TIFF's lossless mode ignores quality.
 
-GIF output reads all input frames and preserves timing and loop metadata where Sharp supports it. The new TIFF, JP2, HEIF, and JXL output paths reject multi-page inputs instead of selecting the first frame. Animation behavior for the existing WebP, AVIF, JPEG, and PNG outputs is outside this format expansion.
+GIF output uses the same independent frame transforms as WebP. GIF palette quantization can change colors.
+
+## Animation
+
+Animated GIF and WebP inputs retain all frames, frame delays, and the loop count when converted to GIF or WebP, including resized outputs and `--sizes` variants. Animation timing is preserved without `--metadata`. Resizing processes each frame independently so neighboring frames cannot blend. Fit, crop position, transparency, flattening, and optional metadata retention apply to each frame.
+
+WebP rejects frame delays outside 11 to 65535 milliseconds, including 10 ms delays that its encoder would change to 100 ms. GIF accepts delays from 10 to 65530 milliseconds in multiples of 10. Other delays are rejected before writes. Loop counts above 65535 are rejected because Sharp cannot encode them.
+
+Animated inputs cannot be converted to AVIF, JPEG, PNG, TIFF, JP2, HEIF, or JXL. The CLI reports a failed job and exits with code 1, including for `--dry-run`. Existing output files remain untouched on rejection, even with `--overwrite`. Animated inputs with EXIF orientation other than 1 must have their frame orientation normalized before conversion. Still images retain automatic EXIF rotation.
+
+Multipage documents such as TIFF retain the existing first-page conversion behavior. Page count alone does not identify an animation.
 
 ## Options
 
@@ -119,6 +133,7 @@ GIF output reads all input frames and preserves timing and loop metadata where S
 | `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.                                                     |
 | `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                                       |
 | `--dry-run`       | `false`   | Preview planned outputs without encoding source images or writing files.                                                      |
+| `--yes`, `-y`     | `false`   | Create a missing output directory without prompting.                                                                          |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
 
 The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.

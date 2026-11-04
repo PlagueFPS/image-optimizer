@@ -9,7 +9,7 @@ import {
   Schema,
   String as Str,
 } from "effect";
-import { encode, validateSize } from "./encoder.ts";
+import { encode, validateInput } from "./encoder.ts";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
 const extensions = HashSet.make(
@@ -161,10 +161,9 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   return jobs;
 });
 
-export const optimize = Effect.fn("optimize")(function* (config: Config) {
+export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: ReadonlyArray<Job>) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
-  const jobs = yield* plan(config);
 
   return yield* Effect.forEach(
     jobs,
@@ -173,7 +172,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
         if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
           return { ...job, status: "skipped" };
 
-        yield* validateSize(job, config);
+        const input = yield* validateInput(job, config);
 
         if (config.dryRun) return { ...job, status: "planned" };
         const parent = path.dirname(job.output);
@@ -185,7 +184,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
         }
 
         yield* fs.makeDirectory(parent, { recursive: true });
-        const bytes = yield* encode(job, config);
+        const bytes = yield* encode(job, config, input);
         yield* Effect.scoped(
           Effect.gen(function* () {
             const temporary = yield* fs.makeTempDirectoryScoped({
