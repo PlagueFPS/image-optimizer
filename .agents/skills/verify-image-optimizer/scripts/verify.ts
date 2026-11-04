@@ -21,7 +21,7 @@ import { Digest } from "effect/crypto";
 import { ChildProcess, ChildProcessSpawner } from "effect/process";
 import sharp from "sharp";
 
-const Features = ["conversion", "resize", "directories", "dry-run", "safety"] as const;
+const Features = ["conversion", "resize", "sizes", "directories", "dry-run", "safety"] as const;
 type Feature = (typeof Features)[number];
 const Report = Schema.fromJsonString(
   Schema.Array(
@@ -287,6 +287,50 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
                 "Upscaling dimensions mismatch",
               );
             }
+          }),
+        ),
+        Match.when("sizes", () =>
+          Effect.gen(function* () {
+            const original = yield* metadata(second);
+            const report = yield* invoke(second, output, "--sizes", "32,64,32");
+            yield* check(report.length === 3, "Expected base and two distinct variants");
+            const base = yield* metadata(path.join(output, "second.webp"));
+            yield* check(
+              base.width === original.width && base.height === original.height,
+              "Base dimensions changed",
+            );
+            for (const width of [32, 64]) {
+              const meta = yield* metadata(path.join(output, `second-${width}.webp`));
+              yield* check(
+                meta.width === width &&
+                  Math.abs(meta.height - (original.height * width) / original.width) <= 1,
+                "Variant dimensions do not match requested width and aspect ratio",
+              );
+            }
+            const blocked = path.join(scratch, "blocked");
+            yield* reject(second, blocked, "--sizes", "1000");
+            yield* check(
+              !(yield* fs.exists(path.join(blocked, "second-1000.webp"))),
+              "Oversized variant was written without --upscale",
+            );
+            const enlarged = path.join(scratch, "enlarged");
+            yield* invoke(second, enlarged, "--sizes", "1000", "--upscale");
+            yield* check(
+              (yield* metadata(path.join(enlarged, "second-1000.webp"))).width === 1000,
+              "Explicit upscaling did not produce requested width",
+            );
+            const beforeDryRun = yield* inventory(scratch);
+            const preview = path.join(scratch, "preview");
+            const planned = yield* invoke(second, preview, "--sizes", "32,64", "--dry-run");
+            yield* check(
+              planned.length === 3 && Arr.every(planned, (item) => item.status === "planned"),
+              "Dry run did not plan all outputs",
+            );
+            yield* reject(second, preview, "--sizes", "1000", "--dry-run");
+            yield* check(
+              sameInventory(beforeDryRun, yield* inventory(scratch)) && !(yield* fs.exists(preview)),
+              "Sizes dry run changed files",
+            );
           }),
         ),
         Match.when("directories", () =>
