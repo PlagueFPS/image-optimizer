@@ -61,34 +61,12 @@ const encoders = {
     encode: (image, config) =>
       image.tiff({ quality: config.quality, compression: config.lossless ? "lzw" : "jpeg" }),
   },
-  jp2: {
-    native: "jp2",
-    animation: false,
-    encode: (image, config) => image.jp2({ quality: config.quality, lossless: config.lossless }),
-  },
-  heif: {
-    native: "heif",
-    animation: false,
-    encode: (image, config) =>
-      image.heif({
-        compression: "hevc",
-        quality: config.quality,
-        effort: config.effort,
-        lossless: config.lossless,
-        chromaSubsampling: config.lossless ? "4:4:4" : "4:2:0",
-      }),
-  },
-  jxl: {
-    native: "jxl",
-    animation: false,
-    encode: (image, config) => image.jxl({ quality: config.quality, lossless: config.lossless }),
-  },
 } as const satisfies Record<Config["format"], Encoder>;
 
 export const validateEncoder = Effect.fn("validateEncoder")(function* (config: Config) {
   if (config.lossless && (config.format === "jpeg" || config.format === "gif")) {
     return yield* OptimizationError.make({
-      message: `${Str.toUpperCase(config.format)} does not support lossless encoding of arbitrary source pixels. Use PNG, WebP, AVIF, TIFF, JP2, HEIF, or JXL.`,
+      message: `${Str.toUpperCase(config.format)} does not support lossless encoding of arbitrary source pixels. Use PNG, WebP, AVIF, or TIFF.`,
     });
   }
 
@@ -99,21 +77,6 @@ export const validateEncoder = Effect.fn("validateEncoder")(function* (config: C
       message: `Output encoder ${config.format} is unavailable in this Sharp build.`,
     });
   }
-
-  yield* Effect.tryPromise({
-    try: () =>
-      encoder
-        .encode(
-          sharp({ create: { width: 16, height: 16, channels: 3, background: "white" } }),
-          config,
-          { animated: false },
-        )
-        .toBuffer(),
-    catch: (cause) =>
-      OptimizationError.make({
-        message: `Output encoder ${config.format} is unavailable with these settings in this Sharp build: ${String(cause)}`,
-      }),
-  });
 });
 
 export const validateInput = Effect.fn("validateInput")(function* (job: Job, config: Config) {

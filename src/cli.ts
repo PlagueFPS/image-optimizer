@@ -42,21 +42,21 @@ const flags = {
     Flag.withAlias("f"),
     Flag.withDefault("webp"),
     Flag.withDescription(
-      "Output format. Default: webp. Encoder availability depends on the installed Sharp build. HEIF uses HEVC; AVIF uses AV1. SVG/raw output is not supported.",
+      "Output format. Default: webp. Supports WebP, AVIF, JPEG, PNG, GIF, and TIFF. SVG/raw output is not supported.",
     ),
   ),
   quality: Flag.Int("quality").pipe(
     Flag.withAlias("q"),
     Flag.withDefault(80),
     Flag.withDescription(
-      "WebP/AVIF/JPEG/TIFF/JP2/HEIF/JXL quality, 1 to 100. Default: 80. Ignored for PNG/GIF.",
+      "WebP/AVIF/JPEG/TIFF quality, 1 to 100. Default: 80. Ignored for PNG/GIF.",
     ),
   ),
   effort: Flag.Int("effort").pipe(
     Flag.withAlias("e"),
     Flag.withDefault(4),
     Flag.withDescription(
-      "WebP/AVIF/HEIF encoder effort, 0 to 6. Default: 4. Ignored for other formats.",
+      "WebP/AVIF encoder effort, 0 to 6. Default: 4. Ignored for other formats.",
     ),
   ),
   width: Flag.Int("width").pipe(
@@ -109,7 +109,7 @@ const flags = {
   lossless: Flag.Boolean("lossless").pipe(
     Flag.withDefault(false),
     Flag.withDescription(
-      "Lossless WebP/AVIF/TIFF/JP2/HEIF/JXL encoding. Default: false. PNG is always lossless; JPEG/GIF reject this flag.",
+      "Lossless WebP/AVIF/TIFF encoding. Default: false. PNG is always lossless; JPEG/GIF reject this flag.",
     ),
   ),
   metadata: Flag.Boolean("metadata").pipe(

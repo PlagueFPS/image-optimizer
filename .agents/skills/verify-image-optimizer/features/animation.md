@@ -14,7 +14,7 @@ The journeys generate a two-frame GIF with solid red and blue frames, delays of 
 
 GIF and WebP fixtures with delays `[10,20]` must fail when converted to WebP before creating destinations, including dry runs and size variants. Existing destination bytes must survive `--overwrite`. WebP delays are 11 to 65535 milliseconds. GIF delays are 10 to 65530 milliseconds in steps of 10.
 
-Conversions to AVIF, JPEG, PNG, TIFF, JP2, HEIF, and JXL must exit 1 with an animation or unavailable-encoder error for normal runs, dry runs, and size variants. Rejection must create no destination directory. With `--overwrite`, preexisting destination bytes must remain unchanged.
+Conversions to AVIF, JPEG, PNG, and TIFF must exit 1 with an animation error for normal runs, dry runs, and size variants. Rejection must create no destination directory. With `--overwrite`, preexisting destination bytes must remain unchanged.
 
 Animated WebP inputs must retain their frame count and timing. Inputs with EXIF orientation 3 or 6 must fail in normal and dry runs without creating output. A two-page TIFF must still convert its first page to PNG without becoming an animation.
 

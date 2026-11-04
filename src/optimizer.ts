@@ -22,13 +22,6 @@ const extensions = HashSet.make(
   ".tiff",
   ".gif",
   ".svg",
-  ".heif",
-  ".heic",
-  ".jp2",
-  ".j2k",
-  ".j2c",
-  ".jpx",
-  ".jxl",
 );
 
 const canonical = Effect.fn("canonical")(function* (
