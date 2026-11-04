@@ -6,6 +6,7 @@ Run the executable helper from the checkout root with a fresh absolute evidence 
 
 - [Conversion](conversion.md): four output formats, single-file inputs, JSON and human reports.
 - [Resize](resize.md): all five fits, default enlargement prevention and explicit upscaling.
+- [Sizes](sizes.md): original dimensions, width variants, duplicate widths, upscaling, and dry runs.
 - [Directories](directories.md): shallow and recursive processing, exclusions, symlink skipping, mirrored destinations.
 - [Dry run](dry-run.md): shallow, recursive, and excluded previews with no filesystem writes.
 - [Safety and errors](safety.md): skip/overwrite, protected originals, overlap, invalid settings, collisions, partial failures.

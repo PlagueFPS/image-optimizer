@@ -24,6 +24,7 @@ export const Config = Schema.Struct({
   effort: Schema.Int.check(Schema.isBetween({ minimum: 0, maximum: 6 })),
   width: Schema.Int.check(Schema.isGreaterThanOrEqualTo(0)),
   height: Schema.Int.check(Schema.isGreaterThanOrEqualTo(0)),
+  sizes: Schema.Array(Schema.Int.check(Schema.isGreaterThan(0))),
   concurrency: Schema.Int.check(Schema.isBetween({ minimum: 1, maximum: 64 })),
   recursive: Schema.Boolean,
   overwrite: Schema.Boolean,
@@ -42,7 +43,13 @@ export const Config = Schema.Struct({
 
 export type Config = typeof Config.Type;
 
-export type Job = { readonly source: string; readonly output: string };
+export type Job = {
+  readonly source: string;
+  readonly output: string;
+  readonly resize:
+    | { readonly kind: "configured" }
+    | { readonly kind: "width"; readonly width: number };
+};
 
 export class OptimizationError extends Schema.TaggedError<
   OptimizationError,
