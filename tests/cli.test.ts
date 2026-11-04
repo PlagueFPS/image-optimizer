@@ -610,3 +610,149 @@ test("sizes continue valid images when another source is corrupt", () => {
   expect(existsSync(join(output, "valid.webp"))).toBe(true);
   expect(existsSync(join(output, "valid-16.webp"))).toBe(true);
 });
+
+const animationPixels = Buffer.concat([
+  Buffer.alloc(40 * 10 * 3, Buffer.from([255, 0, 0])),
+  Buffer.alloc(40 * 10 * 3, Buffer.from([0, 0, 255])),
+]);
+
+const createAnimation = (file: string) =>
+  sharp(animationPixels, { raw: { width: 40, height: 20, channels: 3, pageHeight: 10 } })
+    .gif({ delay: [120, 340], loop: 3 })
+    .toFile(file);
+
+test.each([
+  { extra: [] },
+  { extra: ["--width", "20", "--height", "10", "--fit", "fill"] },
+  { extra: ["--sizes", "20,40"] },
+])("preserves every animation frame and timing with options %j", ({ extra }) =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const input = join(root, `animation-${extra.length}.gif`);
+      yield* Effect.promise(() => createAnimation(input));
+      const original = readFileSync(input);
+      const output = join(root, `animation-output-${extra.length}`);
+      const result = run(output, ["--lossless", ...extra], input);
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('"optimized"');
+      const stem = `animation-${extra.length}`;
+
+      const variants =
+        extra[0] === "--sizes"
+          ? ([
+              [stem, 40, 10],
+              [`${stem}-20`, 20, 5],
+              [`${stem}-40`, 40, 10],
+            ] as const)
+          : ([[stem, extra.length > 0 ? 20 : 40, 10]] as const);
+
+      for (const [name, width, height] of variants) {
+        const file = join(output, `${name}.webp`);
+        const metadata = yield* Effect.promise(() => sharp(file).metadata());
+        expect(metadata.pages).toBe(2);
+        expect(metadata.delay).toEqual([120, 340]);
+        expect(metadata.loop).toBe(3);
+
+        const decoded = yield* Effect.promise(() =>
+          sharp(file, { animated: true }).removeAlpha().raw().toBuffer({ resolveWithObject: true }),
+        );
+
+        expect(decoded.info.width).toBe(width);
+        expect(decoded.info.height).toBe(height * 2);
+        const frameBytes = width * height * 3;
+        expect(decoded.data.subarray(0, 3)).toEqual(Buffer.from([255, 0, 0]));
+        expect(decoded.data.subarray(frameBytes, frameBytes + 3)).toEqual(Buffer.from([0, 0, 255]));
+      }
+
+      expect(readFileSync(input)).toEqual(original);
+      const preview = join(root, `animation-preview-${extra.length}`);
+      expect(run(preview, ["--dry-run", ...extra], input).status).toBe(0);
+      expect(existsSync(preview)).toBe(false);
+    }),
+  ),
+);
+
+test.each(["avif", "jpeg", "png"])("rejects animation to %s without replacing files", (format) =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const input = join(root, `rejected-${format}.gif`);
+      yield* Effect.promise(() => createAnimation(input));
+      const original = readFileSync(input);
+      const output = join(root, `animation-rejected-${format}`);
+
+      for (const extra of [[], ["--dry-run"], ["--sizes", "20"]]) {
+        const result = run(output, ["--format", format, ...extra], input);
+        expect(result.status).toBe(1);
+        expect(result.stdout).toContain("Cannot convert animated input");
+        expect(result.stdout).toContain("Use --format webp");
+        expect(existsSync(output)).toBe(false);
+      }
+
+      mkdirSync(output);
+      const destination = join(output, `rejected-${format}.${format}`);
+      writeFileSync(destination, "keep existing output");
+      expect(run(output, ["--format", format, "--overwrite"], input).status).toBe(1);
+      expect(readFileSync(destination, "utf8")).toBe("keep existing output");
+      expect(readFileSync(input)).toEqual(original);
+    }),
+  ),
+);
+
+test("animated WebP inputs retain animation and reject unsupported auto-orientation", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const gif = join(root, "webp-animation.gif");
+      yield* Effect.promise(() => createAnimation(gif));
+
+      for (const orientation of [1, 3, 6]) {
+        const input = join(root, `webp-animation-${orientation}.webp`);
+        yield* Effect.promise(() =>
+          sharp(gif, { animated: true })
+            .withMetadata({ orientation })
+            .webp({ lossless: true })
+            .toFile(input),
+        );
+        const output = join(root, `webp-animation-output-${orientation}`);
+
+        for (const extra of [["--dry-run"], []]) {
+          const result = run(output, extra, input);
+          expect(result.status).toBe(orientation === 1 ? 0 : 1);
+
+          if (orientation !== 1) {
+            expect(result.stdout).toContain("Cannot auto-orient animated input");
+            expect(existsSync(output)).toBe(false);
+          }
+        }
+
+        if (orientation === 1) {
+          const metadata = yield* Effect.promise(() =>
+            sharp(join(output, "webp-animation-1.webp")).metadata(),
+          );
+
+          expect(metadata.pages).toBe(2);
+          expect(metadata.delay).toEqual([120, 340]);
+          expect(metadata.loop).toBe(3);
+        }
+      }
+    }),
+  ));
+
+test("multipage TIFF keeps first-page behavior without becoming an animation", () =>
+  Effect.runPromise(
+    Effect.gen(function* () {
+      const input = join(root, "pages.tiff");
+      yield* Effect.promise(() =>
+        sharp(animationPixels, { raw: { width: 40, height: 20, channels: 3, pageHeight: 10 } })
+          .tiff()
+          .toFile(input),
+      );
+      const inputMetadata = yield* Effect.promise(() => sharp(input).metadata());
+      expect(inputMetadata.pages).toBe(2);
+      const output = join(root, "pages-output");
+      expect(run(output, ["--format", "png"], input).status).toBe(0);
+      const metadata = yield* Effect.promise(() => sharp(join(output, "pages.png")).metadata());
+      expect(metadata.width).toBe(40);
+      expect(metadata.height).toBe(10);
+      expect(metadata.pages).toBeUndefined();
+    }),
+  ));
