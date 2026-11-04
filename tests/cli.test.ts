@@ -747,48 +747,68 @@ test.each([
   ),
 );
 
-test.each(["gif", "webp"])("rejects unsupported short %s animation timing before writes", async (format) => {
-  const input = join(root, `short-timing.${format}`);
-  const pixels = Buffer.concat([
-    Buffer.alloc(40 * 10 * 3, Buffer.from([255, 0, 0])),
-    Buffer.alloc(40 * 10 * 3, Buffer.from([0, 0, 255])),
-  ]);
-  const image = sharp(pixels, { raw: { width: 40, height: 20, channels: 3, pageHeight: 10 } });
-  if (format === "gif") await image.gif({ delay: [10, 20], loop: 3 }).toFile(input);
-  else {
-    const bytes = await image.webp({ lossless: true, delay: [20, 20], loop: 3 }).toBuffer();
-    for (let offset = 12; offset < bytes.length;) {
-      const size = bytes.readUInt32LE(offset + 4);
-      if (bytes.toString("ascii", offset, offset + 4) === "ANMF") {
-        bytes.writeUIntLE(10, offset + 20, 3);
-        break;
+test.each(["gif", "webp"])(
+  "rejects unsupported short %s animation timing before writes",
+  async (format) => {
+    const input = join(root, `short-timing.${format}`);
+
+    const pixels = Buffer.concat([
+      Buffer.alloc(40 * 10 * 3, Buffer.from([255, 0, 0])),
+      Buffer.alloc(40 * 10 * 3, Buffer.from([0, 0, 255])),
+    ]);
+
+    const image = sharp(pixels, { raw: { width: 40, height: 20, channels: 3, pageHeight: 10 } });
+
+    if (format === "gif") await image.gif({ delay: [10, 20], loop: 3 }).toFile(input);
+    else {
+      const bytes = await image.webp({ lossless: true, delay: [20, 20], loop: 3 }).toBuffer();
+
+      for (let offset = 12; offset < bytes.length;) {
+        const size = bytes.readUInt32LE(offset + 4);
+
+        if (bytes.toString("ascii", offset, offset + 4) === "ANMF") {
+          bytes.writeUIntLE(10, offset + 20, 3);
+          break;
+        }
+
+        offset += 8 + size + (size % 2);
       }
-      offset += 8 + size + size % 2;
+
+      writeFileSync(input, bytes);
     }
-    writeFileSync(input, bytes);
-  }
-  expect((await sharp(input).metadata()).delay).toEqual([10, 20]);
-  const original = readFileSync(input);
-  const output = join(root, `short-timing-${format}-output`);
-  for (const extra of [[], ["--dry-run"], ["--sizes", "4"], ["--dry-run", "--sizes", "4"]]) {
-    const result = run(output, ["--lossless", ...extra], input);
-    expect(result.status).toBe(1);
-    expect(result.stdout).toContain("Cannot preserve animation delays");
-    expect(existsSync(output)).toBe(false);
-  }
-  mkdirSync(output);
-  const destination = join(output, "short-timing.webp");
-  writeFileSync(destination, "keep existing output");
-  expect(run(output, ["--overwrite"], input).status).toBe(1);
-  expect(readFileSync(destination, "utf8")).toBe("keep existing output");
-  expect(readFileSync(input)).toEqual(original);
-});
+
+    expect((await sharp(input).metadata()).delay).toEqual([10, 20]);
+    const original = readFileSync(input);
+    const output = join(root, `short-timing-${format}-output`);
+
+    for (const extra of [[], ["--dry-run"], ["--sizes", "4"], ["--dry-run", "--sizes", "4"]]) {
+      const result = run(output, ["--lossless", ...extra], input);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain("Cannot preserve animation delays");
+      expect(existsSync(output)).toBe(false);
+    }
+
+    mkdirSync(output);
+    const destination = join(output, "short-timing.webp");
+    writeFileSync(destination, "keep existing output");
+    expect(run(output, ["--overwrite"], input).status).toBe(1);
+    expect(readFileSync(destination, "utf8")).toBe("keep existing output");
+    expect(readFileSync(input)).toEqual(original);
+  },
+);
 
 test.each([
   { extra: ["--width", "4"], variants: [["", 4, 1]] },
   { extra: ["--height", "1"], variants: [["", 4, 1]] },
   { extra: ["--width", "4", "--height", "1", "--fit", "fill"], variants: [["", 4, 1]] },
-  { extra: ["--sizes", "4,8"], variants: [["", 40, 10], ["-4", 4, 1], ["-8", 8, 2]] },
+  {
+    extra: ["--sizes", "4,8"],
+    variants: [
+      ["", 40, 10],
+      ["-4", 4, 1],
+      ["-8", 8, 2],
+    ],
+  },
 ])("resizes short animation frames without blending any pixels %j", async ({ extra, variants }) => {
   const input = join(root, `short-frames-${extra.join("-")}.gif`);
   await createAnimation(input);
@@ -796,19 +816,95 @@ test.each([
   const output = input + "-output";
   expect(run(output, ["--lossless", ...extra], input).status).toBe(0);
   const stem = input.slice(input.lastIndexOf("/") + 1, -4);
+
   for (const [suffix, width, height] of variants) {
     const file = join(output, `${stem}${suffix}.webp`);
     expect((await sharp(file).metadata()).delay).toEqual([120, 340]);
-    const decoded = await sharp(file, { animated: true }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+
+    const decoded = await sharp(file, { animated: true })
+      .removeAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+
     expect(decoded.info.width).toBe(width);
     expect(decoded.info.height).toBe(Number(height) * 2);
-    expect(decoded.data).toEqual(Buffer.concat([
-      Buffer.alloc(Number(width) * Number(height) * 3, Buffer.from([255, 0, 0])),
-      Buffer.alloc(Number(width) * Number(height) * 3, Buffer.from([0, 0, 255])),
-    ]));
+    expect(decoded.data).toEqual(
+      Buffer.concat([
+        Buffer.alloc(Number(width) * Number(height) * 3, Buffer.from([255, 0, 0])),
+        Buffer.alloc(Number(width) * Number(height) * 3, Buffer.from([0, 0, 255])),
+      ]),
+    );
   }
+
   expect(readFileSync(input)).toEqual(original);
 });
+
+test.each(["inside", "contain", "cover", "fill", "outside"])(
+  "animated %s resize matches independent still frames with transparency and metadata",
+  async (fit) => {
+    const input = join(root, `alpha-${fit}.webp`);
+
+    const rgba = Buffer.concat([
+      Buffer.alloc(20 * 10 * 4, Buffer.from([255, 0, 0, 255])),
+      Buffer.alloc(20 * 10 * 4, Buffer.from([0, 0, 0, 0])),
+      Buffer.alloc(20 * 10 * 4, Buffer.from([0, 0, 0, 0])),
+      Buffer.alloc(20 * 10 * 4, Buffer.from([0, 0, 255, 255])),
+    ]);
+
+    await sharp(rgba, { raw: { width: 40, height: 20, channels: 4, pageHeight: 10 } })
+      .withMetadata({ orientation: 1 })
+      .webp({ lossless: true, delay: [120, 340], loop: 3 })
+      .toFile(input);
+    const original = readFileSync(input);
+
+    for (const flatten of [false, true]) {
+      const extra = [
+        "--lossless",
+        "--width",
+        "8",
+        "--height",
+        "4",
+        "--fit",
+        fit,
+        "--position",
+        "northwest",
+        "--background",
+        "#00ff00",
+        "--metadata",
+      ];
+
+      if (flatten) extra.push("--flatten");
+      const output = `${input}-${flatten}`;
+      expect(run(output, extra, input).status).toBe(0);
+      const file = join(output, `alpha-${fit}.webp`);
+      const metadata = await sharp(file).metadata();
+      expect(metadata.pages).toBe(2);
+      expect(metadata.delay).toEqual([120, 340]);
+      expect(metadata.loop).toBe(3);
+      expect(metadata.exif).toBeDefined();
+      expect(metadata.icc).toBeDefined();
+
+      if (!flatten) expect(metadata.hasAlpha).toBe(true);
+
+      for (let page = 0; page < 2; page++) {
+        const still = join(root, `still-${fit}-${flatten}-${page}.png`);
+        await sharp(input, { page, pages: 1 }).keepMetadata().png().toFile(still);
+        const stillOutput = still + "-output";
+        expect(run(stillOutput, extra, still).status).toBe(0);
+
+        const expected = await sharp(join(stillOutput, `still-${fit}-${flatten}-${page}.webp`))
+          .ensureAlpha()
+          .raw()
+          .toBuffer();
+
+        const actual = await sharp(file, { page, pages: 1 }).ensureAlpha().raw().toBuffer();
+        expect(actual).toEqual(expected);
+      }
+    }
+
+    expect(readFileSync(input)).toEqual(original);
+  },
+);
 
 test.each(["avif", "jpeg", "png"])("rejects animation to %s without replacing files", (format) =>
   Effect.runPromise(

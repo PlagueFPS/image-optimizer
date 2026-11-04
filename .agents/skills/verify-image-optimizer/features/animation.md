@@ -10,7 +10,9 @@ After Launch and Doctor, run the CLI integration journeys below. Each test creat
 vp test tests/cli.test.ts -t 'animation|animated|multipage'
 ```
 
-The journeys generate a two-frame GIF with solid red and blue frames, delays of 120 and 340 milliseconds, and loop count 3. They check source bytes after conversion, decode both output frames, and check page count, timing, and dimensions. The default conversion, explicit width and height, and `--sizes 20,40` must all preserve animation. Supported dry runs must create no destination directory.
+The journeys generate a two-frame GIF with solid red and blue frames, delays of 120 and 340 milliseconds, and loop count 3. They check source bytes after conversion, decode both output frames, and check page count, timing, and dimensions. The default conversion, explicit width and height, and `--sizes 20,40` must all preserve animation. Short-frame regressions compare every decoded pixel with solid red and blue expectations for width-only, height-only, fill, and `--sizes` resizing. Transparent animated WebP tests compare each frame against an independently converted still image across all five fit modes, with and without flattening, while retaining EXIF and ICC metadata. Supported dry runs must create no destination directory.
+
+GIF and WebP fixtures with delays `[10,20]` must fail before creating destinations, including dry runs and size variants. Existing destination bytes must survive `--overwrite`. Encoder-supported frame delays are 11 to 65535 milliseconds.
 
 Conversions to AVIF, JPEG, and PNG must exit 1 with an animation error for normal runs, dry runs, and size variants. Rejection must create no destination directory. With `--overwrite`, preexisting destination bytes must remain unchanged.
 

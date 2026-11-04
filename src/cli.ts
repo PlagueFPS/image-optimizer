@@ -196,8 +196,6 @@ const run = Effect.fn("main")(function* (args: Config) {
         });
       }
     }
-
-    yield* fs.makeDirectory(output, { recursive: true });
   }
 
   const results = yield* optimize(config, jobs);

@@ -75,7 +75,9 @@ img --completions bash
 
 ## Animation
 
-Animated GIF and WebP inputs retain all frames, frame delays, and the loop count when converted to WebP, including resized outputs and `--sizes` variants. Animation timing is preserved without `--metadata`.
+Animated GIF and WebP inputs retain all frames, frame delays, and the loop count when converted to WebP, including resized outputs and `--sizes` variants. Animation timing is preserved without `--metadata`. Resizing processes each frame independently so neighboring frames cannot blend. Fit, crop position, transparency, flattening, and optional metadata retention apply to each frame.
+
+Frame delays outside 11 to 65535 milliseconds are rejected because the WebP encoder cannot preserve them exactly. This includes 10 ms frames, which the encoder would otherwise change to 100 ms.
 
 Animated inputs cannot be converted to AVIF, JPEG, or PNG. The CLI reports a failed job and exits with code 1, including for `--dry-run`. Existing output files remain untouched on rejection, even with `--overwrite`. Animated inputs with EXIF orientation other than 1 must have their frame orientation normalized before conversion. Still images retain automatic EXIF rotation.
 
