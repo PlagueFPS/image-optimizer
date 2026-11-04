@@ -194,10 +194,9 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   return jobs;
 });
 
-export const optimize = Effect.fn("optimize")(function* (config: Config) {
+export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: ReadonlyArray<Job>) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
-  const jobs = yield* plan(config);
 
   return yield* Effect.forEach(
     jobs,

@@ -29,6 +29,7 @@ export const Config = Schema.Struct({
   recursive: Schema.Boolean,
   overwrite: Schema.Boolean,
   dryRun: Schema.Boolean,
+  yes: Schema.Boolean,
   lossless: Schema.Boolean,
   metadata: Schema.Boolean,
   upscale: Schema.Boolean,

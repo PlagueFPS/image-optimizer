@@ -28,11 +28,11 @@ copyFileSync(resolve("tests/fixtures/test2.png"), join(source, "nested", "second
 
 const cli = resolve("dist/cli.mjs");
 
-const run = (output: string, extra: string[] = [], input = source) =>
+const run = (output: string, extra: string[] = [], input = source, answer = "y") =>
   spawnSync(
     process.execPath,
     [cli, "optimize", "--source", input, "--output", output, "--json", ...extra],
-    { cwd: root, encoding: "utf8" },
+    { cwd: root, encoding: "utf8", input: answer, timeout: 10000 },
   );
 
 afterAll(() => rmSync(root, { recursive: true, force: true }));
@@ -40,7 +40,7 @@ afterAll(() => rmSync(root, { recursive: true, force: true }));
 test.each(["webp", "avif", "jpeg", "png"])("encodes %s and preserves directories", (format) => {
   const output = join(root, format);
   const result = run(output, ["--format", format, "--width", "16", "--recursive"]);
-  expect(result.stderr).toBe("");
+  expect(result.stderr).toContain("Create it?");
   expect(result.status).toBe(0);
   expect(() =>
     Effect.runSync(Schema.decodeEffect(Schema.fromJsonString(Schema.Unknown))(result.stdout)),
@@ -60,8 +60,73 @@ test.each(["webp", "avif", "jpeg", "png"])("encodes %s and preserves directories
 
 test("dry run writes nothing", () => {
   const output = join(root, "dry");
-  expect(run(output, ["--dry-run"]).stdout).toContain("planned");
+  const result = run(output, ["--dry-run"], source, "");
+  expect(result.status).toBe(0);
+  expect(result.stdout).toContain("planned");
+  expect(result.stderr).toBe("");
   expect(existsSync(output)).toBe(false);
+});
+
+test("confirming creates missing output parents once and optimizes images", () => {
+  const output = join(root, "confirmed", "output");
+  const result = run(output, ["--recursive", "--width", "16"], source, "\r");
+  expect(result.status).toBe(0);
+  expect(result.stderr).toContain("Create it?");
+
+  const report = Effect.runSync(
+    Schema.decodeEffect(Schema.fromJsonString(Schema.Array(Schema.Unknown)))(result.stdout),
+  );
+
+  expect(report).toHaveLength(2);
+  expect(existsSync(join(output, "photo.webp"))).toBe(true);
+  expect(existsSync(join(output, "nested", "second.webp"))).toBe(true);
+});
+
+test("declining output creation cancels without writes", () => {
+  const output = join(root, "declined", "output");
+  const original = readFileSync(join(source, "photo.jpg"));
+  const result = run(output, [], source, "n");
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain("Optimization cancelled");
+  expect(result.stdout).toBe("");
+  expect(existsSync(join(root, "declined"))).toBe(false);
+  expect(readFileSync(join(source, "photo.jpg"))).toEqual(original);
+});
+
+test.each(["--yes", "-y"])("%s creates missing output directories without prompting", (flag) => {
+  const output = join(root, flag, "output");
+  const result = run(output, [flag, "--width", "16"], source, "");
+  expect(result.status).toBe(0);
+  expect(result.stderr).toBe("");
+  expect(result.stdout).toContain('"optimized"');
+  expect(existsSync(join(output, "photo.webp"))).toBe(true);
+
+  const preview = join(root, flag, "preview");
+  const dryRun = run(preview, [flag, "--dry-run"], source, "");
+  expect(dryRun.status).toBe(0);
+  expect(dryRun.stdout).toContain('"planned"');
+  expect(existsSync(preview)).toBe(false);
+
+  const overlap = join(source, "unsafe-output");
+  const rejected = run(overlap, [flag], source, "");
+  expect(rejected.status).toBe(1);
+  expect(rejected.stderr).toContain("must not overlap");
+  expect(existsSync(overlap)).toBe(false);
+});
+
+test("closed input does not create a missing output directory", () => {
+  const output = join(root, "unanswered");
+  expect(run(output, [], source, "").status).toBe(130);
+  expect(existsSync(output)).toBe(false);
+});
+
+test("existing output directories do not prompt", () => {
+  const output = join(root, "existing");
+  mkdirSync(output);
+  const result = run(output, ["--width", "16"], source, "");
+  expect(result.status).toBe(0);
+  expect(result.stderr).toBe("");
+  expect(result.stdout).toContain('"optimized"');
 });
 
 test("rejects overlap and invalid ranges before writing", () => {
@@ -80,12 +145,16 @@ test("rejects collisions before writing", () => {
   copyFileSync(join(source, "photo.jpg"), join(input, "same.jpg"));
   copyFileSync(join(source, "photo.jpg"), join(input, "same.png"));
   const output = join(root, "collision-output");
-  expect(run(output, ["--recursive"], input).status).not.toBe(0);
+  const result = run(output, ["--recursive"], input);
+
+  expect(result.status).not.toBe(0);
+  expect(result.stderr).not.toContain("Create it?");
   expect(existsSync(output)).toBe(false);
 });
 
 test.each([1, 12, 64, 96])("accepts explicit concurrency %i", (concurrency) => {
   const result = run(join(root, `concurrency-${concurrency}`), [
+    "--yes",
     "--concurrency",
     String(concurrency),
     "--recursive",
@@ -165,7 +234,7 @@ test("packed npm binary runs outside the checkout", () => {
   const result = execFileSync(
     binary,
     ["optimize", "--source", source, "--output", join(root, "packed-output"), "--format", "png"],
-    { cwd: consumer, encoding: "utf8" },
+    { cwd: consumer, encoding: "utf8", input: "y" },
   );
 
   expect(result).toContain("optimized");
@@ -366,9 +435,11 @@ test("automation has exact exit codes and per-file reports", () => {
   expect(run(join(root, "exit-jpeg"), ["--format", "jpeg", "--lossless"]).status).toBe(1);
   const empty = join(root, "empty");
   mkdirSync(empty);
-  const result = run(join(root, "empty-output"), [], empty);
+  const result = run(join(root, "empty-output"), [], empty, "");
   expect(result.status).toBe(0);
   expect(Str.trim(result.stdout)).toBe("[]");
+  expect(result.stderr).toBe("");
+  expect(existsSync(join(root, "empty-output"))).toBe(false);
 });
 
 test("help explains file inputs, defaults, crop controls, safety, and automation", () => {
@@ -385,6 +456,7 @@ test("help explains file inputs, defaults, crop controls, safety, and automation
     "--lossless",
     "75% of available CPUs",
     "libvips uses 1 thread per image",
+    "--yes",
     "EXAMPLES",
   ])
     expect(help).toContain(term);
@@ -443,7 +515,7 @@ test("sizes create a source-sized output and distinct aspect-preserving widths",
       );
       const original = readFileSync(file);
       const output = join(root, "sizes-output");
-      const result = run(output, ["--sizes", " 30, 60,30,120 ", "--format", "png"], file);
+      const result = run(output, ["--yes", "--sizes", " 30, 60,30,120 ", "--format", "png"], file);
       expect(result.status).toBe(0);
       expect(result.stderr).toBe("");
       expect(readFileSync(file)).toEqual(original);
@@ -753,7 +825,7 @@ test("growth is negative savings in JSON and human reports", () => {
 
   const human = spawnSync(
     process.execPath,
-    [cli, "optimize", "-s", input, "-o", join(root, "report-human"), "-f", "png"],
+    [cli, "optimize", "--yes", "-s", input, "-o", join(root, "report-human"), "-f", "png"],
     { encoding: "utf8" },
   );
 

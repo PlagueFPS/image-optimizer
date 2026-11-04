@@ -50,6 +50,10 @@ This creates `input.webp`, `input-384.webp`, `input-868.webp`, and `input-1200.w
 
 Without `--upscale`, a width larger than the auto-oriented source width fails without writing that variant. Valid outputs still complete, and the command exits with code 1. Dry runs also check this limit and write nothing.
 
+If the output directory is missing, the CLI asks whether to create it (default: yes). Declining cancels optimization without writing files. It prompts once; missing parents and mirrored subdirectories are created automatically after confirmation. Dry runs and inputs with no matching images do not prompt or create directories.
+
+For unattended commands, pass `--yes` (or `-y`) to create the output directory without prompting, or create it first (for example, `mkdir -p ./optimized`). Prompts go to stderr so `--json` keeps stdout machine-readable. Closed input without an answer cancels the command.
+
 Crop a directory of images to square thumbnails:
 
 ```sh
@@ -96,6 +100,7 @@ img --completions bash
 | `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                                       |
 | `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                                                                    |
 | `--summary-json`  | `false`   | Print `{ "results": [...], "summary": {...} }` as JSON. Overrides `--json`.                                                   |
+| `--yes`, `-y`     | `false`   | Create a missing output directory without prompting.                                                                          |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
 
 The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
