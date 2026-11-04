@@ -58,54 +58,63 @@ export const validateInput = Effect.fn("validateInput")(function* (job: Job, con
 });
 
 export const encode = Effect.fn("encode")(function* (job: Job, config: Config, input: ImageInput) {
-  return yield* Effect.tryPromise({
-    try: async () => {
-      const transform = (source: Sharp) => {
-        let image = source.rotate();
+  return yield* Effect.gen(function* () {
+    const transform = (source: Sharp) => {
+      let image = source.rotate();
 
-        if (job.resize.kind === "width") {
-          image = image.resize({ width: job.resize.width, withoutEnlargement: !config.upscale });
-        } else if (config.width > 0 || config.height > 0) {
-          image = image.resize({
-            width: config.width || undefined,
-            height: config.height || undefined,
-            fit: config.fit,
-            position: config.position,
-            background: config.background,
-            withoutEnlargement: !config.upscale,
-          });
-        }
-
-        if (config.flatten) image = image.flatten({ background: config.background });
-
-        if (config.metadata) image = image.keepMetadata();
-
-        return image;
-      };
-
-      const readOptions = { failOn: "warning", limitInputPixels: 268402689 } satisfies SharpOptions;
-      let image: Sharp;
-      const resizing = job.resize.kind === "width" || config.width > 0 || config.height > 0;
-
-      if (input.animated && resizing) {
-        const frames: Buffer[] = [];
-
-        for (let page = 0; page < input.delay.length; page++) {
-          frames.push(
-            await transform(sharp(job.source, { ...readOptions, page, pages: 1 }))
-              .png()
-              .toBuffer(),
-          );
-        }
-
-        image = sharp(frames, { ...readOptions, join: { animated: true } });
-
-        if (config.metadata) image = image.keepMetadata();
-      } else {
-        image = transform(sharp(job.source, { ...readOptions, animated: input.animated }));
+      if (job.resize.kind === "width") {
+        image = image.resize({
+          width: job.resize.width,
+          withoutEnlargement: !config.upscale,
+        });
+      } else if (config.width > 0 || config.height > 0) {
+        image = image.resize({
+          width: config.width || undefined,
+          height: config.height || undefined,
+          fit: config.fit,
+          position: config.position,
+          background: config.background,
+          withoutEnlargement: !config.upscale,
+        });
       }
 
-      return Match.value(config.format)
+      if (config.flatten) image = image.flatten({ background: config.background });
+
+      if (config.metadata) image = image.keepMetadata();
+
+      return image;
+    };
+
+    const readOptions = {
+      failOn: "warning",
+      limitInputPixels: 268402689,
+    } satisfies SharpOptions;
+
+    let image: Sharp;
+    const resizing = job.resize.kind === "width" || config.width > 0 || config.height > 0;
+
+    if (input.animated && resizing) {
+      const frames: Buffer[] = [];
+
+      for (let page = 0; page < input.delay.length; page++) {
+        const frame = yield* Effect.promise(() =>
+          transform(sharp(job.source, { ...readOptions, page, pages: 1 }))
+            .png()
+            .toBuffer(),
+        );
+
+        frames.push(frame);
+      }
+
+      image = sharp(frames, { ...readOptions, join: { animated: true } });
+
+      if (config.metadata) image = image.keepMetadata();
+    } else {
+      image = transform(sharp(job.source, { ...readOptions, animated: input.animated }));
+    }
+
+    return yield* Effect.promise(() =>
+      Match.value(config.format)
         .pipe(
           Match.when("webp", () =>
             image.webp({
@@ -130,9 +139,11 @@ export const encode = Effect.fn("encode")(function* (job: Job, config: Config, i
           ),
           Match.exhaustive,
         )
-        .toBuffer();
-    },
-    catch: (cause) =>
+        .toBuffer(),
+    );
+  }).pipe(
+    Effect.catchDefect((cause) =>
       OptimizationError.make({ message: `Cannot encode ${job.source}: ${String(cause)}` }),
-  });
+    ),
+  );
 });
