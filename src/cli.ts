@@ -1,12 +1,23 @@
 #!/usr/bin/env node
 import { NodeRuntime, NodeServices } from "@effect/platform-node";
-import { Array as Arr, Console, Effect, Schema, String as Str } from "effect";
-import { Command, Flag } from "effect/cli";
+import {
+  Array as Arr,
+  Console,
+  Effect,
+  FileSystem,
+  Path,
+  Schema,
+  Stdio,
+  Stream,
+  String as Str,
+  Terminal,
+} from "effect";
+import { Command, Flag, Prompt } from "effect/cli";
 import { availableParallelism } from "node:os";
 import sharp from "sharp";
 import { defaultConcurrency } from "./concurrency.ts";
 import { Config, Formats, Positions, OptimizationError } from "./options.ts";
-import { optimize, ReportJson } from "./optimizer.ts";
+import { optimize, plan, ReportJson } from "./optimizer.ts";
 
 const concurrency = defaultConcurrency(availableParallelism());
 
@@ -23,7 +34,7 @@ const flags = {
   output: Flag.String("output").pipe(
     Flag.withAlias("o"),
     Flag.withDescription(
-      "Required output directory. Mirrors directory inputs and preserves originals.",
+      "Required output directory. Prompts before creating it if missing. Mirrors directory inputs and preserves originals.",
     ),
   ),
   format: Flag.Literals("format", Formats).pipe(
@@ -82,6 +93,11 @@ const flags = {
   dryRun: Flag.Boolean("dry-run").pipe(
     Flag.withDefault(false),
     Flag.withDescription("Report planned destinations without writes. Default: false."),
+  ),
+  yes: Flag.Boolean("yes").pipe(
+    Flag.withAlias("y"),
+    Flag.withDefault(false),
+    Flag.withDescription("Create a missing output directory without prompting. Default: false."),
   ),
   lossless: Flag.Boolean("lossless").pipe(
     Flag.withDefault(false),
@@ -148,7 +164,43 @@ const run = Effect.fn("main")(function* (args: Config) {
     });
   }
 
-  const results = yield* optimize(config);
+  const jobs = yield* plan(config);
+  const fs = yield* FileSystem.FileSystem;
+  const path = yield* Path.Path;
+  const output = path.resolve(config.output);
+
+  if (!config.dryRun && jobs.length > 0 && !(yield* fs.exists(output))) {
+    if (!config.yes) {
+      const terminal = yield* Terminal.Terminal;
+      const stdio = yield* Stdio.Stdio;
+
+      const confirmed = yield* Prompt.run(
+        Prompt.Confirm({
+          message: `Output directory does not exist: ${output}. Create it?`,
+          initial: true,
+        }),
+      ).pipe(
+        Effect.provideService(
+          Terminal.Terminal,
+          Terminal.make({
+            ...terminal,
+            display: (text) =>
+              Stream.make(text).pipe(Stream.run(stdio.stderr({ endOnDone: false }))),
+          }),
+        ),
+      );
+
+      if (!confirmed) {
+        return yield* OptimizationError.make({
+          message: `Output directory was not created: ${output}. Optimization cancelled.`,
+        });
+      }
+    }
+
+    yield* fs.makeDirectory(output, { recursive: true });
+  }
+
+  const results = yield* optimize(config, jobs);
 
   if (config.json) {
     const report = yield* Schema.encodeEffect(ReportJson)(results);
