@@ -2,26 +2,57 @@ import { Effect, Match } from "effect";
 import sharp from "sharp";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
-export const validateSize = Effect.fn("validateSize")(function* (job: Job, config: Config) {
-  if (job.resize.kind === "configured" || config.upscale) return;
+type ImageInput = { readonly animated: boolean };
 
+const supportsAnimation: Record<Config["format"], boolean> = {
+  webp: true,
+  avif: false,
+  jpeg: false,
+  png: false,
+};
+
+export const validateInput = Effect.fn("validateInput")(function* (job: Job, config: Config) {
   const metadata = yield* Effect.tryPromise({
     try: () => sharp(job.source, { failOn: "warning", limitInputPixels: 268402689 }).metadata(),
     catch: (cause) =>
       OptimizationError.make({ message: `Cannot read ${job.source}: ${String(cause)}` }),
   });
 
-  if (job.resize.width > metadata.autoOrient.width) {
+  const animated = (metadata.pages ?? 1) > 1 && metadata.delay !== undefined;
+
+  if (animated && !supportsAnimation[config.format]) {
+    return yield* OptimizationError.make({
+      message: `Cannot convert animated input ${job.source} to ${config.format}. Use --format webp to preserve animation.`,
+    });
+  }
+
+  if (animated && metadata.orientation !== undefined && metadata.orientation !== 1) {
+    return yield* OptimizationError.make({
+      message: `Cannot auto-orient animated input ${job.source}. Normalize frame orientation before conversion.`,
+    });
+  }
+
+  if (
+    job.resize.kind === "width" &&
+    !config.upscale &&
+    job.resize.width > metadata.autoOrient.width
+  ) {
     return yield* OptimizationError.make({
       message: `Requested width ${job.resize.width} exceeds source width ${metadata.autoOrient.width} for ${job.source}. Use --upscale to allow enlargement.`,
     });
   }
+
+  return { animated } satisfies ImageInput;
 });
 
-export const encode = Effect.fn("encode")(function* (job: Job, config: Config) {
+export const encode = Effect.fn("encode")(function* (job: Job, config: Config, input: ImageInput) {
   return yield* Effect.tryPromise({
     try: () => {
-      let image = sharp(job.source, { failOn: "warning", limitInputPixels: 268402689 }).rotate();
+      let image = sharp(job.source, {
+        ...input,
+        failOn: "warning",
+        limitInputPixels: 268402689,
+      }).rotate();
 
       if (job.resize.kind === "width") {
         image = image.resize({ width: job.resize.width, withoutEnlargement: !config.upscale });

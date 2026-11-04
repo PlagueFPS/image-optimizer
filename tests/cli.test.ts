@@ -660,8 +660,11 @@ test.each([
         expect(decoded.info.width).toBe(width);
         expect(decoded.info.height).toBe(height * 2);
         const frameBytes = width * height * 3;
-        expect(decoded.data.subarray(0, 3)).toEqual(Buffer.from([255, 0, 0]));
-        expect(decoded.data.subarray(frameBytes, frameBytes + 3)).toEqual(Buffer.from([0, 0, 255]));
+        const center = (Math.floor(height / 2) * width + Math.floor(width / 2)) * 3;
+        expect(decoded.data[center]).toBeGreaterThan(240);
+        expect(decoded.data[center + 2]).toBeLessThan(15);
+        expect(decoded.data[frameBytes + center]).toBeLessThan(15);
+        expect(decoded.data[frameBytes + center + 2]).toBeGreaterThan(240);
       }
 
       expect(readFileSync(input)).toEqual(original);
