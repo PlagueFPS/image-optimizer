@@ -2,8 +2,15 @@
 import { NodeRuntime, NodeServices } from "@effect/platform-node";
 import { Array as Arr, Console, Effect, Schema, String as Str } from "effect";
 import { Command, Flag } from "effect/cli";
+import { availableParallelism } from "node:os";
+import sharp from "sharp";
+import { defaultConcurrency } from "./concurrency.ts";
 import { Config, Formats, Positions, OptimizationError } from "./options.ts";
 import { optimize, ReportJson } from "./optimizer.ts";
+
+const concurrency = defaultConcurrency(availableParallelism());
+
+sharp.concurrency(1);
 
 const flags = {
   source: Flag.String("source").pipe(
@@ -57,8 +64,10 @@ const flags = {
     ),
   ),
   concurrency: Flag.Int("concurrency").pipe(
-    Flag.withDefault(4),
-    Flag.withDescription("Concurrent images, 1 to 64. Default: 4."),
+    Flag.withDefault(concurrency),
+    Flag.withDescription(
+      `Concurrent file workflows, minimum 1. Default: ${concurrency} (75% of available CPUs, rounded down, min 1). libvips uses 1 thread per image.`,
+    ),
   ),
   recursive: Flag.Boolean("recursive").pipe(
     Flag.withDefault(false),

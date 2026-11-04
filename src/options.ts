@@ -25,7 +25,7 @@ export const Config = Schema.Struct({
   width: Schema.Int.check(Schema.isGreaterThanOrEqualTo(0)),
   height: Schema.Int.check(Schema.isGreaterThanOrEqualTo(0)),
   sizes: Schema.Array(Schema.Int.check(Schema.isGreaterThan(0))),
-  concurrency: Schema.Int.check(Schema.isBetween({ minimum: 1, maximum: 64 })),
+  concurrency: Schema.Int.check(Schema.isGreaterThanOrEqualTo(1)),
   recursive: Schema.Boolean,
   overwrite: Schema.Boolean,
   dryRun: Schema.Boolean,
