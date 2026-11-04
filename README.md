@@ -95,6 +95,7 @@ img --completions bash
 | `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.                                                     |
 | `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                                       |
 | `--dry-run`       | `false`   | Preview planned outputs without encoding or writing files.                                                                    |
+| `--summary-json`  | `false`   | Print `{ "results": [...], "summary": {...} }` as JSON. Overrides `--json`.                                                   |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
 
 The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
@@ -104,6 +105,16 @@ Some codecs use additional threads independently of the libvips setting.
 
 Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.
 Higher concurrency can increase peak memory use; lower `--concurrency` for large images or limited memory.
+
+## Size reports
+
+Human reports show input bytes, output bytes, saved bytes, and percentage reduction for each completed output, followed by a summary. `--json` keeps its top-level array and adds `inputBytes`, `outputBytes`, `savedBytes`, and `reductionPercent` to optimized results. The existing `bytes` field remains an alias for `outputBytes`.
+
+Use `--summary-json` for an object with `results` and `summary`. The summary includes counts for `optimized`, `skipped`, `planned`, and `failed`, plus the same size fields. Only completed writes contribute bytes. Skipped, failed, and dry-run results have no size fields or estimated savings. Empty runs have zero totals.
+
+`savedBytes` is input minus output bytes. Growth produces negative savings and negative percentage reduction. Percentage reduction is `savedBytes / inputBytes * 100`, or zero when input bytes are zero. Summary percentages use byte totals rather than averaging per-output percentages.
+
+With `--sizes`, each completed output counts its source bytes separately. For example, one source with two additional widths counts three copies of its source size when all three outputs complete. These totals compare each output to its source; they do not describe unique source storage or disk space freed. Originals remain in place.
 
 ## Why
 

@@ -6,7 +6,7 @@ import { availableParallelism } from "node:os";
 import sharp from "sharp";
 import { defaultConcurrency } from "./concurrency.ts";
 import { Config, Formats, Positions, OptimizationError } from "./options.ts";
-import { optimize, ReportJson } from "./optimizer.ts";
+import { optimize, ReportJson, summarize, type SizeMetrics } from "./optimizer.ts";
 
 const concurrency = defaultConcurrency(availableParallelism());
 
@@ -103,6 +103,12 @@ const flags = {
       "Emit per-file JSON on stdout; errors use stderr. Exit 0 on success, 1 on failure.",
     ),
   ),
+  summaryJson: Flag.Boolean("summary-json").pipe(
+    Flag.withDefault(false),
+    Flag.withDescription(
+      "Emit a JSON object with results and completed-write summary. Overrides --json.",
+    ),
+  ),
   exclude: Flag.String("exclude").pipe(
     Flag.atLeast(0),
     Flag.withDescription("Exclude a relative path prefix. Repeatable."),
@@ -133,7 +139,10 @@ const flags = {
   ),
 };
 
-const run = Effect.fn("main")(function* (args: Config) {
+const formatMetrics = (metrics: SizeMetrics) =>
+  `${metrics.inputBytes} input bytes -> ${metrics.outputBytes} output bytes, ${metrics.savedBytes} saved bytes (${metrics.reductionPercent.toFixed(2)}% reduction)`;
+
+const run = Effect.fn("main")(function* (args: Config & { readonly summaryJson: boolean }) {
   const config = yield* Schema.decodeEffect(Config)(args);
 
   if (config.sizes.length > 0 && (config.width > 0 || config.height > 0)) {
@@ -150,15 +159,24 @@ const run = Effect.fn("main")(function* (args: Config) {
 
   const results = yield* optimize(config);
 
-  if (config.json) {
-    const report = yield* Schema.encodeEffect(ReportJson)(results);
+  const summary = summarize(results);
+
+  if (config.json || args.summaryJson) {
+    const report = yield* Schema.encodeEffect(ReportJson)(
+      args.summaryJson ? { results, summary } : results,
+    );
+
     yield* Console.log(report);
-  } else
+  } else {
     yield* Effect.forEach(results, (result) =>
       Console.log(
-        `${result.status}: ${result.source} -> ${result.output}${"error" in result ? ` (${result.error})` : ""}`,
+        `${result.status}: ${result.source} -> ${result.output}${result.status === "optimized" ? ` (${formatMetrics(result)})` : ""}${"error" in result ? ` (${result.error})` : ""}`,
       ),
     );
+    yield* Console.log(
+      `Summary: ${summary.optimized} optimized, ${summary.skipped} skipped, ${summary.planned} planned, ${summary.failed} failed; ${formatMetrics(summary)}. Completed writes only; input counted per output.`,
+    );
+  }
 
   if (Arr.some(results, (result) => result.status === "failed")) {
     return yield* OptimizationError.make({

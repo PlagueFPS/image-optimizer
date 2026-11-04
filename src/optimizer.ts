@@ -12,6 +12,56 @@ import {
 import { encode, validateSize } from "./encoder.ts";
 import { type Config, type Job, OptimizationError } from "./options.ts";
 
+export type SizeMetrics = {
+  readonly inputBytes: number;
+  readonly outputBytes: number;
+  readonly savedBytes: number;
+  readonly reductionPercent: number;
+};
+
+export type OptimizationResult = Job &
+  (
+    | ({ readonly status: "optimized"; readonly bytes: number } & SizeMetrics)
+    | { readonly status: "skipped" | "planned" }
+    | { readonly status: "failed"; readonly error: string }
+  );
+
+export type OptimizationSummary = SizeMetrics & {
+  readonly optimized: number;
+  readonly skipped: number;
+  readonly planned: number;
+  readonly failed: number;
+};
+
+const sizeMetrics = (inputBytes: number, outputBytes: number): SizeMetrics => ({
+  inputBytes,
+  outputBytes,
+  savedBytes: inputBytes - outputBytes,
+  reductionPercent: inputBytes === 0 ? 0 : ((inputBytes - outputBytes) / inputBytes) * 100,
+});
+
+export const summarize = (results: ReadonlyArray<OptimizationResult>): OptimizationSummary => {
+  const totals = Arr.reduce(
+    results,
+    {
+      optimized: 0,
+      skipped: 0,
+      planned: 0,
+      failed: 0,
+      inputBytes: 0,
+      outputBytes: 0,
+    },
+    (totals, result) => ({
+      ...totals,
+      [result.status]: totals[result.status] + 1,
+      inputBytes: totals.inputBytes + (result.status === "optimized" ? result.inputBytes : 0),
+      outputBytes: totals.outputBytes + (result.status === "optimized" ? result.outputBytes : 0),
+    }),
+  );
+
+  return { ...totals, ...sizeMetrics(totals.inputBytes, totals.outputBytes) };
+};
+
 const extensions = HashSet.make(".jpg", ".jpeg", ".png", ".webp", ".avif", ".tif", ".tiff", ".gif");
 
 const canonical = Effect.fn("canonical")(function* (
@@ -152,7 +202,11 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
   return yield* Effect.forEach(
     jobs,
     (job) =>
-      Effect.gen(function* () {
+      Effect.gen(function* (): Effect.gen.Return<
+        OptimizationResult,
+        PlatformError.PlatformError | OptimizationError,
+        FileSystem.FileSystem | Path.Path
+      > {
         if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
           return { ...job, status: "skipped" };
 
@@ -168,6 +222,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
         }
 
         yield* fs.makeDirectory(parent, { recursive: true });
+        const inputBytes = Number((yield* fs.stat(job.source)).size);
         const bytes = yield* encode(job, config);
         yield* Effect.scoped(
           Effect.gen(function* () {
@@ -184,13 +239,22 @@ export const optimize = Effect.fn("optimize")(function* (config: Config) {
           }),
         );
 
-        return { ...job, status: "optimized", bytes: bytes.length };
+        return {
+          ...job,
+          status: "optimized",
+          bytes: bytes.length,
+          ...sizeMetrics(inputBytes, bytes.length),
+        };
       }).pipe(
         Effect.result,
         Effect.map(
           Result.match({
             onSuccess: (value) => value,
-            onFailure: (error) => ({ ...job, status: "failed", error: String(error) }),
+            onFailure: (error): OptimizationResult => ({
+              ...job,
+              status: "failed",
+              error: String(error),
+            }),
           }),
         ),
       ),
