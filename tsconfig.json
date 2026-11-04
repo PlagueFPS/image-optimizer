@@ -25,6 +25,8 @@
           "effect/FileSystem",
           "effect/Path",
           "effect/PlatformError",
+          "effect/Terminal",
+          "effect/Stdio",
           "@effect/platform-node",
           "effect/process",
           "effect/crypto"
