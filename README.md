@@ -136,11 +136,25 @@ Multipage documents such as TIFF retain the existing first-page conversion behav
 
 The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
 The CLI sets Sharp's libvips concurrency to one thread per image. `--concurrency` overrides the file workflow limit.
-Actual simultaneous encodes also depend on libuv's thread pool; the CLI leaves `UV_THREADPOOL_SIZE` unchanged.
+Actual simultaneous encodes also depend on libuv's thread pool. Before loading Sharp, the CLI defaults `UV_THREADPOOL_SIZE` to the file concurrency capped at 16.
+An existing `UV_THREADPOOL_SIZE` value is preserved. `--concurrency` changes the file workflow limit without changing the native worker pool.
+If Node preloads initialize libuv early, set `UV_THREADPOOL_SIZE` before launching the CLI.
 Some codecs use additional threads independently of the libvips setting.
 
 Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.
-Higher concurrency can increase peak memory use; lower `--concurrency` for large images or limited memory.
+Higher native and file concurrency can increase peak memory use. Lower `--concurrency` or set `UV_THREADPOOL_SIZE` for large images or limited memory.
+
+## Startup and repeated commands
+
+Help, version, and shell completion commands do not load Sharp or the image-processing code. Image conversion still starts a fresh Node process on each invocation. Process a directory in one command to share initialization across its images.
+
+For repeated invocations, Node's compile cache can reduce JavaScript startup work. It is opt-in because the first invocation can be slower. On a POSIX shell, reuse the same cache directory across commands:
+
+```sh
+NODE_COMPILE_CACHE=/tmp/img-code-cache img optimize -s ./assets -o ../optimized --yes
+```
+
+This caches compiled JavaScript, not image results. Every image is still processed. Performance depends on Node version and workload; code changes or an empty cache require compilation again.
 
 ## Size reports
 

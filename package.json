@@ -4,7 +4,7 @@
   "description": "An agent-friendly image optimization CLI built eith Effect, powered by Sharp.",
   "license": "MIT",
   "bin": {
-    "img": "dist/cli.mjs"
+    "img": "dist/cli.cjs"
   },
   "files": [
     "dist",
@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "vp pack",
+    "bench": "node --experimental-strip-types tools/bench/webp.ts",
     "dev": "vp pack --watch",
     "test": "vp pack && vp test",
     "check": "vp check",

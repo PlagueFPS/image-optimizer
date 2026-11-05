@@ -53,6 +53,10 @@ export default defineConfig({
     options: { denyWarnings: true, typeAware: true, typeCheck: true },
     overrides: [
       {
+        files: ["src/cli.ts"],
+        rules: { "effecttsgo/process-env": "off" },
+      },
+      {
         files: ["tests/**/*.ts"],
         rules: { "effecttsgo/node-builtin-import": "off" },
       },
@@ -75,6 +79,17 @@ export default defineConfig({
       "tools/postinstall.mjs",
     ],
   },
-  pack: { entry: ["src/cli.ts"], format: ["esm"], dts: false, clean: true },
+  pack: {
+    entry: ["src/cli.ts"],
+    format: ["cjs"],
+    minify: true,
+    dts: false,
+    clean: true,
+    deps: {
+      alwaysBundle: [/^effect(?:\/|$)/, /^@effect\//],
+      neverBundle: ["sharp"],
+      onlyImport: ["sharp"],
+    },
+  },
   test: { testTimeout: 30000 },
 });

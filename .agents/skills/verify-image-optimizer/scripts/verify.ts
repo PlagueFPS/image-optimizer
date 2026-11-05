@@ -102,7 +102,7 @@ const run = Effect.fn("run")(function* (args: ReadonlyArray<string>, cwd: string
 const layout = Effect.gen(function* () {
   const path = yield* Path.Path;
   const repo = path.resolve(import.meta.dirname, "../../../..");
-  return { repo, cli: path.join(repo, "dist/cli.mjs") };
+  return { repo, cli: path.join(repo, "dist/cli.cjs") };
 });
 const doctor = Effect.fn("doctor")(function* () {
   const fs = yield* FileSystem.FileSystem;
