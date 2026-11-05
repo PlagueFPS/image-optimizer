@@ -75,6 +75,16 @@ export default defineConfig({
       "tools/postinstall.mjs",
     ],
   },
-  pack: { entry: ["src/cli.ts"], format: ["esm"], dts: false, clean: true },
+  pack: {
+    entry: ["src/cli.ts"],
+    format: ["esm"],
+    dts: false,
+    clean: true,
+    deps: {
+      alwaysBundle: [/^effect(?:\/|$)/, /^@effect\//],
+      neverBundle: ["sharp"],
+      onlyImport: ["sharp"],
+    },
+  },
   test: { testTimeout: 30000 },
 });
