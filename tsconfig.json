@@ -38,6 +38,7 @@
     "src/**/*.ts",
     "tests/**/*.ts",
     "vite.config.ts",
+    "tools/bench/**/*.ts",
     ".agents/skills/verify-image-optimizer/scripts/**/*.ts"
   ]
 }
