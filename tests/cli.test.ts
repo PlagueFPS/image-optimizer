@@ -9,6 +9,7 @@ import {
   existsSync,
   rmSync,
   copyFileSync,
+  readdirSync,
   symlinkSync,
   statSync,
 } from "node:fs";
@@ -27,6 +28,44 @@ copyFileSync(resolve("tests/fixtures/test.jpg"), join(source, "photo.jpg"));
 copyFileSync(resolve("tests/fixtures/test2.png"), join(source, "nested", "second.png"));
 
 const cli = resolve("dist/cli.cjs");
+
+test("help and completions work without native image dependencies", () => {
+  const isolated = join(root, "without-native");
+  mkdirSync(isolated);
+
+  for (const file of readdirSync(resolve("dist"))) {
+    if (Str.endsWith(".cjs")(file)) copyFileSync(resolve("dist", file), join(isolated, file));
+  }
+
+  const launcher = join(isolated, "cli.cjs");
+
+  for (const args of [
+    ["--help"],
+    ["--version"],
+    ["--completions", "bash"],
+    ["optimize", "--help"],
+  ]) {
+    const result = spawnSync(process.execPath, [launcher, ...args], {
+      encoding: "utf8",
+      timeout: 10000,
+    });
+
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain("img");
+  }
+
+  const output = join(root, "without-native-output");
+
+  const result = spawnSync(
+    process.execPath,
+    [launcher, "optimize", "-s", source, "-o", output, "--yes"],
+    { encoding: "utf8", timeout: 10000 },
+  );
+
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain("Cannot load image processing");
+  expect(existsSync(output)).toBe(false);
+});
 
 test.each(["warn", "none"])(
   "startup import failures exit nonzero with %s rejection handling",
