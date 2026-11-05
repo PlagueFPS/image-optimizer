@@ -1,0 +1,66 @@
+name: Publish CLI
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Exact package.json version to publish (for example, 0.1.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check release version and pending changesets
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+          import assert from 'node:assert/strict';
+          const { version } = JSON.parse(readFileSync('package.json', 'utf8'));
+          assert.equal(process.env.RELEASE_VERSION, version, 'Requested version must match package.json');
+          assert.deepEqual(readdirSync('.changeset').filter(f => f.endsWith('.md') && f !== 'README.md'), [], 'Merge the release PR before publishing');
+          const changelog = readFileSync('CHANGELOG.md', 'utf8');
+          const entry = changelog.split(`\n## ${version}\n`)[1];
+          assert.ok(entry, 'Version must have a changelog entry');
+          writeFileSync(process.env.RUNNER_TEMP + '/release-notes.md', entry.split('\n## ')[0].trim() + '\n');
+          JS
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vp check
+      - run: pnpm exec vp pack
+      - run: pnpm exec vp test
+      - name: Pack the CLI
+        run: npm pack --pack-destination "$RUNNER_TEMP"
+      - name: Publish to npm using trusted publishing
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: npm publish "$RUNNER_TEMP/plaguefps-img-$RELEASE_VERSION.tgz" --access public
+      - name: Tag the published commit and create release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          gh release create "v$RELEASE_VERSION" \
+            --target "$GITHUB_SHA" \
+            --title "v$RELEASE_VERSION" \
+            --notes-file "$RUNNER_TEMP/release-notes.md"

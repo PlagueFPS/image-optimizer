@@ -1,6 +1,6 @@
 # @plaguefps/img
 
-An Effect-native Node.js CLI (`img`) built on top of [`sharp`](https://github.com/lovell/sharp) for resizing and converting image files or directories to WebP, AVIF, JPEG, PNG, GIF, or TIFF output. Requires Node.js 22.12 or later.
+A Node.js CLI (`img`) built on top of [`sharp`](https://github.com/lovell/sharp) for resizing and converting image files or directories to WebP, AVIF, JPEG, PNG, GIF, or TIFF output. Requires Node.js 22.19 or later.
 
 ## Features
 
@@ -102,7 +102,7 @@ WebP rejects frame delays outside 11 to 65535 milliseconds, including 10 ms dela
 
 Animated inputs cannot be converted to AVIF, JPEG, PNG, or TIFF. The CLI reports a failed job and exits with code 1, including for `--dry-run`. Existing output files remain untouched on rejection, even with `--overwrite`. Animated inputs with EXIF orientation other than 1 must have their frame orientation normalized before conversion. Still images retain automatic EXIF rotation.
 
-Multipage documents such as TIFF retain the existing first-page conversion behavior. Page count alone does not identify an animation.
+Multipage documents such as TIFF convert only the first page.
 
 ## Options
 
@@ -134,15 +134,10 @@ Multipage documents such as TIFF retain the existing first-page conversion behav
 | `--yes`, `-y`     | `false`   | Create a missing output directory without prompting.                                                                          |
 | `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
 
-The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, using Node's available CPU estimate.
-The CLI sets Sharp's libvips concurrency to one thread per image. `--concurrency` overrides the file workflow limit.
-Actual simultaneous encodes also depend on libuv's thread pool. Before loading Sharp, the CLI defaults `UV_THREADPOOL_SIZE` to the file concurrency capped at 16.
-An existing `UV_THREADPOOL_SIZE` value is preserved. `--concurrency` changes the file workflow limit without changing the native worker pool.
-If Node preloads initialize libuv early, set `UV_THREADPOOL_SIZE` before launching the CLI.
-Some codecs use additional threads independently of the libvips setting.
-
-Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.
-Higher native and file concurrency can increase peak memory use. Lower `--concurrency` or set `UV_THREADPOOL_SIZE` for large images or limited memory.
+By default, the CLI processes images concurrently using 75% of the available CPU
+cores, rounded down to at least one image. Set `--concurrency` to override this
+limit. Higher concurrency can increase peak memory use; use a lower value for
+large images or limited memory.
 
 ## Startup and repeated commands
 
@@ -166,7 +161,6 @@ Use `--summary-json` for an object with `results` and `summary`. The summary inc
 
 With `--sizes`, each completed output counts its source bytes separately. For example, one source with two additional widths counts three copies of its source size when all three outputs complete. These totals compare each output to its source; they do not describe unique source storage or disk space freed. Originals remain in place.
 
-## Why
+## Changelog
 
-I wanted a reliable, consistent, and fast image optimization CLI that my agents and I could use from any project without having to write a custom
-script for each project or one-off optimizations. I also wanted an agent-friendly CLI that would be easy to use, have well documented help text, have structured outputs for agents to read, not crash the whole process if one image failed, support dry runs, support the most command image formats, and be able to process entire directories/subdirectories built-in without the agent needing to write a custom python/shell script to do so.
+See [the changelog](CHANGELOG.md) for changes in each version.

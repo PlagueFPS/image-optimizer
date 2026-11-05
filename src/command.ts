@@ -3,6 +3,7 @@ import { NodeRuntime, NodeServices } from "@effect/platform-node";
 import { Array as Arr, Console, Effect, Schema, String as Str } from "effect";
 import { Command, Flag } from "effect/cli";
 import { availableParallelism } from "node:os";
+import packageJson from "../package.json" with { type: "json" };
 import { defaultConcurrency } from "./concurrency.ts";
 import { type Config, Formats, Positions, OptimizationError } from "./options.ts";
 
@@ -155,7 +156,7 @@ const run = (args: Config & { readonly summaryJson: boolean }) =>
 
 const command = Command.make("img").pipe(
   Command.withDescription(
-    "Resize and convert images safely with Effect and Node.js. Use optimize --help for controls and --dry-run to preview without writes. Requires Node.js 22.12+.",
+    "Resize and convert images safely with Effect and Node.js. Use optimize --help for controls and --dry-run to preview without writes. Requires Node.js 22.19+.",
   ),
   Command.withExamples([
     {
@@ -187,7 +188,7 @@ const command = Command.make("img").pipe(
   ]),
 );
 
-Command.run(command, { version: "0.1.0" }).pipe(
+Command.run(command, { version: packageJson.version }).pipe(
   Effect.tapError((error) => Console.error(String(error))),
   Effect.provide(NodeServices.layer),
   NodeRuntime.runMain({ disableErrorReporting: true }),
