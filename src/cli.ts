@@ -4,4 +4,7 @@ import { defaultThreadPoolSize } from "./concurrency.ts";
 
 process.env.UV_THREADPOOL_SIZE ??= String(defaultThreadPoolSize(availableParallelism()));
 
-await import("./command.ts");
+import("./command.ts").catch((cause: unknown) => {
+  process.stderr.write(`${String(cause)}\n`);
+  process.exitCode = 1;
+});

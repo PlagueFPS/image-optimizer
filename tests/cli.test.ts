@@ -26,7 +26,27 @@ copyFileSync(resolve("tests/fixtures/test.jpg"), join(source, "photo.jpg"));
 
 copyFileSync(resolve("tests/fixtures/test2.png"), join(source, "nested", "second.png"));
 
-const cli = resolve("dist/cli.mjs");
+const cli = resolve("dist/cli.cjs");
+
+test.each(["warn", "none"])(
+  "startup import failures exit nonzero with %s rejection handling",
+  (mode) => {
+    const launcher = join(root, `incomplete-${mode}.cjs`);
+    copyFileSync(cli, launcher);
+
+    const result = spawnSync(
+      process.execPath,
+      [`--unhandled-rejections=${mode}`, launcher, "--version"],
+      {
+        encoding: "utf8",
+        timeout: 10000,
+      },
+    );
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain("Cannot find module");
+  },
+);
 
 const run = (output: string, extra: string[] = [], input = source, answer = "y") =>
   spawnSync(

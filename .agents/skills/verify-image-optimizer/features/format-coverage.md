@@ -8,7 +8,7 @@ Run the real CLI subprocess journeys with:
 vp test tests/cli.test.ts -t 'output roundtrips|SVG file|file output without|TIFF lossless|GIF output preserves|GIF frames|GIF rejects|multipage'
 ```
 
-These tests invoke `node dist/cli.mjs optimize` in isolated temporary trees. Sharp observes and fully decodes outputs. No optimizer internals or mocks are used.
+These tests invoke `node dist/cli.cjs optimize` in isolated temporary trees. Sharp observes and fully decodes outputs. No optimizer internals or mocks are used.
 
 - `format-roundtrip`: GIF and TIFF outputs resize to width 16 and roundtrip through the CLI to PNG with equal decoded pixels.
 - `svg-rasterization`: lowercase and uppercase SVG inputs work as files and recursive directories. Width variants and recursive rasterization have exact dimensions. Dry runs create no directory and original SVG text stays intact.

@@ -4,7 +4,7 @@
   "description": "An agent-friendly image optimization CLI built eith Effect, powered by Sharp.",
   "license": "MIT",
   "bin": {
-    "img": "dist/cli.mjs"
+    "img": "dist/cli.cjs"
   },
   "files": [
     "dist",

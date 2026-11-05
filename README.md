@@ -138,6 +138,7 @@ The default file concurrency is `max(1, floor(availableParallelism() * 0.75))`, 
 The CLI sets Sharp's libvips concurrency to one thread per image. `--concurrency` overrides the file workflow limit.
 Actual simultaneous encodes also depend on libuv's thread pool. Before loading Sharp, the CLI defaults `UV_THREADPOOL_SIZE` to the file concurrency capped at 16.
 An existing `UV_THREADPOOL_SIZE` value is preserved. `--concurrency` changes the file workflow limit without changing the native worker pool.
+If Node preloads initialize libuv early, set `UV_THREADPOOL_SIZE` before launching the CLI.
 Some codecs use additional threads independently of the libvips setting.
 
 Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.

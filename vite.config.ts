@@ -81,7 +81,7 @@ export default defineConfig({
   },
   pack: {
     entry: ["src/cli.ts"],
-    format: ["esm"],
+    format: ["cjs"],
     minify: true,
     dts: false,
     clean: true,

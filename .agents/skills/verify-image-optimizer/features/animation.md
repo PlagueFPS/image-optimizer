@@ -4,7 +4,7 @@ Animated GIF and WebP inputs produce animated WebP or GIF outputs. Unsupported a
 
 ## Drive through the built CLI
 
-After Launch and Doctor, run the CLI integration journeys below. Each test creates isolated inputs and invokes `node dist/cli.mjs optimize` in subprocesses.
+After Launch and Doctor, run the CLI integration journeys below. Each test creates isolated inputs and invokes `node dist/cli.cjs optimize` in subprocesses.
 
 ```sh
 vp test tests/cli.test.ts -t 'animation|animated|multipage'

@@ -20,7 +20,7 @@ Preconditions: Launch and Doctor succeed; use the pristine fixture tree describe
 .agents/skills/verify-image-optimizer/scripts/verify.ts conversion --evidence "$VERIFY_EVIDENCE/conversion"
 ```
 
-- **Drive and observe.** For each of `webp`, `avif`, `jpeg`, and `png`, the helper runs `node dist/cli.mjs optimize -s INPUT/photo.jpg -o FORMAT --json --format FORMAT --width 32`. It requires one optimized result, the correct byte count, width 32, and a fully decodable image of the selected format. It then runs the same single-file entry without `--json` or format, checking `optimized:` and decoded WebP output.
+- **Drive and observe.** For each of `webp`, `avif`, `jpeg`, and `png`, the helper runs `node dist/cli.cjs optimize -s INPUT/photo.jpg -o FORMAT --json --format FORMAT --width 32`. It requires one optimized result, the correct byte count, width 32, and a fully decodable image of the selected format. It then runs the same single-file entry without `--json` or format, checking `optimized:` and decoded WebP output.
 - **Proof.** Require exit zero from the helper, `result.json` with status passed, recorded argv/stdout/stderr/exit codes, and unchanged input hashes. Inspect copied outputs and metadata where produced. After cleanup, `cleanup.json` must report removed and command/result artifacts must still exist.
 
 ## Gotchas
