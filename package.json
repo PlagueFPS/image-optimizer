@@ -1,14 +1,23 @@
 {
   "name": "@plaguefps/img",
   "version": "0.1.0",
-  "description": "An agent-friendly image optimization CLI built eith Effect, powered by Sharp.",
+  "description": "An agent-friendly image optimization CLI built with Effect, powered by Sharp.",
+  "homepage": "https://github.com/PlagueFPS/img#readme",
+  "bugs": {
+    "url": "https://github.com/PlagueFPS/img/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlagueFPS/img.git"
+  },
   "bin": {
     "img": "dist/cli.cjs"
   },
   "files": [
     "dist",
-    "tools/postinstall.mjs"
+    "tools/postinstall.mjs",
+    "CHANGELOG.md"
   ],
   "type": "module",
   "publishConfig": {
@@ -24,7 +33,9 @@
     "fmt": "vp fmt",
     "typecheck": "effect-tsgo tsc --noEmit",
     "prepack": "pnpm run build",
-    "postinstall": "node tools/postinstall.mjs"
+    "postinstall": "node tools/postinstall.mjs",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only"
   },
   "dependencies": {
     "@effect/platform-node": "^4.1.2",
@@ -32,6 +43,7 @@
     "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "@effect/tsgo": "0.64.1",
     "@oxlint/plugins": "1.89.0",
     "@types/node": "^26.6.5",
@@ -39,7 +51,7 @@
     "vite-plus": "^1.2.0"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.19.0"
   },
   "packageManager": "pnpm@12.16.1"
 }

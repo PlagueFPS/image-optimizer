@@ -1,4 +1,5 @@
 import sharp from "sharp";
+import packageJson from "../package.json" with { type: "json" };
 import { Array as Arr, Effect, Schema, String as Str } from "effect";
 import { execFileSync, spawnSync } from "node:child_process";
 import {
@@ -288,7 +289,7 @@ test("packed npm binary runs outside the checkout", () => {
       cwd: consumer,
       encoding: "utf8",
     }),
-  ).toContain("0.1.0");
+  ).toBe(`img v${packageJson.version}\n`);
 
   const result = execFileSync(
     binary,
@@ -297,6 +298,14 @@ test("packed npm binary runs outside the checkout", () => {
   );
 
   expect(result).toContain("optimized");
+  expect(existsSync(join(consumer, "node_modules", "@plaguefps", "img", "LICENSE"))).toBe(true);
+
+  return sharp(join(root, "packed-output", "photo.png"))
+    .metadata()
+    .then((metadata) => {
+      expect(metadata.format).toBe("png");
+      expect(metadata.width).toBeGreaterThan(0);
+    });
 });
 
 test("rejects filesystem-root output", () => {
