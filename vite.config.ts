@@ -78,6 +78,7 @@ export default defineConfig({
   pack: {
     entry: ["src/cli.ts"],
     format: ["esm"],
+    minify: true,
     dts: false,
     clean: true,
     deps: {
