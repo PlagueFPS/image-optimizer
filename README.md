@@ -144,6 +144,18 @@ Some codecs use additional threads independently of the libvips setting.
 Scaling by 75% is a heuristic, not a measured optimum or a CPU reservation.
 Higher native and file concurrency can increase peak memory use. Lower `--concurrency` or set `UV_THREADPOOL_SIZE` for large images or limited memory.
 
+## Startup and repeated commands
+
+Help, version, and shell completion commands do not load Sharp or the image-processing code. Image conversion still starts a fresh Node process on each invocation. Process a directory in one command to share initialization across its images.
+
+For repeated invocations, Node's compile cache can reduce JavaScript startup work. It is opt-in because the first invocation can be slower. On a POSIX shell, reuse the same cache directory across commands:
+
+```sh
+NODE_COMPILE_CACHE=/tmp/img-code-cache img optimize -s ./assets -o ../optimized --yes
+```
+
+This caches compiled JavaScript, not image results. Every image is still processed. Performance depends on Node version and workload; code changes or an empty cache require compilation again.
+
 ## Size reports
 
 Human reports show input bytes, output bytes, saved bytes, and percentage reduction for each completed output, followed by a summary. `--json` keeps its top-level array and adds `inputBytes`, `outputBytes`, `savedBytes`, and `reductionPercent` to optimized results. The existing `bytes` field remains an alias for `outputBytes`.
