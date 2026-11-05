@@ -53,6 +53,10 @@ export default defineConfig({
     options: { denyWarnings: true, typeAware: true, typeCheck: true },
     overrides: [
       {
+        files: ["src/cli.ts"],
+        rules: { "effecttsgo/process-env": "off" },
+      },
+      {
         files: ["tests/**/*.ts"],
         rules: { "effecttsgo/node-builtin-import": "off" },
       },
