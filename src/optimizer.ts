@@ -1,8 +1,11 @@
 import {
   Array as Arr,
+  Data,
   Effect,
   FileSystem,
+  HashMap,
   HashSet,
+  Option,
   Path,
   PlatformError,
   Result,
@@ -20,11 +23,14 @@ export type SizeMetrics = {
   readonly reductionPercent: number;
 };
 
-export type RelocationResult =
-  | { readonly status: "moved"; readonly destination: string }
-  | { readonly status: "failed"; readonly destination: string; readonly error: string };
+export type RelocationResult = Data.TaggedEnum<{
+  Moved: { readonly destination: string };
+  Failed: { readonly destination: string; readonly error: string };
+}>;
 
-export type OptimizationResult = Job & { readonly relocation?: RelocationResult } & (
+export const RelocationResult = Data.taggedEnum<RelocationResult>();
+
+export type OptimizationResult = Job & { readonly relocation: Option.Option<RelocationResult> } & (
     | ({ readonly status: "optimized"; readonly bytes: number } & SizeMetrics)
     | { readonly status: "skipped" | "planned" }
     | { readonly status: "failed"; readonly error: string }
@@ -107,8 +113,12 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   const base = inputInfo.type === "File" ? path.dirname(source) : source;
   const output = yield* canonical(path.resolve(config.output));
 
-  const archive =
-    config.move === undefined ? undefined : yield* canonical(path.resolve(config.move));
+  const archive = yield* Option.fromUndefinedOr(config.move).pipe(
+    Option.match({
+      onNone: () => Effect.succeedNone,
+      onSome: (directory) => canonical(path.resolve(directory)).pipe(Effect.asSome),
+    }),
+  );
 
   const overlaps = (a: string, b: string) => {
     const relative = path.relative(a, b);
@@ -131,16 +141,18 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     });
   }
 
-  if (archive !== undefined) {
-    if ((yield* fs.exists(archive)) && (yield* fs.stat(archive)).type !== "Directory") {
+  if (Option.isSome(archive)) {
+    const directory = archive.value;
+
+    if ((yield* fs.exists(directory)) && (yield* fs.stat(directory)).type !== "Directory") {
       return yield* OptimizationError.make({ message: "--move must be a directory." });
     }
 
     if (
-      overlaps(archive, source) ||
-      overlaps(source, archive) ||
-      overlaps(archive, output) ||
-      overlaps(output, archive)
+      overlaps(directory, source) ||
+      overlaps(source, directory) ||
+      overlaps(directory, output) ||
+      overlaps(output, directory)
     ) {
       return yield* OptimizationError.make({
         message: "Source, output, and archive paths must not overlap.",
@@ -156,7 +168,7 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     const stem = Str.slice(0, relative.length - path.extname(relative).length)(relative);
 
     jobs.push({
-      archive: archive === undefined ? undefined : path.join(archive, relative),
+      archive: Option.map(archive, (directory) => path.join(directory, relative)),
       source: file,
       output: path.join(output, `${stem}.${config.format}`),
       resize: { kind: "configured" },
@@ -164,7 +176,7 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
 
     for (const width of config.sizes) {
       jobs.push({
-        archive: archive === undefined ? undefined : path.join(archive, relative),
+        archive: Option.map(archive, (directory) => path.join(directory, relative)),
         source: file,
         output: path.join(output, `${stem}-${width}.${config.format}`),
         resize: { kind: "width", width },
@@ -208,18 +220,19 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     addJob(source);
   } else yield* walk(source);
 
-  const archives = new Set<string>();
+  let archives = HashSet.empty<string>();
 
   for (const job of jobs) {
-    if (job.archive === undefined || job.resize.kind !== "configured") continue;
-    const destination = Str.toLowerCase(job.archive);
+    if (Option.isNone(job.archive) || job.resize.kind !== "configured") continue;
+    const archive = job.archive.value;
+    const destination = Str.toLowerCase(archive);
 
-    if (archives.has(destination)) {
+    if (HashSet.has(archives, destination)) {
       return yield* OptimizationError.make({ message: "Multiple inputs map to the same archive." });
     }
 
-    archives.add(destination);
-    const parent = path.dirname(job.archive);
+    archives = HashSet.add(archives, destination);
+    const parent = path.dirname(archive);
 
     if ((yield* canonical(parent)) !== parent) {
       return yield* OptimizationError.make({
@@ -227,12 +240,13 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
       });
     }
 
-    const info = yield* fs
-      .lstat(job.archive)
-      .pipe(Effect.catchReason("PlatformError", "NotFound", () => Effect.void));
+    const info = yield* fs.lstat(archive).pipe(
+      Effect.asSome,
+      Effect.catchReason("PlatformError", "NotFound", () => Effect.succeedNone),
+    );
 
-    if (info !== undefined) {
-      return yield* OptimizationError.make({ message: `Archive already exists: ${job.archive}` });
+    if (Option.isSome(info)) {
+      return yield* OptimizationError.make({ message: `Archive already exists: ${archive}` });
     }
   }
 
@@ -240,7 +254,7 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     const destination = yield* canonical(job.output);
 
     if (
-      archive !== undefined &&
+      Option.isSome(archive) &&
       (yield* canonical(path.dirname(job.output))) !== path.dirname(job.output)
     ) {
       return yield* OptimizationError.make({
@@ -280,11 +294,11 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
         FileSystem.FileSystem | Path.Path
       > {
         if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
-          return { ...job, status: "skipped" };
+          return { ...job, relocation: Option.none(), status: "skipped" };
 
         const input = yield* validateInput(job, config);
 
-        if (config.dryRun) return { ...job, status: "planned" };
+        if (config.dryRun) return { ...job, relocation: Option.none(), status: "planned" };
         const parent = path.dirname(job.output);
 
         if ((yield* canonical(parent)) !== parent) {
@@ -313,6 +327,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
 
         return {
           ...job,
+          relocation: Option.none(),
           status: "optimized",
           bytes: bytes.length,
           ...sizeMetrics(inputBytes, bytes.length),
@@ -324,6 +339,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
             onSuccess: (value) => value,
             onFailure: (error): OptimizationResult => ({
               ...job,
+              relocation: Option.none(),
               status: "failed",
               error: String(error),
             }),
@@ -334,13 +350,18 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
   );
 
   const sources = Arr.groupBy(results, (result) => result.source);
-  const relocations = new Map<string, RelocationResult>();
+  let relocations = HashMap.empty<string, RelocationResult>();
 
   for (const [source, outputs] of Record.toEntries(sources)) {
-    const archive = outputs[0]?.archive;
+    const destination = Arr.headNonEmpty(outputs).archive;
 
-    if (archive === undefined || !Arr.every(outputs, (result) => result.status === "optimized"))
+    if (
+      Option.isNone(destination) ||
+      !Arr.every(outputs, (result) => result.status === "optimized")
+    )
       continue;
+
+    const archive = destination.value;
 
     const moved = yield* Effect.scoped(
       Effect.gen(function* () {
@@ -366,24 +387,24 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
       }),
     ).pipe(Effect.result);
 
-    relocations.set(
+    relocations = HashMap.set(
+      relocations,
       source,
       Result.match(moved, {
-        onSuccess: (): RelocationResult => ({ status: "moved", destination: archive }),
-        onFailure: (error): RelocationResult => ({
-          status: "failed",
-          destination: archive,
-          error: String(error),
-        }),
+        onSuccess: () => RelocationResult.Moved({ destination: archive }),
+        onFailure: (error) =>
+          RelocationResult.Failed({
+            destination: archive,
+            error: String(error),
+          }),
       }),
     );
   }
 
-  return Arr.map(results, (result): OptimizationResult => {
-    const relocation = relocations.get(result.source);
-
-    return relocation === undefined ? result : { ...result, relocation };
-  });
+  return Arr.map(results, (result): OptimizationResult => ({
+    ...result,
+    relocation: HashMap.get(relocations, result.source),
+  }));
 });
 
 export const ReportJson = Schema.fromJsonString(Schema.Unknown);

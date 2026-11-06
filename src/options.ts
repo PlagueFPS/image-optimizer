@@ -1,4 +1,4 @@
-import { Schema } from "effect";
+import { type Option, Schema } from "effect";
 
 export const Formats = ["webp", "avif", "jpeg", "png", "gif", "tiff"] as const;
 
@@ -48,7 +48,7 @@ export type Config = typeof Config.Type;
 export type Job = {
   readonly source: string;
   readonly output: string;
-  readonly archive?: string | undefined;
+  readonly archive: Option.Option<string>;
   readonly resize:
     | { readonly kind: "configured" }
     | { readonly kind: "width"; readonly width: number };

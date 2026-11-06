@@ -102,6 +102,8 @@ test.each(["webp", "avif", "jpeg", "png"])("encodes %s and preserves directories
   const result = run(output, ["--format", format, "--width", "16", "--recursive"]);
   expect(result.stderr).toContain("Create it?");
   expect(result.status).toBe(0);
+  expect(result.stdout).not.toContain('"archive"');
+  expect(result.stdout).not.toContain('"relocation"');
   expect(() =>
     Effect.runSync(Schema.decodeEffect(Schema.fromJsonString(Schema.Unknown))(result.stdout)),
   ).not.toThrow();
@@ -1583,7 +1585,21 @@ test("move archives exact original bytes and mirrors recursive paths after concu
   );
 
   expect(result.status).toBe(0);
-  expect(result.stdout).toContain('"status":"moved"');
+
+  const report = Effect.runSync(
+    Schema.decodeEffect(Schema.fromJsonString(Schema.Array(Schema.Unknown)))(result.stdout),
+  );
+
+  expect(report).toHaveLength(6);
+
+  for (const item of report) {
+    expect(item).toEqual(
+      expect.objectContaining({
+        archive: expect.any(String),
+        relocation: { status: "moved", destination: expect.any(String) },
+      }),
+    );
+  }
 
   for (const [name, bytes] of originals) {
     expect(readFileSync(join(archive, name))).toEqual(bytes);
@@ -1738,6 +1754,20 @@ test("move copy failure preserves original and completed output", () => {
   );
 
   expect(result.status).toBe(1);
+
+  const report = Effect.runSync(
+    Schema.decodeEffect(Schema.fromJsonString(Schema.Array(Schema.Unknown)))(result.stdout),
+  );
+
+  expect(report).toEqual([
+    expect.objectContaining({
+      relocation: {
+        status: "failed",
+        destination: join(archive, "move-copy-failure.jpg"),
+        error: expect.any(String),
+      },
+    }),
+  ]);
   expect(result.stdout).toContain("FileSystem.copyFile");
   expect(result.stdout).toContain('"status":"optimized"');
   expect(result.stdout).toContain('"status":"failed"');
