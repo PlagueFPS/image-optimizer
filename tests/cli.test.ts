@@ -693,21 +693,67 @@ test.each(["", "0", "-1", "1.5", "NaN", "16,", ",16", "16,,32", "1e2", "0x10", "
   },
 );
 
-test.each([false, true])("sizes reject height before writing with width %s", (withWidth) => {
-  const output = join(root, `sizes-conflict-height-${withWidth}`);
+test.each([
+  { width: 0, height: 32, fit: "inside", upscale: false, dimensions: [56, 32] },
+  { width: 32, height: 32, fit: "inside", upscale: false, dimensions: [32, 18] },
+  { width: 32, height: 32, fit: "cover", upscale: false, dimensions: [32, 32] },
+  { width: 32, height: 32, fit: "fill", upscale: false, dimensions: [32, 32] },
+  { width: 0, height: 648, fit: "inside", upscale: false, dimensions: [567, 324] },
+  { width: 0, height: 648, fit: "inside", upscale: true, dimensions: [1134, 648] },
+])(
+  "height with sizes resizes only the primary and preserves original-derived variant pixels %j",
+  ({ width, height, fit, upscale, dimensions }) =>
+    Effect.runPromise(
+      Effect.gen(function* () {
+        const file = join(source, "nested", "second.png");
+        const original = readFileSync(file);
+        const output = join(root, `sizes-height-${width}-${height}-${fit}-${upscale}`);
 
-  const result = run(output, [
-    "--sizes",
-    "16",
-    "--height",
-    "32",
-    ...(withWidth ? ["--width", "32"] : []),
-  ]);
+        const result = run(
+          output,
+          [
+            "--yes",
+            "--height",
+            String(height),
+            ...(width > 0 ? ["--width", String(width)] : []),
+            ...(fit === "inside" ? [] : ["--fit", fit]),
+            "--sizes",
+            "64,128",
+            "--format",
+            "png",
+            ...(upscale ? ["--upscale"] : []),
+          ],
+          file,
+        );
 
-  expect(result.status).toBe(1);
-  expect(result.stderr).toContain("cannot be combined");
-  expect(existsSync(output)).toBe(false);
-});
+        expect(result.status).toBe(0);
+        expect(result.stderr).toBe("");
+        expect(readFileSync(file)).toEqual(original);
+
+        const primary = yield* Effect.promise(() =>
+          sharp(join(output, "second.png")).raw().toBuffer({ resolveWithObject: true }),
+        );
+
+        expect([primary.info.width, primary.info.height]).toEqual(dimensions);
+
+        for (const targetWidth of [64, 128]) {
+          const decoded = yield* Effect.promise(() =>
+            sharp(join(output, `second-${targetWidth}.png`))
+              .raw()
+              .toBuffer({ resolveWithObject: true }),
+          );
+
+          const expected = yield* Effect.promise(() =>
+            sharp(file).resize({ width: targetWidth }).raw().toBuffer({ resolveWithObject: true }),
+          );
+
+          expect(decoded.info.width).toBe(targetWidth);
+          expect(decoded.info.height).toBe(expected.info.height);
+          expect(decoded.data).toEqual(expected.data);
+        }
+      }),
+    ),
+);
 
 test("oversized variants fail without clamping and upscale permits their exact width", () =>
   Effect.runPromise(
@@ -759,7 +805,18 @@ test("sizes validate against auto-oriented width", () =>
 test("sizes dry runs list mirrored variants and reject oversize without writes", () => {
   const output = join(root, "sizes-preview");
   const original = readFileSync(join(source, "nested", "second.png"));
-  const result = run(output, ["--width", "8", "--sizes", "16,32", "--recursive", "--dry-run"]);
+
+  const result = run(output, [
+    "--width",
+    "8",
+    "--height",
+    "8",
+    "--sizes",
+    "16,32",
+    "--recursive",
+    "--dry-run",
+  ]);
+
   expect(result.status).toBe(0);
   expect(result.stdout).toContain(join(output, "photo.webp"));
   expect(result.stdout).toContain(join(output, "photo-16.webp"));
@@ -768,7 +825,7 @@ test("sizes dry runs list mirrored variants and reject oversize without writes",
 
   const invalid = run(
     output,
-    ["--width", "8", "--sizes", "1000", "--dry-run"],
+    ["--width", "8", "--height", "8", "--sizes", "1000", "--dry-run"],
     join(source, "nested", "second.png"),
   );
 
