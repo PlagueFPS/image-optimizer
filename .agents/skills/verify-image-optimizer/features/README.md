@@ -11,6 +11,7 @@ Run the executable helper from the checkout root with a fresh absolute evidence 
 - [Sizes](sizes.md): original dimensions, width variants, duplicate widths, upscaling, and dry runs.
 - [Directories](directories.md): shallow and recursive processing, exclusions, symlink skipping, mirrored destinations.
 - [Dry run](dry-run.md): shallow, recursive, and excluded previews with no filesystem writes.
+- [Move originals](move.md): archive exact original bytes after all outputs succeed, including concurrent sizes and dry-run safety.
 - [Safety and errors](safety.md): skip/overwrite, protected originals, overlap, invalid settings, collisions, partial failures.
 
 For each result, report the feature ID, command entry point, evidence path, outcome, and limitations. A successful alternative entry point does not prove an unrun path. The seed map does not yet cover interactive wizard/completion generation, package installation by consumers, every codec option, crop-position pixel selection, metadata, or transparency. Existing `tests/cli.test.ts` has additional assertions; extend this map when those user paths need live proof.

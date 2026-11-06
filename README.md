@@ -7,7 +7,7 @@ A Node.js CLI (`img`) built on top of [`sharp`](https://github.com/lovell/sharp)
 - **Format conversion**: Convert JPEG, PNG, WebP, AVIF, TIFF, GIF, and SVG inputs. Output encoders and settings are described below.
 - **Resizing and cropping**: Resize by width, height, or both using `inside`, `outside`, `cover`, `contain`, or `fill` fit modes, compass or smart (`entropy`, `attention`) crop anchors, background padding, alpha flattening, and opt-in upscaling.
 - **Batch directory processing**: Optimize single files or entire directory trees (`--recursive`) while mirroring subdirectory structure, excluding relative path prefixes (`--exclude`), and encoding images concurrently (`--concurrency`).
-- **Non-destructive file safety**: Preserves source files, skips existing destinations unless `--overwrite` is passed, rejects overlapping trees and output collisions before writing, ignores symlinks, and stages writes atomically.
+- **Non-destructive file safety**: Preserves source files unless `--move` is set, skips existing destinations unless `--overwrite` is passed, rejects overlapping trees and output collisions before writing, ignores symlinks, and stages writes atomically.
 - **Dry runs and automation**: Preview planned destinations without writing files (`--dry-run`), emit structured per-image JSON reports (`--json`), strip or preserve metadata (`--metadata`), and generate shell completions (`--completions`).
 
 ## Install
@@ -53,6 +53,18 @@ Without `--upscale`, a width larger than the auto-oriented source width fails wi
 If the output directory is missing, the CLI asks whether to create it (default: yes). Declining cancels optimization without writing files. It prompts once; missing parents and mirrored subdirectories are created automatically after confirmation. Dry runs and inputs with no matching images do not prompt or create directories.
 
 For unattended commands, pass `--yes` (or `-y`) to create the output directory without prompting, or create it first (for example, `mkdir -p ./optimized`). Prompts go to stderr so `--json` keeps stdout machine-readable. Closed input without an answer cancels the command.
+
+Archive originals after optimization:
+
+```sh
+img optimize -s ./assets -o ../optimized --move ../originals --recursive --yes
+```
+
+`--output` remains required. `--move` copies the original bytes with their original filenames and extensions, mirrors relative directories, then deletes each source file. With `--sizes`, every output for a source must succeed before its original moves. Dry runs, skipped outputs, and failed outputs leave that source in place. Non-image files, excluded files, and source directories remain in place.
+
+Source, output, and archive trees must not overlap. Archive collisions fail planning before writes, including with `--overwrite`. Archives can be on another filesystem. Copies are staged in the archive directory and published without replacing existing files before the source is removed. Copy failures preserve the source. Relocation failures exit with code 1 and retain completed optimized outputs.
+
+When `--move` is set, JSON results include the planned `archive` path. After a relocation attempt, each output for that source includes a `relocation` object with `destination` and `status` of `moved` or `failed`. Failures also include `error`. Output `status` and size summaries still describe completed optimization writes. A failed relocation can leave both the source and archive if source removal fails.
 
 Crop a directory of images to square thumbnails:
 
@@ -111,6 +123,7 @@ Multipage documents such as TIFF convert only the first page.
 | `--help`, `-h`    | `false`   | View CLI options and descriptions.                                                                                            |
 | `--source`, `-s`  | `.`       | Source file or directory, relative to the current working directory.                                                          |
 | `--output`, `-o`  | Required  | Output directory.                                                                                                             |
+| `--move`          | None      | Archive original files in this directory after all outputs succeed, then remove sources. Never overwrites archives.           |
 | `--format`, `-f`  | `webp`    | Output format: `webp`, `avif`, `jpeg`, `png`, `gif`, or `tiff`.                                                               |
 | `--quality`, `-q` | `80`      | WebP, AVIF, JPEG, or TIFF quality (`1` to `100`).                                                                             |
 | `--effort`, `-e`  | `4`       | WebP or AVIF encoder effort (`0` to `6`).                                                                                     |
@@ -159,7 +172,7 @@ Use `--summary-json` for an object with `results` and `summary`. The summary inc
 
 `savedBytes` is input minus output bytes. Growth produces negative savings and negative percentage reduction. Percentage reduction is `savedBytes / inputBytes * 100`, or zero when input bytes are zero. Summary percentages use byte totals rather than averaging per-output percentages.
 
-With `--sizes`, each completed output counts its source bytes separately. For example, one source with two additional widths counts three copies of its source size when all three outputs complete. These totals compare each output to its source; they do not describe unique source storage or disk space freed. Originals remain in place.
+With `--sizes`, each completed output counts its source bytes separately. For example, one source with two additional widths counts three copies of its source size when all three outputs complete. These totals compare each output to its source; they do not describe unique source storage or disk space freed. Originals remain in place unless `--move` is set.
 
 ## Changelog
 

@@ -3,6 +3,7 @@ import {
   Console,
   Effect,
   FileSystem,
+  Option,
   Path,
   Schema,
   Stdio,
@@ -13,12 +14,34 @@ import { Prompt } from "effect/cli";
 import sharp from "sharp";
 import { validateEncoder } from "./encoder.ts";
 import { Config, OptimizationError } from "./options.ts";
-import { optimize, plan, ReportJson, summarize, type SizeMetrics } from "./optimizer.ts";
+import {
+  optimize,
+  plan,
+  RelocationResult,
+  ReportJson,
+  summarize,
+  type OptimizationResult,
+  type SizeMetrics,
+} from "./optimizer.ts";
 
 sharp.concurrency(1);
 
 const formatMetrics = (metrics: SizeMetrics) =>
   `${metrics.inputBytes} input bytes -> ${metrics.outputBytes} output bytes, ${metrics.savedBytes} saved bytes (${metrics.reductionPercent.toFixed(2)}% reduction)`;
+
+const toReport = (result: OptimizationResult) => ({
+  ...result,
+  archive: Option.getOrUndefined(result.archive),
+  relocation: result.relocation.pipe(
+    Option.map(
+      RelocationResult.$match({
+        Moved: ({ destination }) => ({ status: "moved" as const, destination }),
+        Failed: ({ destination, error }) => ({ status: "failed" as const, destination, error }),
+      }),
+    ),
+    Option.getOrUndefined,
+  ),
+});
 
 export const run = Effect.fn("main")(function* (args: Config & { readonly summaryJson: boolean }) {
   const config = yield* Schema.decodeEffect(Config)(args);
@@ -65,9 +88,9 @@ export const run = Effect.fn("main")(function* (args: Config & { readonly summar
     }
   }
 
-  const results = yield* optimize(config, jobs);
-
-  const summary = summarize(results);
+  const outcomes = yield* optimize(config, jobs);
+  const results = Arr.map(outcomes, toReport);
+  const summary = summarize(outcomes);
 
   if (config.json || args.summaryJson) {
     const report = yield* Schema.encodeEffect(ReportJson)(
@@ -78,7 +101,7 @@ export const run = Effect.fn("main")(function* (args: Config & { readonly summar
   } else {
     yield* Effect.forEach(results, (result) =>
       Console.log(
-        `${result.status}: ${result.source} -> ${result.output}${result.status === "optimized" ? ` (${formatMetrics(result)})` : ""}${"error" in result ? ` (${result.error})` : ""}`,
+        `${result.status}: ${result.source} -> ${result.output}${result.status === "optimized" ? ` (${formatMetrics(result)})` : ""}${result.archive === undefined ? "" : ` (archive ${result.relocation?.status ?? "not moved"}: ${result.archive}${result.relocation?.status === "failed" ? `, ${result.relocation.error}` : ""})`}${"error" in result ? ` (${result.error})` : ""}`,
       ),
     );
     yield* Console.log(
@@ -86,7 +109,12 @@ export const run = Effect.fn("main")(function* (args: Config & { readonly summar
     );
   }
 
-  if (Arr.some(results, (result) => result.status === "failed")) {
+  if (
+    Arr.some(
+      results,
+      (result) => result.status === "failed" || result.relocation?.status === "failed",
+    )
+  ) {
     return yield* OptimizationError.make({
       message: "One or more images failed. See the report for details.",
     });

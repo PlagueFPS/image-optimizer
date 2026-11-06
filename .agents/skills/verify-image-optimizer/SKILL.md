@@ -29,7 +29,7 @@ This read-only check checks the Node minimum, build freshness against `src/*.ts`
 
 ## Drive
 
-Choose `conversion`, `resize`, `sizes`, `directories`, `dry-run`, or `safety` from the map. For example, in a fresh shell/PTY:
+Choose `conversion`, `resize`, `sizes`, `directories`, `dry-run`, `safety`, or `move` from the map. For example, in a fresh shell/PTY:
 
 ```sh
 VERIFY_EVIDENCE="$(mktemp -d /tmp/image-optimizer-evidence-XXXXXX)"

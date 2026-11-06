@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { NodeRuntime, NodeServices } from "@effect/platform-node";
-import { Array as Arr, Console, Effect, Schema, String as Str } from "effect";
+import { Array as Arr, Console, Effect, Option, Schema, String as Str } from "effect";
 import { Command, Flag } from "effect/cli";
 import { availableParallelism } from "node:os";
 import packageJson from "../package.json" with { type: "json" };
@@ -20,7 +20,14 @@ const flags = {
   output: Flag.String("output").pipe(
     Flag.withAlias("o"),
     Flag.withDescription(
-      "Required output directory. Prompts before creating it if missing. Mirrors directory inputs and preserves originals.",
+      "Required output directory. Prompts before creating it if missing. Mirrors directory inputs. Preserves originals unless --move is set.",
+    ),
+  ),
+  move: Flag.String("move").pipe(
+    Flag.optional,
+    Flag.map(Option.getOrUndefined),
+    Flag.withDescription(
+      "Archive original bytes in this directory after all outputs succeed, then remove the source. Never replaces archive files. Mirrors directory inputs.",
     ),
   ),
   format: Flag.Literals("format", Formats).pipe(
@@ -167,7 +174,7 @@ const command = Command.make("img").pipe(
   Command.withSubcommands([
     Command.make("optimize", flags, run).pipe(
       Command.withDescription(
-        "Resize and convert an image file or directory. Preserves originals and mirrors subdirectories. Exit 0 on success or skips; exit 1 on invalid input, planning errors, or any failed file.",
+        "Resize and convert an image file or directory. Preserves originals unless --move is set and mirrors subdirectories. Exit 0 on success or skips; exit 1 on invalid input, planning errors, or any failed file.",
       ),
       Command.withExamples([
         {
