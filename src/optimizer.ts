@@ -6,6 +6,7 @@ import {
   Path,
   PlatformError,
   Result,
+  Record,
   Schema,
   String as Str,
 } from "effect";
@@ -19,8 +20,11 @@ export type SizeMetrics = {
   readonly reductionPercent: number;
 };
 
-export type OptimizationResult = Job &
-  (
+export type RelocationResult =
+  | { readonly status: "moved"; readonly destination: string }
+  | { readonly status: "failed"; readonly destination: string; readonly error: string };
+
+export type OptimizationResult = Job & { readonly relocation?: RelocationResult } & (
     | ({ readonly status: "optimized"; readonly bytes: number } & SizeMetrics)
     | { readonly status: "skipped" | "planned" }
     | { readonly status: "failed"; readonly error: string }
@@ -103,6 +107,9 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
   const base = inputInfo.type === "File" ? path.dirname(source) : source;
   const output = yield* canonical(path.resolve(config.output));
 
+  const archive =
+    config.move === undefined ? undefined : yield* canonical(path.resolve(config.move));
+
   const overlaps = (a: string, b: string) => {
     const relative = path.relative(a, b);
 
@@ -124,6 +131,23 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     });
   }
 
+  if (archive !== undefined) {
+    if ((yield* fs.exists(archive)) && (yield* fs.stat(archive)).type !== "Directory") {
+      return yield* OptimizationError.make({ message: "--move must be a directory." });
+    }
+
+    if (
+      overlaps(archive, source) ||
+      overlaps(source, archive) ||
+      overlaps(archive, output) ||
+      overlaps(output, archive)
+    ) {
+      return yield* OptimizationError.make({
+        message: "Source, output, and archive paths must not overlap.",
+      });
+    }
+  }
+
   const jobs: Job[] = [];
 
   const addJob = (file: string) => {
@@ -132,6 +156,7 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     const stem = Str.slice(0, relative.length - path.extname(relative).length)(relative);
 
     jobs.push({
+      archive: archive === undefined ? undefined : path.join(archive, relative),
       source: file,
       output: path.join(output, `${stem}.${config.format}`),
       resize: { kind: "configured" },
@@ -139,6 +164,7 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
 
     for (const width of config.sizes) {
       jobs.push({
+        archive: archive === undefined ? undefined : path.join(archive, relative),
         source: file,
         output: path.join(output, `${stem}-${width}.${config.format}`),
         resize: { kind: "width", width },
@@ -182,8 +208,45 @@ export const plan = Effect.fn("plan")(function* (config: Config) {
     addJob(source);
   } else yield* walk(source);
 
+  const archives = new Set<string>();
+
+  for (const job of jobs) {
+    if (job.archive === undefined || job.resize.kind !== "configured") continue;
+    const destination = Str.toLowerCase(job.archive);
+
+    if (archives.has(destination)) {
+      return yield* OptimizationError.make({ message: "Multiple inputs map to the same archive." });
+    }
+
+    archives.add(destination);
+    const parent = path.dirname(job.archive);
+
+    if ((yield* canonical(parent)) !== parent) {
+      return yield* OptimizationError.make({
+        message: `Archive parent contains a symbolic link: ${parent}`,
+      });
+    }
+
+    const info = yield* fs
+      .lstat(job.archive)
+      .pipe(Effect.catchReason("PlatformError", "NotFound", () => Effect.void));
+
+    if (info !== undefined) {
+      return yield* OptimizationError.make({ message: `Archive already exists: ${job.archive}` });
+    }
+  }
+
   for (const job of jobs) {
     const destination = yield* canonical(job.output);
+
+    if (
+      archive !== undefined &&
+      (yield* canonical(path.dirname(job.output))) !== path.dirname(job.output)
+    ) {
+      return yield* OptimizationError.make({
+        message: `Output parent contains a symbolic link: ${path.dirname(job.output)}`,
+      });
+    }
 
     if (Str.toLowerCase(destination) === Str.toLowerCase(job.source)) {
       return yield* OptimizationError.make({
@@ -208,7 +271,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
 
-  return yield* Effect.forEach(
+  const results = yield* Effect.forEach(
     jobs,
     (job) =>
       Effect.gen(function* (): Effect.gen.Return<
@@ -269,6 +332,58 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
       ),
     { concurrency: config.concurrency },
   );
+
+  const sources = Arr.groupBy(results, (result) => result.source);
+  const relocations = new Map<string, RelocationResult>();
+
+  for (const [source, outputs] of Record.toEntries(sources)) {
+    const archive = outputs[0]?.archive;
+
+    if (archive === undefined || !Arr.every(outputs, (result) => result.status === "optimized"))
+      continue;
+
+    const moved = yield* Effect.scoped(
+      Effect.gen(function* () {
+        const parent = path.dirname(archive);
+
+        if ((yield* canonical(parent)) !== parent) {
+          return yield* OptimizationError.make({
+            message: `Archive parent contains a symbolic link: ${parent}`,
+          });
+        }
+
+        yield* fs.makeDirectory(parent, { recursive: true });
+
+        const temporary = yield* fs.makeTempDirectoryScoped({
+          directory: parent,
+          prefix: ".img-move-",
+        });
+
+        const staging = path.join(temporary, "original");
+        yield* fs.copyFile(source, staging);
+        yield* fs.link(staging, archive);
+        yield* fs.remove(source);
+      }),
+    ).pipe(Effect.result);
+
+    relocations.set(
+      source,
+      Result.match(moved, {
+        onSuccess: (): RelocationResult => ({ status: "moved", destination: archive }),
+        onFailure: (error): RelocationResult => ({
+          status: "failed",
+          destination: archive,
+          error: String(error),
+        }),
+      }),
+    );
+  }
+
+  return Arr.map(results, (result): OptimizationResult => {
+    const relocation = relocations.get(result.source);
+
+    return relocation === undefined ? result : { ...result, relocation };
+  });
 });
 
 export const ReportJson = Schema.fromJsonString(Schema.Unknown);

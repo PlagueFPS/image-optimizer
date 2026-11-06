@@ -78,7 +78,7 @@ export const run = Effect.fn("main")(function* (args: Config & { readonly summar
   } else {
     yield* Effect.forEach(results, (result) =>
       Console.log(
-        `${result.status}: ${result.source} -> ${result.output}${result.status === "optimized" ? ` (${formatMetrics(result)})` : ""}${"error" in result ? ` (${result.error})` : ""}`,
+        `${result.status}: ${result.source} -> ${result.output}${result.status === "optimized" ? ` (${formatMetrics(result)})` : ""}${result.archive === undefined ? "" : ` (archive ${result.relocation?.status ?? "not moved"}: ${result.archive}${result.relocation?.status === "failed" ? `, ${result.relocation.error}` : ""})`}${"error" in result ? ` (${result.error})` : ""}`,
       ),
     );
     yield* Console.log(
@@ -86,7 +86,12 @@ export const run = Effect.fn("main")(function* (args: Config & { readonly summar
     );
   }
 
-  if (Arr.some(results, (result) => result.status === "failed")) {
+  if (
+    Arr.some(
+      results,
+      (result) => result.status === "failed" || result.relocation?.status === "failed",
+    )
+  ) {
     return yield* OptimizationError.make({
       message: "One or more images failed. See the report for details.",
     });

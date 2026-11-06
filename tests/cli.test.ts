@@ -1561,3 +1561,220 @@ test.each(["gif", "webp"])(
       }),
     ),
 );
+
+test("move archives exact original bytes and mirrors recursive paths after concurrent sizes", () => {
+  const input = join(root, "move-input");
+  const archive = join(root, "move-archive");
+  const output = join(root, "move-output");
+  mkdirSync(join(input, "nested"), { recursive: true });
+
+  const originals = [
+    ["Photo.JPG", readFileSync(join(source, "photo.jpg"))],
+    [join("nested", "second.png"), readFileSync(join(source, "nested", "second.png"))],
+  ] as const;
+
+  for (const [name, bytes] of originals) writeFileSync(join(input, name), bytes);
+  writeFileSync(join(input, "keep.txt"), "keep");
+
+  const result = run(
+    output,
+    ["--move", archive, "--recursive", "--sizes", "4,8", "--concurrency", "12", "--yes"],
+    input,
+  );
+
+  expect(result.status).toBe(0);
+  expect(result.stdout).toContain('"status":"moved"');
+
+  for (const [name, bytes] of originals) {
+    expect(readFileSync(join(archive, name))).toEqual(bytes);
+    expect(existsSync(join(input, name))).toBe(false);
+  }
+
+  for (const stem of ["Photo", join("nested", "second")]) {
+    for (const suffix of ["", "-4", "-8"])
+      expect(existsSync(join(output, `${stem}${suffix}.webp`))).toBe(true);
+  }
+
+  expect(readFileSync(join(input, "keep.txt"), "utf8")).toBe("keep");
+  expect(statSync(join(input, "nested")).isDirectory()).toBe(true);
+});
+
+test.each(["dry", "skip", "corrupt", "partial", "partial-skip"])(
+  "move preserves sources on %s",
+  (mode) => {
+    const input = join(root, `move-${mode}.jpg`);
+
+    const original =
+      mode === "corrupt" ? Buffer.from("broken") : readFileSync(join(source, "photo.jpg"));
+
+    writeFileSync(input, original);
+    const archive = input + "-archive";
+    const output = input + "-output";
+    const extra = ["--move", archive, "--yes"];
+
+    if (mode === "dry") extra.push("--dry-run");
+
+    if (mode === "skip" || mode === "partial-skip") {
+      mkdirSync(output);
+      writeFileSync(join(output, `move-${mode}.webp`), "keep");
+    }
+
+    if (mode === "partial") extra.push("--sizes", "4,999999");
+
+    if (mode === "partial-skip") extra.push("--sizes", "4,8");
+    const result = run(output, extra, input);
+    expect(result.status).toBe(mode === "corrupt" || mode === "partial" ? 1 : 0);
+    expect(readFileSync(input)).toEqual(original);
+    expect(existsSync(archive)).toBe(false);
+
+    if (mode === "dry") expect(existsSync(output)).toBe(false);
+
+    if (mode === "partial" || mode === "partial-skip")
+      expect(existsSync(join(output, `move-${mode}-4.webp`))).toBe(true);
+  },
+);
+
+test.each(["file", "directory", "symlink", "dangling"])(
+  "move rejects archive %s collisions before writes even with overwrite",
+  (kind) => {
+    const archive = join(root, `move-collision-${kind}`);
+    mkdirSync(archive);
+    const destination = join(archive, "photo.jpg");
+
+    if (kind === "file") writeFileSync(destination, "keep");
+
+    if (kind === "directory") mkdirSync(destination);
+
+    if (kind === "symlink") symlinkSync(join(source, "photo.jpg"), destination);
+
+    if (kind === "dangling") symlinkSync(join(root, "absent-original"), destination);
+    const output = archive + "-output";
+    const original = readFileSync(join(source, "photo.jpg"));
+
+    const result = run(
+      output,
+      ["--move", archive, "--overwrite", "--yes"],
+      join(source, "photo.jpg"),
+    );
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain("Archive already exists");
+    expect(existsSync(output)).toBe(false);
+    expect(readFileSync(join(source, "photo.jpg"))).toEqual(original);
+
+    if (kind === "file") expect(readFileSync(destination, "utf8")).toBe("keep");
+  },
+);
+
+test("move rejects overlapping paths and symlink aliases before writes", () => {
+  const output = join(root, "move-overlap-output");
+  const alias = join(root, "move-source-alias");
+  symlinkSync(source, alias);
+
+  for (const archive of [
+    source,
+    join(source, "archive"),
+    root,
+    output,
+    join(output, "archive"),
+    alias,
+  ]) {
+    const result = run(output, ["--move", archive, "--yes"], source);
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain("must not overlap");
+    expect(existsSync(output)).toBe(false);
+  }
+});
+
+test("move rejects mirrored archive symlinks and case collisions before writes", () => {
+  const archive = join(root, "move-nested-archive");
+  const outside = join(root, "move-nested-outside");
+  mkdirSync(archive);
+  mkdirSync(outside);
+  symlinkSync(outside, join(archive, "nested"));
+  const output = archive + "-output";
+  expect(run(output, ["--move", archive, "--recursive", "--yes"], source).status).toBe(1);
+  expect(existsSync(output)).toBe(false);
+  expect(readdirSync(outside)).toEqual([]);
+  const input = join(root, "move-case-input");
+  mkdirSync(input);
+  copyFileSync(join(source, "photo.jpg"), join(input, "photo.jpg"));
+  copyFileSync(join(source, "photo.jpg"), join(input, "Photo.JPG"));
+  const result = run(output, ["--move", archive, "--yes"], input);
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain("same archive");
+  expect(existsSync(output)).toBe(false);
+});
+
+test("move copy failure preserves original and completed output", () => {
+  const input = join(root, "move-copy-failure.jpg");
+  copyFileSync(join(source, "photo.jpg"), input);
+  const original = readFileSync(input);
+  const archive = input + "-archive";
+  const output = input + "-output";
+  const preload = join(root, "fail-copy.cjs");
+  writeFileSync(
+    preload,
+    `const fs = require('node:fs'); fs.copyFile = (...args) => { const error = new Error('injected copy failure'); error.code = 'EIO'; args.at(-1)(error); };`,
+  );
+
+  const result = spawnSync(
+    process.execPath,
+    [
+      "--require",
+      preload,
+      cli,
+      "optimize",
+      "-s",
+      input,
+      "-o",
+      output,
+      "--move",
+      archive,
+      "--yes",
+      "--json",
+    ],
+    { encoding: "utf8", timeout: 10000 },
+  );
+
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain("FileSystem.copyFile");
+  expect(result.stdout).toContain('"status":"optimized"');
+  expect(result.stdout).toContain('"status":"failed"');
+  expect(readFileSync(input)).toEqual(original);
+  expect(readdirSync(archive)).toEqual([]);
+  expect(existsSync(join(output, "move-copy-failure.webp"))).toBe(true);
+});
+
+test.runIf(existsSync("/dev/shm") && statSync("/dev/shm").dev !== statSync(root).dev)(
+  "move supports a different archive filesystem",
+  () => {
+    const archive = mkdtempSync("/dev/shm/img-move-test-");
+
+    try {
+      const input = join(root, "move-cross-device.jpg");
+      copyFileSync(join(source, "photo.jpg"), input);
+      const original = readFileSync(input);
+      expect(run(input + "-output", ["--move", archive, "--yes"], input).status).toBe(0);
+      expect(readFileSync(join(archive, "move-cross-device.jpg"))).toEqual(original);
+      expect(existsSync(input)).toBe(false);
+    } finally {
+      rmSync(archive, { recursive: true, force: true });
+    }
+  },
+);
+
+test("move preserves a source whose metadata passes but encoding fails", () => {
+  const input = join(root, "move-encode-failure.jpg");
+  const fixture = readFileSync(join(source, "photo.jpg"));
+  const original = fixture.subarray(0, Math.floor(fixture.length / 2));
+  writeFileSync(input, original);
+  const archive = input + "-archive";
+  const output = input + "-output";
+  const result = run(output, ["--move", archive, "--yes", "--sizes", "4,8"], input);
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain("Cannot encode");
+  expect(readFileSync(input)).toEqual(original);
+  expect(existsSync(archive)).toBe(false);
+  expect(readdirSync(output)).toEqual([]);
+});

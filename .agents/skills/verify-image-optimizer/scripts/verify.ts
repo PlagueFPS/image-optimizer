@@ -21,7 +21,15 @@ import { Digest } from "effect/crypto";
 import { ChildProcess, ChildProcessSpawner } from "effect/process";
 import sharp from "sharp";
 
-const Features = ["conversion", "resize", "sizes", "directories", "dry-run", "safety"] as const;
+const Features = [
+  "conversion",
+  "resize",
+  "sizes",
+  "directories",
+  "dry-run",
+  "safety",
+  "move",
+] as const;
 type Feature = (typeof Features)[number];
 const Report = Schema.fromJsonString(
   Schema.Array(
@@ -36,6 +44,13 @@ const Report = Schema.fromJsonString(
         output: Schema.String,
         status: Schema.Literal("optimized"),
         bytes: Schema.Finite,
+        archive: Schema.optional(Schema.String),
+        relocation: Schema.optional(
+          Schema.Struct({
+            status: Schema.Literal("moved"),
+            destination: Schema.String,
+          }),
+        ),
       }),
       Schema.Struct({
         source: Schema.String,
@@ -242,6 +257,66 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
       const before = yield* inventory(source);
       yield* write("inputs-before.json", before);
       yield* Match.value(feature).pipe(
+        Match.when("move", () =>
+          Effect.gen(function* () {
+            const archive = path.join(scratch, "archive");
+            yield* invoke(
+              source,
+              output,
+              "--move",
+              archive,
+              "--recursive",
+              "--sizes",
+              "4,8",
+              "--concurrency",
+              "12",
+              "--dry-run",
+            );
+            yield* check(
+              sameInventory(before, yield* inventory(source)),
+              "Dry run changed originals",
+            );
+            yield* check(
+              !(yield* fs.exists(archive)) && !(yield* fs.exists(output)),
+              "Dry run created destinations",
+            );
+            const report = yield* invoke(
+              source,
+              output,
+              "--move",
+              archive,
+              "--recursive",
+              "--sizes",
+              "4,8",
+              "--concurrency",
+              "12",
+            );
+            yield* check(
+              report.length === 6 &&
+                Arr.every(
+                  report,
+                  (item) =>
+                    item.status === "optimized" &&
+                    item.relocation?.status === "moved" &&
+                    item.relocation.destination === item.archive,
+                ),
+              "Relocation report mismatch",
+            );
+            yield* check(
+              sameInventory(before, yield* inventory(archive)),
+              "Archive bytes differ from originals",
+            );
+            yield* check((yield* inventory(source)).length === 0, "Moved originals still exist");
+            for (const stem of ["photo", "nested/second"]) {
+              for (const suffix of ["", "-4", "-8"]) {
+                yield* check(
+                  (yield* metadata(path.join(output, `${stem}${suffix}.webp`))).format === "webp",
+                  "Missing or invalid optimized variant",
+                );
+              }
+            }
+          }),
+        ),
         Match.when("conversion", () =>
           Effect.gen(function* () {
             for (const format of ["webp", "avif", "jpeg", "png"]) {
@@ -333,7 +408,8 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
             );
             yield* reject(second, preview, "--sizes", "1000", "--dry-run");
             yield* check(
-              sameInventory(beforeDryRun, yield* inventory(scratch)) && !(yield* fs.exists(preview)),
+              sameInventory(beforeDryRun, yield* inventory(scratch)) &&
+                !(yield* fs.exists(preview)),
               "Sizes dry run changed files",
             );
           }),
@@ -462,7 +538,10 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
       );
       const after = yield* inventory(source);
       yield* write("inputs-after.json", after);
-      yield* check(sameInventory(before, after), "Original images changed");
+      yield* check(
+        feature === "move" ? after.length === 0 : sameInventory(before, after),
+        "Original images changed unexpectedly",
+      );
       yield* write("files.json", yield* inventory(scratch));
       for (const item of yield* inventory(scratch)) {
         const file = path.join(scratch, item.file);

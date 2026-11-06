@@ -19,6 +19,7 @@ export const Positions = [
 export const Config = Schema.Struct({
   source: Schema.String,
   output: Schema.String,
+  move: Schema.optional(Schema.String),
   format: Schema.Literals(Formats),
   quality: Schema.Int.check(Schema.isBetween({ minimum: 1, maximum: 100 })),
   effort: Schema.Int.check(Schema.isBetween({ minimum: 0, maximum: 6 })),
@@ -47,6 +48,7 @@ export type Config = typeof Config.Type;
 export type Job = {
   readonly source: string;
   readonly output: string;
+  readonly archive?: string | undefined;
   readonly resize:
     | { readonly kind: "configured" }
     | { readonly kind: "width"; readonly width: number };
