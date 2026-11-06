@@ -1,6 +1,6 @@
 {
   "name": "@plaguefps/img",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An agent-friendly image optimization CLI built with Effect, powered by Sharp.",
   "homepage": "https://github.com/PlagueFPS/img#readme",
   "bugs": {
