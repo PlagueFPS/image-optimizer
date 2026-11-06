@@ -17,5 +17,6 @@ vp test # Runs the test suite - only run if you made changes that affect applica
 
 ## Pull Requests
 
+- Every change to the published package needs a changeset. A pure refactor, a move between modules, or a test-only change with no user-facing effect takes an empty one (`pnpm changeset add --empty`), satisfying `changeset status` without adding a release entry. Use `patch` for bug fixes, docs, and metadata changes, `minor` for features, non-breaking changes, and breaking changes while we are under `v1.0.0`. There is no need for `major` right now while under `v1.0.0`.
 - Use conventional commit titles, plain language: `feat(cli): determine default concurrency based on CPU cores`
 - Body should explain "what" problem the PR solves, and "how" you implemented it. End with the model and harness that did the work. Example final line: `GPT 6.1 Sol in Codex`.
