@@ -625,6 +625,64 @@ test("sizes create a source-sized output and distinct aspect-preserving widths",
     }),
   ));
 
+test.each([
+  { width: 32, upscale: false, expectedWidth: 32 },
+  { width: 1000, upscale: false, expectedWidth: 567 },
+  { width: 1000, upscale: true, expectedWidth: 1000 },
+])(
+  "width with sizes resizes the primary and derives variants from the original %j",
+  ({ width, upscale, expectedWidth }) =>
+    Effect.runPromise(
+      Effect.gen(function* () {
+        const file = join(source, "nested", "second.png");
+        const original = readFileSync(file);
+        const output = join(root, `sizes-width-${width}-${upscale}`);
+
+        const result = run(
+          output,
+          [
+            "--yes",
+            "--width",
+            String(width),
+            "--sizes",
+            "64,128",
+            "--format",
+            "png",
+            ...(upscale ? ["--upscale"] : []),
+          ],
+          file,
+        );
+
+        expect(result.status).toBe(0);
+        expect(result.stderr).toBe("");
+        expect(readdirSync(output).sort()).toEqual([
+          "second-128.png",
+          "second-64.png",
+          "second.png",
+        ]);
+        expect(readFileSync(file)).toEqual(original);
+
+        for (const [name, targetWidth] of [
+          ["second.png", expectedWidth],
+          ["second-64.png", 64],
+          ["second-128.png", 128],
+        ] as const) {
+          const decoded = yield* Effect.promise(() =>
+            sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),
+          );
+
+          const expected = yield* Effect.promise(() =>
+            sharp(file).resize({ width: targetWidth }).raw().toBuffer({ resolveWithObject: true }),
+          );
+
+          expect(decoded.info.width).toBe(targetWidth);
+          expect(decoded.info.height).toBe(expected.info.height);
+          expect(decoded.data).toEqual(expected.data);
+        }
+      }),
+    ),
+);
+
 test.each(["", "0", "-1", "1.5", "NaN", "16,", ",16", "16,,32", "1e2", "0x10", "9007199254740992"])(
   "rejects invalid sizes %s before writing",
   (sizes) => {
@@ -635,9 +693,17 @@ test.each(["", "0", "-1", "1.5", "NaN", "16,", ",16", "16,,32", "1e2", "0x10", "
   },
 );
 
-test.each(["--width", "--height"])("sizes reject %s before writing", (flag) => {
-  const output = join(root, `sizes-conflict-${flag}`);
-  const result = run(output, ["--sizes", "16", flag, "32"]);
+test.each([false, true])("sizes reject height before writing with width %s", (withWidth) => {
+  const output = join(root, `sizes-conflict-height-${withWidth}`);
+
+  const result = run(output, [
+    "--sizes",
+    "16",
+    "--height",
+    "32",
+    ...(withWidth ? ["--width", "32"] : []),
+  ]);
+
   expect(result.status).toBe(1);
   expect(result.stderr).toContain("cannot be combined");
   expect(existsSync(output)).toBe(false);
@@ -648,14 +714,14 @@ test("oversized variants fail without clamping and upscale permits their exact w
     Effect.gen(function* () {
       const file = join(source, "nested", "second.png");
       const output = join(root, "sizes-too-large");
-      const result = run(output, ["--sizes", "16,1000"], file);
+      const result = run(output, ["--width", "8", "--sizes", "16,1000"], file);
       expect(result.status).toBe(1);
       expect(result.stdout).toContain("exceeds source width");
       expect(existsSync(join(output, "second.webp"))).toBe(true);
       expect(existsSync(join(output, "second-16.webp"))).toBe(true);
       expect(existsSync(join(output, "second-1000.webp"))).toBe(false);
       const enlarged = join(root, "sizes-enlarged");
-      expect(run(enlarged, ["--sizes", "1000", "--upscale"], file).status).toBe(0);
+      expect(run(enlarged, ["--width", "8", "--sizes", "1000", "--upscale"], file).status).toBe(0);
 
       const decoded = yield* Effect.promise(() =>
         sharp(join(enlarged, "second-1000.webp")).raw().toBuffer({ resolveWithObject: true }),
@@ -692,18 +758,21 @@ test("sizes validate against auto-oriented width", () =>
 
 test("sizes dry runs list mirrored variants and reject oversize without writes", () => {
   const output = join(root, "sizes-preview");
-  const result = run(output, ["--sizes", "16,32", "--recursive", "--dry-run"]);
+  const original = readFileSync(join(source, "nested", "second.png"));
+  const result = run(output, ["--width", "8", "--sizes", "16,32", "--recursive", "--dry-run"]);
   expect(result.status).toBe(0);
+  expect(result.stdout).toContain(join(output, "photo.webp"));
   expect(result.stdout).toContain(join(output, "photo-16.webp"));
   expect(result.stdout).toContain(join(output, "nested", "second-32.webp"));
   expect(existsSync(output)).toBe(false);
 
   const invalid = run(
     output,
-    ["--sizes", "1000", "--dry-run"],
+    ["--width", "8", "--sizes", "1000", "--dry-run"],
     join(source, "nested", "second.png"),
   );
 
+  expect(readFileSync(join(source, "nested", "second.png"))).toEqual(original);
   expect(invalid.status).toBe(1);
   expect(invalid.stdout).toContain("exceeds source width");
   expect(existsSync(output)).toBe(false);
@@ -968,16 +1037,14 @@ test("SVG file and recursive directory inputs rasterize and preserve originals",
       writeFileSync(file, svg);
       writeFileSync(join(input, "top.svg"), svg);
       const output = join(root, "svg-file");
-      expect(run(output, ["--format", "png", "--width", "20", "--sizes", "10"], file).status).toBe(
-        1,
-      );
-      expect(existsSync(output)).toBe(false);
-      expect(run(output, ["--format", "png", "--sizes", "10,20"], file).status).toBe(0);
+      expect(
+        run(output, ["--format", "png", "--width", "20", "--sizes", "10,40"], file).status,
+      ).toBe(0);
 
       for (const [name, width] of [
-        ["icon.png", 80],
+        ["icon.png", 20],
         ["icon-10.png", 10],
-        ["icon-20.png", 20],
+        ["icon-40.png", 40],
       ] as const) {
         const decoded = yield* Effect.promise(() =>
           sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),

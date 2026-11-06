@@ -8,7 +8,7 @@ Run the executable helper from the checkout root with a fresh absolute evidence 
 - [Animation](animation.md): timed frames, resizing, unsupported conversions, orientation rejection, and multipage documents.
 - [Conversion](conversion.md): four output formats, single-file inputs, JSON and human reports.
 - [Resize](resize.md): all five fits, default enlargement prevention and explicit upscaling.
-- [Sizes](sizes.md): original dimensions, width variants, duplicate widths, upscaling, and dry runs.
+- [Sizes](sizes.md): primary width, independent width variants, duplicate widths, height conflicts, upscaling, and dry runs.
 - [Directories](directories.md): shallow and recursive processing, exclusions, symlink skipping, mirrored destinations.
 - [Dry run](dry-run.md): shallow, recursive, and excluded previews with no filesystem writes.
 - [Move originals](move.md): archive exact original bytes after all outputs succeed, including concurrent sizes and dry-run safety.

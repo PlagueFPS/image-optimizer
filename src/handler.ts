@@ -46,9 +46,9 @@ const toReport = (result: OptimizationResult) => ({
 export const run = Effect.fn("main")(function* (args: Config & { readonly summaryJson: boolean }) {
   const config = yield* Schema.decodeEffect(Config)(args);
 
-  if (config.sizes.length > 0 && (config.width > 0 || config.height > 0)) {
+  if (config.sizes.length > 0 && config.height > 0) {
     return yield* OptimizationError.make({
-      message: "--sizes cannot be combined with --width or --height.",
+      message: "--sizes cannot be combined with --height.",
     });
   }
 
