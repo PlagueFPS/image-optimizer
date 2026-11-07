@@ -70,7 +70,7 @@ const flags = {
     Flag.withSchema(Schema.Array(Schema.Int.check(Schema.isGreaterThan(0)))),
     Flag.withDefault([]),
     Flag.withDescription(
-      "Additional widths in pixels, comma-separated. Keeps the source-sized output and creates name-WIDTH files. Cannot combine with --width or --height. Larger widths require --upscale.",
+      "Additional widths in pixels, comma-separated. Base output uses configured dimensions and fit. Creates name-WIDTH files directly from the original. Widths larger than the original require --upscale.",
     ),
   ),
   concurrency: Flag.Int("concurrency").pipe(

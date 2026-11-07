@@ -46,9 +46,11 @@ Optimize an image at its source dimensions and create additional widths:
 img optimize -s ./input.png -o ./optimized -f webp --sizes 384,868,1200
 ```
 
-This creates `input.webp`, `input-384.webp`, `input-868.webp`, and `input-1200.webp`. Each variant preserves the source aspect ratio. Widths must be positive integers. Repeated widths produce one variant. `--sizes` cannot be combined with `--width` or `--height`.
+This creates `input.webp`, `input-384.webp`, `input-868.webp`, and `input-1200.webp`. Each variant preserves the source aspect ratio. Widths must be positive integers. Repeated widths produce one variant.
 
-Without `--upscale`, a width larger than the auto-oriented source width fails without writing that variant. Valid outputs still complete, and the command exits with code 1. Dry runs also check this limit and write nothing.
+Add `--width`, `--height`, or both to resize the primary output using the configured fit. For example, `--width 600 --sizes 384,868,1200` creates a primary output up to 600 pixels wide and variants at 384, 868, and 1200 pixels. Every variant derives directly from the original image and preserves its aspect ratio, regardless of the primary dimensions or fit. Variants can exceed the primary width. The primary output does not enlarge smaller originals unless `--upscale` is set. Variants wider than the original still require `--upscale`.
+
+Without `--upscale`, a variant width larger than the auto-oriented source width fails without writing that variant. Valid outputs still complete, and the command exits with code 1. Dry runs also check this limit and write nothing.
 
 If the output directory is missing, the CLI asks whether to create it (default: yes). Declining cancels optimization without writing files. It prompts once; missing parents and mirrored subdirectories are created automatically after confirmation. Dry runs and inputs with no matching images do not prompt or create directories.
 
@@ -118,34 +120,34 @@ Multipage documents such as TIFF convert only the first page.
 
 ## Options
 
-| Flag              | Default   | Description                                                                                                                   |
-| ----------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `--help`, `-h`    | `false`   | View CLI options and descriptions.                                                                                            |
-| `--source`, `-s`  | `.`       | Source file or directory, relative to the current working directory.                                                          |
-| `--output`, `-o`  | Required  | Output directory.                                                                                                             |
-| `--move`          | None      | Archive original files in this directory after all outputs succeed, then remove sources. Never overwrites archives.           |
-| `--format`, `-f`  | `webp`    | Output format: `webp`, `avif`, `jpeg`, `png`, `gif`, or `tiff`.                                                               |
-| `--quality`, `-q` | `80`      | WebP, AVIF, JPEG, or TIFF quality (`1` to `100`).                                                                             |
-| `--effort`, `-e`  | `4`       | WebP or AVIF encoder effort (`0` to `6`).                                                                                     |
-| `--compression`   | `9`       | PNG lossless compression level (`0` to `9`).                                                                                  |
-| `--width`, `-w`   | `0`       | Target width in pixels (`0` leaves width unconstrained).                                                                      |
-| `--height`        | `0`       | Target height in pixels (`0` leaves height unconstrained).                                                                    |
-| `--sizes`         | None      | Comma-separated additional widths. Creates source-sized output plus `name-WIDTH` variants. Larger widths require `--upscale`. |
-| `--fit`           | `inside`  | Resize fit mode: `inside`, `contain`, `cover`, `fill`, or `outside`.                                                          |
-| `--position`      | `centre`  | Crop anchor or padding alignment: compass directions, `entropy`, or `attention`.                                              |
-| `--background`    | `#ffffff` | Background color for `contain` padding or `--flatten`.                                                                        |
-| `--flatten`       | `false`   | Remove alpha transparency using `--background`.                                                                               |
-| `--upscale`       | `false`   | Allow enlarging images smaller than the target dimensions.                                                                    |
-| `--lossless`      | `false`   | Lossless WebP, AVIF, or TIFF. PNG is always lossless. JPEG and GIF reject this flag.                                          |
-| `--metadata`      | `false`   | Preserve source metadata instead of stripping it.                                                                             |
-| `--recursive`     | `false`   | Process subdirectories recursively.                                                                                           |
-| `--exclude`       | None      | Exclude a source-relative file or directory prefix (repeatable).                                                              |
-| `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.                                                     |
-| `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                                       |
-| `--dry-run`       | `false`   | Preview planned outputs without encoding source images or writing files.                                                      |
-| `--summary-json`  | `false`   | Print `{ "results": [...], "summary": {...} }` as JSON. Overrides `--json`.                                                   |
-| `--yes`, `-y`     | `false`   | Create a missing output directory without prompting.                                                                          |
-| `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                            |
+| Flag              | Default   | Description                                                                                                         |
+| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------- |
+| `--help`, `-h`    | `false`   | View CLI options and descriptions.                                                                                  |
+| `--source`, `-s`  | `.`       | Source file or directory, relative to the current working directory.                                                |
+| `--output`, `-o`  | Required  | Output directory.                                                                                                   |
+| `--move`          | None      | Archive original files in this directory after all outputs succeed, then remove sources. Never overwrites archives. |
+| `--format`, `-f`  | `webp`    | Output format: `webp`, `avif`, `jpeg`, `png`, `gif`, or `tiff`.                                                     |
+| `--quality`, `-q` | `80`      | WebP, AVIF, JPEG, or TIFF quality (`1` to `100`).                                                                   |
+| `--effort`, `-e`  | `4`       | WebP or AVIF encoder effort (`0` to `6`).                                                                           |
+| `--compression`   | `9`       | PNG lossless compression level (`0` to `9`).                                                                        |
+| `--width`, `-w`   | `0`       | Target width in pixels (`0` leaves width unconstrained).                                                            |
+| `--height`        | `0`       | Target height in pixels (`0` leaves height unconstrained).                                                          |
+| `--sizes`         | None      | Additional widths from original. Base uses configured dimensions and fit. See above for upscaling.                  |
+| `--fit`           | `inside`  | Resize fit mode: `inside`, `contain`, `cover`, `fill`, or `outside`.                                                |
+| `--position`      | `centre`  | Crop anchor or padding alignment: compass directions, `entropy`, or `attention`.                                    |
+| `--background`    | `#ffffff` | Background color for `contain` padding or `--flatten`.                                                              |
+| `--flatten`       | `false`   | Remove alpha transparency using `--background`.                                                                     |
+| `--upscale`       | `false`   | Allow enlarging images smaller than the target dimensions.                                                          |
+| `--lossless`      | `false`   | Lossless WebP, AVIF, or TIFF. PNG is always lossless. JPEG and GIF reject this flag.                                |
+| `--metadata`      | `false`   | Preserve source metadata instead of stripping it.                                                                   |
+| `--recursive`     | `false`   | Process subdirectories recursively.                                                                                 |
+| `--exclude`       | None      | Exclude a source-relative file or directory prefix (repeatable).                                                    |
+| `--concurrency`   | CPU-based | Maximum concurrent file workflows (minimum `1`); default described below.                                           |
+| `--overwrite`     | `false`   | Replace existing output files instead of skipping them.                                                             |
+| `--dry-run`       | `false`   | Preview planned outputs without encoding source images or writing files.                                            |
+| `--summary-json`  | `false`   | Print `{ "results": [...], "summary": {...} }` as JSON. Overrides `--json`.                                         |
+| `--yes`, `-y`     | `false`   | Create a missing output directory without prompting.                                                                |
+| `--json`          | `false`   | Print per-image results as a JSON array to stdout.                                                                  |
 
 By default, the CLI processes images concurrently using 75% of the available CPU
 cores, rounded down to at least one image. Set `--concurrency` to override this

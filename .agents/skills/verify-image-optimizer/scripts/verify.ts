@@ -387,26 +387,105 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
                 "Variant dimensions do not match requested width and aspect ratio",
               );
             }
+            for (const { width, upscale, expectedWidth } of [
+              { width: 32, upscale: false, expectedWidth: 32 },
+              { width: 1000, upscale: false, expectedWidth: original.width },
+              { width: 1000, upscale: true, expectedWidth: 1000 },
+            ]) {
+              const dest = path.join(scratch, `width-${width}-${upscale}`);
+              const resized = yield* invoke(
+                second,
+                dest,
+                "--width",
+                String(width),
+                "--sizes",
+                "64,128",
+                ...(upscale ? ["--upscale"] : []),
+              );
+              yield* check(resized.length === 3, "Expected primary and two variants with --width");
+              for (const [name, targetWidth] of [
+                ["second.webp", expectedWidth],
+                ["second-64.webp", 64],
+                ["second-128.webp", 128],
+              ] as const) {
+                const meta = yield* metadata(path.join(dest, name));
+                yield* check(
+                  meta.width === targetWidth &&
+                    Math.abs(meta.height - (original.height * targetWidth) / original.width) <= 1,
+                  "Width with sizes did not preserve independent output dimensions",
+                );
+              }
+            }
+            for (const { width, height, fit, upscale, dimensions } of [
+              { width: 0, height: 32, fit: "inside", upscale: false, dimensions: [56, 32] },
+              { width: 32, height: 32, fit: "inside", upscale: false, dimensions: [32, 18] },
+              { width: 32, height: 32, fit: "cover", upscale: false, dimensions: [32, 32] },
+              { width: 32, height: 32, fit: "fill", upscale: false, dimensions: [32, 32] },
+              { width: 0, height: 648, fit: "inside", upscale: false, dimensions: [567, 324] },
+              { width: 0, height: 648, fit: "inside", upscale: true, dimensions: [1134, 648] },
+            ]) {
+              const dest = path.join(scratch, `height-${width}-${height}-${fit}-${upscale}`);
+              const resized = yield* invoke(
+                second,
+                dest,
+                "--height",
+                String(height),
+                ...(width > 0 ? ["--width", String(width)] : []),
+                ...(fit === "inside" ? [] : ["--fit", fit]),
+                "--sizes",
+                "64,128",
+                "--format",
+                "png",
+                ...(upscale ? ["--upscale"] : []),
+              );
+              yield* check(resized.length === 3, "Expected primary and two variants with --height");
+              const primary = yield* metadata(path.join(dest, "second.png"));
+              yield* check(
+                primary.width === dimensions[0] && primary.height === dimensions[1],
+                "Height with sizes did not apply configured primary dimensions and fit",
+              );
+              for (const targetWidth of [64, 128]) {
+                const file = path.join(dest, `second-${targetWidth}.png`);
+                const meta = yield* metadata(file);
+                const decoded = yield* Effect.tryPromise(() => sharp(file).raw().toBuffer());
+                const expected = yield* Effect.tryPromise(() =>
+                  sharp(second)
+                    .resize({ width: targetWidth })
+                    .raw()
+                    .toBuffer({ resolveWithObject: true }),
+                );
+                yield* check(
+                  meta.width === targetWidth &&
+                    meta.height === expected.info.height &&
+                    decoded.equals(expected.data),
+                  "Height or fit changed original-derived variant pixels",
+                );
+              }
+            }
             const blocked = path.join(scratch, "blocked");
-            yield* reject(second, blocked, "--sizes", "1000");
+            yield* reject(second, blocked, "--width", "32", "--sizes", "1000");
             yield* check(
               !(yield* fs.exists(path.join(blocked, "second-1000.webp"))),
               "Oversized variant was written without --upscale",
             );
             const enlarged = path.join(scratch, "enlarged");
-            yield* invoke(second, enlarged, "--sizes", "1000", "--upscale");
+            yield* invoke(second, enlarged, "--width", "32", "--sizes", "1000", "--upscale");
             yield* check(
               (yield* metadata(path.join(enlarged, "second-1000.webp"))).width === 1000,
               "Explicit upscaling did not produce requested width",
             );
             const beforeDryRun = yield* inventory(scratch);
             const preview = path.join(scratch, "preview");
-            const planned = yield* invoke(second, preview, "--sizes", "32,64", "--dry-run");
+            const planned = yield* invoke(
+              second, preview, "--width", "16", "--height", "16", "--sizes", "32,64", "--dry-run",
+            );
             yield* check(
               planned.length === 3 && Arr.every(planned, (item) => item.status === "planned"),
               "Dry run did not plan all outputs",
             );
-            yield* reject(second, preview, "--sizes", "1000", "--dry-run");
+            yield* reject(
+              second, preview, "--width", "16", "--height", "16", "--sizes", "1000", "--dry-run",
+            );
             yield* check(
               sameInventory(beforeDryRun, yield* inventory(scratch)) &&
                 !(yield* fs.exists(preview)),
