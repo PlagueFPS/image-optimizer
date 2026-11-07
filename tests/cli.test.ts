@@ -1753,6 +1753,7 @@ test.each(["json", "summary-json", "human"])(
         const archive = join(directory, "archive");
         const destination = join(archive, "source.webp");
         writeFileSync(input, original);
+
         const result = spawnSync(
           process.execPath,
           [
@@ -1771,14 +1772,16 @@ test.each(["json", "summary-json", "human"])(
           ],
           { encoding: "utf8", timeout: 10000 },
         );
+
         expect(result.status).toBe(1);
         expect(existsSync(input)).toBe(false);
         expect(readFileSync(destination)).toEqual(original);
         expect(existsSync(join(output, "source-256.webp"))).toBe(false);
 
         if (reporting === "human") {
-          const rows = result.stdout.trim().split("\n").slice(0, 3);
+          const rows = Arr.take(Str.split(Str.trim(result.stdout), "\n"), 3);
           expect(rows).toHaveLength(3);
+
           for (const row of rows) expect(row).toContain(`archive moved: ${destination}`);
           expect(rows[2]).toContain("failed:");
           expect(rows[2]).toContain("exceeds source width 128");
@@ -1791,7 +1794,9 @@ test.each(["json", "summary-json", "human"])(
                     result.stdout,
                   ),
                 );
+
           expect(rows).toHaveLength(3);
+
           for (const row of rows)
             expect(row).toEqual(
               expect.objectContaining({ relocation: { status: "moved", destination } }),
@@ -1801,6 +1806,7 @@ test.each(["json", "summary-json", "human"])(
           );
           expect(result.stdout).not.toContain('"kind":"oversized-variant"');
           expect(result.stdout).not.toContain('"result":');
+
           if (reporting === "summary-json")
             expect(decodeSummary(result.stdout).summary).toMatchObject({
               optimized: 2,
@@ -1811,11 +1817,11 @@ test.each(["json", "summary-json", "human"])(
         }
 
         return Promise.all(
-          ["source.webp", "source-64.webp"].map((name) =>
+          Arr.map(["source.webp", "source-64.webp"], (name) =>
             sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),
           ),
         ).then((images) => {
-          expect(images.map((image) => [image.info.width, image.info.height])).toEqual([
+          expect(Arr.map(images, (image) => [image.info.width, image.info.height])).toEqual([
             [128, 128],
             [64, 64],
           ]);

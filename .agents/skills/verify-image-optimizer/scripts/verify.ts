@@ -57,6 +57,12 @@ const Report = Schema.fromJsonString(
         output: Schema.String,
         status: Schema.Literal("failed"),
         error: Schema.String,
+        relocation: Schema.optional(
+          Schema.Struct({
+            status: Schema.Literal("moved"),
+            destination: Schema.String,
+          }),
+        ),
       }),
     ]),
   ),
@@ -315,6 +321,43 @@ const drive = Effect.fn("drive")(function* (feature: Feature, directory: string)
                 );
               }
             }
+            const small = path.join(scratch, "small.png");
+            const smallOutput = path.join(scratch, "small-output");
+            const smallArchive = path.join(scratch, "small-archive");
+            yield* fs.copyFile(path.join(repo, "tests/fixtures/test2.png"), small);
+            const originalHash = yield* digest(small);
+            const partial = yield* Schema.decodeEffect(Report)(
+              yield* reject(small, smallOutput, "--sizes", "32,1000", "--move", smallArchive),
+            );
+            yield* check(
+              partial.length === 3 &&
+                Arr.every(
+                  partial,
+                  (item) =>
+                    (item.status === "optimized" || item.status === "failed") &&
+                    item.relocation?.status === "moved" &&
+                    item.relocation.destination === path.join(smallArchive, "small.png"),
+                ) &&
+                Arr.filter(partial, (item) => item.status === "optimized").length === 2 &&
+                Arr.some(
+                  partial,
+                  (item) =>
+                    item.status === "failed" &&
+                    Str.includes("exceeds source width")(item.error),
+                ),
+              "Every output must report the moved source despite the rejected width",
+            );
+            yield* check(
+              !(yield* fs.exists(small)) &&
+                (yield* digest(path.join(smallArchive, "small.png"))) === originalHash &&
+                !(yield* fs.exists(path.join(smallOutput, "small-1000.webp"))),
+              "Oversized variant relocation changed bytes or wrote a rejected output",
+            );
+            yield* check(
+              (yield* metadata(path.join(smallOutput, "small.webp"))).width === 567 &&
+                (yield* metadata(path.join(smallOutput, "small-32.webp"))).width === 32,
+              "Eligible output dimensions differ",
+            );
           }),
         ),
         Match.when("conversion", () =>
