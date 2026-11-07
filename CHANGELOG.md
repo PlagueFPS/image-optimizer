@@ -1,5 +1,15 @@
 # @plaguefps/img
 
+## 0.3.0
+
+### Minor Changes
+
+- cfec724: Allow `--width`, `--height`, or both with `--sizes` to resize the primary output using the configured fit while generating aspect-preserving variants directly from the original image.
+
+### Patch Changes
+
+- 413eddf: Allow `--move` after the primary output and all eligible variants succeed when an oversized variant is rejected without `--upscale`. Keep the rejected result failed and exit with code 1, while every result reports the moved source and its archive destination.
+
 ## 0.2.0
 
 ### Minor Changes
