@@ -1,6 +1,6 @@
 import { Array as Arr, Effect, String as Str } from "effect";
 import sharp, { type Sharp, type SharpOptions } from "sharp";
-import { type Config, type Job, OptimizationError } from "./options.ts";
+import { type Config, type Job, OptimizationError, OversizedVariantError } from "./options.ts";
 
 type ImageInput =
   | { readonly animated: false }
@@ -105,7 +105,7 @@ export const validateInput = Effect.fn("validateInput")(function* (job: Job, con
     !config.upscale &&
     job.resize.width > metadata.autoOrient.width
   ) {
-    return yield* OptimizationError.make({
+    return yield* OversizedVariantError.make({
       message: `Requested width ${job.resize.width} exceeds source width ${metadata.autoOrient.width} for ${job.source}. Use --upscale to allow enlargement.`,
     });
   }

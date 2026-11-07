@@ -58,3 +58,8 @@ export class OptimizationError extends Schema.TaggedError<
   OptimizationError,
   { readonly brand: unique symbol }
 >()("OptimizationError", { message: Schema.String }) {}
+
+export class OversizedVariantError extends Schema.TaggedError<
+  OversizedVariantError,
+  { readonly brand: unique symbol }
+>()("OversizedVariantError", { message: Schema.String }) {}

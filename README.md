@@ -62,11 +62,11 @@ Archive originals after optimization:
 img optimize -s ./assets -o ../optimized --move ../originals --recursive --yes
 ```
 
-`--output` remains required. `--move` copies the original bytes with their original filenames and extensions, mirrors relative directories, then deletes each source file. With `--sizes`, every output for a source must succeed before its original moves. Dry runs, skipped outputs, and failed outputs leave that source in place. Non-image files, excluded files, and source directories remain in place.
+`--output` remains required. `--move` copies the original bytes with their original filenames and extensions, mirrors relative directories, then deletes each source file. With `--sizes`, the primary output and every eligible variant for a source must succeed before its original moves. A variant rejected solely because its width exceeds the source width without `--upscale` does not block relocation. Dry runs, skipped outputs, and other failed outputs leave that source in place. Non-image files, excluded files, and source directories remain in place.
 
 Source, output, and archive trees must not overlap. Archive collisions fail planning before writes, including with `--overwrite`. Archives can be on another filesystem. Copies are staged in the archive directory and published without replacing existing files before the source is removed. Copy failures preserve the source. Relocation failures exit with code 1 and retain completed optimized outputs.
 
-When `--move` is set, JSON results include the planned `archive` path. After a relocation attempt, each output for that source includes a `relocation` object with `destination` and `status` of `moved` or `failed`. Failures also include `error`. Output `status` and size summaries still describe completed optimization writes. A failed relocation can leave both the source and archive if source removal fails.
+When `--move` is set, JSON results include the planned `archive` path. After a relocation attempt, each output for that source includes a `relocation` object with `destination` and `status` of `moved` or `failed`. Failures also include `error`. An oversized variant remains `failed` and the command exits with code 1 even when the original moves. Every result for that source, including the rejected variant, reports `relocation.status` as `moved` and gives the archive destination. The original is now at that destination. Human-readable output also shows `archive moved` on each result. Output `status` and size summaries still describe completed optimization writes. A failed relocation can leave both the source and archive if source removal fails.
 
 Crop a directory of images to square thumbnails:
 

@@ -8,13 +8,14 @@ import {
   Option,
   Path,
   PlatformError,
+  Predicate,
   Result,
   Record,
   Schema,
   String as Str,
 } from "effect";
 import { encode, validateInput } from "./encoder.ts";
-import { type Config, type Job, OptimizationError } from "./options.ts";
+import { type Config, type Job, OptimizationError, OversizedVariantError } from "./options.ts";
 
 export type SizeMetrics = {
   readonly inputBytes: number;
@@ -35,6 +36,13 @@ export type OptimizationResult = Job & { readonly relocation: Option.Option<Relo
     | { readonly status: "skipped" | "planned" }
     | { readonly status: "failed"; readonly error: string }
   );
+
+type JobOutcome =
+  | { readonly kind: "required"; readonly result: OptimizationResult }
+  | {
+      readonly kind: "oversized-variant";
+      readonly result: Extract<OptimizationResult, { readonly status: "failed" }>;
+    };
 
 export type OptimizationSummary = SizeMetrics & {
   readonly optimized: number;
@@ -285,12 +293,12 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
 
-  const results = yield* Effect.forEach(
+  const outcomes = yield* Effect.forEach(
     jobs,
     (job) =>
       Effect.gen(function* (): Effect.gen.Return<
         OptimizationResult,
-        PlatformError.PlatformError | OptimizationError,
+        PlatformError.PlatformError | OptimizationError | OversizedVariantError,
         FileSystem.FileSystem | Path.Path
       > {
         if (!config.dryRun && !config.overwrite && (yield* fs.exists(job.output)))
@@ -336,28 +344,42 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
         Effect.result,
         Effect.map(
           Result.match({
-            onSuccess: (value) => value,
-            onFailure: (error): OptimizationResult => ({
-              ...job,
-              relocation: Option.none(),
-              status: "failed",
-              error: String(error),
-            }),
+            onSuccess: (result): JobOutcome => ({ kind: "required", result }),
+            onFailure: (error): JobOutcome => {
+              const result: Extract<OptimizationResult, { readonly status: "failed" }> = {
+                ...job,
+                relocation: Option.none(),
+                status: "failed",
+                error: String(error),
+              };
+
+              return Predicate.isTagged("OversizedVariantError")(error)
+                ? { kind: "oversized-variant", result }
+                : { kind: "required", result };
+            },
           }),
         ),
       ),
     { concurrency: config.concurrency },
   );
 
-  const sources = Arr.groupBy(results, (result) => result.source);
+  const sources = Arr.groupBy(outcomes, ({ result }) => result.source);
   let relocations = HashMap.empty<string, RelocationResult>();
 
   for (const [source, outputs] of Record.toEntries(sources)) {
-    const destination = Arr.headNonEmpty(outputs).archive;
+    const destination = Arr.headNonEmpty(outputs).result.archive;
 
     if (
+      config.dryRun ||
       Option.isNone(destination) ||
-      !Arr.every(outputs, (result) => result.status === "optimized")
+      !Arr.some(
+        outputs,
+        ({ result }) => result.resize.kind === "configured" && result.status === "optimized",
+      ) ||
+      !Arr.every(
+        outputs,
+        ({ kind, result }) => result.status === "optimized" || kind === "oversized-variant",
+      )
     )
       continue;
 
@@ -401,7 +423,7 @@ export const optimize = Effect.fn("optimize")(function* (config: Config, jobs: R
     );
   }
 
-  return Arr.map(results, (result): OptimizationResult => ({
+  return Arr.map(outcomes, ({ result }): OptimizationResult => ({
     ...result,
     relocation: HashMap.get(relocations, result.source),
   }));

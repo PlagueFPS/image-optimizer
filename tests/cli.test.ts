@@ -1739,7 +1739,110 @@ test("move archives exact original bytes and mirrors recursive paths after concu
   expect(statSync(join(input, "nested")).isDirectory()).toBe(true);
 });
 
-test.each(["dry", "skip", "corrupt", "partial", "partial-skip"])(
+test.each(["json", "summary-json", "human"])(
+  "move reports the archived source on every result despite an oversized variant in %s",
+  (reporting) =>
+    sharp({ create: { width: 128, height: 128, channels: 3, background: "#336699" } })
+      .webp()
+      .toBuffer()
+      .then((original) => {
+        const directory = join(root, `move-oversized-${reporting}`);
+        mkdirSync(directory);
+        const input = join(directory, "source.webp");
+        const output = join(directory, "output");
+        const archive = join(directory, "archive");
+        const destination = join(archive, "source.webp");
+        writeFileSync(input, original);
+
+        const result = spawnSync(
+          process.execPath,
+          [
+            cli,
+            "optimize",
+            "-s",
+            input,
+            "-o",
+            output,
+            "--sizes",
+            "64,256",
+            "--move",
+            archive,
+            "--yes",
+            ...(reporting === "human" ? [] : [`--${reporting}`]),
+          ],
+          { encoding: "utf8", timeout: 10000 },
+        );
+
+        expect(result.status).toBe(1);
+        expect(existsSync(input)).toBe(false);
+        expect(readFileSync(destination)).toEqual(original);
+        expect(existsSync(join(output, "source-256.webp"))).toBe(false);
+
+        if (reporting === "human") {
+          const rows = Arr.take(Str.split(Str.trim(result.stdout), "\n"), 3);
+          expect(rows).toHaveLength(3);
+
+          for (const row of rows) expect(row).toContain(`archive moved: ${destination}`);
+          expect(rows[2]).toContain("failed:");
+          expect(rows[2]).toContain("exceeds source width 128");
+        } else {
+          const rows =
+            reporting === "summary-json"
+              ? decodeSummary(result.stdout).results
+              : Effect.runSync(
+                  Schema.decodeEffect(Schema.fromJsonString(Schema.Array(Schema.Unknown)))(
+                    result.stdout,
+                  ),
+                );
+
+          expect(rows).toHaveLength(3);
+
+          for (const row of rows)
+            expect(row).toEqual(
+              expect.objectContaining({ relocation: { status: "moved", destination } }),
+            );
+          expect(rows[2]).toEqual(
+            expect.objectContaining({ status: "failed", error: expect.stringContaining("256") }),
+          );
+          expect(result.stdout).not.toContain('"kind":"oversized-variant"');
+          expect(result.stdout).not.toContain('"result":');
+
+          if (reporting === "summary-json")
+            expect(decodeSummary(result.stdout).summary).toMatchObject({
+              optimized: 2,
+              failed: 1,
+              skipped: 0,
+              planned: 0,
+            });
+        }
+
+        return Promise.all(
+          Arr.map(["source.webp", "source-64.webp"], (name) =>
+            sharp(join(output, name)).raw().toBuffer({ resolveWithObject: true }),
+          ),
+        ).then((images) => {
+          expect(Arr.map(images, (image) => [image.info.width, image.info.height])).toEqual([
+            [128, 128],
+            [64, 64],
+          ]);
+        });
+      }),
+);
+
+test("move archives the primary when every variant is oversized", () => {
+  const input = join(root, "move-all-oversized.jpg");
+  const original = readFileSync(join(source, "photo.jpg"));
+  writeFileSync(input, original);
+  const archive = input + "-archive";
+  const output = input + "-output";
+  const result = run(output, ["--sizes", "999998,999999", "--move", archive, "--yes"], input);
+  expect(result.status).toBe(1);
+  expect(existsSync(input)).toBe(false);
+  expect(readFileSync(join(archive, "move-all-oversized.jpg"))).toEqual(original);
+  expect(readdirSync(output)).toEqual(["move-all-oversized.webp"]);
+});
+
+test.each(["dry", "skip", "corrupt", "partial", "partial-skip", "variant-skip"])(
   "move preserves sources on %s",
   (mode) => {
     const input = join(root, `move-${mode}.jpg`);
@@ -1759,11 +1862,22 @@ test.each(["dry", "skip", "corrupt", "partial", "partial-skip"])(
       writeFileSync(join(output, `move-${mode}.webp`), "keep");
     }
 
-    if (mode === "partial") extra.push("--sizes", "4,999999");
+    if (mode === "partial") {
+      mkdirSync(join(output, `move-${mode}-8.webp`), { recursive: true });
+      extra.push("--sizes", "4,8,999999", "--overwrite");
+    }
+
+    if (mode === "variant-skip") {
+      mkdirSync(output);
+      writeFileSync(join(output, `move-${mode}-4.webp`), "keep");
+      extra.push("--sizes", "4,999999");
+    }
 
     if (mode === "partial-skip") extra.push("--sizes", "4,8");
     const result = run(output, extra, input);
-    expect(result.status).toBe(mode === "corrupt" || mode === "partial" ? 1 : 0);
+    expect(result.status).toBe(
+      mode === "corrupt" || mode === "partial" || mode === "variant-skip" ? 1 : 0,
+    );
     expect(readFileSync(input)).toEqual(original);
     expect(existsSync(archive)).toBe(false);
 
