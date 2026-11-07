@@ -1,11 +1,13 @@
 name: Publish CLI
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       version:
-        description: "Exact package.json version to publish (for example, 0.1.0)"
-        required: true
+        description: "Optional expected package.json version (for example, 0.1.0)"
+        required: false
         type: string
 
 permissions:
@@ -26,39 +28,92 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Check release version and pending changesets
+      - name: Determine release version
+        id: version
         env:
-          RELEASE_VERSION: ${{ inputs.version }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          EXPECTED_VERSION: ${{ inputs.version }}
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          import assert from 'node:assert/strict';
+          const { version } = JSON.parse(readFileSync('package.json', 'utf8'));
+          if (process.env.EXPECTED_VERSION) {
+            assert.equal(process.env.EXPECTED_VERSION, version, 'Requested version must match package.json');
+          }
+          let shouldRelease = true;
+          if (process.env.EVENT_NAME === 'push') {
+            assert.match(process.env.BEFORE_SHA, /^(?!0+$)[0-9a-f]{40}$/, 'Push must have a previous commit');
+            const previous = JSON.parse(execFileSync('git', ['show', `${process.env.BEFORE_SHA}:package.json`], { encoding: 'utf8' }));
+            shouldRelease = previous.version !== version;
+          }
+          appendFileSync(process.env.GITHUB_OUTPUT, `release=${shouldRelease}\nversion=${version}\n`);
+          JS
+      - name: Check release version and pending changesets
+        if: steps.version.outputs.release == 'true'
         run: |
           node --input-type=module <<'JS'
           import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
           import assert from 'node:assert/strict';
           const { version } = JSON.parse(readFileSync('package.json', 'utf8'));
-          assert.equal(process.env.RELEASE_VERSION, version, 'Requested version must match package.json');
           assert.deepEqual(readdirSync('.changeset').filter(f => f.endsWith('.md') && f !== 'README.md'), [], 'Merge the release PR before publishing');
           const changelog = readFileSync('CHANGELOG.md', 'utf8');
           const entry = changelog.split(`\n## ${version}\n`)[1];
           assert.ok(entry, 'Version must have a changelog entry');
           writeFileSync(process.env.RUNNER_TEMP + '/release-notes.md', entry.split('\n## ')[0].trim() + '\n');
           JS
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm exec vp check
-      - run: pnpm exec vp pack
-      - run: pnpm exec vp test
-      - name: Pack the CLI
-        run: npm pack --pack-destination "$RUNNER_TEMP"
-      - name: Publish to npm using trusted publishing
-        env:
-          RELEASE_VERSION: ${{ inputs.version }}
-        run: npm publish "$RUNNER_TEMP/plaguefps-img-$RELEASE_VERSION.tgz" --access public
-      - name: Tag the published commit and create release notes
+      - name: Check npm and GitHub release state
+        if: steps.version.outputs.release == 'true'
+        id: state
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_VERSION: ${{ inputs.version }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          const { name } = JSON.parse(readFileSync('package.json', 'utf8'));
+          const version = process.env.RELEASE_VERSION;
+          async function exists(url, headers = {}) {
+            const response = await fetch(url, { headers, signal: AbortSignal.timeout(30000) });
+            if (response.status === 404) return false;
+            if (!response.ok) throw new Error(`Release lookup failed: ${response.status} ${url}`);
+            return true;
+          }
+          const published = await exists(`https://registry.npmjs.org/${encodeURIComponent(name)}/${encodeURIComponent(version)}`);
+          const released = await exists(`${process.env.GITHUB_API_URL}/repos/${process.env.GITHUB_REPOSITORY}/releases/tags/v${encodeURIComponent(version)}`, {
+            Authorization: `Bearer ${process.env.GH_TOKEN}`,
+            Accept: 'application/vnd.github+json',
+          });
+          appendFileSync(process.env.GITHUB_OUTPUT, `published=${published}\nreleased=${released}\n`);
+          JS
+      - run: pnpm install --frozen-lockfile
+        if: steps.version.outputs.release == 'true'
+      - run: pnpm exec vp check
+        if: steps.version.outputs.release == 'true'
+      - run: pnpm exec vp pack
+        if: steps.version.outputs.release == 'true'
+      - run: pnpm exec vp test
+        if: steps.version.outputs.release == 'true'
+      - name: Pack the CLI
+        if: steps.version.outputs.release == 'true' && steps.state.outputs.published == 'false'
+        run: npm pack --pack-destination "$RUNNER_TEMP"
+      - name: Publish to npm using trusted publishing
+        if: steps.version.outputs.release == 'true' && steps.state.outputs.published == 'false'
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: npm publish "$RUNNER_TEMP/plaguefps-img-$RELEASE_VERSION.tgz" --access public
+      - name: Tag the published commit and create release notes
+        if: steps.version.outputs.release == 'true' && steps.state.outputs.released == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |
           gh release create "v$RELEASE_VERSION" \
             --target "$GITHUB_SHA" \
